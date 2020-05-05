@@ -56,14 +56,15 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-item" onclick="editSearchState(0)" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Search Flights</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#" onclick="editSearchState(0)">All Flights</a><br />
-                            <a class="dropdown-item" href="#" onclick="editSearchState(1)">Only Departures</a><br />
-                            <a class="dropdown-item" href="#" onclick="editSearchState(2)">Only Landings</a><br />
-                        </div>
+                        <a class="nav-link dropdown-toggle dropdown-item" href="#" onclick="editSearchState(0)">All Flights</a><br />
                     </li>
-                </ul>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle dropdown-item" href="#" onclick="editSearchState(1)">Only Departures</a><br />
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle dropdown-item" href="#" onclick="editSearchState(2)">Only Landings</a><br />
+                </li>
+                        </ul>
             </div>
         </nav>
         <div class="gtco-loader"></div>
