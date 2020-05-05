@@ -28,8 +28,8 @@
 <body onload="refreshPage(1000 * 60 * 5)">
     <header id="gtco-header" class="gtco-cover gtco-cover-md" role="banner" style="background-image: url('../../Content/Images/background.jpg');">
         <div class="overlay"></div>
-        <nav class="navbar navbar-expand-lg navbar-custom navbar-inverse">
-            <a class="navbar-brand" href="#/deals">LET'S FLY</a>
+        <nav class="navbar navbar-expand-lg navbar-custom navbar-inverse" style="z-index: 12;">
+            <a class="navbar-brand" href="/#/deals">LET'S FLY</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -50,34 +50,23 @@
                             Sign-In
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#/customer-login">As Customer</a><br />
-                            <a class="dropdown-item" href="#/company-login">As Company</a><br />
-                            <a class="dropdown-item" href="#/administrator-login">As Administrator</a><br />
+                            <a class="dropdown-item" href="/#/customer-login">As Customer</a><br />
+                            <a class="dropdown-item" href="/#/company-login">As Company</a><br />
+                            <a class="dropdown-item" href="/#/administrator-login">As Administrator</a><br />
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle dropdown-item" href="#" onclick="editSearchState(0)">All Flights</a><br />
+                        <a class="nav-link dropdown-toggle dropdown-item" href="#" onclick="editSearchState(0)">All Flights</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle dropdown-item" href="#" onclick="editSearchState(1)">Only Departures</a><br />
+                        <a class="nav-link dropdown-toggle dropdown-item" href="#" onclick="editSearchState(1)">Only Departures</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle dropdown-item" href="#" onclick="editSearchState(2)">Only Landings</a><br />
+                        <a class="nav-link dropdown-toggle dropdown-item" href="#" onclick="editSearchState(2)">Only Landings</a>
                 </li>
                         </ul>
             </div>
         </nav>
-        <div class="gtco-loader"></div>
-
-        <div class="gtco-container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="gtco-logo">
-
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="gtco-container">
             <div class="row">
@@ -284,7 +273,7 @@
 
 
 
-<header id="gtco-header" class="gtco-cover gtco-cover-md" role="banner" style="background-image: url('../../Content/Images/background-deals.jpg');">
+<!--<header id="gtco-header" class="gtco-cover gtco-cover-md" role="banner" style="background-image: url('../../Content/Images/background-deals.jpg');">
     <div class="gtco-loader"></div>
 
 
@@ -330,21 +319,21 @@
     </nav>
 
 
-    <!--Page Content-->
+    Page Content
     <div class="container col-lg-4" style="margin-top:100px;">
 
         <div class="row">
 
         </div>
     </div>
-    <!--<div class="container" style="margin-top:100px;">
+    <div class="container" style="margin-top:100px;">
 
-        <div class="row">-->
+        <div class="row">
 
     <div ui-view></div>
 
-    <!--</div>-->
-    <!--</div>-->
+    </div>
+    </div>
 </header>
 
 
@@ -353,4 +342,4 @@
     <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
     </div>
-</footer>
+</footer>-->
