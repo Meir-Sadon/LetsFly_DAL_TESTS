@@ -304,7 +304,7 @@ namespace FlightManagment___WebApi___Part_3
         static void SendEmailToNewCustomer(Customer customer)
         {
             string encryptDetails = ControllersCenter.EncryptString(sec, $"{customer.User_Name}|{customer.First_Name}|{customer.Last_Name}");
-            string apiKey = Environment.GetEnvironmentVariable("Customes_Emails_Key");//"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";//
+            string apiKey = Environment.GetEnvironmentVariable("Customes_Emails_Key");
             ISendGridClient client = new SendGridClient(apiKey);
             EmailAddress from = new EmailAddress("test@example.com", "Let's Fly");
             string subject = $"Hey {customer.First_Name} Welcome To Let's Fly";
