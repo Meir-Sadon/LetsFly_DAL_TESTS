@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForFlightManagmentProje
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagment - WebApi - Part 3", "FlightManagment - WebApi - Part 3\FlightManagment - WebApi - Part 3.csproj", "{582F80A7-97A1-40A3-9A94-B447701CA541}"
 EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "FlightManagment", "NodejsWebApp1\FlightManagment.njsproj", "{E1397BC3-D4CC-4019-9E7D-9EE9B97D86A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{582F80A7-97A1-40A3-9A94-B447701CA541}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{582F80A7-97A1-40A3-9A94-B447701CA541}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{582F80A7-97A1-40A3-9A94-B447701CA541}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1397BC3-D4CC-4019-9E7D-9EE9B97D86A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1397BC3-D4CC-4019-9E7D-9EE9B97D86A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1397BC3-D4CC-4019-9E7D-9EE9B97D86A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1397BC3-D4CC-4019-9E7D-9EE9B97D86A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

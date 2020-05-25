@@ -240,7 +240,7 @@ function CusRegCtrl($scope, $http, $sce, $templateCache, globalConst, dataServic
             $http.get(`https://localhost:44368/api/search/statesOrCities?url=${globalConst.getStatesBasicUrl}${country}&state=${newValState}`)
                 .then(function (resp) {
                     const temp = JSON.parse(resp.data)
-                        $.each(temp, function (i, city) {
+                            $.each(temp, function (i, city) {
                             dataService.allStateCities.push(city.city_name)
                         })
                     dataService.allStateCities.pop()
