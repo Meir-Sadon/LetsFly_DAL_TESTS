@@ -1,13 +1,22 @@
-﻿module.exports = {
+﻿const isDevelopment = process.env.NODE_ENV === 'development'
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+module.exports = {
     devtool: 'source-map',
-    entry: "./app.tsx",
+    entry: "index.tsx",
     mode: "development",
     output: {
-        filename: "./app-bundle.js", devtoolModuleFilenameTemplate: '[resource-path]'  // removes the webpack:/// prefix 
+        filename: "./app-bundle.js"
     },
     resolve: {
         extensions: ['.Webpack.js', '.web.js', '.ts', '.js', '.jsx', '.tsx']
     },
+    plugins: [
+         new MiniCssExtractPlugin({
+         filename: isDevelopment ? '[name].css' : '[name].[hash].css',
+         chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
+         })
+    ],
     module: {
         rules: [
             {
@@ -17,6 +26,39 @@
                 },
                 exclude: /(node_modules|bower_components)/
             },
+            {
+                test: /\.module\.s(a|c)ss$/,
+                loader: [
+                     isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+                     {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            sourceMap: isDevelopment
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: isDevelopment
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.s(a|c)ss$/,
+                exclude: /\.module.(s(a|c)ss)$/,
+               loader: [
+                     isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+                     'css-loader',
+                     {
+                loader: 'sass-loader',
+                       options: {
+                            sourceMap: isDevelopment
+                        }
+                      }
+                    ]
+                  },
             {
                 test: /\.css$/,
                 use: [
@@ -50,19 +92,3 @@
         ]
     },
 }
-    //plugins: [
-    //  new webpack.WatchIgnorePlugin([/css\.d\.ts$/])
-    //]
-    //test: /\.css$/,
-    //use: [
-    //  require.resolve('style-loader'),
-    //  {
-    //    loader: require.resolve('typings-for-css-modules-loader'),
-    //   options: {
-    //      modules: true,
-    //      importLoaders: 1,
-    //      localIdentName: '[name]__[local]___[hash:base64:5]',
-    //     namedExport: true,
-    //      camelCase: true
-    //    },
-    //  },

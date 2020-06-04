@@ -33,37 +33,53 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="components\loginPage.tsx">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="Content\bootstrap.bundle.js" />
-    <Content Include="Content\bootstrap.bundle.js.map" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.js" />
-    <Content Include="Content\Images\Lf_Logo.jpg" />
-    <Content Include="Content\LoginPageStyle.module.css">
+    <Content Include="images\hamburger_icon.jpg" />
+    <Content Include="images\Lf_Logo.jpg" />
+    <Content Include="components\LoginPageStyle.module.css">
       <SubType>Code</SubType>
     </Content>
     <Content Include="dist\app-bundle.js" />
     <Content Include="dist\app-bundle.js.map" />
+    <Content Include="images\loginBackground.jpg" />
     <Content Include="index.html" />
+    <Content Include="mainStyle.css">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="server.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <Content Include="tsconfig.json" />
+    <Content Include="tsconfig.json">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="webpack-config.js" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app.tsx" />
+    <TypeScriptCompile Include="src\actions.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\App.tsx" />
+    <TypeScriptCompile Include="components\loginPage.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="components\MainNavbar.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\container.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="index.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\events.tsx" />
+    <TypeScriptCompile Include="src\reducer.tsx" />
+    <TypeScriptCompile Include="src\store.tsx" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\Images\" />
+    <Folder Include="images\" />
     <Folder Include="dist\" />
     <Folder Include="components\" />
-    <Folder Include="Content\" />
+    <Folder Include="src\" />
+    <Folder Include="styles\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
   <ProjectExtensions>

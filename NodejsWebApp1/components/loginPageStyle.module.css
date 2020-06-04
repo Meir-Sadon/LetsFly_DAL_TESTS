@@ -1,16 +1,9 @@
-html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: #60a3bc !important;
-}
-
 .user_card {
     height: 400px;
     width: 350px;
     margin-top: auto;
     margin-bottom: auto;
-    background: #f39c12;
+    background-image: linear-gradient( #668cff, #3366ff, #00134d);
     position: relative;
     display: flex;
     justify-content: center;
@@ -20,6 +13,7 @@ html {
     -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
+    box-shadow: -1px 1px 15px 7px black;
 }
 
 .brand_logo_container {

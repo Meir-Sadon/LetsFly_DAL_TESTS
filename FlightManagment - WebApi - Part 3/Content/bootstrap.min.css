@@ -4612,11 +4612,11 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     }
 
 .navbar-light .navbar-brand {
-    color: rgba(0,0,0,.9)
+    color: #09C6AB
 }
 
     .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
-        color: rgba(0,0,0,.9)
+        color: #09C6AB
     }
 
 .navbar-light .navbar-nav .nav-link {
