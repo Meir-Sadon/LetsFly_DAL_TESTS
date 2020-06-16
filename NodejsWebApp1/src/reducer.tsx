@@ -1,23 +1,19 @@
 import { AppEvents } from "./events";
 import { IAction } from "./actions";
+import { UserTypes } from "./userTypes";
 
-const initState = {
-    name: "",
-    age: 123
+const initState: IState = {
+    userType: UserTypes.TYPE_4,
 };
 
 export interface IState {
-    name: string;
-    age: number;
+    userType: string;
 }
 
 export const reducer = (state: IState = initState, action: IAction) => {
     switch (action.type) {
-        case AppEvents.SET_NAME:
-            return { ...state, name: action.payload };
-        case AppEvents.SET_AGE:
-            return { ...state, age: action.payload };
-
+        case AppEvents.SET_USER_TYPE:
+            return { ...state, userType: action.payload };
         default:
             return state;
     }

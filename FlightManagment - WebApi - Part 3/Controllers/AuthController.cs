@@ -40,7 +40,12 @@ namespace FlightManagment___WebApi___Part_3
                         if (userDetails != null)
                         {
                             string token = CreateToken(userDetails);
-                            return Content(HttpStatusCode.Created, token);
+                            return Content(HttpStatusCode.Created,
+                                 "{" +
+                                    $"\"token\":  \"{token}\"," +
+                                    $" \"type\": \"{type}\"" +
+                                "}"
+                                );
                         }
                     }
                 }

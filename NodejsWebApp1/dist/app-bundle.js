@@ -86,415 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./components/loginPage.tsx":
-/*!**********************************!*\
-  !*** ./components/loginPage.tsx ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.LoginPage = void 0;
-const React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-const lps = __webpack_require__(/*! ./loginPageStyle.module.css */ "./components/loginPageStyle.module.css");
-class LoginPage extends React.Component {
-    constructor() {
-        super(...arguments);
-        this.state = {
-            userName: '',
-            password: ''
-        };
-        this.handleChange = (e) => {
-            switch (e.target.id) {
-                case 'userNameInput':
-                    this.setState(Object.assign(Object.assign({}, this.state), { userName: e.target.value }));
-                    break;
-                case 'passwordInput':
-                    this.setState(Object.assign(Object.assign({}, this.state), { password: e.target.value }));
-                    break;
-                default:
-                    break;
-            }
-        };
-        this.loginSubmit = (e) => {
-            e.preventDefault();
-            const { userName, password } = this.state;
-            this.props.login_submit(userName, password);
-        };
-    }
-    render() {
-        return (React.createElement("div", { className: "container", style: { marginTop: '100px' } },
-            React.createElement("div", { className: "d-flex justify-content-center h-100" },
-                React.createElement("div", { className: lps.user_card },
-                    React.createElement("div", { className: "d-flex justify-content-center h-100" },
-                        React.createElement("div", { className: lps.brand_logo_container },
-                            React.createElement("img", { src: "./../images/Lf_Logo.jpg", className: lps.brand_logo, alt: "Logo" }))),
-                    React.createElement("div", { className: "d-flex justify-content-center form_container" },
-                        React.createElement("form", { name: "loginForm", onSubmit: this.loginSubmit },
-                            React.createElement("div", { className: "input-group mb-3" },
-                                React.createElement("div", { className: "input-group-append" },
-                                    React.createElement("span", { className: lps.input_group_text },
-                                        React.createElement("i", { className: "fas fa-user" }))),
-                                React.createElement("input", { type: "text", name: "", id: "userNameInput", className: ["form-control", lps.input_user].join(' '), placeholder: "username", onChange: this.handleChange })),
-                            React.createElement("div", { className: "input-group mb-2" },
-                                React.createElement("div", { className: "input-group-append" },
-                                    React.createElement("span", { className: lps.input_group_text },
-                                        React.createElement("i", { className: "fas fa-key" }))),
-                                React.createElement("input", { type: "password", name: "", id: "passwordInput", className: ["form-control", lps.input_pass].join(' '), placeholder: "password", onChange: this.handleChange })),
-                            React.createElement("div", { className: "row form-group" },
-                                React.createElement("div", { className: "col-xs-12", style: { marginLeft: '20px' } },
-                                    React.createElement("input", { type: "checkbox", className: "col-xs-2", id: "customControlInline" })),
-                                React.createElement("div", { className: "col-xs-1" }),
-                                React.createElement("div", { className: "col-xs-4", style: { margin: '0px 0px 0px 10px' } },
-                                    React.createElement("label", { className: "col-xs-4" }, "Remember Me"))),
-                            React.createElement("div", { className: "d-flex justify-content-center mt-3 login_container" },
-                                React.createElement("button", { type: "submit", name: "button", className: ["btn", lps.login_btn].join(' ') }, "Login")))),
-                    React.createElement("div", { className: "mt-4" },
-                        React.createElement("div", { className: "d-flex justify-content-center links" },
-                            "Don't have an account? ",
-                            React.createElement("a", { href: "#", className: "ml-2" }, "Sign Up")),
-                        React.createElement("div", { className: "d-flex justify-content-center links" },
-                            React.createElement("a", { href: "#" }, "Forgot your password?")))))));
-    }
-}
-exports.LoginPage = LoginPage;
-exports.default = LoginPage;
-//<div className="container">
-//	<div className="d-flex justify-content-center h-100">
-//		<div className="user-card">
-//			<div className="d-flex justify-content-center h-100">
-//				<div className="brand-logo-container">
-//					<img src="./../Images/Lf_Logo.jpg" className="brand-logo" alt="Logo" />
-//				</div>
-//			</div>
-//			<div className="d-flex justify-content-center form-container">
-//				<form>
-//					<div className="input-group mb-3">
-//						<div className="input-group-append">
-//							<span className="input-group-text" ><i className="fas fa-user"></i></span>
-//						</div>
-//						<input type="text" name="" className="form-control lps.input-user" placeholder="username"></input>
-//					</div>
-//					<div className="input-group mb-2">
-//						<div className="input-group-append">
-//							<span className="input-group-text"><i className="fas fa-key"></i></span>
-//						</div>
-//						<input type="password" name="" className="form-control input-pass" placeholder="password"></input>
-//					</div>
-//					<div className="form-group">
-//						<div className="custom-control custom-checkbox">
-//							<input type="checkbox" className="custom-control-input" id="customControlInline"></input>
-//							<label className="custom-control-label">Remember me</label>
-//						</div>
-//					</div>
-//					<div className="d-flex justify-content-center mt-3 login-container">
-//						<button type="button" name="button" className="btn login-btn">Login</button>
-//					</div>
-//				</form>
-//			</div>
-//			<div className="mt-4">
-//				<div className="d-flex justify-content-center links">
-//					Don't have an account? <a href="#" className="ml-2">Sign Up</a>
-//				</div>
-//				<div className="d-flex justify-content-center links">
-//					<a href="#">Forgot your password?</a>
-//				</div>
-//			</div>
-//		</div>
-//	</div>
-//</div>
-
-
-/***/ }),
-
-/***/ "./components/loginPageStyle.module.css":
-/*!**********************************************!*\
-  !*** ./components/loginPageStyle.module.css ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var api = __webpack_require__(/*! ../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-            var content = __webpack_require__(/*! !../node_modules/css-loader/dist/cjs.js??ref--7-1!./loginPageStyle.module.css */ "./node_modules/css-loader/dist/cjs.js?!./components/loginPageStyle.module.css");
-
-            content = content.__esModule ? content.default : content;
-
-            if (typeof content === 'string') {
-              content = [[module.i, content, '']];
-            }
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = api(content, options);
-
-
-
-module.exports = content.locals || {};
-
-/***/ }),
-
-/***/ "./components/mainNavbar.tsx":
-/*!***********************************!*\
-  !*** ./components/mainNavbar.tsx ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-const MainNav = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
-__webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
-class MainNavbar extends React.Component {
-    render() {
-        return (React.createElement("div", { style: { padding: '2px' } },
-            React.createElement(MainNav.Navbar, { collapseOnSelect: true, expand: "lg", className: "navbar_inverse" },
-                React.createElement(MainNav.Navbar.Brand, { href: "#home" }, "LET'S FLY"),
-                React.createElement(MainNav.Navbar.Toggle, { "aria-controls": "responsive-navbar-nav", style: { backgroundImage: 'url(./../images/hamburger_icon.jpg)', height: '30px', width: '30px', backgroundSize: '35px', backgroundPosition: 'center' } }),
-                React.createElement(MainNav.Navbar.Collapse, { id: "responsive-navbar-nav" },
-                    React.createElement(MainNav.Nav, { className: "ml-auto" },
-                        React.createElement(MainNav.NavDropdown, { title: "Sign-Up", id: "collasible-nav-dropdown" },
-                            React.createElement(MainNav.NavDropdown.Item, { href: "#customer/register" }, "As Customer"),
-                            React.createElement(MainNav.NavDropdown.Item, { href: "#company/register" }, "As Company")),
-                        React.createElement(MainNav.NavDropdown, { title: "Sign-In", id: "collasible-nav-dropdown" },
-                            React.createElement(MainNav.NavDropdown.Item, { href: "#customer/login" }, "As Customer"),
-                            React.createElement(MainNav.NavDropdown.Item, { href: "#company/login" }, "As Company"),
-                            React.createElement(MainNav.NavDropdown.Divider, null),
-                            React.createElement(MainNav.NavDropdown.Item, { href: "#administrator/login" }, "As Administrator")),
-                        React.createElement(MainNav.Nav.Link, { href: "#pricing" }, "Search Flights"))))));
-    }
-}
-exports.default = MainNavbar;
-//var React = require('react');
-//class MainNavbar extends React.Component {
-//    public render() {
-//        return (
-//            <nav className="navbar navbar_expand_lg navbar_custom navbar_inverse">
-//                <a className="navbar_brand" href="#/deals">LET'S FLY</a>
-//                <button className="navbar_toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
-//                    <span className="navbar_toggler_icon"></span>
-//                </button>
-//                <div className="collapse navbar_collapse ml_auto" id="navbarSupportedContent">
-//                    <ul className="navbar_nav mr_auto">
-//                        <li className="nav_item dropdown">
-//                            <a className="nav_link dropdown_toggle dropdown_item" style={{ color: '#007bff' }} id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-//                                Sign-Up
-//                        </a>
-//                            <div className="dropdown_menu" aria-labelledby="navbarDropdown">
-//                                <a className="dropdown_item" ng-href="#/customer-register">As Customer</a><br />
-//                                <a className="dropdown_item" ng-href="#/company-register">As Company</a><br />
-//                            </div>
-//                        </li>
-//                        <li className="nav_item dropdown">
-//                            <a className="nav_link dropdown_toggle" style={{ color: '#007bff'}} id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-//                                Sign-In
-//                        </a>
-//                            <div className="dropdown_menu" aria-labelledby="navbarDropdown">
-//                                <a className="dropdown_item" ng-href="#/customer-login">As Customer</a><br />
-//                                <a className="dropdown_item" ng-href="#/company-login">As Company</a><br />
-//                                <a className="dropdown_item" ng-href="#/administrator-login">As Administrator</a><br />
-//                            </div>
-//                        </li>
-//                        <a className="nav_link dropdown_toggle dropdown_item" onClick="editSearchState(0)" href="page/searchflight">Search Flights</a>
-//                    </ul>
-//                </div>
-//            </nav>
-//        );
-//    }
-//}
-//export default MainNavbar
-//var React = require('react');
-//var myNav = require('mdbreact');
-//import { BrowserRouter as Router } from 'react-router-dom';
-//class MainNavbar extends React.Component {
-//state = {
-//  collapseID: ""
-//    };
-//toggleCollapse = collapseID => () =>
-//  this.setState(prevState => ({
-//  collapseID: prevState.collapseID !== collapseID ? collapseID : ""
-//}));
-//render() {
-//  return (
-//    <Router>
-//      <myNav.MDBContainer>
-//        <myNav.MDBNavbar color="red" dark expand="md" style={{ marginTop: "20px" }}>
-//          <myNav.MDBNavbarBrand>
-//            <strong className="white-text">myNav.MDBNavbar</strong>
-//          </myNav.MDBNavbarBrand>
-//          <myNav.MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")} />
-//          <myNav.MDBCollapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
-//            <myNav.MDBNavbarNav left>
-//              <myNav.MDBNavItem active>
-//                <myNav.MDBNavLink to="#!">Home</myNav.MDBNavLink>
-//              </myNav.MDBNavItem>
-//              <myNav.MDBNavItem>
-//                <myNav.MDBNavLink to="#!">Features</myNav.MDBNavLink>
-//              </myNav.MDBNavItem>
-//              <myNav.MDBNavItem>
-//                <myNav.MDBNavLink to="#!">Pricing</myNav.MDBNavLink>
-//              </myNav.MDBNavItem>
-//              <myNav.MDBNavItem>
-//                <myNav.MDBDropdown>
-//                  <myNav.MDBDropdownToggle nav caret>
-//                    <div className="d-none d-md-inline">myNav.MDBDropdown</div>
-//                  </myNav.MDBDropdownToggle>
-//                  <myNav.MDBDropdownMenu right>
-//                    <myNav.MDBDropdownItem href="#!">Action</myNav.MDBDropdownItem>
-//                    <myNav.MDBDropdownItem href="#!">Another Action</myNav.MDBDropdownItem>
-//                    <myNav.MDBDropdownItem href="#!">Something else here</myNav.MDBDropdownItem>
-//                    <myNav.MDBDropdownItem href="#!">Something else here</myNav.MDBDropdownItem>
-//                  </myNav.MDBDropdownMenu>
-//                </myNav.MDBDropdown>
-//              </myNav.MDBNavItem>
-//            </myNav.MDBNavbarNav>
-//            <myNav.MDBNavbarNav right>
-//              <myNav.MDBNavItem>
-//                <myNav.MDBFormInline waves>
-//                  <div className="md-form my-0">
-//                    <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-//                  </div>
-//                </myNav.MDBFormInline>
-//              </myNav.MDBNavItem>
-//            </myNav.MDBNavbarNav>
-//          </myNav.MDBCollapse>
-//        </myNav.MDBNavbar>
-//        <myNav.MDBNavbar color="secondary-color" dark expand="md" style={{ marginTop: "20px" }}>
-//          <myNav.MDBNavbarBrand>
-//            <strong className="white-text">myNav.MDBNavbar</strong>
-//          </myNav.MDBNavbarBrand>
-//          <myNav.MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")} />
-//          <myNav.MDBCollapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
-//            <myNav.MDBNavbarNav left>
-//              <myNav.MDBNavItem active>
-//                <myNav.MDBNavLink to="#!">Home</myNav.MDBNavLink>
-//              </myNav.MDBNavItem>
-//              <myNav.MDBNavItem>
-//                <myNav.MDBNavLink to="#!">Features</myNav.MDBNavLink>
-//              </myNav.MDBNavItem>
-//              <myNav.MDBNavItem>
-//                <myNav.MDBNavLink to="#!">Pricing</myNav.MDBNavLink>
-//              </myNav.MDBNavItem>
-//              <myNav.MDBNavItem>
-//                <myNav.MDBDropdown>
-//                  <myNav.MDBDropdownToggle nav caret>
-//                    <div className="d-none d-md-inline">myNav.MDBDropdown</div>
-//                  </myNav.MDBDropdownToggle>
-//                  <myNav.MDBDropdownMenu right>
-//                    <myNav.MDBDropdownItem href="#!">Action</myNav.MDBDropdownItem>
-//                    <myNav.MDBDropdownItem href="#!">Another Action</myNav.MDBDropdownItem>
-//                    <myNav.MDBDropdownItem href="#!">Something else here</myNav.MDBDropdownItem>
-//                    <myNav.MDBDropdownItem href="#!">Something else here</myNav.MDBDropdownItem>
-//                  </myNav.MDBDropdownMenu>
-//                </myNav.MDBDropdown>
-//              </myNav.MDBNavItem>
-//            </myNav.MDBNavbarNav>
-//            <myNav.MDBNavbarNav right>
-//              <myNav.MDBNavItem>
-//                <myNav.MDBFormInline waves>
-//                  <div className="md-form my-0">
-//                    <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-//                  </div>
-//                </myNav.MDBFormInline>
-//              </myNav.MDBNavItem>
-//            </myNav.MDBNavbarNav>
-//          </myNav.MDBCollapse>
-//        </myNav.MDBNavbar>
-//        <myNav.MDBNavbar color="default-color" light expand="md" style={{ marginTop: "20px" }}>
-//          <myNav.MDBNavbarBrand>
-//            <strong className="white-text">myNav.MDBNavbar</strong>
-//          </myNav.MDBNavbarBrand>
-//          <myNav.MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")} />
-//          <myNav.MDBCollapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
-//            <myNav.MDBNavbarNav left>
-//              <myNav.MDBNavItem active>
-//                <myNav.MDBNavLink to="#!">Home</myNav.MDBNavLink>
-//              </myNav.MDBNavItem>
-//              <myNav.MDBNavItem>
-//                <myNav.MDBNavLink to="#!">Features</myNav.MDBNavLink>
-//              </myNav.MDBNavItem>
-//              <myNav.MDBNavItem>
-//                <myNav.MDBNavLink to="#!">Pricing</myNav.MDBNavLink>
-//              </myNav.MDBNavItem>
-//              <myNav.MDBNavItem>
-//                <myNav.MDBDropdown>
-//                  <myNav.MDBDropdownToggle nav caret>
-//                    <div className="d-none d-md-inline">myNav.MDBDropdown</div>
-//                  </myNav.MDBDropdownToggle>
-//                  <myNav.MDBDropdownMenu right>
-//                    <myNav.MDBDropdownItem href="#!">Action</myNav.MDBDropdownItem>
-//                    <myNav.MDBDropdownItem href="#!">Another Action</myNav.MDBDropdownItem>
-//                    <myNav.MDBDropdownItem href="#!">Something else here</myNav.MDBDropdownItem>
-//                    <myNav.MDBDropdownItem href="#!">Something else here</myNav.MDBDropdownItem>
-//                  </myNav.MDBDropdownMenu>
-//                </myNav.MDBDropdown>
-//              </myNav.MDBNavItem>
-//            </myNav.MDBNavbarNav>
-//            <myNav.MDBNavbarNav right>
-//              <myNav.MDBNavItem>
-//                <myNav.MDBFormInline waves>
-//                  <div className="md-form my-0">
-//                    <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-//                  </div>
-//                </myNav.MDBFormInline>
-//              </myNav.MDBNavItem>
-//            </myNav.MDBNavbarNav>
-//          </myNav.MDBCollapse>
-//        </myNav.MDBNavbar>
-//      </myNav.MDBContainer>
-//    </Router>
-//    );
-//  }
-//}
-//export default MainNavbar;
-
-
-/***/ }),
-
 /***/ "./index.tsx":
 /*!*******************!*\
   !*** ./index.tsx ***!
@@ -3857,6 +3448,1819 @@ function useWillUnmount(fn) {
 
 /***/ }),
 
+/***/ "./node_modules/axios/index.js":
+/*!*************************************!*\
+  !*** ./node_modules/axios/index.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! ./lib/axios */ "./node_modules/axios/lib/axios.js");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/adapters/xhr.js":
+/*!************************************************!*\
+  !*** ./node_modules/axios/lib/adapters/xhr.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+var settle = __webpack_require__(/*! ./../core/settle */ "./node_modules/axios/lib/core/settle.js");
+var buildURL = __webpack_require__(/*! ./../helpers/buildURL */ "./node_modules/axios/lib/helpers/buildURL.js");
+var buildFullPath = __webpack_require__(/*! ../core/buildFullPath */ "./node_modules/axios/lib/core/buildFullPath.js");
+var parseHeaders = __webpack_require__(/*! ./../helpers/parseHeaders */ "./node_modules/axios/lib/helpers/parseHeaders.js");
+var isURLSameOrigin = __webpack_require__(/*! ./../helpers/isURLSameOrigin */ "./node_modules/axios/lib/helpers/isURLSameOrigin.js");
+var createError = __webpack_require__(/*! ../core/createError */ "./node_modules/axios/lib/core/createError.js");
+
+module.exports = function xhrAdapter(config) {
+  return new Promise(function dispatchXhrRequest(resolve, reject) {
+    var requestData = config.data;
+    var requestHeaders = config.headers;
+
+    if (utils.isFormData(requestData)) {
+      delete requestHeaders['Content-Type']; // Let the browser set it
+    }
+
+    var request = new XMLHttpRequest();
+
+    // HTTP basic authentication
+    if (config.auth) {
+      var username = config.auth.username || '';
+      var password = config.auth.password || '';
+      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
+    }
+
+    var fullPath = buildFullPath(config.baseURL, config.url);
+    request.open(config.method.toUpperCase(), buildURL(fullPath, config.params, config.paramsSerializer), true);
+
+    // Set the request timeout in MS
+    request.timeout = config.timeout;
+
+    // Listen for ready state
+    request.onreadystatechange = function handleLoad() {
+      if (!request || request.readyState !== 4) {
+        return;
+      }
+
+      // The request errored out and we didn't get a response, this will be
+      // handled by onerror instead
+      // With one exception: request that using file: protocol, most browsers
+      // will return status as 0 even though it's a successful request
+      if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
+        return;
+      }
+
+      // Prepare the response
+      var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
+      var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;
+      var response = {
+        data: responseData,
+        status: request.status,
+        statusText: request.statusText,
+        headers: responseHeaders,
+        config: config,
+        request: request
+      };
+
+      settle(resolve, reject, response);
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle browser request cancellation (as opposed to a manual cancellation)
+    request.onabort = function handleAbort() {
+      if (!request) {
+        return;
+      }
+
+      reject(createError('Request aborted', config, 'ECONNABORTED', request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle low level network errors
+    request.onerror = function handleError() {
+      // Real errors are hidden from us by the browser
+      // onerror should only fire if it's a network error
+      reject(createError('Network Error', config, null, request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle timeout
+    request.ontimeout = function handleTimeout() {
+      var timeoutErrorMessage = 'timeout of ' + config.timeout + 'ms exceeded';
+      if (config.timeoutErrorMessage) {
+        timeoutErrorMessage = config.timeoutErrorMessage;
+      }
+      reject(createError(timeoutErrorMessage, config, 'ECONNABORTED',
+        request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Add xsrf header
+    // This is only done if running in a standard browser environment.
+    // Specifically not if we're in a web worker, or react-native.
+    if (utils.isStandardBrowserEnv()) {
+      var cookies = __webpack_require__(/*! ./../helpers/cookies */ "./node_modules/axios/lib/helpers/cookies.js");
+
+      // Add xsrf header
+      var xsrfValue = (config.withCredentials || isURLSameOrigin(fullPath)) && config.xsrfCookieName ?
+        cookies.read(config.xsrfCookieName) :
+        undefined;
+
+      if (xsrfValue) {
+        requestHeaders[config.xsrfHeaderName] = xsrfValue;
+      }
+    }
+
+    // Add headers to the request
+    if ('setRequestHeader' in request) {
+      utils.forEach(requestHeaders, function setRequestHeader(val, key) {
+        if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
+          // Remove Content-Type if data is undefined
+          delete requestHeaders[key];
+        } else {
+          // Otherwise add header to the request
+          request.setRequestHeader(key, val);
+        }
+      });
+    }
+
+    // Add withCredentials to request if needed
+    if (!utils.isUndefined(config.withCredentials)) {
+      request.withCredentials = !!config.withCredentials;
+    }
+
+    // Add responseType to request if needed
+    if (config.responseType) {
+      try {
+        request.responseType = config.responseType;
+      } catch (e) {
+        // Expected DOMException thrown by browsers not compatible XMLHttpRequest Level 2.
+        // But, this can be suppressed for 'json' type as it can be parsed by default 'transformResponse' function.
+        if (config.responseType !== 'json') {
+          throw e;
+        }
+      }
+    }
+
+    // Handle progress if needed
+    if (typeof config.onDownloadProgress === 'function') {
+      request.addEventListener('progress', config.onDownloadProgress);
+    }
+
+    // Not all browsers support upload events
+    if (typeof config.onUploadProgress === 'function' && request.upload) {
+      request.upload.addEventListener('progress', config.onUploadProgress);
+    }
+
+    if (config.cancelToken) {
+      // Handle cancellation
+      config.cancelToken.promise.then(function onCanceled(cancel) {
+        if (!request) {
+          return;
+        }
+
+        request.abort();
+        reject(cancel);
+        // Clean up request
+        request = null;
+      });
+    }
+
+    if (requestData === undefined) {
+      requestData = null;
+    }
+
+    // Send the request
+    request.send(requestData);
+  });
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/axios.js":
+/*!*****************************************!*\
+  !*** ./node_modules/axios/lib/axios.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./utils */ "./node_modules/axios/lib/utils.js");
+var bind = __webpack_require__(/*! ./helpers/bind */ "./node_modules/axios/lib/helpers/bind.js");
+var Axios = __webpack_require__(/*! ./core/Axios */ "./node_modules/axios/lib/core/Axios.js");
+var mergeConfig = __webpack_require__(/*! ./core/mergeConfig */ "./node_modules/axios/lib/core/mergeConfig.js");
+var defaults = __webpack_require__(/*! ./defaults */ "./node_modules/axios/lib/defaults.js");
+
+/**
+ * Create an instance of Axios
+ *
+ * @param {Object} defaultConfig The default config for the instance
+ * @return {Axios} A new instance of Axios
+ */
+function createInstance(defaultConfig) {
+  var context = new Axios(defaultConfig);
+  var instance = bind(Axios.prototype.request, context);
+
+  // Copy axios.prototype to instance
+  utils.extend(instance, Axios.prototype, context);
+
+  // Copy context to instance
+  utils.extend(instance, context);
+
+  return instance;
+}
+
+// Create the default instance to be exported
+var axios = createInstance(defaults);
+
+// Expose Axios class to allow class inheritance
+axios.Axios = Axios;
+
+// Factory for creating new instances
+axios.create = function create(instanceConfig) {
+  return createInstance(mergeConfig(axios.defaults, instanceConfig));
+};
+
+// Expose Cancel & CancelToken
+axios.Cancel = __webpack_require__(/*! ./cancel/Cancel */ "./node_modules/axios/lib/cancel/Cancel.js");
+axios.CancelToken = __webpack_require__(/*! ./cancel/CancelToken */ "./node_modules/axios/lib/cancel/CancelToken.js");
+axios.isCancel = __webpack_require__(/*! ./cancel/isCancel */ "./node_modules/axios/lib/cancel/isCancel.js");
+
+// Expose all/spread
+axios.all = function all(promises) {
+  return Promise.all(promises);
+};
+axios.spread = __webpack_require__(/*! ./helpers/spread */ "./node_modules/axios/lib/helpers/spread.js");
+
+module.exports = axios;
+
+// Allow use of default import syntax in TypeScript
+module.exports.default = axios;
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/cancel/Cancel.js":
+/*!*************************************************!*\
+  !*** ./node_modules/axios/lib/cancel/Cancel.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * A `Cancel` is an object that is thrown when an operation is canceled.
+ *
+ * @class
+ * @param {string=} message The message.
+ */
+function Cancel(message) {
+  this.message = message;
+}
+
+Cancel.prototype.toString = function toString() {
+  return 'Cancel' + (this.message ? ': ' + this.message : '');
+};
+
+Cancel.prototype.__CANCEL__ = true;
+
+module.exports = Cancel;
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/cancel/CancelToken.js":
+/*!******************************************************!*\
+  !*** ./node_modules/axios/lib/cancel/CancelToken.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Cancel = __webpack_require__(/*! ./Cancel */ "./node_modules/axios/lib/cancel/Cancel.js");
+
+/**
+ * A `CancelToken` is an object that can be used to request cancellation of an operation.
+ *
+ * @class
+ * @param {Function} executor The executor function.
+ */
+function CancelToken(executor) {
+  if (typeof executor !== 'function') {
+    throw new TypeError('executor must be a function.');
+  }
+
+  var resolvePromise;
+  this.promise = new Promise(function promiseExecutor(resolve) {
+    resolvePromise = resolve;
+  });
+
+  var token = this;
+  executor(function cancel(message) {
+    if (token.reason) {
+      // Cancellation has already been requested
+      return;
+    }
+
+    token.reason = new Cancel(message);
+    resolvePromise(token.reason);
+  });
+}
+
+/**
+ * Throws a `Cancel` if cancellation has been requested.
+ */
+CancelToken.prototype.throwIfRequested = function throwIfRequested() {
+  if (this.reason) {
+    throw this.reason;
+  }
+};
+
+/**
+ * Returns an object that contains a new `CancelToken` and a function that, when called,
+ * cancels the `CancelToken`.
+ */
+CancelToken.source = function source() {
+  var cancel;
+  var token = new CancelToken(function executor(c) {
+    cancel = c;
+  });
+  return {
+    token: token,
+    cancel: cancel
+  };
+};
+
+module.exports = CancelToken;
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/cancel/isCancel.js":
+/*!***************************************************!*\
+  !*** ./node_modules/axios/lib/cancel/isCancel.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function isCancel(value) {
+  return !!(value && value.__CANCEL__);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/Axios.js":
+/*!**********************************************!*\
+  !*** ./node_modules/axios/lib/core/Axios.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+var buildURL = __webpack_require__(/*! ../helpers/buildURL */ "./node_modules/axios/lib/helpers/buildURL.js");
+var InterceptorManager = __webpack_require__(/*! ./InterceptorManager */ "./node_modules/axios/lib/core/InterceptorManager.js");
+var dispatchRequest = __webpack_require__(/*! ./dispatchRequest */ "./node_modules/axios/lib/core/dispatchRequest.js");
+var mergeConfig = __webpack_require__(/*! ./mergeConfig */ "./node_modules/axios/lib/core/mergeConfig.js");
+
+/**
+ * Create a new instance of Axios
+ *
+ * @param {Object} instanceConfig The default config for the instance
+ */
+function Axios(instanceConfig) {
+  this.defaults = instanceConfig;
+  this.interceptors = {
+    request: new InterceptorManager(),
+    response: new InterceptorManager()
+  };
+}
+
+/**
+ * Dispatch a request
+ *
+ * @param {Object} config The config specific for this request (merged with this.defaults)
+ */
+Axios.prototype.request = function request(config) {
+  /*eslint no-param-reassign:0*/
+  // Allow for axios('example/url'[, config]) a la fetch API
+  if (typeof config === 'string') {
+    config = arguments[1] || {};
+    config.url = arguments[0];
+  } else {
+    config = config || {};
+  }
+
+  config = mergeConfig(this.defaults, config);
+
+  // Set config.method
+  if (config.method) {
+    config.method = config.method.toLowerCase();
+  } else if (this.defaults.method) {
+    config.method = this.defaults.method.toLowerCase();
+  } else {
+    config.method = 'get';
+  }
+
+  // Hook up interceptors middleware
+  var chain = [dispatchRequest, undefined];
+  var promise = Promise.resolve(config);
+
+  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
+    chain.unshift(interceptor.fulfilled, interceptor.rejected);
+  });
+
+  this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
+    chain.push(interceptor.fulfilled, interceptor.rejected);
+  });
+
+  while (chain.length) {
+    promise = promise.then(chain.shift(), chain.shift());
+  }
+
+  return promise;
+};
+
+Axios.prototype.getUri = function getUri(config) {
+  config = mergeConfig(this.defaults, config);
+  return buildURL(config.url, config.params, config.paramsSerializer).replace(/^\?/, '');
+};
+
+// Provide aliases for supported request methods
+utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
+  /*eslint func-names:0*/
+  Axios.prototype[method] = function(url, config) {
+    return this.request(utils.merge(config || {}, {
+      method: method,
+      url: url
+    }));
+  };
+});
+
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  /*eslint func-names:0*/
+  Axios.prototype[method] = function(url, data, config) {
+    return this.request(utils.merge(config || {}, {
+      method: method,
+      url: url,
+      data: data
+    }));
+  };
+});
+
+module.exports = Axios;
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/InterceptorManager.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/axios/lib/core/InterceptorManager.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+
+function InterceptorManager() {
+  this.handlers = [];
+}
+
+/**
+ * Add a new interceptor to the stack
+ *
+ * @param {Function} fulfilled The function to handle `then` for a `Promise`
+ * @param {Function} rejected The function to handle `reject` for a `Promise`
+ *
+ * @return {Number} An ID used to remove interceptor later
+ */
+InterceptorManager.prototype.use = function use(fulfilled, rejected) {
+  this.handlers.push({
+    fulfilled: fulfilled,
+    rejected: rejected
+  });
+  return this.handlers.length - 1;
+};
+
+/**
+ * Remove an interceptor from the stack
+ *
+ * @param {Number} id The ID that was returned by `use`
+ */
+InterceptorManager.prototype.eject = function eject(id) {
+  if (this.handlers[id]) {
+    this.handlers[id] = null;
+  }
+};
+
+/**
+ * Iterate over all the registered interceptors
+ *
+ * This method is particularly useful for skipping over any
+ * interceptors that may have become `null` calling `eject`.
+ *
+ * @param {Function} fn The function to call for each interceptor
+ */
+InterceptorManager.prototype.forEach = function forEach(fn) {
+  utils.forEach(this.handlers, function forEachHandler(h) {
+    if (h !== null) {
+      fn(h);
+    }
+  });
+};
+
+module.exports = InterceptorManager;
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/buildFullPath.js":
+/*!******************************************************!*\
+  !*** ./node_modules/axios/lib/core/buildFullPath.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isAbsoluteURL = __webpack_require__(/*! ../helpers/isAbsoluteURL */ "./node_modules/axios/lib/helpers/isAbsoluteURL.js");
+var combineURLs = __webpack_require__(/*! ../helpers/combineURLs */ "./node_modules/axios/lib/helpers/combineURLs.js");
+
+/**
+ * Creates a new URL by combining the baseURL with the requestedURL,
+ * only when the requestedURL is not already an absolute URL.
+ * If the requestURL is absolute, this function returns the requestedURL untouched.
+ *
+ * @param {string} baseURL The base URL
+ * @param {string} requestedURL Absolute or relative URL to combine
+ * @returns {string} The combined full path
+ */
+module.exports = function buildFullPath(baseURL, requestedURL) {
+  if (baseURL && !isAbsoluteURL(requestedURL)) {
+    return combineURLs(baseURL, requestedURL);
+  }
+  return requestedURL;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/createError.js":
+/*!****************************************************!*\
+  !*** ./node_modules/axios/lib/core/createError.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var enhanceError = __webpack_require__(/*! ./enhanceError */ "./node_modules/axios/lib/core/enhanceError.js");
+
+/**
+ * Create an Error with the specified message, config, error code, request and response.
+ *
+ * @param {string} message The error message.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The created error.
+ */
+module.exports = function createError(message, config, code, request, response) {
+  var error = new Error(message);
+  return enhanceError(error, config, code, request, response);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/dispatchRequest.js":
+/*!********************************************************!*\
+  !*** ./node_modules/axios/lib/core/dispatchRequest.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+var transformData = __webpack_require__(/*! ./transformData */ "./node_modules/axios/lib/core/transformData.js");
+var isCancel = __webpack_require__(/*! ../cancel/isCancel */ "./node_modules/axios/lib/cancel/isCancel.js");
+var defaults = __webpack_require__(/*! ../defaults */ "./node_modules/axios/lib/defaults.js");
+
+/**
+ * Throws a `Cancel` if cancellation has been requested.
+ */
+function throwIfCancellationRequested(config) {
+  if (config.cancelToken) {
+    config.cancelToken.throwIfRequested();
+  }
+}
+
+/**
+ * Dispatch a request to the server using the configured adapter.
+ *
+ * @param {object} config The config that is to be used for the request
+ * @returns {Promise} The Promise to be fulfilled
+ */
+module.exports = function dispatchRequest(config) {
+  throwIfCancellationRequested(config);
+
+  // Ensure headers exist
+  config.headers = config.headers || {};
+
+  // Transform request data
+  config.data = transformData(
+    config.data,
+    config.headers,
+    config.transformRequest
+  );
+
+  // Flatten headers
+  config.headers = utils.merge(
+    config.headers.common || {},
+    config.headers[config.method] || {},
+    config.headers
+  );
+
+  utils.forEach(
+    ['delete', 'get', 'head', 'post', 'put', 'patch', 'common'],
+    function cleanHeaderConfig(method) {
+      delete config.headers[method];
+    }
+  );
+
+  var adapter = config.adapter || defaults.adapter;
+
+  return adapter(config).then(function onAdapterResolution(response) {
+    throwIfCancellationRequested(config);
+
+    // Transform response data
+    response.data = transformData(
+      response.data,
+      response.headers,
+      config.transformResponse
+    );
+
+    return response;
+  }, function onAdapterRejection(reason) {
+    if (!isCancel(reason)) {
+      throwIfCancellationRequested(config);
+
+      // Transform response data
+      if (reason && reason.response) {
+        reason.response.data = transformData(
+          reason.response.data,
+          reason.response.headers,
+          config.transformResponse
+        );
+      }
+    }
+
+    return Promise.reject(reason);
+  });
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/enhanceError.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/axios/lib/core/enhanceError.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Update an Error with the specified config, error code, and response.
+ *
+ * @param {Error} error The error to update.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The error.
+ */
+module.exports = function enhanceError(error, config, code, request, response) {
+  error.config = config;
+  if (code) {
+    error.code = code;
+  }
+
+  error.request = request;
+  error.response = response;
+  error.isAxiosError = true;
+
+  error.toJSON = function() {
+    return {
+      // Standard
+      message: this.message,
+      name: this.name,
+      // Microsoft
+      description: this.description,
+      number: this.number,
+      // Mozilla
+      fileName: this.fileName,
+      lineNumber: this.lineNumber,
+      columnNumber: this.columnNumber,
+      stack: this.stack,
+      // Axios
+      config: this.config,
+      code: this.code
+    };
+  };
+  return error;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/mergeConfig.js":
+/*!****************************************************!*\
+  !*** ./node_modules/axios/lib/core/mergeConfig.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ../utils */ "./node_modules/axios/lib/utils.js");
+
+/**
+ * Config-specific merge-function which creates a new config-object
+ * by merging two configuration objects together.
+ *
+ * @param {Object} config1
+ * @param {Object} config2
+ * @returns {Object} New object resulting from merging config2 to config1
+ */
+module.exports = function mergeConfig(config1, config2) {
+  // eslint-disable-next-line no-param-reassign
+  config2 = config2 || {};
+  var config = {};
+
+  var valueFromConfig2Keys = ['url', 'method', 'params', 'data'];
+  var mergeDeepPropertiesKeys = ['headers', 'auth', 'proxy'];
+  var defaultToConfig2Keys = [
+    'baseURL', 'url', 'transformRequest', 'transformResponse', 'paramsSerializer',
+    'timeout', 'withCredentials', 'adapter', 'responseType', 'xsrfCookieName',
+    'xsrfHeaderName', 'onUploadProgress', 'onDownloadProgress',
+    'maxContentLength', 'validateStatus', 'maxRedirects', 'httpAgent',
+    'httpsAgent', 'cancelToken', 'socketPath'
+  ];
+
+  utils.forEach(valueFromConfig2Keys, function valueFromConfig2(prop) {
+    if (typeof config2[prop] !== 'undefined') {
+      config[prop] = config2[prop];
+    }
+  });
+
+  utils.forEach(mergeDeepPropertiesKeys, function mergeDeepProperties(prop) {
+    if (utils.isObject(config2[prop])) {
+      config[prop] = utils.deepMerge(config1[prop], config2[prop]);
+    } else if (typeof config2[prop] !== 'undefined') {
+      config[prop] = config2[prop];
+    } else if (utils.isObject(config1[prop])) {
+      config[prop] = utils.deepMerge(config1[prop]);
+    } else if (typeof config1[prop] !== 'undefined') {
+      config[prop] = config1[prop];
+    }
+  });
+
+  utils.forEach(defaultToConfig2Keys, function defaultToConfig2(prop) {
+    if (typeof config2[prop] !== 'undefined') {
+      config[prop] = config2[prop];
+    } else if (typeof config1[prop] !== 'undefined') {
+      config[prop] = config1[prop];
+    }
+  });
+
+  var axiosKeys = valueFromConfig2Keys
+    .concat(mergeDeepPropertiesKeys)
+    .concat(defaultToConfig2Keys);
+
+  var otherKeys = Object
+    .keys(config2)
+    .filter(function filterAxiosKeys(key) {
+      return axiosKeys.indexOf(key) === -1;
+    });
+
+  utils.forEach(otherKeys, function otherKeysDefaultToConfig2(prop) {
+    if (typeof config2[prop] !== 'undefined') {
+      config[prop] = config2[prop];
+    } else if (typeof config1[prop] !== 'undefined') {
+      config[prop] = config1[prop];
+    }
+  });
+
+  return config;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/settle.js":
+/*!***********************************************!*\
+  !*** ./node_modules/axios/lib/core/settle.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var createError = __webpack_require__(/*! ./createError */ "./node_modules/axios/lib/core/createError.js");
+
+/**
+ * Resolve or reject a Promise based on response status.
+ *
+ * @param {Function} resolve A function that resolves the promise.
+ * @param {Function} reject A function that rejects the promise.
+ * @param {object} response The response.
+ */
+module.exports = function settle(resolve, reject, response) {
+  var validateStatus = response.config.validateStatus;
+  if (!validateStatus || validateStatus(response.status)) {
+    resolve(response);
+  } else {
+    reject(createError(
+      'Request failed with status code ' + response.status,
+      response.config,
+      null,
+      response.request,
+      response
+    ));
+  }
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/transformData.js":
+/*!******************************************************!*\
+  !*** ./node_modules/axios/lib/core/transformData.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+
+/**
+ * Transform the data for a request or a response
+ *
+ * @param {Object|String} data The data to be transformed
+ * @param {Array} headers The headers for the request or response
+ * @param {Array|Function} fns A single function or Array of functions
+ * @returns {*} The resulting transformed data
+ */
+module.exports = function transformData(data, headers, fns) {
+  /*eslint no-param-reassign:0*/
+  utils.forEach(fns, function transform(fn) {
+    data = fn(data, headers);
+  });
+
+  return data;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/defaults.js":
+/*!********************************************!*\
+  !*** ./node_modules/axios/lib/defaults.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+var utils = __webpack_require__(/*! ./utils */ "./node_modules/axios/lib/utils.js");
+var normalizeHeaderName = __webpack_require__(/*! ./helpers/normalizeHeaderName */ "./node_modules/axios/lib/helpers/normalizeHeaderName.js");
+
+var DEFAULT_CONTENT_TYPE = {
+  'Content-Type': 'application/x-www-form-urlencoded'
+};
+
+function setContentTypeIfUnset(headers, value) {
+  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
+    headers['Content-Type'] = value;
+  }
+}
+
+function getDefaultAdapter() {
+  var adapter;
+  if (typeof XMLHttpRequest !== 'undefined') {
+    // For browsers use XHR adapter
+    adapter = __webpack_require__(/*! ./adapters/xhr */ "./node_modules/axios/lib/adapters/xhr.js");
+  } else if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
+    // For node use HTTP adapter
+    adapter = __webpack_require__(/*! ./adapters/http */ "./node_modules/axios/lib/adapters/xhr.js");
+  }
+  return adapter;
+}
+
+var defaults = {
+  adapter: getDefaultAdapter(),
+
+  transformRequest: [function transformRequest(data, headers) {
+    normalizeHeaderName(headers, 'Accept');
+    normalizeHeaderName(headers, 'Content-Type');
+    if (utils.isFormData(data) ||
+      utils.isArrayBuffer(data) ||
+      utils.isBuffer(data) ||
+      utils.isStream(data) ||
+      utils.isFile(data) ||
+      utils.isBlob(data)
+    ) {
+      return data;
+    }
+    if (utils.isArrayBufferView(data)) {
+      return data.buffer;
+    }
+    if (utils.isURLSearchParams(data)) {
+      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
+      return data.toString();
+    }
+    if (utils.isObject(data)) {
+      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
+      return JSON.stringify(data);
+    }
+    return data;
+  }],
+
+  transformResponse: [function transformResponse(data) {
+    /*eslint no-param-reassign:0*/
+    if (typeof data === 'string') {
+      try {
+        data = JSON.parse(data);
+      } catch (e) { /* Ignore */ }
+    }
+    return data;
+  }],
+
+  /**
+   * A timeout in milliseconds to abort a request. If set to 0 (default) a
+   * timeout is not created.
+   */
+  timeout: 0,
+
+  xsrfCookieName: 'XSRF-TOKEN',
+  xsrfHeaderName: 'X-XSRF-TOKEN',
+
+  maxContentLength: -1,
+
+  validateStatus: function validateStatus(status) {
+    return status >= 200 && status < 300;
+  }
+};
+
+defaults.headers = {
+  common: {
+    'Accept': 'application/json, text/plain, */*'
+  }
+};
+
+utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+  defaults.headers[method] = {};
+});
+
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
+});
+
+module.exports = defaults;
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../process/browser.js */ "./node_modules/process/browser.js")))
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/bind.js":
+/*!************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/bind.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function bind(fn, thisArg) {
+  return function wrap() {
+    var args = new Array(arguments.length);
+    for (var i = 0; i < args.length; i++) {
+      args[i] = arguments[i];
+    }
+    return fn.apply(thisArg, args);
+  };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/buildURL.js":
+/*!****************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/buildURL.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+
+function encode(val) {
+  return encodeURIComponent(val).
+    replace(/%40/gi, '@').
+    replace(/%3A/gi, ':').
+    replace(/%24/g, '$').
+    replace(/%2C/gi, ',').
+    replace(/%20/g, '+').
+    replace(/%5B/gi, '[').
+    replace(/%5D/gi, ']');
+}
+
+/**
+ * Build a URL by appending params to the end
+ *
+ * @param {string} url The base of the url (e.g., http://www.google.com)
+ * @param {object} [params] The params to be appended
+ * @returns {string} The formatted url
+ */
+module.exports = function buildURL(url, params, paramsSerializer) {
+  /*eslint no-param-reassign:0*/
+  if (!params) {
+    return url;
+  }
+
+  var serializedParams;
+  if (paramsSerializer) {
+    serializedParams = paramsSerializer(params);
+  } else if (utils.isURLSearchParams(params)) {
+    serializedParams = params.toString();
+  } else {
+    var parts = [];
+
+    utils.forEach(params, function serialize(val, key) {
+      if (val === null || typeof val === 'undefined') {
+        return;
+      }
+
+      if (utils.isArray(val)) {
+        key = key + '[]';
+      } else {
+        val = [val];
+      }
+
+      utils.forEach(val, function parseValue(v) {
+        if (utils.isDate(v)) {
+          v = v.toISOString();
+        } else if (utils.isObject(v)) {
+          v = JSON.stringify(v);
+        }
+        parts.push(encode(key) + '=' + encode(v));
+      });
+    });
+
+    serializedParams = parts.join('&');
+  }
+
+  if (serializedParams) {
+    var hashmarkIndex = url.indexOf('#');
+    if (hashmarkIndex !== -1) {
+      url = url.slice(0, hashmarkIndex);
+    }
+
+    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
+  }
+
+  return url;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/combineURLs.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/combineURLs.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Creates a new URL by combining the specified URLs
+ *
+ * @param {string} baseURL The base URL
+ * @param {string} relativeURL The relative URL
+ * @returns {string} The combined URL
+ */
+module.exports = function combineURLs(baseURL, relativeURL) {
+  return relativeURL
+    ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
+    : baseURL;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/cookies.js":
+/*!***************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/cookies.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+
+module.exports = (
+  utils.isStandardBrowserEnv() ?
+
+  // Standard browser envs support document.cookie
+    (function standardBrowserEnv() {
+      return {
+        write: function write(name, value, expires, path, domain, secure) {
+          var cookie = [];
+          cookie.push(name + '=' + encodeURIComponent(value));
+
+          if (utils.isNumber(expires)) {
+            cookie.push('expires=' + new Date(expires).toGMTString());
+          }
+
+          if (utils.isString(path)) {
+            cookie.push('path=' + path);
+          }
+
+          if (utils.isString(domain)) {
+            cookie.push('domain=' + domain);
+          }
+
+          if (secure === true) {
+            cookie.push('secure');
+          }
+
+          document.cookie = cookie.join('; ');
+        },
+
+        read: function read(name) {
+          var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+          return (match ? decodeURIComponent(match[3]) : null);
+        },
+
+        remove: function remove(name) {
+          this.write(name, '', Date.now() - 86400000);
+        }
+      };
+    })() :
+
+  // Non standard browser env (web workers, react-native) lack needed support.
+    (function nonStandardBrowserEnv() {
+      return {
+        write: function write() {},
+        read: function read() { return null; },
+        remove: function remove() {}
+      };
+    })()
+);
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/isAbsoluteURL.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Determines whether the specified URL is absolute
+ *
+ * @param {string} url The URL to test
+ * @returns {boolean} True if the specified URL is absolute, otherwise false
+ */
+module.exports = function isAbsoluteURL(url) {
+  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
+  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
+  // by any combination of letters, digits, plus, period, or hyphen.
+  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/isURLSameOrigin.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+
+module.exports = (
+  utils.isStandardBrowserEnv() ?
+
+  // Standard browser envs have full support of the APIs needed to test
+  // whether the request URL is of the same origin as current location.
+    (function standardBrowserEnv() {
+      var msie = /(msie|trident)/i.test(navigator.userAgent);
+      var urlParsingNode = document.createElement('a');
+      var originURL;
+
+      /**
+    * Parse a URL to discover it's components
+    *
+    * @param {String} url The URL to be parsed
+    * @returns {Object}
+    */
+      function resolveURL(url) {
+        var href = url;
+
+        if (msie) {
+        // IE needs attribute set twice to normalize properties
+          urlParsingNode.setAttribute('href', href);
+          href = urlParsingNode.href;
+        }
+
+        urlParsingNode.setAttribute('href', href);
+
+        // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
+        return {
+          href: urlParsingNode.href,
+          protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
+          host: urlParsingNode.host,
+          search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
+          hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
+          hostname: urlParsingNode.hostname,
+          port: urlParsingNode.port,
+          pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
+            urlParsingNode.pathname :
+            '/' + urlParsingNode.pathname
+        };
+      }
+
+      originURL = resolveURL(window.location.href);
+
+      /**
+    * Determine if a URL shares the same origin as the current location
+    *
+    * @param {String} requestURL The URL to test
+    * @returns {boolean} True if URL shares the same origin, otherwise false
+    */
+      return function isURLSameOrigin(requestURL) {
+        var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
+        return (parsed.protocol === originURL.protocol &&
+            parsed.host === originURL.host);
+      };
+    })() :
+
+  // Non standard browser envs (web workers, react-native) lack needed support.
+    (function nonStandardBrowserEnv() {
+      return function isURLSameOrigin() {
+        return true;
+      };
+    })()
+);
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/normalizeHeaderName.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ../utils */ "./node_modules/axios/lib/utils.js");
+
+module.exports = function normalizeHeaderName(headers, normalizedName) {
+  utils.forEach(headers, function processHeader(value, name) {
+    if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
+      headers[normalizedName] = value;
+      delete headers[name];
+    }
+  });
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/parseHeaders.js":
+/*!********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/parseHeaders.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+
+// Headers whose duplicates are ignored by node
+// c.f. https://nodejs.org/api/http.html#http_message_headers
+var ignoreDuplicateOf = [
+  'age', 'authorization', 'content-length', 'content-type', 'etag',
+  'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since',
+  'last-modified', 'location', 'max-forwards', 'proxy-authorization',
+  'referer', 'retry-after', 'user-agent'
+];
+
+/**
+ * Parse headers into an object
+ *
+ * ```
+ * Date: Wed, 27 Aug 2014 08:58:49 GMT
+ * Content-Type: application/json
+ * Connection: keep-alive
+ * Transfer-Encoding: chunked
+ * ```
+ *
+ * @param {String} headers Headers needing to be parsed
+ * @returns {Object} Headers parsed into an object
+ */
+module.exports = function parseHeaders(headers) {
+  var parsed = {};
+  var key;
+  var val;
+  var i;
+
+  if (!headers) { return parsed; }
+
+  utils.forEach(headers.split('\n'), function parser(line) {
+    i = line.indexOf(':');
+    key = utils.trim(line.substr(0, i)).toLowerCase();
+    val = utils.trim(line.substr(i + 1));
+
+    if (key) {
+      if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {
+        return;
+      }
+      if (key === 'set-cookie') {
+        parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);
+      } else {
+        parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
+      }
+    }
+  });
+
+  return parsed;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/spread.js":
+/*!**************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/spread.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Syntactic sugar for invoking a function and expanding an array for arguments.
+ *
+ * Common use case would be to use `Function.prototype.apply`.
+ *
+ *  ```js
+ *  function f(x, y, z) {}
+ *  var args = [1, 2, 3];
+ *  f.apply(null, args);
+ *  ```
+ *
+ * With `spread` this example can be re-written.
+ *
+ *  ```js
+ *  spread(function(x, y, z) {})([1, 2, 3]);
+ *  ```
+ *
+ * @param {Function} callback
+ * @returns {Function}
+ */
+module.exports = function spread(callback) {
+  return function wrap(arr) {
+    return callback.apply(null, arr);
+  };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/utils.js":
+/*!*****************************************!*\
+  !*** ./node_modules/axios/lib/utils.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var bind = __webpack_require__(/*! ./helpers/bind */ "./node_modules/axios/lib/helpers/bind.js");
+
+/*global toString:true*/
+
+// utils is a library of generic helper functions non-specific to axios
+
+var toString = Object.prototype.toString;
+
+/**
+ * Determine if a value is an Array
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an Array, otherwise false
+ */
+function isArray(val) {
+  return toString.call(val) === '[object Array]';
+}
+
+/**
+ * Determine if a value is undefined
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if the value is undefined, otherwise false
+ */
+function isUndefined(val) {
+  return typeof val === 'undefined';
+}
+
+/**
+ * Determine if a value is a Buffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Buffer, otherwise false
+ */
+function isBuffer(val) {
+  return val !== null && !isUndefined(val) && val.constructor !== null && !isUndefined(val.constructor)
+    && typeof val.constructor.isBuffer === 'function' && val.constructor.isBuffer(val);
+}
+
+/**
+ * Determine if a value is an ArrayBuffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an ArrayBuffer, otherwise false
+ */
+function isArrayBuffer(val) {
+  return toString.call(val) === '[object ArrayBuffer]';
+}
+
+/**
+ * Determine if a value is a FormData
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an FormData, otherwise false
+ */
+function isFormData(val) {
+  return (typeof FormData !== 'undefined') && (val instanceof FormData);
+}
+
+/**
+ * Determine if a value is a view on an ArrayBuffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
+ */
+function isArrayBufferView(val) {
+  var result;
+  if ((typeof ArrayBuffer !== 'undefined') && (ArrayBuffer.isView)) {
+    result = ArrayBuffer.isView(val);
+  } else {
+    result = (val) && (val.buffer) && (val.buffer instanceof ArrayBuffer);
+  }
+  return result;
+}
+
+/**
+ * Determine if a value is a String
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a String, otherwise false
+ */
+function isString(val) {
+  return typeof val === 'string';
+}
+
+/**
+ * Determine if a value is a Number
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Number, otherwise false
+ */
+function isNumber(val) {
+  return typeof val === 'number';
+}
+
+/**
+ * Determine if a value is an Object
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an Object, otherwise false
+ */
+function isObject(val) {
+  return val !== null && typeof val === 'object';
+}
+
+/**
+ * Determine if a value is a Date
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Date, otherwise false
+ */
+function isDate(val) {
+  return toString.call(val) === '[object Date]';
+}
+
+/**
+ * Determine if a value is a File
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a File, otherwise false
+ */
+function isFile(val) {
+  return toString.call(val) === '[object File]';
+}
+
+/**
+ * Determine if a value is a Blob
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Blob, otherwise false
+ */
+function isBlob(val) {
+  return toString.call(val) === '[object Blob]';
+}
+
+/**
+ * Determine if a value is a Function
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Function, otherwise false
+ */
+function isFunction(val) {
+  return toString.call(val) === '[object Function]';
+}
+
+/**
+ * Determine if a value is a Stream
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Stream, otherwise false
+ */
+function isStream(val) {
+  return isObject(val) && isFunction(val.pipe);
+}
+
+/**
+ * Determine if a value is a URLSearchParams object
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a URLSearchParams object, otherwise false
+ */
+function isURLSearchParams(val) {
+  return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams;
+}
+
+/**
+ * Trim excess whitespace off the beginning and end of a string
+ *
+ * @param {String} str The String to trim
+ * @returns {String} The String freed of excess whitespace
+ */
+function trim(str) {
+  return str.replace(/^\s*/, '').replace(/\s*$/, '');
+}
+
+/**
+ * Determine if we're running in a standard browser environment
+ *
+ * This allows axios to run in a web worker, and react-native.
+ * Both environments support XMLHttpRequest, but not fully standard globals.
+ *
+ * web workers:
+ *  typeof window -> undefined
+ *  typeof document -> undefined
+ *
+ * react-native:
+ *  navigator.product -> 'ReactNative'
+ * nativescript
+ *  navigator.product -> 'NativeScript' or 'NS'
+ */
+function isStandardBrowserEnv() {
+  if (typeof navigator !== 'undefined' && (navigator.product === 'ReactNative' ||
+                                           navigator.product === 'NativeScript' ||
+                                           navigator.product === 'NS')) {
+    return false;
+  }
+  return (
+    typeof window !== 'undefined' &&
+    typeof document !== 'undefined'
+  );
+}
+
+/**
+ * Iterate over an Array or an Object invoking a function for each item.
+ *
+ * If `obj` is an Array callback will be called passing
+ * the value, index, and complete array for each item.
+ *
+ * If 'obj' is an Object callback will be called passing
+ * the value, key, and complete object for each property.
+ *
+ * @param {Object|Array} obj The object to iterate
+ * @param {Function} fn The callback to invoke for each item
+ */
+function forEach(obj, fn) {
+  // Don't bother if no value provided
+  if (obj === null || typeof obj === 'undefined') {
+    return;
+  }
+
+  // Force an array if not already something iterable
+  if (typeof obj !== 'object') {
+    /*eslint no-param-reassign:0*/
+    obj = [obj];
+  }
+
+  if (isArray(obj)) {
+    // Iterate over array values
+    for (var i = 0, l = obj.length; i < l; i++) {
+      fn.call(null, obj[i], i, obj);
+    }
+  } else {
+    // Iterate over object keys
+    for (var key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        fn.call(null, obj[key], key, obj);
+      }
+    }
+  }
+}
+
+/**
+ * Accepts varargs expecting each argument to be an object, then
+ * immutably merges the properties of each object and returns result.
+ *
+ * When multiple objects contain the same key the later object in
+ * the arguments list will take precedence.
+ *
+ * Example:
+ *
+ * ```js
+ * var result = merge({foo: 123}, {foo: 456});
+ * console.log(result.foo); // outputs 456
+ * ```
+ *
+ * @param {Object} obj1 Object to merge
+ * @returns {Object} Result of all merge properties
+ */
+function merge(/* obj1, obj2, obj3, ... */) {
+  var result = {};
+  function assignValue(val, key) {
+    if (typeof result[key] === 'object' && typeof val === 'object') {
+      result[key] = merge(result[key], val);
+    } else {
+      result[key] = val;
+    }
+  }
+
+  for (var i = 0, l = arguments.length; i < l; i++) {
+    forEach(arguments[i], assignValue);
+  }
+  return result;
+}
+
+/**
+ * Function equal to merge with the difference being that no reference
+ * to original objects is kept.
+ *
+ * @see merge
+ * @param {Object} obj1 Object to merge
+ * @returns {Object} Result of all merge properties
+ */
+function deepMerge(/* obj1, obj2, obj3, ... */) {
+  var result = {};
+  function assignValue(val, key) {
+    if (typeof result[key] === 'object' && typeof val === 'object') {
+      result[key] = deepMerge(result[key], val);
+    } else if (typeof val === 'object') {
+      result[key] = deepMerge({}, val);
+    } else {
+      result[key] = val;
+    }
+  }
+
+  for (var i = 0, l = arguments.length; i < l; i++) {
+    forEach(arguments[i], assignValue);
+  }
+  return result;
+}
+
+/**
+ * Extends object a by mutably adding to it the properties of object b.
+ *
+ * @param {Object} a The object to be extended
+ * @param {Object} b The object to copy properties from
+ * @param {Object} thisArg The object to bind function to
+ * @return {Object} The resulting value of object a
+ */
+function extend(a, b, thisArg) {
+  forEach(b, function assignValue(val, key) {
+    if (thisArg && typeof val === 'function') {
+      a[key] = bind(val, thisArg);
+    } else {
+      a[key] = val;
+    }
+  });
+  return a;
+}
+
+module.exports = {
+  isArray: isArray,
+  isArrayBuffer: isArrayBuffer,
+  isBuffer: isBuffer,
+  isFormData: isFormData,
+  isArrayBufferView: isArrayBufferView,
+  isString: isString,
+  isNumber: isNumber,
+  isObject: isObject,
+  isUndefined: isUndefined,
+  isDate: isDate,
+  isFile: isFile,
+  isBlob: isBlob,
+  isFunction: isFunction,
+  isStream: isStream,
+  isURLSearchParams: isURLSearchParams,
+  isStandardBrowserEnv: isStandardBrowserEnv,
+  forEach: forEach,
+  merge: merge,
+  deepMerge: deepMerge,
+  extend: extend,
+  trim: trim
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/css/bootstrap.css":
 /*!*******************************************************!*\
   !*** ./node_modules/bootstrap/dist/css/bootstrap.css ***!
@@ -3959,39 +5363,39 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "/*!\n * Bootstrap v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)\n */\n:root {\n    --blue: #007bff;\n    --indigo: #6610f2;\n    --purple: #6f42c1;\n    --pink: #e83e8c;\n    --red: #dc3545;\n    --orange: #fd7e14;\n    --yellow: #ffc107;\n    --green: #28a745;\n    --teal: #20c997;\n    --cyan: #17a2b8;\n    --white: #fff;\n    --gray: #6c757d;\n    --gray-dark: #343a40;\n    --primary: #007bff;\n    --secondary: #6c757d;\n    --success: #28a745;\n    --info: #17a2b8;\n    --warning: #ffc107;\n    --danger: #dc3545;\n    --light: #f8f9fa;\n    --dark: #343a40;\n    --breakpoint-xs: 0;\n    --breakpoint-sm: 576px;\n    --breakpoint-md: 768px;\n    --breakpoint-lg: 992px;\n    --breakpoint-xl: 1200px;\n    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\";\n    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace;\n}\n\n*,\n*::before,\n*::after {\n    box-sizing: border-box;\n}\n\nhtml {\n    font-family: sans-serif;\n    line-height: 1.15;\n    -webkit-text-size-adjust: 100%;\n    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n}\n\narticle, aside, figcaption, figure, footer, header, hgroup, main, nav, section {\n    display: block;\n}\n\nbody {\n    margin: 0;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\";\n    font-size: 1rem;\n    font-weight: 400;\n    line-height: 1.5;\n    color: #212529;\n    text-align: left;\n    background-color: #fff;\n}\n\n[tabindex=\"-1\"]:focus:not(:focus-visible) {\n    outline: 0 !important;\n}\n\nhr {\n    box-sizing: content-box;\n    height: 0;\n    overflow: visible;\n}\n\nh1, h2, h3, h4, h5, h6 {\n    margin-top: 0;\n    margin-bottom: 0.5rem;\n}\n\np {\n    margin-top: 0;\n    margin-bottom: 1rem;\n}\n\nabbr[title],\nabbr[data-original-title] {\n    text-decoration: underline;\n    _webkit-text-decoration: underline dotted;\n    text-decoration: underline dotted;\n    cursor: help;\n    border-bottom: 0;\n    _webkit-text-decoration-skip-ink: none;\n    text-decoration-skip-ink: none;\n}\n\naddress {\n    margin-bottom: 1rem;\n    font-style: normal;\n    line-height: inherit;\n}\n\nol,\nul,\ndl {\n    margin-top: 0;\n    margin-bottom: 1rem;\n}\n\n    ol ol,\n    ul ul,\n    ol ul,\n    ul ol {\n        margin-bottom: 0;\n    }\n\ndt {\n    font-weight: 700;\n}\n\ndd {\n    margin-bottom: .5rem;\n    margin-left: 0;\n}\n\nblockquote {\n    margin: 0 0 1rem;\n}\n\nb,\nstrong {\n    font-weight: bolder;\n}\n\nsmall {\n    font-size: 80%;\n}\n\nsub,\nsup {\n    position: relative;\n    font-size: 75%;\n    line-height: 0;\n    vertical-align: baseline;\n}\n\nsub {\n    bottom: -.25em;\n}\n\nsup {\n    top: -.5em;\n}\n\na {\n    color: #007bff;\n    font-size: 14px;\n    text-decoration: none;\n    background-color: transparent;\n}\n\n    a:hover {\n        color: #0056b3;\n        text-decoration: underline;\n    }\n\n    a:not([href]) {\n        color: inherit;\n        text-decoration: none;\n    }\n\n        a:not([href]):hover {\n            color: inherit;\n            text-decoration: none;\n        }\n\npre,\ncode,\nkbd,\nsamp {\n    font-family: SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace;\n    font-size: 1em;\n}\n\npre {\n    margin-top: 0;\n    margin-bottom: 1rem;\n    overflow: auto;\n}\n\nfigure {\n    margin: 0 0 1rem;\n}\n\nimg {\n    vertical-align: middle;\n    border-style: none;\n}\n\nsvg {\n    overflow: hidden;\n    vertical-align: middle;\n}\n\ntable {\n    border-collapse: collapse;\n}\n\ncaption {\n    padding-top: 0.75rem;\n    padding-bottom: 0.75rem;\n    color: #6c757d;\n    text-align: left;\n    caption-side: bottom;\n}\n\nth {\n    text-align: inherit;\n}\n\nlabel {\n    display: inline-block;\n    margin-bottom: 0.5rem;\n}\n\nbutton {\n    border-radius: 0;\n}\n\n    button:focus {\n        outline: 1px dotted;\n        outline: 5px auto -webkit-focus-ring-color;\n    }\n\ninput,\nbutton,\nselect,\noptgroup,\ntextarea {\n    margin: 0;\n    font-family: inherit;\n    font-size: inherit;\n    line-height: inherit;\n}\n\nbutton,\ninput {\n    overflow: visible;\n}\n\nbutton,\nselect {\n    text-transform: none;\n}\n\nselect {\n    word-wrap: normal;\n}\n\nbutton,\n[type=\"button\"],\n[type=\"reset\"],\n[type=\"submit\"] {\n    -webkit-appearance: button;\n}\n\n    button:not(:disabled),\n    [type=\"button\"]:not(:disabled),\n    [type=\"reset\"]:not(:disabled),\n    [type=\"submit\"]:not(:disabled) {\n        cursor: pointer;\n    }\n\n    button::-moz-focus-inner,\n    [type=\"button\"]::-moz-focus-inner,\n    [type=\"reset\"]::-moz-focus-inner,\n    [type=\"submit\"]::-moz-focus-inner {\n        padding: 0;\n        border-style: none;\n    }\n\ninput[type=\"radio\"],\ninput[type=\"checkbox\"] {\n    box-sizing: border-box;\n    padding: 0;\n}\n\ninput[type=\"date\"],\ninput[type=\"time\"],\ninput[type=\"datetime-local\"],\ninput[type=\"month\"] {\n    -webkit-appearance: listbox;\n}\n\ntextarea {\n    overflow: auto;\n    resize: vertical;\n}\n\nfieldset {\n    min-width: 0;\n    padding: 0;\n    margin: 0;\n    border: 0;\n}\n\nlegend {\n    display: block;\n    width: 100%;\n    max-width: 100%;\n    padding: 0;\n    margin-bottom: .5rem;\n    font-size: 1.5rem;\n    line-height: inherit;\n    color: inherit;\n    white-space: normal;\n}\n\nprogress {\n    vertical-align: baseline;\n}\n\n[type=\"number\"]::-webkit-inner-spin-button,\n[type=\"number\"]::-webkit-outer-spin-button {\n    height: auto;\n}\n\n[type=\"search\"] {\n    outline-offset: -2px;\n    -webkit-appearance: none;\n}\n\n    [type=\"search\"]::-webkit-search-decoration {\n        -webkit-appearance: none;\n    }\n\n::-webkit-file-upload-button {\n    font: inherit;\n    -webkit-appearance: button;\n}\n\noutput {\n    display: inline-block;\n}\n\nsummary {\n    display: list-item;\n    cursor: pointer;\n}\n\ntemplate {\n    display: none;\n}\n\n[hidden] {\n    display: none !important;\n}\n\nh1, h2, h3, h4, h5, h6,\n.h1, .h2, .h3, .h4, .h5, .h6 {\n    margin-bottom: 0.5rem;\n    font-weight: 500;\n    line-height: 1.2;\n}\n\nh1, .h1 {\n    font-size: 2.5rem;\n}\n\nh2, .h2 {\n    font-size: 2rem;\n}\n\nh3, .h3 {\n    font-size: 1.75rem;\n}\n\nh4, .h4 {\n    font-size: 1.5rem;\n}\n\nh5, .h5 {\n    font-size: 1.25rem;\n}\n\nh6, .h6 {\n    font-size: 1rem;\n}\n\n.lead {\n    font-size: 1.25rem;\n    font-weight: 300;\n}\n\n.display-1 {\n    font-size: 6rem;\n    font-weight: 300;\n    line-height: 1.2;\n}\n\n.display-2 {\n    font-size: 5.5rem;\n    font-weight: 300;\n    line-height: 1.2;\n}\n\n.display-3 {\n    font-size: 4.5rem;\n    font-weight: 300;\n    line-height: 1.2;\n}\n\n.display-4 {\n    font-size: 3.5rem;\n    font-weight: 300;\n    line-height: 1.2;\n}\n\nhr {\n    margin-top: 1rem;\n    margin-bottom: 1rem;\n    border: 0;\n    border-top: 1px solid rgba(0, 0, 0, 0.1);\n}\n\nsmall,\n.small {\n    font-size: 80%;\n    font-weight: 400;\n}\n\nmark,\n.mark {\n    padding: 0.2em;\n    background-color: #fcf8e3;\n}\n\n.list-unstyled {\n    padding-left: 0;\n    list-style: none;\n}\n\n.list-inline {\n    padding-left: 0;\n    list-style: none;\n}\n\n.list-inline-item {\n    display: inline-block;\n}\n\n    .list-inline-item:not(:last-child) {\n        margin-right: 0.5rem;\n    }\n\n.initialism {\n    font-size: 90%;\n    text-transform: uppercase;\n}\n\n.blockquote {\n    margin-bottom: 1rem;\n    font-size: 1.25rem;\n}\n\n.blockquote-footer {\n    display: block;\n    font-size: 80%;\n    color: #6c757d;\n}\n\n    .blockquote-footer::before {\n        content: \"\\2014\\00A0\";\n    }\n\n.img-fluid {\n    max-width: 100%;\n    height: auto;\n}\n\n.img-thumbnail {\n    padding: 0.25rem;\n    background-color: #fff;\n    border: 1px solid #dee2e6;\n    border-radius: 0.25rem;\n    max-width: 100%;\n    height: auto;\n}\n\n.figure {\n    display: inline-block;\n}\n\n.figure-img {\n    margin-bottom: 0.5rem;\n    line-height: 1;\n}\n\n.figure-caption {\n    font-size: 90%;\n    color: #6c757d;\n}\n\ncode {\n    font-size: 87.5%;\n    color: #e83e8c;\n    word-wrap: break-word;\n}\n\na > code {\n    color: inherit;\n}\n\nkbd {\n    padding: 0.2rem 0.4rem;\n    font-size: 87.5%;\n    color: #fff;\n    background-color: #212529;\n    border-radius: 0.2rem;\n}\n\n    kbd kbd {\n        padding: 0;\n        font-size: 100%;\n        font-weight: 700;\n    }\n\npre {\n    display: block;\n    font-size: 87.5%;\n    color: #212529;\n}\n\n    pre code {\n        font-size: inherit;\n        color: inherit;\n        word-break: normal;\n    }\n\n.pre-scrollable {\n    max-height: 340px;\n    overflow-y: scroll;\n}\n\n.container {\n    /*position:absolute;\n    top: 23%;*/\n    left: 7%;\n    width: 100%;\n    padding-right: 15px;\n    padding-left: 15px;\n    margin-right: auto;\n    margin-left: auto;\n}\n\n@media (min-width: 576px) {\n    .container {\n        max-width: 540px;\n    }\n}\n\n@media (min-width: 768px) {\n    .container {\n        max-width: 720px;\n    }\n}\n\n@media (min-width: 992px) {\n    .container {\n        max-width: 960px;\n    }\n}\n\n@media (min-width: 1200px) {\n    .container {\n        max-width: 1140px;\n    }\n}\n\n.container-fluid, .container-sm, .container-md, .container-lg, .container-xl {\n    width: 100%;\n    padding-right: 15px;\n    padding-left: 15px;\n    margin-right: auto;\n    margin-left: auto;\n}\n\n@media (min-width: 576px) {\n    .container, .container-sm {\n        max-width: 540px;\n    }\n}\n\n@media (min-width: 768px) {\n    .container, .container-sm, .container-md {\n        max-width: 720px;\n    }\n}\n\n@media (min-width: 992px) {\n    .container, .container-sm, .container-md, .container-lg {\n        max-width: 960px;\n    }\n}\n\n@media (min-width: 1200px) {\n    .container, .container-sm, .container-md, .container-lg, .container-xl {\n        max-width: 1140px;\n    }\n}\n\n.row {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n}\n\n.no-gutters {\n    margin-right: 0;\n    margin-left: 0;\n}\n\n    .no-gutters > .col,\n    .no-gutters > [class*=\"col-\"] {\n        padding-right: 0;\n        padding-left: 0;\n    }\n\n.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,\n.col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,\n.col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,\n.col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,\n.col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,\n.col-xl-auto {\n    position: relative;\n    width: 100%;\n    padding-right: 15px;\n    padding-left: 15px;\n}\n\n.col {\n    -ms-flex-preferred-size: 0;\n    flex-basis: 0;\n    -ms-flex-positive: 1;\n    flex-grow: 1;\n    max-width: 100%;\n}\n\n.row-cols-1 > * {\n    -ms-flex: 0 0 100%;\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n\n.row-cols-2 > * {\n    -ms-flex: 0 0 50%;\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n\n.row-cols-3 > * {\n    -ms-flex: 0 0 33.333333%;\n    flex: 0 0 33.333333%;\n    max-width: 33.333333%;\n}\n\n.row-cols-4 > * {\n    -ms-flex: 0 0 25%;\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n\n.row-cols-5 > * {\n    -ms-flex: 0 0 20%;\n    flex: 0 0 20%;\n    max-width: 20%;\n}\n\n.row-cols-6 > * {\n    -ms-flex: 0 0 16.666667%;\n    flex: 0 0 16.666667%;\n    max-width: 16.666667%;\n}\n\n.col-auto {\n    -ms-flex: 0 0 auto;\n    flex: 0 0 auto;\n    width: auto;\n    max-width: 100%;\n}\n\n.col-1 {\n    -ms-flex: 0 0 8.333333%;\n    flex: 0 0 8.333333%;\n    max-width: 8.333333%;\n}\n\n.col-2 {\n    -ms-flex: 0 0 16.666667%;\n    flex: 0 0 16.666667%;\n    max-width: 16.666667%;\n}\n\n.col-3 {\n    -ms-flex: 0 0 25%;\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n\n.col-4 {\n    -ms-flex: 0 0 33.333333%;\n    flex: 0 0 33.333333%;\n    max-width: 33.333333%;\n}\n\n.col-5 {\n    -ms-flex: 0 0 41.666667%;\n    flex: 0 0 41.666667%;\n    max-width: 41.666667%;\n}\n\n.col-6 {\n    -ms-flex: 0 0 50%;\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n\n.col-7 {\n    -ms-flex: 0 0 58.333333%;\n    flex: 0 0 58.333333%;\n    max-width: 58.333333%;\n}\n\n.col-8 {\n    -ms-flex: 0 0 66.666667%;\n    flex: 0 0 66.666667%;\n    max-width: 66.666667%;\n}\n\n.col-9 {\n    -ms-flex: 0 0 75%;\n    flex: 0 0 75%;\n    max-width: 75%;\n}\n\n.col-10 {\n    -ms-flex: 0 0 83.333333%;\n    flex: 0 0 83.333333%;\n    max-width: 83.333333%;\n}\n\n.col-11 {\n    -ms-flex: 0 0 91.666667%;\n    flex: 0 0 91.666667%;\n    max-width: 91.666667%;\n}\n\n.col-12 {\n    -ms-flex: 0 0 100%;\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n\n.order-first {\n    -ms-flex-order: -1;\n    order: -1;\n}\n\n.order-last {\n    -ms-flex-order: 13;\n    order: 13;\n}\n\n.order-0 {\n    -ms-flex-order: 0;\n    order: 0;\n}\n\n.order-1 {\n    -ms-flex-order: 1;\n    order: 1;\n}\n\n.order-2 {\n    -ms-flex-order: 2;\n    order: 2;\n}\n\n.order-3 {\n    -ms-flex-order: 3;\n    order: 3;\n}\n\n.order-4 {\n    -ms-flex-order: 4;\n    order: 4;\n}\n\n.order-5 {\n    -ms-flex-order: 5;\n    order: 5;\n}\n\n.order-6 {\n    -ms-flex-order: 6;\n    order: 6;\n}\n\n.order-7 {\n    -ms-flex-order: 7;\n    order: 7;\n}\n\n.order-8 {\n    -ms-flex-order: 8;\n    order: 8;\n}\n\n.order-9 {\n    -ms-flex-order: 9;\n    order: 9;\n}\n\n.order-10 {\n    -ms-flex-order: 10;\n    order: 10;\n}\n\n.order-11 {\n    -ms-flex-order: 11;\n    order: 11;\n}\n\n.order-12 {\n    -ms-flex-order: 12;\n    order: 12;\n}\n\n.offset-1 {\n    margin-left: 8.333333%;\n}\n\n.offset-2 {\n    margin-left: 16.666667%;\n}\n\n.offset-3 {\n    margin-left: 25%;\n}\n\n.offset-4 {\n    margin-left: 33.333333%;\n}\n\n.offset-5 {\n    margin-left: 41.666667%;\n}\n\n.offset-6 {\n    margin-left: 50%;\n}\n\n.offset-7 {\n    margin-left: 58.333333%;\n}\n\n.offset-8 {\n    margin-left: 66.666667%;\n}\n\n.offset-9 {\n    margin-left: 75%;\n}\n\n.offset-10 {\n    margin-left: 83.333333%;\n}\n\n.offset-11 {\n    margin-left: 91.666667%;\n}\n\n@media (min-width: 576px) {\n    .col-sm {\n        -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n        -ms-flex-positive: 1;\n        flex-grow: 1;\n        max-width: 100%;\n    }\n\n    .row-cols-sm-1 > * {\n        -ms-flex: 0 0 100%;\n        flex: 0 0 100%;\n        max-width: 100%;\n    }\n\n    .row-cols-sm-2 > * {\n        -ms-flex: 0 0 50%;\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n\n    .row-cols-sm-3 > * {\n        -ms-flex: 0 0 33.333333%;\n        flex: 0 0 33.333333%;\n        max-width: 33.333333%;\n    }\n\n    .row-cols-sm-4 > * {\n        -ms-flex: 0 0 25%;\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n\n    .row-cols-sm-5 > * {\n        -ms-flex: 0 0 20%;\n        flex: 0 0 20%;\n        max-width: 20%;\n    }\n\n    .row-cols-sm-6 > * {\n        -ms-flex: 0 0 16.666667%;\n        flex: 0 0 16.666667%;\n        max-width: 16.666667%;\n    }\n\n    .col-sm-auto {\n        -ms-flex: 0 0 auto;\n        flex: 0 0 auto;\n        width: auto;\n        max-width: 100%;\n    }\n\n    .col-sm-1 {\n        -ms-flex: 0 0 8.333333%;\n        flex: 0 0 8.333333%;\n        max-width: 8.333333%;\n    }\n\n    .col-sm-2 {\n        -ms-flex: 0 0 16.666667%;\n        flex: 0 0 16.666667%;\n        max-width: 16.666667%;\n    }\n\n    .col-sm-3 {\n        -ms-flex: 0 0 25%;\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n\n    .col-sm-4 {\n        -ms-flex: 0 0 33.333333%;\n        flex: 0 0 33.333333%;\n        max-width: 33.333333%;\n    }\n\n    .col-sm-5 {\n        -ms-flex: 0 0 41.666667%;\n        flex: 0 0 41.666667%;\n        max-width: 41.666667%;\n    }\n\n    .col-sm-6 {\n        -ms-flex: 0 0 50%;\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n\n    .col-sm-7 {\n        -ms-flex: 0 0 58.333333%;\n        flex: 0 0 58.333333%;\n        max-width: 58.333333%;\n    }\n\n    .col-sm-8 {\n        -ms-flex: 0 0 66.666667%;\n        flex: 0 0 66.666667%;\n        max-width: 66.666667%;\n    }\n\n    .col-sm-9 {\n        -ms-flex: 0 0 75%;\n        flex: 0 0 75%;\n        max-width: 75%;\n    }\n\n    .col-sm-10 {\n        -ms-flex: 0 0 83.333333%;\n        flex: 0 0 83.333333%;\n        max-width: 83.333333%;\n    }\n\n    .col-sm-11 {\n        -ms-flex: 0 0 91.666667%;\n        flex: 0 0 91.666667%;\n        max-width: 91.666667%;\n    }\n\n    .col-sm-12 {\n        -ms-flex: 0 0 100%;\n        flex: 0 0 100%;\n        max-width: 100%;\n    }\n\n    .order-sm-first {\n        -ms-flex-order: -1;\n        order: -1;\n    }\n\n    .order-sm-last {\n        -ms-flex-order: 13;\n        order: 13;\n    }\n\n    .order-sm-0 {\n        -ms-flex-order: 0;\n        order: 0;\n    }\n\n    .order-sm-1 {\n        -ms-flex-order: 1;\n        order: 1;\n    }\n\n    .order-sm-2 {\n        -ms-flex-order: 2;\n        order: 2;\n    }\n\n    .order-sm-3 {\n        -ms-flex-order: 3;\n        order: 3;\n    }\n\n    .order-sm-4 {\n        -ms-flex-order: 4;\n        order: 4;\n    }\n\n    .order-sm-5 {\n        -ms-flex-order: 5;\n        order: 5;\n    }\n\n    .order-sm-6 {\n        -ms-flex-order: 6;\n        order: 6;\n    }\n\n    .order-sm-7 {\n        -ms-flex-order: 7;\n        order: 7;\n    }\n\n    .order-sm-8 {\n        -ms-flex-order: 8;\n        order: 8;\n    }\n\n    .order-sm-9 {\n        -ms-flex-order: 9;\n        order: 9;\n    }\n\n    .order-sm-10 {\n        -ms-flex-order: 10;\n        order: 10;\n    }\n\n    .order-sm-11 {\n        -ms-flex-order: 11;\n        order: 11;\n    }\n\n    .order-sm-12 {\n        -ms-flex-order: 12;\n        order: 12;\n    }\n\n    .offset-sm-0 {\n        margin-left: 0;\n    }\n\n    .offset-sm-1 {\n        margin-left: 8.333333%;\n    }\n\n    .offset-sm-2 {\n        margin-left: 16.666667%;\n    }\n\n    .offset-sm-3 {\n        margin-left: 25%;\n    }\n\n    .offset-sm-4 {\n        margin-left: 33.333333%;\n    }\n\n    .offset-sm-5 {\n        margin-left: 41.666667%;\n    }\n\n    .offset-sm-6 {\n        margin-left: 50%;\n    }\n\n    .offset-sm-7 {\n        margin-left: 58.333333%;\n    }\n\n    .offset-sm-8 {\n        margin-left: 66.666667%;\n    }\n\n    .offset-sm-9 {\n        margin-left: 75%;\n    }\n\n    .offset-sm-10 {\n        margin-left: 83.333333%;\n    }\n\n    .offset-sm-11 {\n        margin-left: 91.666667%;\n    }\n}\n\n@media (min-width: 768px) {\n    .col-md {\n        -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n        -ms-flex-positive: 1;\n        flex-grow: 1;\n        max-width: 100%;\n    }\n\n    .row-cols-md-1 > * {\n        -ms-flex: 0 0 100%;\n        flex: 0 0 100%;\n        max-width: 100%;\n    }\n\n    .row-cols-md-2 > * {\n        -ms-flex: 0 0 50%;\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n\n    .row-cols-md-3 > * {\n        -ms-flex: 0 0 33.333333%;\n        flex: 0 0 33.333333%;\n        max-width: 33.333333%;\n    }\n\n    .row-cols-md-4 > * {\n        -ms-flex: 0 0 25%;\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n\n    .row-cols-md-5 > * {\n        -ms-flex: 0 0 20%;\n        flex: 0 0 20%;\n        max-width: 20%;\n    }\n\n    .row-cols-md-6 > * {\n        -ms-flex: 0 0 16.666667%;\n        flex: 0 0 16.666667%;\n        max-width: 16.666667%;\n    }\n\n    .col-md-auto {\n        -ms-flex: 0 0 auto;\n        flex: 0 0 auto;\n        width: auto;\n        max-width: 100%;\n    }\n\n    .col-md-1 {\n        -ms-flex: 0 0 8.333333%;\n        flex: 0 0 8.333333%;\n        max-width: 8.333333%;\n    }\n\n    .col-md-2 {\n        -ms-flex: 0 0 16.666667%;\n        flex: 0 0 16.666667%;\n        max-width: 16.666667%;\n    }\n\n    .col-md-3 {\n        -ms-flex: 0 0 25%;\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n\n    .col-md-4 {\n        -ms-flex: 0 0 33.333333%;\n        flex: 0 0 33.333333%;\n        max-width: 33.333333%;\n    }\n\n    .col-md-5 {\n        -ms-flex: 0 0 41.666667%;\n        flex: 0 0 41.666667%;\n        max-width: 41.666667%;\n    }\n\n    .col-md-6 {\n        -ms-flex: 0 0 50%;\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n\n    .col-md-7 {\n        -ms-flex: 0 0 58.333333%;\n        flex: 0 0 58.333333%;\n        max-width: 58.333333%;\n    }\n\n    .col-md-8 {\n        -ms-flex: 0 0 66.666667%;\n        flex: 0 0 66.666667%;\n        max-width: 66.666667%;\n    }\n\n    .col-md-9 {\n        -ms-flex: 0 0 75%;\n        flex: 0 0 75%;\n        max-width: 75%;\n    }\n\n    .col-md-10 {\n        -ms-flex: 0 0 83.333333%;\n        flex: 0 0 83.333333%;\n        max-width: 83.333333%;\n    }\n\n    .col-md-11 {\n        -ms-flex: 0 0 91.666667%;\n        flex: 0 0 91.666667%;\n        max-width: 91.666667%;\n    }\n\n    .col-md-12 {\n        -ms-flex: 0 0 100%;\n        flex: 0 0 100%;\n        max-width: 100%;\n    }\n\n    .order-md-first {\n        -ms-flex-order: -1;\n        order: -1;\n    }\n\n    .order-md-last {\n        -ms-flex-order: 13;\n        order: 13;\n    }\n\n    .order-md-0 {\n        -ms-flex-order: 0;\n        order: 0;\n    }\n\n    .order-md-1 {\n        -ms-flex-order: 1;\n        order: 1;\n    }\n\n    .order-md-2 {\n        -ms-flex-order: 2;\n        order: 2;\n    }\n\n    .order-md-3 {\n        -ms-flex-order: 3;\n        order: 3;\n    }\n\n    .order-md-4 {\n        -ms-flex-order: 4;\n        order: 4;\n    }\n\n    .order-md-5 {\n        -ms-flex-order: 5;\n        order: 5;\n    }\n\n    .order-md-6 {\n        -ms-flex-order: 6;\n        order: 6;\n    }\n\n    .order-md-7 {\n        -ms-flex-order: 7;\n        order: 7;\n    }\n\n    .order-md-8 {\n        -ms-flex-order: 8;\n        order: 8;\n    }\n\n    .order-md-9 {\n        -ms-flex-order: 9;\n        order: 9;\n    }\n\n    .order-md-10 {\n        -ms-flex-order: 10;\n        order: 10;\n    }\n\n    .order-md-11 {\n        -ms-flex-order: 11;\n        order: 11;\n    }\n\n    .order-md-12 {\n        -ms-flex-order: 12;\n        order: 12;\n    }\n\n    .offset-md-0 {\n        margin-left: 0;\n    }\n\n    .offset-md-1 {\n        margin-left: 8.333333%;\n    }\n\n    .offset-md-2 {\n        margin-left: 16.666667%;\n    }\n\n    .offset-md-3 {\n        margin-left: 25%;\n    }\n\n    .offset-md-4 {\n        margin-left: 33.333333%;\n    }\n\n    .offset-md-5 {\n        margin-left: 41.666667%;\n    }\n\n    .offset-md-6 {\n        margin-left: 50%;\n    }\n\n    .offset-md-7 {\n        margin-left: 58.333333%;\n    }\n\n    .offset-md-8 {\n        margin-left: 66.666667%;\n    }\n\n    .offset-md-9 {\n        margin-left: 75%;\n    }\n\n    .offset-md-10 {\n        margin-left: 83.333333%;\n    }\n\n    .offset-md-11 {\n        margin-left: 91.666667%;\n    }\n}\n\n@media (min-width: 992px) {\n    .col-lg {\n        -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n        -ms-flex-positive: 1;\n        flex-grow: 1;\n        max-width: 100%;\n    }\n\n    .row-cols-lg-1 > * {\n        -ms-flex: 0 0 100%;\n        flex: 0 0 100%;\n        max-width: 100%;\n    }\n\n    .row-cols-lg-2 > * {\n        -ms-flex: 0 0 50%;\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n\n    .row-cols-lg-3 > * {\n        -ms-flex: 0 0 33.333333%;\n        flex: 0 0 33.333333%;\n        max-width: 33.333333%;\n    }\n\n    .row-cols-lg-4 > * {\n        -ms-flex: 0 0 25%;\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n\n    .row-cols-lg-5 > * {\n        -ms-flex: 0 0 20%;\n        flex: 0 0 20%;\n        max-width: 20%;\n    }\n\n    .row-cols-lg-6 > * {\n        -ms-flex: 0 0 16.666667%;\n        flex: 0 0 16.666667%;\n        max-width: 16.666667%;\n    }\n\n    .col-lg-auto {\n        -ms-flex: 0 0 auto;\n        flex: 0 0 auto;\n        width: auto;\n        max-width: 100%;\n    }\n\n    .col-lg-1 {\n        -ms-flex: 0 0 8.333333%;\n        flex: 0 0 8.333333%;\n        max-width: 8.333333%;\n    }\n\n    .col-lg-2 {\n        -ms-flex: 0 0 16.666667%;\n        flex: 0 0 16.666667%;\n        max-width: 16.666667%;\n    }\n\n    .col-lg-3 {\n        -ms-flex: 0 0 25%;\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n\n    .col-lg-4 {\n        -ms-flex: 0 0 33.333333%;\n        flex: 0 0 33.333333%;\n        max-width: 33.333333%;\n    }\n\n    .col-lg-5 {\n        -ms-flex: 0 0 41.666667%;\n        flex: 0 0 41.666667%;\n        max-width: 41.666667%;\n    }\n\n    .col-lg-6 {\n        -ms-flex: 0 0 50%;\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n\n    .col-lg-7 {\n        -ms-flex: 0 0 58.333333%;\n        flex: 0 0 58.333333%;\n        max-width: 58.333333%;\n    }\n\n    .col-lg-8 {\n        -ms-flex: 0 0 66.666667%;\n        flex: 0 0 66.666667%;\n        max-width: 66.666667%;\n    }\n\n    .col-lg-9 {\n        -ms-flex: 0 0 75%;\n        flex: 0 0 75%;\n        max-width: 75%;\n    }\n\n    .col-lg-10 {\n        -ms-flex: 0 0 83.333333%;\n        flex: 0 0 83.333333%;\n        max-width: 83.333333%;\n    }\n\n    .col-lg-11 {\n        -ms-flex: 0 0 91.666667%;\n        flex: 0 0 91.666667%;\n        max-width: 91.666667%;\n    }\n\n    .col-lg-12 {\n        -ms-flex: 0 0 100%;\n        flex: 0 0 100%;\n        max-width: 100%;\n    }\n\n    .order-lg-first {\n        -ms-flex-order: -1;\n        order: -1;\n    }\n\n    .order-lg-last {\n        -ms-flex-order: 13;\n        order: 13;\n    }\n\n    .order-lg-0 {\n        -ms-flex-order: 0;\n        order: 0;\n    }\n\n    .order-lg-1 {\n        -ms-flex-order: 1;\n        order: 1;\n    }\n\n    .order-lg-2 {\n        -ms-flex-order: 2;\n        order: 2;\n    }\n\n    .order-lg-3 {\n        -ms-flex-order: 3;\n        order: 3;\n    }\n\n    .order-lg-4 {\n        -ms-flex-order: 4;\n        order: 4;\n    }\n\n    .order-lg-5 {\n        -ms-flex-order: 5;\n        order: 5;\n    }\n\n    .order-lg-6 {\n        -ms-flex-order: 6;\n        order: 6;\n    }\n\n    .order-lg-7 {\n        -ms-flex-order: 7;\n        order: 7;\n    }\n\n    .order-lg-8 {\n        -ms-flex-order: 8;\n        order: 8;\n    }\n\n    .order-lg-9 {\n        -ms-flex-order: 9;\n        order: 9;\n    }\n\n    .order-lg-10 {\n        -ms-flex-order: 10;\n        order: 10;\n    }\n\n    .order-lg-11 {\n        -ms-flex-order: 11;\n        order: 11;\n    }\n\n    .order-lg-12 {\n        -ms-flex-order: 12;\n        order: 12;\n    }\n\n    .offset-lg-0 {\n        margin-left: 0;\n    }\n\n    .offset-lg-1 {\n        margin-left: 8.333333%;\n    }\n\n    .offset-lg-2 {\n        margin-left: 16.666667%;\n    }\n\n    .offset-lg-3 {\n        margin-left: 25%;\n    }\n\n    .offset-lg-4 {\n        margin-left: 33.333333%;\n    }\n\n    .offset-lg-5 {\n        margin-left: 41.666667%;\n    }\n\n    .offset-lg-6 {\n        margin-left: 50%;\n    }\n\n    .offset-lg-7 {\n        margin-left: 58.333333%;\n    }\n\n    .offset-lg-8 {\n        margin-left: 66.666667%;\n    }\n\n    .offset-lg-9 {\n        margin-left: 75%;\n    }\n\n    .offset-lg-10 {\n        margin-left: 83.333333%;\n    }\n\n    .offset-lg-11 {\n        margin-left: 91.666667%;\n    }\n}\n\n@media (min-width: 1200px) {\n    .col-xl {\n        -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n        -ms-flex-positive: 1;\n        flex-grow: 1;\n        max-width: 100%;\n    }\n\n    .row-cols-xl-1 > * {\n        -ms-flex: 0 0 100%;\n        flex: 0 0 100%;\n        max-width: 100%;\n    }\n\n    .row-cols-xl-2 > * {\n        -ms-flex: 0 0 50%;\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n\n    .row-cols-xl-3 > * {\n        -ms-flex: 0 0 33.333333%;\n        flex: 0 0 33.333333%;\n        max-width: 33.333333%;\n    }\n\n    .row-cols-xl-4 > * {\n        -ms-flex: 0 0 25%;\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n\n    .row-cols-xl-5 > * {\n        -ms-flex: 0 0 20%;\n        flex: 0 0 20%;\n        max-width: 20%;\n    }\n\n    .row-cols-xl-6 > * {\n        -ms-flex: 0 0 16.666667%;\n        flex: 0 0 16.666667%;\n        max-width: 16.666667%;\n    }\n\n    .col-xl-auto {\n        -ms-flex: 0 0 auto;\n        flex: 0 0 auto;\n        width: auto;\n        max-width: 100%;\n    }\n\n    .col-xl-1 {\n        -ms-flex: 0 0 8.333333%;\n        flex: 0 0 8.333333%;\n        max-width: 8.333333%;\n    }\n\n    .col-xl-2 {\n        -ms-flex: 0 0 16.666667%;\n        flex: 0 0 16.666667%;\n        max-width: 16.666667%;\n    }\n\n    .col-xl-3 {\n        -ms-flex: 0 0 25%;\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n\n    .col-xl-4 {\n        -ms-flex: 0 0 33.333333%;\n        flex: 0 0 33.333333%;\n        max-width: 33.333333%;\n    }\n\n    .col-xl-5 {\n        -ms-flex: 0 0 41.666667%;\n        flex: 0 0 41.666667%;\n        max-width: 41.666667%;\n    }\n\n    .col-xl-6 {\n        -ms-flex: 0 0 50%;\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n\n    .col-xl-7 {\n        -ms-flex: 0 0 58.333333%;\n        flex: 0 0 58.333333%;\n        max-width: 58.333333%;\n    }\n\n    .col-xl-8 {\n        -ms-flex: 0 0 66.666667%;\n        flex: 0 0 66.666667%;\n        max-width: 66.666667%;\n    }\n\n    .col-xl-9 {\n        -ms-flex: 0 0 75%;\n        flex: 0 0 75%;\n        max-width: 75%;\n    }\n\n    .col-xl-10 {\n        -ms-flex: 0 0 83.333333%;\n        flex: 0 0 83.333333%;\n        max-width: 83.333333%;\n    }\n\n    .col-xl-11 {\n        -ms-flex: 0 0 91.666667%;\n        flex: 0 0 91.666667%;\n        max-width: 91.666667%;\n    }\n\n    .col-xl-12 {\n        -ms-flex: 0 0 100%;\n        flex: 0 0 100%;\n        max-width: 100%;\n    }\n\n    .order-xl-first {\n        -ms-flex-order: -1;\n        order: -1;\n    }\n\n    .order-xl-last {\n        -ms-flex-order: 13;\n        order: 13;\n    }\n\n    .order-xl-0 {\n        -ms-flex-order: 0;\n        order: 0;\n    }\n\n    .order-xl-1 {\n        -ms-flex-order: 1;\n        order: 1;\n    }\n\n    .order-xl-2 {\n        -ms-flex-order: 2;\n        order: 2;\n    }\n\n    .order-xl-3 {\n        -ms-flex-order: 3;\n        order: 3;\n    }\n\n    .order-xl-4 {\n        -ms-flex-order: 4;\n        order: 4;\n    }\n\n    .order-xl-5 {\n        -ms-flex-order: 5;\n        order: 5;\n    }\n\n    .order-xl-6 {\n        -ms-flex-order: 6;\n        order: 6;\n    }\n\n    .order-xl-7 {\n        -ms-flex-order: 7;\n        order: 7;\n    }\n\n    .order-xl-8 {\n        -ms-flex-order: 8;\n        order: 8;\n    }\n\n    .order-xl-9 {\n        -ms-flex-order: 9;\n        order: 9;\n    }\n\n    .order-xl-10 {\n        -ms-flex-order: 10;\n        order: 10;\n    }\n\n    .order-xl-11 {\n        -ms-flex-order: 11;\n        order: 11;\n    }\n\n    .order-xl-12 {\n        -ms-flex-order: 12;\n        order: 12;\n    }\n\n    .offset-xl-0 {\n        margin-left: 0;\n    }\n\n    .offset-xl-1 {\n        margin-left: 8.333333%;\n    }\n\n    .offset-xl-2 {\n        margin-left: 16.666667%;\n    }\n\n    .offset-xl-3 {\n        margin-left: 25%;\n    }\n\n    .offset-xl-4 {\n        margin-left: 33.333333%;\n    }\n\n    .offset-xl-5 {\n        margin-left: 41.666667%;\n    }\n\n    .offset-xl-6 {\n        margin-left: 50%;\n    }\n\n    .offset-xl-7 {\n        margin-left: 58.333333%;\n    }\n\n    .offset-xl-8 {\n        margin-left: 66.666667%;\n    }\n\n    .offset-xl-9 {\n        margin-left: 75%;\n    }\n\n    .offset-xl-10 {\n        margin-left: 83.333333%;\n    }\n\n    .offset-xl-11 {\n        margin-left: 91.666667%;\n    }\n}\n\n.table {\n    width: 100%;\n    margin-bottom: 1rem;\n    color: #212529;\n}\n\n    .table th,\n    .table td {\n        padding: 0.75rem;\n        vertical-align: top;\n        border-top: 1px solid #dee2e6;\n    }\n\n    .table thead th {\n        vertical-align: bottom;\n        border-bottom: 2px solid #dee2e6;\n    }\n\n    .table tbody + tbody {\n        border-top: 2px solid #dee2e6;\n    }\n\n.table-sm th,\n.table-sm td {\n    padding: 0.3rem;\n}\n\n.table-bordered {\n    border: 1px solid #dee2e6;\n}\n\n    .table-bordered th,\n    .table-bordered td {\n        border: 1px solid #dee2e6;\n    }\n\n    .table-bordered thead th,\n    .table-bordered thead td {\n        border-bottom-width: 2px;\n    }\n\n.table-borderless th,\n.table-borderless td,\n.table-borderless thead th,\n.table-borderless tbody + tbody {\n    border: 0;\n}\n\n.table-striped tbody tr:nth-of-type(odd) {\n    background-color: rgba(0, 0, 0, 0.05);\n}\n\n.table-hover tbody tr:hover {\n    color: #212529;\n    background-color: rgba(0, 0, 0, 0.075);\n}\n\n.table-primary,\n.table-primary > th,\n.table-primary > td {\n    background-color: #b8daff;\n}\n\n    .table-primary th,\n    .table-primary td,\n    .table-primary thead th,\n    .table-primary tbody + tbody {\n        border-color: #7abaff;\n    }\n\n.table-hover .table-primary:hover {\n    background-color: #9fcdff;\n}\n\n    .table-hover .table-primary:hover > td,\n    .table-hover .table-primary:hover > th {\n        background-color: #9fcdff;\n    }\n\n.table-secondary,\n.table-secondary > th,\n.table-secondary > td {\n    background-color: #d6d8db;\n}\n\n    .table-secondary th,\n    .table-secondary td,\n    .table-secondary thead th,\n    .table-secondary tbody + tbody {\n        border-color: #b3b7bb;\n    }\n\n.table-hover .table-secondary:hover {\n    background-color: #c8cbcf;\n}\n\n    .table-hover .table-secondary:hover > td,\n    .table-hover .table-secondary:hover > th {\n        background-color: #c8cbcf;\n    }\n\n.table-success,\n.table-success > th,\n.table-success > td {\n    background-color: #c3e6cb;\n}\n\n    .table-success th,\n    .table-success td,\n    .table-success thead th,\n    .table-success tbody + tbody {\n        border-color: #8fd19e;\n    }\n\n.table-hover .table-success:hover {\n    background-color: #b1dfbb;\n}\n\n    .table-hover .table-success:hover > td,\n    .table-hover .table-success:hover > th {\n        background-color: #b1dfbb;\n    }\n\n.table-info,\n.table-info > th,\n.table-info > td {\n    background-color: #bee5eb;\n}\n\n    .table-info th,\n    .table-info td,\n    .table-info thead th,\n    .table-info tbody + tbody {\n        border-color: #86cfda;\n    }\n\n.table-hover .table-info:hover {\n    background-color: #abdde5;\n}\n\n    .table-hover .table-info:hover > td,\n    .table-hover .table-info:hover > th {\n        background-color: #abdde5;\n    }\n\n.table-warning,\n.table-warning > th,\n.table-warning > td {\n    background-color: #ffeeba;\n}\n\n    .table-warning th,\n    .table-warning td,\n    .table-warning thead th,\n    .table-warning tbody + tbody {\n        border-color: #ffdf7e;\n    }\n\n.table-hover .table-warning:hover {\n    background-color: #ffe8a1;\n}\n\n    .table-hover .table-warning:hover > td,\n    .table-hover .table-warning:hover > th {\n        background-color: #ffe8a1;\n    }\n\n.table-danger,\n.table-danger > th,\n.table-danger > td {\n    background-color: #f5c6cb;\n}\n\n    .table-danger th,\n    .table-danger td,\n    .table-danger thead th,\n    .table-danger tbody + tbody {\n        border-color: #ed969e;\n    }\n\n.table-hover .table-danger:hover {\n    background-color: #f1b0b7;\n}\n\n    .table-hover .table-danger:hover > td,\n    .table-hover .table-danger:hover > th {\n        background-color: #f1b0b7;\n    }\n\n.table-light,\n.table-light > th,\n.table-light > td {\n    background-color: #fdfdfe;\n}\n\n    .table-light th,\n    .table-light td,\n    .table-light thead th,\n    .table-light tbody + tbody {\n        border-color: #fbfcfc;\n    }\n\n.table-hover .table-light:hover {\n    background-color: #ececf6;\n}\n\n    .table-hover .table-light:hover > td,\n    .table-hover .table-light:hover > th {\n        background-color: #ececf6;\n    }\n\n.table-dark,\n.table-dark > th,\n.table-dark > td {\n    background-color: #c6c8ca;\n}\n\n    .table-dark th,\n    .table-dark td,\n    .table-dark thead th,\n    .table-dark tbody + tbody {\n        border-color: #95999c;\n    }\n\n.table-hover .table-dark:hover {\n    background-color: #b9bbbe;\n}\n\n    .table-hover .table-dark:hover > td,\n    .table-hover .table-dark:hover > th {\n        background-color: #b9bbbe;\n    }\n\n.table-active,\n.table-active > th,\n.table-active > td {\n    background-color: rgba(0, 0, 0, 0.075);\n}\n\n.table-hover .table-active:hover {\n    background-color: rgba(0, 0, 0, 0.075);\n}\n\n    .table-hover .table-active:hover > td,\n    .table-hover .table-active:hover > th {\n        background-color: rgba(0, 0, 0, 0.075);\n    }\n\n.table .thead-dark th {\n    color: #fff;\n    background-color: #343a40;\n    border-color: #454d55;\n}\n\n.table .thead-light th {\n    color: #495057;\n    background-color: #e9ecef;\n    border-color: #dee2e6;\n}\n\n.table-dark {\n    color: #fff;\n    background-color: #343a40;\n}\n\n    .table-dark th,\n    .table-dark td,\n    .table-dark thead th {\n        border-color: #454d55;\n    }\n\n    .table-dark.table-bordered {\n        border: 0;\n    }\n\n    .table-dark.table-striped tbody tr:nth-of-type(odd) {\n        background-color: rgba(255, 255, 255, 0.05);\n    }\n\n    .table-dark.table-hover tbody tr:hover {\n        color: #fff;\n        background-color: rgba(255, 255, 255, 0.075);\n    }\n\n@media (max-width: 575.98px) {\n    .table-responsive-sm {\n        display: block;\n        width: 100%;\n        overflow-x: auto;\n        -webkit-overflow-scrolling: touch;\n    }\n\n        .table-responsive-sm > .table-bordered {\n            border: 0;\n        }\n}\n\n@media (max-width: 767.98px) {\n    .table-responsive-md {\n        display: block;\n        width: 100%;\n        overflow-x: auto;\n        -webkit-overflow-scrolling: touch;\n    }\n\n        .table-responsive-md > .table-bordered {\n            border: 0;\n        }\n}\n\n@media (max-width: 991.98px) {\n    .table-responsive-lg {\n        display: block;\n        width: 100%;\n        overflow-x: auto;\n        -webkit-overflow-scrolling: touch;\n    }\n\n        .table-responsive-lg > .table-bordered {\n            border: 0;\n        }\n}\n\n@media (max-width: 1199.98px) {\n    .table-responsive-xl {\n        display: block;\n        width: 100%;\n        overflow-x: auto;\n        -webkit-overflow-scrolling: touch;\n    }\n\n        .table-responsive-xl > .table-bordered {\n            border: 0;\n        }\n}\n\n.table-responsive {\n    display: block;\n    width: 100%;\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n}\n\n    .table-responsive > .table-bordered {\n        border: 0;\n    }\n\n.form-control {\n    display: block;\n    width: 100%;\n    /*height: calc(1.5em + 0.75rem + 2px);*/\n    padding: 0.375rem 0.75rem;\n    font-size: 1rem;\n    font-weight: 400;\n    line-height: 1.5;\n    color: #495057;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid #ced4da;\n    border-radius: 0.25rem;\n    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .form-control {\n        transition: none;\n    }\n}\n\n.form-control::-ms-expand {\n    background-color: transparent;\n    border: 0;\n}\n\n.form-control:-moz-focusring {\n    color: transparent;\n    text-shadow: 0 0 0 #495057;\n}\n\n.form-control:focus {\n    color: #495057;\n    background-color: #fff;\n    border-color: #80bdff;\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n}\n\n.form-control::-webkit-input-placeholder {\n    color: #6c757d;\n    opacity: 1;\n}\n\n.form-control::-moz-placeholder {\n    color: #6c757d;\n    opacity: 1;\n}\n\n.form-control:-ms-input-placeholder {\n    color: #6c757d;\n    opacity: 1;\n}\n\n.form-control::-ms-input-placeholder {\n    color: #6c757d;\n    opacity: 1;\n}\n\n.form-control::placeholder {\n    color: #6c757d;\n    opacity: 1;\n}\n\n.form-control:disabled, .form-control[readonly] {\n    background-color: #e9ecef;\n    opacity: 1;\n}\n\nselect.form-control:focus::-ms-value {\n    color: #495057;\n    background-color: #fff;\n}\n\n.form-control-file,\n.form-control-range {\n    display: block;\n    width: 100%;\n}\n\n.col-form-label {\n    padding-top: calc(0.375rem + 1px);\n    padding-bottom: calc(0.375rem + 1px);\n    margin-bottom: 0;\n    font-size: inherit;\n    line-height: 1.5;\n}\n\n.col-form-label-lg {\n    padding-top: calc(0.5rem + 1px);\n    padding-bottom: calc(0.5rem + 1px);\n    font-size: 1.25rem;\n    line-height: 1.5;\n}\n\n.col-form-label-sm {\n    padding-top: calc(0.25rem + 1px);\n    padding-bottom: calc(0.25rem + 1px);\n    font-size: 0.875rem;\n    line-height: 1.5;\n}\n\n.form-control-plaintext {\n    display: block;\n    width: 100%;\n    padding: 0.375rem 0;\n    margin-bottom: 0;\n    font-size: 1rem;\n    line-height: 1.5;\n    color: #212529;\n    background-color: transparent;\n    border: solid transparent;\n    border-width: 1px 0;\n}\n\n    .form-control-plaintext.form-control-sm, .form-control-plaintext.form-control-lg {\n        padding-right: 0;\n        padding-left: 0;\n    }\n\n.form-control-sm {\n    height: calc(1.5em + 0.5rem + 2px);\n    padding: 0.25rem 0.5rem;\n    font-size: 0.875rem;\n    line-height: 1.5;\n    border-radius: 0.2rem;\n}\n\n.form-control-lg {\n    height: calc(1.5em + 1rem + 2px);\n    padding: 0.5rem 1rem;\n    font-size: 1.25rem;\n    line-height: 1.5;\n    border-radius: 0.3rem;\n}\n\nselect.form-control[size], select.form-control[multiple] {\n    height: auto;\n}\n\ntextarea.form-control {\n    height: auto;\n}\n\n.form-group {\n    margin-bottom: 1rem;\n}\n\n.form-text {\n    display: block;\n    margin-top: 0.25rem;\n}\n\n.form-row {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n    margin-right: -5px;\n    margin-left: -5px;\n}\n\n    .form-row > .col,\n    .form-row > [class*=\"col-\"] {\n        padding-right: 5px;\n        padding-left: 5px;\n    }\n\n.form-check {\n    position: relative;\n    display: block;\n    padding-left: 1.25rem;\n}\n\n.form-check-input {\n    position: absolute;\n    margin-top: 0.3rem;\n    margin-left: -1.25rem;\n}\n\n    .form-check-input[disabled] ~ .form-check-label,\n    .form-check-input:disabled ~ .form-check-label {\n        color: #6c757d;\n    }\n\n.form-check-label {\n    margin-bottom: 0;\n}\n\n.form-check-inline {\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n    -ms-flex-align: center;\n    align-items: center;\n    padding-left: 0;\n    margin-right: 0.75rem;\n}\n\n    .form-check-inline .form-check-input {\n        position: static;\n        margin-top: 0;\n        margin-right: 0.3125rem;\n        margin-left: 0;\n    }\n\n.valid-feedback {\n    display: none;\n    width: 100%;\n    margin-top: 0.25rem;\n    font-size: 80%;\n    color: #28a745;\n}\n\n.valid-tooltip {\n    position: absolute;\n    top: 100%;\n    z-index: 5;\n    display: none;\n    max-width: 100%;\n    padding: 0.25rem 0.5rem;\n    margin-top: .1rem;\n    font-size: 0.875rem;\n    line-height: 1.5;\n    color: #fff;\n    background-color: rgba(40, 167, 69, 0.9);\n    border-radius: 0.25rem;\n}\n\n.was-validated :valid ~ .valid-feedback,\n.was-validated :valid ~ .valid-tooltip,\n.is-valid ~ .valid-feedback,\n.is-valid ~ .valid-tooltip {\n    display: block;\n}\n\n.was-validated .form-control:valid, .form-control.is-valid {\n    border-color: #28a745;\n    padding-right: calc(1.5em + 0.75rem);\n    background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e\");\n    background-repeat: no-repeat;\n    background-position: right calc(0.375em + 0.1875rem) center;\n    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);\n}\n\n    .was-validated .form-control:valid:focus, .form-control.is-valid:focus {\n        border-color: #28a745;\n        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);\n    }\n\n.was-validated textarea.form-control:valid, textarea.form-control.is-valid {\n    padding-right: calc(1.5em + 0.75rem);\n    background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);\n}\n\n.was-validated .custom-select:valid, .custom-select.is-valid {\n    border-color: #28a745;\n    padding-right: calc(0.75em + 2.3125rem);\n    background: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e\") no-repeat right 0.75rem center/8px 10px, url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e\") #fff no-repeat center right 1.75rem/calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);\n}\n\n    .was-validated .custom-select:valid:focus, .custom-select.is-valid:focus {\n        border-color: #28a745;\n        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);\n    }\n\n.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {\n    color: #28a745;\n}\n\n.was-validated .form-check-input:valid ~ .valid-feedback,\n.was-validated .form-check-input:valid ~ .valid-tooltip, .form-check-input.is-valid ~ .valid-feedback,\n.form-check-input.is-valid ~ .valid-tooltip {\n    display: block;\n}\n\n.was-validated .custom-control-input:valid ~ .custom-control-label, .custom-control-input.is-valid ~ .custom-control-label {\n    color: #28a745;\n}\n\n    .was-validated .custom-control-input:valid ~ .custom-control-label::before, .custom-control-input.is-valid ~ .custom-control-label::before {\n        border-color: #28a745;\n    }\n\n.was-validated .custom-control-input:valid:checked ~ .custom-control-label::before, .custom-control-input.is-valid:checked ~ .custom-control-label::before {\n    border-color: #34ce57;\n    background-color: #34ce57;\n}\n\n.was-validated .custom-control-input:valid:focus ~ .custom-control-label::before, .custom-control-input.is-valid:focus ~ .custom-control-label::before {\n    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);\n}\n\n.was-validated .custom-control-input:valid:focus:not(:checked) ~ .custom-control-label::before, .custom-control-input.is-valid:focus:not(:checked) ~ .custom-control-label::before {\n    border-color: #28a745;\n}\n\n.was-validated .custom-file-input:valid ~ .custom-file-label, .custom-file-input.is-valid ~ .custom-file-label {\n    border-color: #28a745;\n}\n\n.was-validated .custom-file-input:valid:focus ~ .custom-file-label, .custom-file-input.is-valid:focus ~ .custom-file-label {\n    border-color: #28a745;\n    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);\n}\n\n.invalid-feedback {\n    display: none;\n    width: 100%;\n    margin-top: 0.25rem;\n    font-size: 80%;\n    color: #dc3545;\n}\n\n.invalid-tooltip {\n    position: absolute;\n    top: 100%;\n    z-index: 5;\n    display: none;\n    max-width: 100%;\n    padding: 0.25rem 0.5rem;\n    margin-top: .1rem;\n    font-size: 0.875rem;\n    line-height: 1.5;\n    color: #fff;\n    background-color: rgba(220, 53, 69, 0.9);\n    border-radius: 0.25rem;\n}\n\n.was-validated :invalid ~ .invalid-feedback,\n.was-validated :invalid ~ .invalid-tooltip,\n.is-invalid ~ .invalid-feedback,\n.is-invalid ~ .invalid-tooltip {\n    display: block;\n}\n\n.was-validated .form-control:invalid, .form-control.is-invalid {\n    border-color: #dc3545;\n    padding-right: calc(1.5em + 0.75rem);\n    background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e\");\n    background-repeat: no-repeat;\n    background-position: right calc(0.375em + 0.1875rem) center;\n    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);\n}\n\n    .was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {\n        border-color: #dc3545;\n        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);\n    }\n\n.was-validated textarea.form-control:invalid, textarea.form-control.is-invalid {\n    padding-right: calc(1.5em + 0.75rem);\n    background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);\n}\n\n.was-validated .custom-select:invalid, .custom-select.is-invalid {\n    border-color: #dc3545;\n    padding-right: calc(0.75em + 2.3125rem);\n    background: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e\") no-repeat right 0.75rem center/8px 10px, url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e\") #fff no-repeat center right 1.75rem/calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);\n}\n\n    .was-validated .custom-select:invalid:focus, .custom-select.is-invalid:focus {\n        border-color: #dc3545;\n        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);\n    }\n\n.was-validated .form-check-input:invalid ~ .form-check-label, .form-check-input.is-invalid ~ .form-check-label {\n    color: #dc3545;\n}\n\n.was-validated .form-check-input:invalid ~ .invalid-feedback,\n.was-validated .form-check-input:invalid ~ .invalid-tooltip, .form-check-input.is-invalid ~ .invalid-feedback,\n.form-check-input.is-invalid ~ .invalid-tooltip {\n    display: block;\n}\n\n.was-validated .custom-control-input:invalid ~ .custom-control-label, .custom-control-input.is-invalid ~ .custom-control-label {\n    color: #dc3545;\n}\n\n    .was-validated .custom-control-input:invalid ~ .custom-control-label::before, .custom-control-input.is-invalid ~ .custom-control-label::before {\n        border-color: #dc3545;\n    }\n\n.was-validated .custom-control-input:invalid:checked ~ .custom-control-label::before, .custom-control-input.is-invalid:checked ~ .custom-control-label::before {\n    border-color: #e4606d;\n    background-color: #e4606d;\n}\n\n.was-validated .custom-control-input:invalid:focus ~ .custom-control-label::before, .custom-control-input.is-invalid:focus ~ .custom-control-label::before {\n    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);\n}\n\n.was-validated .custom-control-input:invalid:focus:not(:checked) ~ .custom-control-label::before, .custom-control-input.is-invalid:focus:not(:checked) ~ .custom-control-label::before {\n    border-color: #dc3545;\n}\n\n.was-validated .custom-file-input:invalid ~ .custom-file-label, .custom-file-input.is-invalid ~ .custom-file-label {\n    border-color: #dc3545;\n}\n\n.was-validated .custom-file-input:invalid:focus ~ .custom-file-label, .custom-file-input.is-invalid:focus ~ .custom-file-label {\n    border-color: #dc3545;\n    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);\n}\n\n.form-inline {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-flow: row wrap;\n    flex-flow: row wrap;\n    -ms-flex-align: center;\n    align-items: center;\n}\n\n    .form-inline .form-check {\n        width: 100%;\n    }\n\n@media (min-width: 576px) {\n    .form-inline label {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-align: center;\n        align-items: center;\n        -ms-flex-pack: center;\n        justify-content: center;\n        margin-bottom: 0;\n    }\n\n    .form-inline .form-group {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex: 0 0 auto;\n        flex: 0 0 auto;\n        -ms-flex-flow: row wrap;\n        flex-flow: row wrap;\n        -ms-flex-align: center;\n        align-items: center;\n        margin-bottom: 0;\n    }\n\n    .form-inline .form-control {\n        display: inline-block;\n        width: auto;\n        vertical-align: middle;\n    }\n\n    .form-inline .form-control-plaintext {\n        display: inline-block;\n    }\n\n    .form-inline .input-group,\n    .form-inline .custom-select {\n        width: auto;\n    }\n\n    .form-inline .form-check {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-align: center;\n        align-items: center;\n        -ms-flex-pack: center;\n        justify-content: center;\n        width: auto;\n        padding-left: 0;\n    }\n\n    .form-inline .form-check-input {\n        position: relative;\n        -ms-flex-negative: 0;\n        flex-shrink: 0;\n        margin-top: 0;\n        margin-right: 0.25rem;\n        margin-left: 0;\n    }\n\n    .form-inline .custom-control {\n        -ms-flex-align: center;\n        align-items: center;\n        -ms-flex-pack: center;\n        justify-content: center;\n    }\n\n    .form-inline .custom-control-label {\n        margin-bottom: 0;\n    }\n}\n\n.btn {\n    display: inline-block;\n    font-weight: 400;\n    color: #212529;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none;\n    background-color: transparent;\n    border: 1px solid transparent;\n    padding: 0.375rem 0.75rem;\n    font-size: 1rem;\n    line-height: 1.5;\n    border-radius: 0.25rem;\n    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .btn {\n        transition: none;\n    }\n}\n\n.btn:hover {\n    color: #212529;\n    text-decoration: none;\n}\n\n.btn:focus, .btn.focus {\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n}\n\n.btn.disabled, .btn:disabled {\n    opacity: 0.65;\n}\n\na.btn.disabled,\nfieldset:disabled a.btn {\n    pointer-events: none;\n}\n\n.btn-primary {\n    color: #fff;\n    background-color: #007bff;\n    border-color: #007bff;\n}\n\n    .btn-primary:hover {\n        color: #fff;\n        background-color: #0069d9;\n        border-color: #0062cc;\n    }\n\n    .btn-primary:focus, .btn-primary.focus {\n        color: #fff;\n        background-color: #0069d9;\n        border-color: #0062cc;\n        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);\n    }\n\n    .btn-primary.disabled, .btn-primary:disabled {\n        color: #fff;\n        background-color: #007bff;\n        border-color: #007bff;\n    }\n\n    .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,\n    .show > .btn-primary.dropdown-toggle {\n        color: #fff;\n        background-color: #0062cc;\n        border-color: #005cbf;\n    }\n\n        .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-primary.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);\n        }\n\n.btn-secondary {\n    color: #fff;\n    background-color: #6c757d;\n    border-color: #6c757d;\n}\n\n    .btn-secondary:hover {\n        color: #fff;\n        background-color: #5a6268;\n        border-color: #545b62;\n    }\n\n    .btn-secondary:focus, .btn-secondary.focus {\n        color: #fff;\n        background-color: #5a6268;\n        border-color: #545b62;\n        box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);\n    }\n\n    .btn-secondary.disabled, .btn-secondary:disabled {\n        color: #fff;\n        background-color: #6c757d;\n        border-color: #6c757d;\n    }\n\n    .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active,\n    .show > .btn-secondary.dropdown-toggle {\n        color: #fff;\n        background-color: #545b62;\n        border-color: #4e555b;\n    }\n\n        .btn-secondary:not(:disabled):not(.disabled):active:focus, .btn-secondary:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-secondary.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);\n        }\n\n.btn-success {\n    color: #fff;\n    background-color: #28a745;\n    border-color: #28a745;\n}\n\n    .btn-success:hover {\n        color: #fff;\n        background-color: #218838;\n        border-color: #1e7e34;\n    }\n\n    .btn-success:focus, .btn-success.focus {\n        color: #fff;\n        background-color: #218838;\n        border-color: #1e7e34;\n        box-shadow: 0 0 0 0.2rem rgba(72, 180, 97, 0.5);\n    }\n\n    .btn-success.disabled, .btn-success:disabled {\n        color: #fff;\n        background-color: #28a745;\n        border-color: #28a745;\n    }\n\n    .btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active,\n    .show > .btn-success.dropdown-toggle {\n        color: #fff;\n        background-color: #1e7e34;\n        border-color: #1c7430;\n    }\n\n        .btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-success.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(72, 180, 97, 0.5);\n        }\n\n.btn-info {\n    color: #fff;\n    background-color: #17a2b8;\n    border-color: #17a2b8;\n}\n\n    .btn-info:hover {\n        color: #fff;\n        background-color: #138496;\n        border-color: #117a8b;\n    }\n\n    .btn-info:focus, .btn-info.focus {\n        color: #fff;\n        background-color: #138496;\n        border-color: #117a8b;\n        box-shadow: 0 0 0 0.2rem rgba(58, 176, 195, 0.5);\n    }\n\n    .btn-info.disabled, .btn-info:disabled {\n        color: #fff;\n        background-color: #17a2b8;\n        border-color: #17a2b8;\n    }\n\n    .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active,\n    .show > .btn-info.dropdown-toggle {\n        color: #fff;\n        background-color: #117a8b;\n        border-color: #10707f;\n    }\n\n        .btn-info:not(:disabled):not(.disabled):active:focus, .btn-info:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-info.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(58, 176, 195, 0.5);\n        }\n\n.btn-warning {\n    color: #212529;\n    background-color: #ffc107;\n    border-color: #ffc107;\n}\n\n    .btn-warning:hover {\n        color: #212529;\n        background-color: #e0a800;\n        border-color: #d39e00;\n    }\n\n    .btn-warning:focus, .btn-warning.focus {\n        color: #212529;\n        background-color: #e0a800;\n        border-color: #d39e00;\n        box-shadow: 0 0 0 0.2rem rgba(222, 170, 12, 0.5);\n    }\n\n    .btn-warning.disabled, .btn-warning:disabled {\n        color: #212529;\n        background-color: #ffc107;\n        border-color: #ffc107;\n    }\n\n    .btn-warning:not(:disabled):not(.disabled):active, .btn-warning:not(:disabled):not(.disabled).active,\n    .show > .btn-warning.dropdown-toggle {\n        color: #212529;\n        background-color: #d39e00;\n        border-color: #c69500;\n    }\n\n        .btn-warning:not(:disabled):not(.disabled):active:focus, .btn-warning:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-warning.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(222, 170, 12, 0.5);\n        }\n\n.btn-danger {\n    color: #fff;\n    background-color: #dc3545;\n    border-color: #dc3545;\n}\n\n    .btn-danger:hover {\n        color: #fff;\n        background-color: #c82333;\n        border-color: #bd2130;\n    }\n\n    .btn-danger:focus, .btn-danger.focus {\n        color: #fff;\n        background-color: #c82333;\n        border-color: #bd2130;\n        box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);\n    }\n\n    .btn-danger.disabled, .btn-danger:disabled {\n        color: #fff;\n        background-color: #dc3545;\n        border-color: #dc3545;\n    }\n\n    .btn-danger:not(:disabled):not(.disabled):active, .btn-danger:not(:disabled):not(.disabled).active,\n    .show > .btn-danger.dropdown-toggle {\n        color: #fff;\n        background-color: #bd2130;\n        border-color: #b21f2d;\n    }\n\n        .btn-danger:not(:disabled):not(.disabled):active:focus, .btn-danger:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-danger.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);\n        }\n\n.btn-light {\n    color: #212529;\n    background-color: #f8f9fa;\n    border-color: #f8f9fa;\n}\n\n    .btn-light:hover {\n        color: #212529;\n        background-color: #e2e6ea;\n        border-color: #dae0e5;\n    }\n\n    .btn-light:focus, .btn-light.focus {\n        color: #212529;\n        background-color: #e2e6ea;\n        border-color: #dae0e5;\n        box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);\n    }\n\n    .btn-light.disabled, .btn-light:disabled {\n        color: #212529;\n        background-color: #f8f9fa;\n        border-color: #f8f9fa;\n    }\n\n    .btn-light:not(:disabled):not(.disabled):active, .btn-light:not(:disabled):not(.disabled).active,\n    .show > .btn-light.dropdown-toggle {\n        color: #212529;\n        background-color: #dae0e5;\n        border-color: #d3d9df;\n    }\n\n        .btn-light:not(:disabled):not(.disabled):active:focus, .btn-light:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-light.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);\n        }\n\n.btn-dark {\n    color: #fff;\n    background-color: #343a40;\n    border-color: #343a40;\n}\n\n    .btn-dark:hover {\n        color: #fff;\n        background-color: #23272b;\n        border-color: #1d2124;\n    }\n\n    .btn-dark:focus, .btn-dark.focus {\n        color: #fff;\n        background-color: #23272b;\n        border-color: #1d2124;\n        box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);\n    }\n\n    .btn-dark.disabled, .btn-dark:disabled {\n        color: #fff;\n        background-color: #343a40;\n        border-color: #343a40;\n    }\n\n    .btn-dark:not(:disabled):not(.disabled):active, .btn-dark:not(:disabled):not(.disabled).active,\n    .show > .btn-dark.dropdown-toggle {\n        color: #fff;\n        background-color: #1d2124;\n        border-color: #171a1d;\n    }\n\n        .btn-dark:not(:disabled):not(.disabled):active:focus, .btn-dark:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-dark.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);\n        }\n\n.btn-outline-primary {\n    color: #007bff;\n    border-color: #007bff;\n}\n\n    .btn-outline-primary:hover {\n        color: #fff;\n        background-color: #007bff;\n        border-color: #007bff;\n    }\n\n    .btn-outline-primary:focus, .btn-outline-primary.focus {\n        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);\n    }\n\n    .btn-outline-primary.disabled, .btn-outline-primary:disabled {\n        color: #007bff;\n        background-color: transparent;\n    }\n\n    .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active,\n    .show > .btn-outline-primary.dropdown-toggle {\n        color: #fff;\n        background-color: #007bff;\n        border-color: #007bff;\n    }\n\n        .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-outline-primary.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);\n        }\n\n.btn-outline-secondary {\n    color: #6c757d;\n    border-color: #6c757d;\n}\n\n    .btn-outline-secondary:hover {\n        color: #fff;\n        background-color: #6c757d;\n        border-color: #6c757d;\n    }\n\n    .btn-outline-secondary:focus, .btn-outline-secondary.focus {\n        box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);\n    }\n\n    .btn-outline-secondary.disabled, .btn-outline-secondary:disabled {\n        color: #6c757d;\n        background-color: transparent;\n    }\n\n    .btn-outline-secondary:not(:disabled):not(.disabled):active, .btn-outline-secondary:not(:disabled):not(.disabled).active,\n    .show > .btn-outline-secondary.dropdown-toggle {\n        color: #fff;\n        background-color: #6c757d;\n        border-color: #6c757d;\n    }\n\n        .btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-outline-secondary.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);\n        }\n\n.btn-outline-success {\n    color: #28a745;\n    border-color: #28a745;\n}\n\n    .btn-outline-success:hover {\n        color: #fff;\n        background-color: #28a745;\n        border-color: #28a745;\n    }\n\n    .btn-outline-success:focus, .btn-outline-success.focus {\n        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);\n    }\n\n    .btn-outline-success.disabled, .btn-outline-success:disabled {\n        color: #28a745;\n        background-color: transparent;\n    }\n\n    .btn-outline-success:not(:disabled):not(.disabled):active, .btn-outline-success:not(:disabled):not(.disabled).active,\n    .show > .btn-outline-success.dropdown-toggle {\n        color: #fff;\n        background-color: #28a745;\n        border-color: #28a745;\n    }\n\n        .btn-outline-success:not(:disabled):not(.disabled):active:focus, .btn-outline-success:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-outline-success.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);\n        }\n\n.btn-outline-info {\n    color: #17a2b8;\n    border-color: #17a2b8;\n}\n\n    .btn-outline-info:hover {\n        color: #fff;\n        background-color: #17a2b8;\n        border-color: #17a2b8;\n    }\n\n    .btn-outline-info:focus, .btn-outline-info.focus {\n        box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);\n    }\n\n    .btn-outline-info.disabled, .btn-outline-info:disabled {\n        color: #17a2b8;\n        background-color: transparent;\n    }\n\n    .btn-outline-info:not(:disabled):not(.disabled):active, .btn-outline-info:not(:disabled):not(.disabled).active,\n    .show > .btn-outline-info.dropdown-toggle {\n        color: #fff;\n        background-color: #17a2b8;\n        border-color: #17a2b8;\n    }\n\n        .btn-outline-info:not(:disabled):not(.disabled):active:focus, .btn-outline-info:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-outline-info.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);\n        }\n\n.btn-outline-warning {\n    color: #ffc107;\n    border-color: #ffc107;\n}\n\n    .btn-outline-warning:hover {\n        color: #212529;\n        background-color: #ffc107;\n        border-color: #ffc107;\n    }\n\n    .btn-outline-warning:focus, .btn-outline-warning.focus {\n        box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);\n    }\n\n    .btn-outline-warning.disabled, .btn-outline-warning:disabled {\n        color: #ffc107;\n        background-color: transparent;\n    }\n\n    .btn-outline-warning:not(:disabled):not(.disabled):active, .btn-outline-warning:not(:disabled):not(.disabled).active,\n    .show > .btn-outline-warning.dropdown-toggle {\n        color: #212529;\n        background-color: #ffc107;\n        border-color: #ffc107;\n    }\n\n        .btn-outline-warning:not(:disabled):not(.disabled):active:focus, .btn-outline-warning:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-outline-warning.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);\n        }\n\n.btn-outline-danger {\n    color: #dc3545;\n    border-color: #dc3545;\n}\n\n    .btn-outline-danger:hover {\n        color: #fff;\n        background-color: #dc3545;\n        border-color: #dc3545;\n    }\n\n    .btn-outline-danger:focus, .btn-outline-danger.focus {\n        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);\n    }\n\n    .btn-outline-danger.disabled, .btn-outline-danger:disabled {\n        color: #dc3545;\n        background-color: transparent;\n    }\n\n    .btn-outline-danger:not(:disabled):not(.disabled):active, .btn-outline-danger:not(:disabled):not(.disabled).active,\n    .show > .btn-outline-danger.dropdown-toggle {\n        color: #fff;\n        background-color: #dc3545;\n        border-color: #dc3545;\n    }\n\n        .btn-outline-danger:not(:disabled):not(.disabled):active:focus, .btn-outline-danger:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-outline-danger.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);\n        }\n\n.btn-outline-light {\n    color: #f8f9fa;\n    border-color: #f8f9fa;\n}\n\n    .btn-outline-light:hover {\n        color: #212529;\n        background-color: #f8f9fa;\n        border-color: #f8f9fa;\n    }\n\n    .btn-outline-light:focus, .btn-outline-light.focus {\n        box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);\n    }\n\n    .btn-outline-light.disabled, .btn-outline-light:disabled {\n        color: #f8f9fa;\n        background-color: transparent;\n    }\n\n    .btn-outline-light:not(:disabled):not(.disabled):active, .btn-outline-light:not(:disabled):not(.disabled).active,\n    .show > .btn-outline-light.dropdown-toggle {\n        color: #212529;\n        background-color: #f8f9fa;\n        border-color: #f8f9fa;\n    }\n\n        .btn-outline-light:not(:disabled):not(.disabled):active:focus, .btn-outline-light:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-outline-light.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);\n        }\n\n.btn-outline-dark {\n    color: #343a40;\n    border-color: #343a40;\n}\n\n    .btn-outline-dark:hover {\n        color: #fff;\n        background-color: #343a40;\n        border-color: #343a40;\n    }\n\n    .btn-outline-dark:focus, .btn-outline-dark.focus {\n        box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);\n    }\n\n    .btn-outline-dark.disabled, .btn-outline-dark:disabled {\n        color: #343a40;\n        background-color: transparent;\n    }\n\n    .btn-outline-dark:not(:disabled):not(.disabled):active, .btn-outline-dark:not(:disabled):not(.disabled).active,\n    .show > .btn-outline-dark.dropdown-toggle {\n        color: #fff;\n        background-color: #343a40;\n        border-color: #343a40;\n    }\n\n        .btn-outline-dark:not(:disabled):not(.disabled):active:focus, .btn-outline-dark:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-outline-dark.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);\n        }\n\n.btn-link {\n    font-weight: 400;\n    color: #007bff;\n    text-decoration: none;\n}\n\n    .btn-link:hover {\n        color: #0056b3;\n        text-decoration: underline;\n    }\n\n    .btn-link:focus, .btn-link.focus {\n        text-decoration: underline;\n        box-shadow: none;\n    }\n\n    .btn-link:disabled, .btn-link.disabled {\n        color: #6c757d;\n        pointer-events: none;\n    }\n\n.btn-lg, .btn-group-lg > .btn {\n    padding: 0.5rem 1rem;\n    font-size: 1.25rem;\n    line-height: 1.5;\n    border-radius: 0.3rem;\n}\n\n.btn-sm, .btn-group-sm > .btn {\n    padding: 0.25rem 0.5rem;\n    font-size: 0.875rem;\n    line-height: 1.5;\n    border-radius: 0.2rem;\n}\n\n.btn-block {\n    display: block;\n    width: 100%;\n}\n\n    .btn-block + .btn-block {\n        margin-top: 0.5rem;\n    }\n\ninput[type=\"submit\"].btn-block,\ninput[type=\"reset\"].btn-block,\ninput[type=\"button\"].btn-block {\n    width: 100%;\n}\n\n.fade {\n    transition: opacity 0.15s linear;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .fade {\n        transition: none;\n    }\n}\n\n.fade:not(.show) {\n    opacity: 0;\n}\n\n.collapse:not(.show) {\n    display: none;\n}\n\n.collapsing {\n    position: relative;\n    height: 0;\n    overflow: hidden;\n    transition: height 0.35s ease;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .collapsing {\n        transition: none;\n    }\n}\n\n.dropup,\n.dropright,\n.dropdown,\n.dropleft {\n    position: relative;\n}\n\n.dropdown-toggle {\n    white-space: nowrap;\n}\n\n    .dropdown-toggle::after {\n        display: inline-block;\n        margin-left: 0.255em;\n        vertical-align: 0.255em;\n        content: \"\";\n        border-top: 0.3em solid;\n        border-right: 0.3em solid transparent;\n        border-bottom: 0;\n        border-left: 0.3em solid transparent;\n    }\n\n    .dropdown-toggle:empty::after {\n        margin-left: 0;\n    }\n\n.dropdown-menu {\n    position: absolute;\n    top: 100%;\n    left: 0;\n    z-index: 1000;\n    display: none;\n    float: left;\n    min-width: 10rem;\n    padding: 0.5rem 0;\n    margin: 0.125rem 0 0;\n    font-size: 1rem;\n    color: #212529;\n    text-align: left;\n    list-style: none;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid rgba(0, 0, 0, 0.15);\n    border-radius: 0.25rem;\n}\n\n.dropdown-menu-left {\n    right: auto;\n    left: 0;\n}\n\n.dropdown-menu-right {\n    right: 0;\n    left: auto;\n}\n\n@media (min-width: 576px) {\n    .dropdown-menu-sm-left {\n        right: auto;\n        left: 0;\n    }\n\n    .dropdown-menu-sm-right {\n        right: 0;\n        left: auto;\n    }\n}\n\n@media (min-width: 768px) {\n    .dropdown-menu-md-left {\n        right: auto;\n        left: 0;\n    }\n\n    .dropdown-menu-md-right {\n        right: 0;\n        left: auto;\n    }\n}\n\n@media (min-width: 992px) {\n    .dropdown-menu-lg-left {\n        right: auto;\n        left: 0;\n    }\n\n    .dropdown-menu-lg-right {\n        right: 0;\n        left: auto;\n    }\n}\n\n@media (min-width: 1200px) {\n    .dropdown-menu-xl-left {\n        right: auto;\n        left: 0;\n    }\n\n    .dropdown-menu-xl-right {\n        right: 0;\n        left: auto;\n    }\n}\n\n.dropup .dropdown-menu {\n    top: auto;\n    bottom: 100%;\n    margin-top: 0;\n    margin-bottom: 0.125rem;\n}\n\n.dropup .dropdown-toggle::after {\n    display: inline-block;\n    margin-left: 0.255em;\n    vertical-align: 0.255em;\n    content: \"\";\n    border-top: 0;\n    border-right: 0.3em solid transparent;\n    border-bottom: 0.3em solid;\n    border-left: 0.3em solid transparent;\n}\n\n.dropup .dropdown-toggle:empty::after {\n    margin-left: 0;\n}\n\n.dropright .dropdown-menu {\n    top: 0;\n    right: auto;\n    left: 100%;\n    margin-top: 0;\n    margin-left: 0.125rem;\n}\n\n.dropright .dropdown-toggle::after {\n    display: inline-block;\n    margin-left: 0.255em;\n    vertical-align: 0.255em;\n    content: \"\";\n    border-top: 0.3em solid transparent;\n    border-right: 0;\n    border-bottom: 0.3em solid transparent;\n    border-left: 0.3em solid;\n}\n\n.dropright .dropdown-toggle:empty::after {\n    margin-left: 0;\n}\n\n.dropright .dropdown-toggle::after {\n    vertical-align: 0;\n}\n\n.dropleft .dropdown-menu {\n    top: 0;\n    right: 100%;\n    left: auto;\n    margin-top: 0;\n    margin-right: 0.125rem;\n}\n\n.dropleft .dropdown-toggle::after {\n    display: inline-block;\n    margin-left: 0.255em;\n    vertical-align: 0.255em;\n    content: \"\";\n}\n\n.dropleft .dropdown-toggle::after {\n    display: none;\n}\n\n.dropleft .dropdown-toggle::before {\n    display: inline-block;\n    margin-right: 0.255em;\n    vertical-align: 0.255em;\n    content: \"\";\n    border-top: 0.3em solid transparent;\n    border-right: 0.3em solid;\n    border-bottom: 0.3em solid transparent;\n}\n\n.dropleft .dropdown-toggle:empty::after {\n    margin-left: 0;\n}\n\n.dropleft .dropdown-toggle::before {\n    vertical-align: 0;\n}\n\n.dropdown-menu[x-placement^=\"top\"], .dropdown-menu[x-placement^=\"right\"], .dropdown-menu[x-placement^=\"bottom\"], .dropdown-menu[x-placement^=\"left\"] {\n    right: auto;\n    bottom: auto;\n}\n\n.dropdown-divider {\n    height: 0;\n    margin: 0.5rem 0;\n    overflow: hidden;\n    border-top: 1px solid #e9ecef;\n}\n\n.dropdown-item {\n    display: block;\n    width: 100%;\n    padding: 0.25rem 1.5rem;\n    clear: both;\n    font-weight: 400;\n    color: #09C6AB;\n    text-align: inherit;\n    white-space: nowrap;\n    background-color: transparent;\n    border: 0;\n}\n\n    .dropdown-item:hover, .dropdown-item:focus {\n        color: #16181b;\n        text-decoration: none;\n        background-color: #f8f9fa;\n    }\n\n    .dropdown-item.active, .dropdown-item:active {\n        color: #fff;\n        text-decoration: none;\n        background-color: #007bff;\n    }\n\n    .dropdown-item.disabled, .dropdown-item:disabled {\n        color: #6c757d;\n        pointer-events: none;\n        background-color: transparent;\n    }\n\n.dropdown-menu.show {\n    display: block;\n}\n\n.dropdown-header {\n    display: block;\n    padding: 0.5rem 1.5rem;\n    margin-bottom: 0;\n    font-size: 0.875rem;\n    color: #6c757d;\n    white-space: nowrap;\n}\n\n.dropdown-item-text {\n    display: block;\n    padding: 0.25rem 1.5rem;\n    color: #212529;\n}\n\n.btn-group,\n.btn-group-vertical {\n    position: relative;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n    vertical-align: middle;\n}\n\n    .btn-group > .btn,\n    .btn-group-vertical > .btn {\n        position: relative;\n        -ms-flex: 1 1 auto;\n        flex: 1 1 auto;\n    }\n\n        .btn-group > .btn:hover,\n        .btn-group-vertical > .btn:hover {\n            z-index: 1;\n        }\n\n        .btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active,\n        .btn-group-vertical > .btn:focus,\n        .btn-group-vertical > .btn:active,\n        .btn-group-vertical > .btn.active {\n            z-index: 1;\n        }\n\n.btn-toolbar {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n    -ms-flex-pack: start;\n    justify-content: flex-start;\n}\n\n    .btn-toolbar .input-group {\n        width: auto;\n    }\n\n.btn-group > .btn:not(:first-child),\n.btn-group > .btn-group:not(:first-child) {\n    margin-left: -1px;\n}\n\n.btn-group > .btn:not(:last-child):not(.dropdown-toggle),\n.btn-group > .btn-group:not(:last-child) > .btn {\n    border-top-right-radius: 0;\n    border-bottom-right-radius: 0;\n}\n\n.btn-group > .btn:not(:first-child),\n.btn-group > .btn-group:not(:first-child) > .btn {\n    border-top-left-radius: 0;\n    border-bottom-left-radius: 0;\n}\n\n.dropdown-toggle-split {\n    padding-right: 0.5625rem;\n    padding-left: 0.5625rem;\n}\n\n    .dropdown-toggle-split::after,\n    .dropup .dropdown-toggle-split::after,\n    .dropright .dropdown-toggle-split::after {\n        margin-left: 0;\n    }\n\n.dropleft .dropdown-toggle-split::before {\n    margin-right: 0;\n}\n\n.btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split {\n    padding-right: 0.375rem;\n    padding-left: 0.375rem;\n}\n\n.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split {\n    padding-right: 0.75rem;\n    padding-left: 0.75rem;\n}\n\n.btn-group-vertical {\n    -ms-flex-direction: column;\n    flex-direction: column;\n    -ms-flex-align: start;\n    align-items: flex-start;\n    -ms-flex-pack: center;\n    justify-content: center;\n}\n\n    .btn-group-vertical > .btn,\n    .btn-group-vertical > .btn-group {\n        width: 100%;\n    }\n\n        .btn-group-vertical > .btn:not(:first-child),\n        .btn-group-vertical > .btn-group:not(:first-child) {\n            margin-top: -1px;\n        }\n\n        .btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle),\n        .btn-group-vertical > .btn-group:not(:last-child) > .btn {\n            border-bottom-right-radius: 0;\n            border-bottom-left-radius: 0;\n        }\n\n        .btn-group-vertical > .btn:not(:first-child),\n        .btn-group-vertical > .btn-group:not(:first-child) > .btn {\n            border-top-left-radius: 0;\n            border-top-right-radius: 0;\n        }\n\n.btn-group-toggle > .btn,\n.btn-group-toggle > .btn-group > .btn {\n    margin-bottom: 0;\n}\n\n    .btn-group-toggle > .btn input[type=\"radio\"],\n    .btn-group-toggle > .btn input[type=\"checkbox\"],\n    .btn-group-toggle > .btn-group > .btn input[type=\"radio\"],\n    .btn-group-toggle > .btn-group > .btn input[type=\"checkbox\"] {\n        position: absolute;\n        clip: rect(0, 0, 0, 0);\n        pointer-events: none;\n    }\n\n.input-group {\n    position: relative;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n    -ms-flex-align: stretch;\n    align-items: stretch;\n    width: 100%;\n}\n\n    .input-group > .form-control,\n    .input-group > .form-control-plaintext,\n    .input-group > .custom-select,\n    .input-group > .custom-file {\n        position: relative;\n        -ms-flex: 1 1 0%;\n        flex: 1 1 0%;\n        min-width: 0;\n        margin-bottom: 0;\n    }\n\n        .input-group > .form-control + .form-control,\n        .input-group > .form-control + .custom-select,\n        .input-group > .form-control + .custom-file,\n        .input-group > .form-control-plaintext + .form-control,\n        .input-group > .form-control-plaintext + .custom-select,\n        .input-group > .form-control-plaintext + .custom-file,\n        .input-group > .custom-select + .form-control,\n        .input-group > .custom-select + .custom-select,\n        .input-group > .custom-select + .custom-file,\n        .input-group > .custom-file + .form-control,\n        .input-group > .custom-file + .custom-select,\n        .input-group > .custom-file + .custom-file {\n            margin-left: -1px;\n        }\n\n        .input-group > .form-control:focus,\n        .input-group > .custom-select:focus,\n        .input-group > .custom-file .custom-file-input:focus ~ .custom-file-label {\n            z-index: 3;\n        }\n\n        .input-group > .custom-file .custom-file-input:focus {\n            z-index: 4;\n        }\n\n        .input-group > .form-control:not(:last-child),\n        .input-group > .custom-select:not(:last-child) {\n            border-top-right-radius: 0;\n            border-bottom-right-radius: 0;\n        }\n\n        .input-group > .form-control:not(:first-child),\n        .input-group > .custom-select:not(:first-child) {\n            border-top-left-radius: 0;\n            border-bottom-left-radius: 0;\n        }\n\n    .input-group > .custom-file {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-align: center;\n        align-items: center;\n    }\n\n        .input-group > .custom-file:not(:last-child) .custom-file-label,\n        .input-group > .custom-file:not(:last-child) .custom-file-label::after {\n            border-top-right-radius: 0;\n            border-bottom-right-radius: 0;\n        }\n\n        .input-group > .custom-file:not(:first-child) .custom-file-label {\n            border-top-left-radius: 0;\n            border-bottom-left-radius: 0;\n        }\n\n.input-group-prepend,\n.input-group-append {\n    display: -ms-flexbox;\n    display: flex;\n}\n\n    .input-group-prepend .btn,\n    .input-group-append .btn {\n        position: relative;\n        z-index: 2;\n    }\n\n        .input-group-prepend .btn:focus,\n        .input-group-append .btn:focus {\n            z-index: 3;\n        }\n\n        .input-group-prepend .btn + .btn,\n        .input-group-prepend .btn + .input-group-text,\n        .input-group-prepend .input-group-text + .input-group-text,\n        .input-group-prepend .input-group-text + .btn,\n        .input-group-append .btn + .btn,\n        .input-group-append .btn + .input-group-text,\n        .input-group-append .input-group-text + .input-group-text,\n        .input-group-append .input-group-text + .btn {\n            margin-left: -1px;\n        }\n\n.input-group-prepend {\n    margin-right: -1px;\n}\n\n.input-group-append {\n    margin-left: -1px;\n}\n\n.input-group-text {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n    padding: 0.375rem 0.75rem;\n    margin-bottom: 0;\n    font-size: 1rem;\n    font-weight: 400;\n    line-height: 1.5;\n    color: #495057;\n    text-align: center;\n    white-space: nowrap;\n    background-color: #e9ecef;\n    border: 1px solid #ced4da;\n    border-radius: 0.25rem;\n}\n\n    .input-group-text input[type=\"radio\"],\n    .input-group-text input[type=\"checkbox\"] {\n        margin-top: 0;\n    }\n\n.input-group-lg > .form-control:not(textarea),\n.input-group-lg > .custom-select {\n    height: calc(1.5em + 1rem + 2px);\n}\n\n.input-group-lg > .form-control,\n.input-group-lg > .custom-select,\n.input-group-lg > .input-group-prepend > .input-group-text,\n.input-group-lg > .input-group-append > .input-group-text,\n.input-group-lg > .input-group-prepend > .btn,\n.input-group-lg > .input-group-append > .btn {\n    padding: 0.5rem 1rem;\n    font-size: 1.25rem;\n    line-height: 1.5;\n    border-radius: 0.3rem;\n}\n\n.input-group-sm > .form-control:not(textarea),\n.input-group-sm > .custom-select {\n    height: calc(1.5em + 0.5rem + 2px);\n}\n\n.input-group-sm > .form-control,\n.input-group-sm > .custom-select,\n.input-group-sm > .input-group-prepend > .input-group-text,\n.input-group-sm > .input-group-append > .input-group-text,\n.input-group-sm > .input-group-prepend > .btn,\n.input-group-sm > .input-group-append > .btn {\n    padding: 0.25rem 0.5rem;\n    font-size: 0.875rem;\n    line-height: 1.5;\n    border-radius: 0.2rem;\n}\n\n.input-group-lg > .custom-select,\n.input-group-sm > .custom-select {\n    padding-right: 1.75rem;\n}\n\n.input-group > .input-group-prepend > .btn,\n.input-group > .input-group-prepend > .input-group-text,\n.input-group > .input-group-append:not(:last-child) > .btn,\n.input-group > .input-group-append:not(:last-child) > .input-group-text,\n.input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),\n.input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {\n    border-top-right-radius: 0;\n    border-bottom-right-radius: 0;\n}\n\n.input-group > .input-group-append > .btn,\n.input-group > .input-group-append > .input-group-text,\n.input-group > .input-group-prepend:not(:first-child) > .btn,\n.input-group > .input-group-prepend:not(:first-child) > .input-group-text,\n.input-group > .input-group-prepend:first-child > .btn:not(:first-child),\n.input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {\n    border-top-left-radius: 0;\n    border-bottom-left-radius: 0;\n}\n\n.custom-control {\n    position: relative;\n    display: block;\n    min-height: 1.5rem;\n    padding-left: 1.5rem;\n}\n\n.custom-control-inline {\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n    margin-right: 1rem;\n}\n\n.custom-control-input {\n    position: absolute;\n    left: 0;\n    z-index: -1;\n    width: 1rem;\n    height: 1.25rem;\n    opacity: 0;\n}\n\n    .custom-control-input:checked ~ .custom-control-label::before {\n        color: #fff;\n        border-color: #007bff;\n        background-color: #007bff;\n    }\n\n    .custom-control-input:focus ~ .custom-control-label::before {\n        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n    }\n\n    .custom-control-input:focus:not(:checked) ~ .custom-control-label::before {\n        border-color: #80bdff;\n    }\n\n    .custom-control-input:not(:disabled):active ~ .custom-control-label::before {\n        color: #fff;\n        background-color: #b3d7ff;\n        border-color: #b3d7ff;\n    }\n\n    .custom-control-input[disabled] ~ .custom-control-label, .custom-control-input:disabled ~ .custom-control-label {\n        color: #6c757d;\n    }\n\n        .custom-control-input[disabled] ~ .custom-control-label::before, .custom-control-input:disabled ~ .custom-control-label::before {\n            background-color: #e9ecef;\n        }\n\n.custom-control-label {\n    position: relative;\n    margin-bottom: 0;\n    vertical-align: top;\n}\n\n    .custom-control-label::before {\n        position: absolute;\n        top: 0.25rem;\n        left: -1.5rem;\n        display: block;\n        width: 1rem;\n        height: 1rem;\n        pointer-events: none;\n        content: \"\";\n        background-color: #fff;\n        border: #adb5bd solid 1px;\n    }\n\n    .custom-control-label::after {\n        position: absolute;\n        top: 0.25rem;\n        left: -1.5rem;\n        display: block;\n        width: 1rem;\n        height: 1rem;\n        content: \"\";\n        background: no-repeat 50% / 50% 50%;\n    }\n\n.custom-checkbox .custom-control-label::before {\n    border-radius: 0.25rem;\n}\n\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {\n    background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e\");\n}\n\n.custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {\n    border-color: #007bff;\n    background-color: #007bff;\n}\n\n.custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::after {\n    background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3e%3cpath stroke='%23fff' d='M0 2h4'/%3e%3c/svg%3e\");\n}\n\n.custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label::before {\n    background-color: rgba(0, 123, 255, 0.5);\n}\n\n.custom-checkbox .custom-control-input:disabled:indeterminate ~ .custom-control-label::before {\n    background-color: rgba(0, 123, 255, 0.5);\n}\n\n.custom-radio .custom-control-label::before {\n    border-radius: 50%;\n}\n\n.custom-radio .custom-control-input:checked ~ .custom-control-label::after {\n    background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e\");\n}\n\n.custom-radio .custom-control-input:disabled:checked ~ .custom-control-label::before {\n    background-color: rgba(0, 123, 255, 0.5);\n}\n\n.custom-switch {\n    padding-left: 2.25rem;\n}\n\n    .custom-switch .custom-control-label::before {\n        left: -2.25rem;\n        width: 1.75rem;\n        pointer-events: all;\n        border-radius: 0.5rem;\n    }\n\n    .custom-switch .custom-control-label::after {\n        top: calc(0.25rem + 2px);\n        left: calc(-2.25rem + 2px);\n        width: calc(1rem - 4px);\n        height: calc(1rem - 4px);\n        background-color: #adb5bd;\n        border-radius: 0.5rem;\n        transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;\n        transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n        transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;\n    }\n\n@media (prefers-reduced-motion: reduce) {\n    .custom-switch .custom-control-label::after {\n        transition: none;\n    }\n}\n\n.custom-switch .custom-control-input:checked ~ .custom-control-label::after {\n    background-color: #fff;\n    -webkit-transform: translateX(0.75rem);\n    transform: translateX(0.75rem);\n}\n\n.custom-switch .custom-control-input:disabled:checked ~ .custom-control-label::before {\n    background-color: rgba(0, 123, 255, 0.5);\n}\n\n.custom-select {\n    display: inline-block;\n    width: 100%;\n    height: calc(1.5em + 0.75rem + 2px);\n    padding: 0.375rem 1.75rem 0.375rem 0.75rem;\n    font-size: 1rem;\n    font-weight: 400;\n    line-height: 1.5;\n    color: #495057;\n    vertical-align: middle;\n    background: #fff url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e\") no-repeat right 0.75rem center/8px 10px;\n    border: 1px solid #ced4da;\n    border-radius: 0.25rem;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n}\n\n    .custom-select:focus {\n        border-color: #80bdff;\n        outline: 0;\n        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n    }\n\n        .custom-select:focus::-ms-value {\n            color: #495057;\n            background-color: #fff;\n        }\n\n    .custom-select[multiple], .custom-select[size]:not([size=\"1\"]) {\n        height: auto;\n        padding-right: 0.75rem;\n        background-image: none;\n    }\n\n    .custom-select:disabled {\n        color: #6c757d;\n        background-color: #e9ecef;\n    }\n\n    .custom-select::-ms-expand {\n        display: none;\n    }\n\n    .custom-select:-moz-focusring {\n        color: transparent;\n        text-shadow: 0 0 0 #495057;\n    }\n\n.custom-select-sm {\n    height: calc(1.5em + 0.5rem + 2px);\n    padding-top: 0.25rem;\n    padding-bottom: 0.25rem;\n    padding-left: 0.5rem;\n    font-size: 0.875rem;\n}\n\n.custom-select-lg {\n    height: calc(1.5em + 1rem + 2px);\n    padding-top: 0.5rem;\n    padding-bottom: 0.5rem;\n    padding-left: 1rem;\n    font-size: 1.25rem;\n}\n\n.custom-file {\n    position: relative;\n    display: inline-block;\n    width: 100%;\n    height: calc(1.5em + 0.75rem + 2px);\n    margin-bottom: 0;\n}\n\n.custom-file-input {\n    position: relative;\n    z-index: 2;\n    width: 100%;\n    height: calc(1.5em + 0.75rem + 2px);\n    margin: 0;\n    opacity: 0;\n}\n\n    .custom-file-input:focus ~ .custom-file-label {\n        border-color: #80bdff;\n        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n    }\n\n    .custom-file-input[disabled] ~ .custom-file-label,\n    .custom-file-input:disabled ~ .custom-file-label {\n        background-color: #e9ecef;\n    }\n\n    .custom-file-input:lang(en) ~ .custom-file-label::after {\n        content: \"Browse\";\n    }\n\n    .custom-file-input ~ .custom-file-label[data-browse]::after {\n        content: attr(data-browse);\n    }\n\n.custom-file-label {\n    position: absolute;\n    top: 0;\n    right: 0;\n    left: 0;\n    z-index: 1;\n    height: calc(1.5em + 0.75rem + 2px);\n    padding: 0.375rem 0.75rem;\n    font-weight: 400;\n    line-height: 1.5;\n    color: #495057;\n    background-color: #fff;\n    border: 1px solid #ced4da;\n    border-radius: 0.25rem;\n}\n\n    .custom-file-label::after {\n        position: absolute;\n        top: 0;\n        right: 0;\n        bottom: 0;\n        z-index: 3;\n        display: block;\n        height: calc(1.5em + 0.75rem);\n        padding: 0.375rem 0.75rem;\n        line-height: 1.5;\n        color: #495057;\n        content: \"Browse\";\n        background-color: #e9ecef;\n        border-left: inherit;\n        border-radius: 0 0.25rem 0.25rem 0;\n    }\n\n.custom-range {\n    width: 100%;\n    height: 1.4rem;\n    padding: 0;\n    background-color: transparent;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n}\n\n    .custom-range:focus {\n        outline: none;\n    }\n\n        .custom-range:focus::-webkit-slider-thumb {\n            box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n        }\n\n        .custom-range:focus::-moz-range-thumb {\n            box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n        }\n\n        .custom-range:focus::-ms-thumb {\n            box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n        }\n\n    .custom-range::-moz-focus-outer {\n        border: 0;\n    }\n\n    .custom-range::-webkit-slider-thumb {\n        width: 1rem;\n        height: 1rem;\n        margin-top: -0.25rem;\n        background-color: #007bff;\n        border: 0;\n        border-radius: 1rem;\n        -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n        transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n        -webkit-appearance: none;\n        appearance: none;\n    }\n\n@media (prefers-reduced-motion: reduce) {\n    .custom-range::-webkit-slider-thumb {\n        -webkit-transition: none;\n        transition: none;\n    }\n}\n\n.custom-range::-webkit-slider-thumb:active {\n    background-color: #b3d7ff;\n}\n\n.custom-range::-webkit-slider-runnable-track {\n    width: 100%;\n    height: 0.5rem;\n    color: transparent;\n    cursor: pointer;\n    background-color: #dee2e6;\n    border-color: transparent;\n    border-radius: 1rem;\n}\n\n.custom-range::-moz-range-thumb {\n    width: 1rem;\n    height: 1rem;\n    background-color: #007bff;\n    border: 0;\n    border-radius: 1rem;\n    -moz-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n    -moz-appearance: none;\n    appearance: none;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .custom-range::-moz-range-thumb {\n        -moz-transition: none;\n        transition: none;\n    }\n}\n\n.custom-range::-moz-range-thumb:active {\n    background-color: #b3d7ff;\n}\n\n.custom-range::-moz-range-track {\n    width: 100%;\n    height: 0.5rem;\n    color: transparent;\n    cursor: pointer;\n    background-color: #dee2e6;\n    border-color: transparent;\n    border-radius: 1rem;\n}\n\n.custom-range::-ms-thumb {\n    width: 1rem;\n    height: 1rem;\n    margin-top: 0;\n    margin-right: 0.2rem;\n    margin-left: 0.2rem;\n    background-color: #007bff;\n    border: 0;\n    border-radius: 1rem;\n    -ms-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n    appearance: none;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .custom-range::-ms-thumb {\n        -ms-transition: none;\n        transition: none;\n    }\n}\n\n.custom-range::-ms-thumb:active {\n    background-color: #b3d7ff;\n}\n\n.custom-range::-ms-track {\n    width: 100%;\n    height: 0.5rem;\n    color: transparent;\n    cursor: pointer;\n    background-color: transparent;\n    border-color: transparent;\n    border-width: 0.5rem;\n}\n\n.custom-range::-ms-fill-lower {\n    background-color: #dee2e6;\n    border-radius: 1rem;\n}\n\n.custom-range::-ms-fill-upper {\n    margin-right: 15px;\n    background-color: #dee2e6;\n    border-radius: 1rem;\n}\n\n.custom-range:disabled::-webkit-slider-thumb {\n    background-color: #adb5bd;\n}\n\n.custom-range:disabled::-webkit-slider-runnable-track {\n    cursor: default;\n}\n\n.custom-range:disabled::-moz-range-thumb {\n    background-color: #adb5bd;\n}\n\n.custom-range:disabled::-moz-range-track {\n    cursor: default;\n}\n\n.custom-range:disabled::-ms-thumb {\n    background-color: #adb5bd;\n}\n\n.custom-control-label::before,\n.custom-file-label,\n.custom-select {\n    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .custom-control-label::before,\n    .custom-file-label,\n    .custom-select {\n        transition: none;\n    }\n}\n\n.nav {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n    padding-left: 0;\n    margin-bottom: 0;\n    list-style: none;\n}\n\n.nav-link {\n    display: block;\n    padding: 0.5rem 1rem;\n}\n\n    .nav-link:hover, .nav-link:focus {\n        text-decoration: none;\n    }\n\n    .nav-link.disabled {\n        color: #6c757d;\n        pointer-events: none;\n        cursor: default;\n    }\n\n.nav-tabs {\n    border-bottom: 1px solid #dee2e6;\n}\n\n    .nav-tabs .nav-item {\n        margin-bottom: -1px;\n    }\n\n    .nav-tabs .nav-link {\n        border: 1px solid transparent;\n        border-top-left-radius: 0.25rem;\n        border-top-right-radius: 0.25rem;\n    }\n\n        .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {\n            border-color: #e9ecef #e9ecef #dee2e6;\n        }\n\n        .nav-tabs .nav-link.disabled {\n            color: #6c757d;\n            background-color: transparent;\n            border-color: transparent;\n        }\n\n        .nav-tabs .nav-link.active,\n        .nav-tabs .nav-item.show .nav-link {\n            color: #495057;\n            background-color: #fff;\n            border-color: #dee2e6 #dee2e6 #fff;\n        }\n\n    .nav-tabs .dropdown-menu {\n        margin-top: -1px;\n        border-top-left-radius: 0;\n        border-top-right-radius: 0;\n    }\n\n.nav-pills .nav-link {\n    border-radius: 0.25rem;\n}\n\n    .nav-pills .nav-link.active,\n    .nav-pills .show > .nav-link {\n        color: #fff;\n        background-color: #007bff;\n    }\n\n.nav-fill .nav-item {\n    -ms-flex: 1 1 auto;\n    flex: 1 1 auto;\n    text-align: center;\n}\n\n.nav-justified .nav-item {\n    -ms-flex-preferred-size: 0;\n    flex-basis: 0;\n    -ms-flex-positive: 1;\n    flex-grow: 1;\n    text-align: center;\n}\n\n.tab-content > .tab-pane {\n    display: none;\n}\n\n.tab-content > .active {\n    display: block;\n}\n\n.navbar {\n    position: relative;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n    -ms-flex-align: center;\n    align-items: center;\n    -ms-flex-pack: justify;\n    justify-content: space-between;\n    padding: 0.5rem 1rem;\n}\n\n.navbar_inverse {\n    margin: 10px;\n    background-color: #00061a;\n    opacity: 0.7;\n    border-color: transparent;\n    border-left: 3px white dotted;\n    border-right: 3px white dotted;\n    border-radius: 40px;\n}\n\n    .navbar .container,\n    .navbar .container-fluid, .navbar .container-sm, .navbar .container-md, .navbar .container-lg, .navbar .container-xl {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n        -ms-flex-align: center;\n        align-items: center;\n        -ms-flex-pack: justify;\n        justify-content: space-between;\n    }\n\n.navbar-brand {\n    display: inline-block;\n    padding-top: 0.3125rem;\n    padding-bottom: 0.3125rem;\n    margin-right: 1rem;\n    font-size: 1.25rem;\n    line-height: inherit;\n    white-space: nowrap;\n}\n\n    .navbar-brand:hover, .navbar-brand:focus {\n        text-decoration: none;\n    }\n\n.navbar-nav {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n    flex-direction: column;\n    padding-left: 0;\n    margin-bottom: 0;\n    list-style: none;\n}\n\n    .navbar-nav .nav-link {\n        padding-right: 0;\n        padding-left: 0;\n    }\n\n    .navbar-nav .dropdown-menu {\n        position: static;\n        float: none;\n    }\n\n.navbar-text {\n    display: inline-block;\n    padding-top: 0.5rem;\n    padding-bottom: 0.5rem;\n}\n\n.navbar-collapse {\n    -ms-flex-preferred-size: 100%;\n    flex-basis: 100%;\n    -ms-flex-positive: 1;\n    flex-grow: 1;\n    -ms-flex-align: center;\n    align-items: center;\n}\n\n.navbar-toggler {\n    padding: 0.25rem 0.75rem;\n    font-size: 1.25rem;\n    line-height: 1;\n    background-color: transparent;\n    border: 1px solid transparent;\n    border-radius: 0.25rem;\n}\n\n    .navbar-toggler:hover, .navbar-toggler:focus {\n        text-decoration: none;\n    }\n\n/*.navbar-toggler-icon {\n    display: inline-block;\n    width: 1.5em;\n    height: 1.5em;\n    vertical-align: middle;\n    content: \"\";\n    background: no-repeat center center;\n    background-size: 100% 100%;\n}*/\n\n@media (max-width: 575.98px) {\n    .navbar-expand-sm > .container,\n    .navbar-expand-sm > .container-fluid, .navbar-expand-sm > .container-sm, .navbar-expand-sm > .container-md, .navbar-expand-sm > .container-lg, .navbar-expand-sm > .container-xl {\n        padding-right: 0;\n        padding-left: 0;\n    }\n}\n\n@media (min-width: 576px) {\n    .navbar-expand-sm {\n        -ms-flex-flow: row nowrap;\n        flex-flow: row nowrap;\n        -ms-flex-pack: start;\n        justify-content: flex-start;\n    }\n\n        .navbar-expand-sm .navbar-nav {\n            -ms-flex-direction: row;\n            flex-direction: row;\n        }\n\n            .navbar-expand-sm .navbar-nav .dropdown-menu {\n                position: absolute;\n            }\n\n            .navbar-expand-sm .navbar-nav .nav-link {\n                padding-right: 0.5rem;\n                padding-left: 0.5rem;\n            }\n\n        .navbar-expand-sm > .container,\n        .navbar-expand-sm > .container-fluid, .navbar-expand-sm > .container-sm, .navbar-expand-sm > .container-md, .navbar-expand-sm > .container-lg, .navbar-expand-sm > .container-xl {\n            -ms-flex-wrap: nowrap;\n            flex-wrap: nowrap;\n        }\n\n        .navbar-expand-sm .navbar-collapse {\n            display: -ms-flexbox !important;\n            display: flex !important;\n            -ms-flex-preferred-size: auto;\n            flex-basis: auto;\n        }\n\n        .navbar-expand-sm .navbar-toggler {\n            display: none;\n        }\n}\n\n@media (max-width: 767.98px) {\n    .navbar-expand-md > .container,\n    .navbar-expand-md > .container-fluid, .navbar-expand-md > .container-sm, .navbar-expand-md > .container-md, .navbar-expand-md > .container-lg, .navbar-expand-md > .container-xl {\n        padding-right: 0;\n        padding-left: 0;\n    }\n}\n\n@media (min-width: 768px) {\n    .navbar-expand-md {\n        -ms-flex-flow: row nowrap;\n        flex-flow: row nowrap;\n        -ms-flex-pack: start;\n        justify-content: flex-start;\n    }\n\n        .navbar-expand-md .navbar-nav {\n            -ms-flex-direction: row;\n            flex-direction: row;\n        }\n\n            .navbar-expand-md .navbar-nav .dropdown-menu {\n                position: absolute;\n            }\n\n            .navbar-expand-md .navbar-nav .nav-link {\n                padding-right: 0.5rem;\n                padding-left: 0.5rem;\n            }\n\n        .navbar-expand-md > .container,\n        .navbar-expand-md > .container-fluid, .navbar-expand-md > .container-sm, .navbar-expand-md > .container-md, .navbar-expand-md > .container-lg, .navbar-expand-md > .container-xl {\n            -ms-flex-wrap: nowrap;\n            flex-wrap: nowrap;\n        }\n\n        .navbar-expand-md .navbar-collapse {\n            display: -ms-flexbox !important;\n            display: flex !important;\n            -ms-flex-preferred-size: auto;\n            flex-basis: auto;\n        }\n\n        .navbar-expand-md .navbar-toggler {\n            display: none;\n        }\n}\n\n@media (max-width: 991.98px) {\n    .navbar-expand-lg > .container,\n    .navbar-expand-lg > .container-fluid, .navbar-expand-lg > .container-sm, .navbar-expand-lg > .container-md, .navbar-expand-lg > .container-lg, .navbar-expand-lg > .container-xl {\n        padding-right: 0;\n        padding-left: 0;\n    }\n}\n\n@media (min-width: 992px) {\n    .navbar-expand-lg {\n        -ms-flex-flow: row nowrap;\n        flex-flow: row nowrap;\n        -ms-flex-pack: start;\n        justify-content: flex-start;\n    }\n\n        .navbar-expand-lg .navbar-nav {\n            -ms-flex-direction: row;\n            flex-direction: row;\n        }\n\n            .navbar-expand-lg .navbar-nav .dropdown-menu {\n                position: absolute;\n            }\n\n            .navbar-expand-lg .navbar-nav .nav-link {\n                border-left: 3px lightblue solid;\n                padding-right: 0.5rem;\n                padding-left: 0.5rem;\n            }\n\n        .navbar-expand-lg > .container,\n        .navbar-expand-lg > .container-fluid, .navbar-expand-lg > .container-sm, .navbar-expand-lg > .container-md, .navbar-expand-lg > .container-lg, .navbar-expand-lg > .container-xl {\n            -ms-flex-wrap: nowrap;\n            flex-wrap: nowrap;\n        }\n\n        .navbar-expand-lg .navbar-collapse {\n            display: -ms-flexbox !important;\n            display: flex !important;\n            -ms-flex-preferred-size: auto;\n            flex-basis: auto;\n        }\n\n        .navbar-expand-lg .navbar-toggler {\n            display: none;\n        }\n}\n\n@media (max-width: 1199.98px) {\n    .navbar-expand-xl > .container,\n    .navbar-expand-xl > .container-fluid, .navbar-expand-xl > .container-sm, .navbar-expand-xl > .container-md, .navbar-expand-xl > .container-lg, .navbar-expand-xl > .container-xl {\n        padding-right: 0;\n        padding-left: 0;\n    }\n}\n\n@media (min-width: 1200px) {\n    .navbar-expand-xl {\n        -ms-flex-flow: row nowrap;\n        flex-flow: row nowrap;\n        -ms-flex-pack: start;\n        justify-content: flex-start;\n    }\n\n        .navbar-expand-xl .navbar-nav {\n            -ms-flex-direction: row;\n            flex-direction: row;\n        }\n\n            .navbar-expand-xl .navbar-nav .dropdown-menu {\n                position: absolute;\n            }\n\n            .navbar-expand-xl .navbar-nav .nav-link {\n                padding-right: 0.5rem;\n                padding-left: 0.5rem;\n            }\n\n        .navbar-expand-xl > .container,\n        .navbar-expand-xl > .container-fluid, .navbar-expand-xl > .container-sm, .navbar-expand-xl > .container-md, .navbar-expand-xl > .container-lg, .navbar-expand-xl > .container-xl {\n            -ms-flex-wrap: nowrap;\n            flex-wrap: nowrap;\n        }\n\n        .navbar-expand-xl .navbar-collapse {\n            display: -ms-flexbox !important;\n            display: flex !important;\n            -ms-flex-preferred-size: auto;\n            flex-basis: auto;\n        }\n\n        .navbar-expand-xl .navbar-toggler {\n            display: none;\n        }\n}\n\n.navbar-expand {\n    -ms-flex-flow: row nowrap;\n    flex-flow: row nowrap;\n    -ms-flex-pack: start;\n    justify-content: flex-start;\n}\n\n    .navbar-expand > .container,\n    .navbar-expand > .container-fluid, .navbar-expand > .container-sm, .navbar-expand > .container-md, .navbar-expand > .container-lg, .navbar-expand > .container-xl {\n        padding-right: 0;\n        padding-left: 0;\n    }\n\n    .navbar-expand .navbar-nav {\n        -ms-flex-direction: row;\n        flex-direction: row;\n    }\n\n        .navbar-expand .navbar-nav .dropdown-menu {\n            position: absolute;\n        }\n\n        .navbar-expand .navbar-nav .nav-link {\n            padding-right: 0.5rem;\n            padding-left: 0.5rem;\n        }\n\n    .navbar-expand > .container,\n    .navbar-expand > .container-fluid, .navbar-expand > .container-sm, .navbar-expand > .container-md, .navbar-expand > .container-lg, .navbar-expand > .container-xl {\n        -ms-flex-wrap: nowrap;\n        flex-wrap: nowrap;\n    }\n\n    .navbar-expand .navbar-collapse {\n        display: -ms-flexbox !important;\n        display: flex !important;\n        -ms-flex-preferred-size: auto;\n        flex-basis: auto;\n    }\n\n    .navbar-expand .navbar-toggler {\n        display: none;\n    }\n\n.navbar-light .navbar-brand {\n    color: #09C6AB;\n}\n\n    .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {\n        color: white;\n    }\n\n.navbar-light .navbar-nav .nav-link {\n    color: #09C6AB;\n}\n\n    .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {\n        color: white;\n    }\n\n    .navbar-light .navbar-nav .nav-link.disabled {\n        color: gray;\n    }\n\n    .navbar-light .navbar-nav .show > .nav-link,\n    .navbar-light .navbar-nav .active > .nav-link,\n    .navbar-light .navbar-nav .nav-link.show,\n    .navbar-light .navbar-nav .nav-link.active {\n        color: white;\n    }\n\n.navbar-light .navbar-toggler {\n    color: white;\n    border-color: rgba(0, 0, 0, 0.1);\n}\n\n.navbar-light .navbar-toggler-icon {\n    color: aqua;\n}   \n\n.navbar-light .navbar-text {\n    color: rgba(0, 0, 0, 0.5);\n}\n\n    .navbar-light .navbar-text a {\n        color: rgba(0, 0, 0, 0.9);\n    }\n\n        .navbar-light .navbar-text a:hover, .navbar-light .navbar-text a:focus {\n            color: rgba(0, 0, 0, 0.9);\n        }\n\n.navbar-dark .navbar-brand {\n    color: #fff;\n}\n\n    .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {\n        color: #fff;\n    }\n\n.navbar-dark .navbar-nav .nav-link {\n    color: rgba(255, 255, 255, 0.5);\n}\n\n    .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {\n        color: rgba(255, 255, 255, 0.75);\n    }\n\n    .navbar-dark .navbar-nav .nav-link.disabled {\n        color: rgba(255, 255, 255, 0.25);\n    }\n\n    .navbar-dark .navbar-nav .show > .nav-link,\n    .navbar-dark .navbar-nav .active > .nav-link,\n    .navbar-dark .navbar-nav .nav-link.show,\n    .navbar-dark .navbar-nav .nav-link.active {\n        color: #fff;\n    }\n\n.navbar-dark .navbar-toggler {\n    color: rgba(255, 255, 255, 0.5);\n    border-color: rgba(255, 255, 255, 0.1);\n}\n\n.navbar-dark .navbar-toggler-icon {\n    background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e\");\n}\n\n.navbar-dark .navbar-text {\n    color: rgba(255, 255, 255, 0.5);\n}\n\n    .navbar-dark .navbar-text a {\n        color: #fff;\n    }\n\n        .navbar-dark .navbar-text a:hover, .navbar-dark .navbar-text a:focus {\n            color: #fff;\n        }\n\n.card {\n    position: relative;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n    flex-direction: column;\n    min-width: 0;\n    word-wrap: break-word;\n    background-color: #fff;\n    background-clip: border-box;\n    border: 1px solid rgba(0, 0, 0, 0.125);\n    border-radius: 0.25rem;\n}\n\n    .card > hr {\n        margin-right: 0;\n        margin-left: 0;\n    }\n\n    .card > .list-group:first-child .list-group-item:first-child {\n        border-top-left-radius: 0.25rem;\n        border-top-right-radius: 0.25rem;\n    }\n\n    .card > .list-group:last-child .list-group-item:last-child {\n        border-bottom-right-radius: 0.25rem;\n        border-bottom-left-radius: 0.25rem;\n    }\n\n.card-body {\n    -ms-flex: 1 1 auto;\n    flex: 1 1 auto;\n    min-height: 1px;\n    padding: 1.25rem;\n}\n\n.card-title {\n    margin-bottom: 0.75rem;\n}\n\n.card-subtitle {\n    margin-top: -0.375rem;\n    margin-bottom: 0;\n}\n\n.card-text:last-child {\n    margin-bottom: 0;\n}\n\n.card-link:hover {\n    text-decoration: none;\n}\n\n.card-link + .card-link {\n    margin-left: 1.25rem;\n}\n\n.card-header {\n    padding: 0.75rem 1.25rem;\n    margin-bottom: 0;\n    background-color: rgba(0, 0, 0, 0.03);\n    border-bottom: 1px solid rgba(0, 0, 0, 0.125);\n}\n\n    .card-header:first-child {\n        border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;\n    }\n\n    .card-header + .list-group .list-group-item:first-child {\n        border-top: 0;\n    }\n\n.card-footer {\n    padding: 0.75rem 1.25rem;\n    background-color: rgba(0, 0, 0, 0.03);\n    border-top: 1px solid rgba(0, 0, 0, 0.125);\n}\n\n    .card-footer:last-child {\n        border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);\n    }\n\n.card-header-tabs {\n    margin-right: -0.625rem;\n    margin-bottom: -0.75rem;\n    margin-left: -0.625rem;\n    border-bottom: 0;\n}\n\n.card-header-pills {\n    margin-right: -0.625rem;\n    margin-left: -0.625rem;\n}\n\n.card-img-overlay {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    padding: 1.25rem;\n}\n\n.card-img,\n.card-img-top,\n.card-img-bottom {\n    -ms-flex-negative: 0;\n    flex-shrink: 0;\n    width: 100%;\n}\n\n.card-img,\n.card-img-top {\n    border-top-left-radius: calc(0.25rem - 1px);\n    border-top-right-radius: calc(0.25rem - 1px);\n}\n\n.card-img,\n.card-img-bottom {\n    border-bottom-right-radius: calc(0.25rem - 1px);\n    border-bottom-left-radius: calc(0.25rem - 1px);\n}\n\n.card-deck .card {\n    margin-bottom: 15px;\n}\n\n@media (min-width: 576px) {\n    .card-deck {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-flow: row wrap;\n        flex-flow: row wrap;\n        margin-right: -15px;\n        margin-left: -15px;\n    }\n\n        .card-deck .card {\n            -ms-flex: 1 0 0%;\n            flex: 1 0 0%;\n            margin-right: 15px;\n            margin-bottom: 0;\n            margin-left: 15px;\n        }\n}\n\n.card-group > .card {\n    margin-bottom: 15px;\n}\n\n@media (min-width: 576px) {\n    .card-group {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-flow: row wrap;\n        flex-flow: row wrap;\n    }\n\n        .card-group > .card {\n            -ms-flex: 1 0 0%;\n            flex: 1 0 0%;\n            margin-bottom: 0;\n        }\n\n            .card-group > .card + .card {\n                margin-left: 0;\n                border-left: 0;\n            }\n\n            .card-group > .card:not(:last-child) {\n                border-top-right-radius: 0;\n                border-bottom-right-radius: 0;\n            }\n\n                .card-group > .card:not(:last-child) .card-img-top,\n                .card-group > .card:not(:last-child) .card-header {\n                    border-top-right-radius: 0;\n                }\n\n                .card-group > .card:not(:last-child) .card-img-bottom,\n                .card-group > .card:not(:last-child) .card-footer {\n                    border-bottom-right-radius: 0;\n                }\n\n            .card-group > .card:not(:first-child) {\n                border-top-left-radius: 0;\n                border-bottom-left-radius: 0;\n            }\n\n                .card-group > .card:not(:first-child) .card-img-top,\n                .card-group > .card:not(:first-child) .card-header {\n                    border-top-left-radius: 0;\n                }\n\n                .card-group > .card:not(:first-child) .card-img-bottom,\n                .card-group > .card:not(:first-child) .card-footer {\n                    border-bottom-left-radius: 0;\n                }\n}\n\n.card-columns .card {\n    margin-bottom: 0.75rem;\n}\n\n@media (min-width: 576px) {\n    .card-columns {\n        -webkit-column-count: 3;\n        -moz-column-count: 3;\n        column-count: 3;\n        -webkit-column-gap: 1.25rem;\n        -moz-column-gap: 1.25rem;\n        column-gap: 1.25rem;\n        orphans: 1;\n        widows: 1;\n    }\n\n        .card-columns .card {\n            display: inline-block;\n            width: 100%;\n        }\n}\n\n.accordion > .card {\n    overflow: hidden;\n}\n\n    .accordion > .card:not(:last-of-type) {\n        border-bottom: 0;\n        border-bottom-right-radius: 0;\n        border-bottom-left-radius: 0;\n    }\n\n    .accordion > .card:not(:first-of-type) {\n        border-top-left-radius: 0;\n        border-top-right-radius: 0;\n    }\n\n    .accordion > .card > .card-header {\n        border-radius: 0;\n        margin-bottom: -1px;\n    }\n\n.breadcrumb {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n    padding: 0.75rem 1rem;\n    margin-bottom: 1rem;\n    list-style: none;\n    background-color: #e9ecef;\n    border-radius: 0.25rem;\n}\n\n.breadcrumb-item + .breadcrumb-item {\n    padding-left: 0.5rem;\n}\n\n    .breadcrumb-item + .breadcrumb-item::before {\n        display: inline-block;\n        padding-right: 0.5rem;\n        color: #6c757d;\n        content: \"/\";\n    }\n\n    .breadcrumb-item + .breadcrumb-item:hover::before {\n        text-decoration: underline;\n    }\n\n    .breadcrumb-item + .breadcrumb-item:hover::before {\n        text-decoration: none;\n    }\n\n.breadcrumb-item.active {\n    color: #6c757d;\n}\n\n.pagination {\n    display: -ms-flexbox;\n    display: flex;\n    padding-left: 0;\n    list-style: none;\n    border-radius: 0.25rem;\n}\n\n.page-link {\n    position: relative;\n    display: block;\n    padding: 0.5rem 0.75rem;\n    margin-left: -1px;\n    line-height: 1.25;\n    color: #007bff;\n    background-color: #fff;\n    border: 1px solid #dee2e6;\n}\n\n    .page-link:hover {\n        z-index: 2;\n        color: #0056b3;\n        text-decoration: none;\n        background-color: #e9ecef;\n        border-color: #dee2e6;\n    }\n\n    .page-link:focus {\n        z-index: 3;\n        outline: 0;\n        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n    }\n\n.page-item:first-child .page-link {\n    margin-left: 0;\n    border-top-left-radius: 0.25rem;\n    border-bottom-left-radius: 0.25rem;\n}\n\n.page-item:last-child .page-link {\n    border-top-right-radius: 0.25rem;\n    border-bottom-right-radius: 0.25rem;\n}\n\n.page-item.active .page-link {\n    z-index: 3;\n    color: #fff;\n    background-color: #007bff;\n    border-color: #007bff;\n}\n\n.page-item.disabled .page-link {\n    color: #6c757d;\n    pointer-events: none;\n    cursor: auto;\n    background-color: #fff;\n    border-color: #dee2e6;\n}\n\n.pagination-lg .page-link {\n    padding: 0.75rem 1.5rem;\n    font-size: 1.25rem;\n    line-height: 1.5;\n}\n\n.pagination-lg .page-item:first-child .page-link {\n    border-top-left-radius: 0.3rem;\n    border-bottom-left-radius: 0.3rem;\n}\n\n.pagination-lg .page-item:last-child .page-link {\n    border-top-right-radius: 0.3rem;\n    border-bottom-right-radius: 0.3rem;\n}\n\n.pagination-sm .page-link {\n    padding: 0.25rem 0.5rem;\n    font-size: 0.875rem;\n    line-height: 1.5;\n}\n\n.pagination-sm .page-item:first-child .page-link {\n    border-top-left-radius: 0.2rem;\n    border-bottom-left-radius: 0.2rem;\n}\n\n.pagination-sm .page-item:last-child .page-link {\n    border-top-right-radius: 0.2rem;\n    border-bottom-right-radius: 0.2rem;\n}\n\n.badge {\n    display: inline-block;\n    padding: 0.25em 0.4em;\n    font-size: 75%;\n    font-weight: 700;\n    line-height: 1;\n    text-align: center;\n    white-space: nowrap;\n    vertical-align: baseline;\n    border-radius: 0.25rem;\n    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .badge {\n        transition: none;\n    }\n}\n\na.badge:hover, a.badge:focus {\n    text-decoration: none;\n}\n\n.badge:empty {\n    display: none;\n}\n\n.btn .badge {\n    position: relative;\n    top: -1px;\n}\n\n.badge-pill {\n    padding-right: 0.6em;\n    padding-left: 0.6em;\n    border-radius: 10rem;\n}\n\n.badge-primary {\n    color: #fff;\n    background-color: #007bff;\n}\n\na.badge-primary:hover, a.badge-primary:focus {\n    color: #fff;\n    background-color: #0062cc;\n}\n\na.badge-primary:focus, a.badge-primary.focus {\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);\n}\n\n.badge-secondary {\n    color: #fff;\n    background-color: #6c757d;\n}\n\na.badge-secondary:hover, a.badge-secondary:focus {\n    color: #fff;\n    background-color: #545b62;\n}\n\na.badge-secondary:focus, a.badge-secondary.focus {\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);\n}\n\n.badge-success {\n    color: #fff;\n    background-color: #28a745;\n}\n\na.badge-success:hover, a.badge-success:focus {\n    color: #fff;\n    background-color: #1e7e34;\n}\n\na.badge-success:focus, a.badge-success.focus {\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);\n}\n\n.badge-info {\n    color: #fff;\n    background-color: #17a2b8;\n}\n\na.badge-info:hover, a.badge-info:focus {\n    color: #fff;\n    background-color: #117a8b;\n}\n\na.badge-info:focus, a.badge-info.focus {\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);\n}\n\n.badge-warning {\n    color: #212529;\n    background-color: #ffc107;\n}\n\na.badge-warning:hover, a.badge-warning:focus {\n    color: #212529;\n    background-color: #d39e00;\n}\n\na.badge-warning:focus, a.badge-warning.focus {\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);\n}\n\n.badge-danger {\n    color: #fff;\n    background-color: #dc3545;\n}\n\na.badge-danger:hover, a.badge-danger:focus {\n    color: #fff;\n    background-color: #bd2130;\n}\n\na.badge-danger:focus, a.badge-danger.focus {\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);\n}\n\n.badge-light {\n    color: #212529;\n    background-color: #f8f9fa;\n}\n\na.badge-light:hover, a.badge-light:focus {\n    color: #212529;\n    background-color: #dae0e5;\n}\n\na.badge-light:focus, a.badge-light.focus {\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);\n}\n\n.badge-dark {\n    color: #fff;\n    background-color: #343a40;\n}\n\na.badge-dark:hover, a.badge-dark:focus {\n    color: #fff;\n    background-color: #1d2124;\n}\n\na.badge-dark:focus, a.badge-dark.focus {\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);\n}\n\n.jumbotron {\n    padding: 2rem 1rem;\n    margin-bottom: 2rem;\n    background-color: #e9ecef;\n    border-radius: 0.3rem;\n}\n\n@media (min-width: 576px) {\n    .jumbotron {\n        padding: 4rem 2rem;\n    }\n}\n\n.jumbotron-fluid {\n    padding-right: 0;\n    padding-left: 0;\n    border-radius: 0;\n}\n\n.alert {\n    position: relative;\n    padding: 0.75rem 1.25rem;\n    margin-bottom: 1rem;\n    border: 1px solid transparent;\n    border-radius: 0.25rem;\n}\n\n.alert-heading {\n    color: inherit;\n}\n\n.alert-link {\n    font-weight: 700;\n}\n\n.alert-dismissible {\n    padding-right: 4rem;\n}\n\n    .alert-dismissible .close {\n        position: absolute;\n        top: 0;\n        right: 0;\n        padding: 0.75rem 1.25rem;\n        color: inherit;\n    }\n\n.alert-primary {\n    color: #004085;\n    background-color: #cce5ff;\n    border-color: #b8daff;\n}\n\n    .alert-primary hr {\n        border-top-color: #9fcdff;\n    }\n\n    .alert-primary .alert-link {\n        color: #002752;\n    }\n\n.alert-secondary {\n    color: #383d41;\n    background-color: #e2e3e5;\n    border-color: #d6d8db;\n}\n\n    .alert-secondary hr {\n        border-top-color: #c8cbcf;\n    }\n\n    .alert-secondary .alert-link {\n        color: #202326;\n    }\n\n.alert-success {\n    color: #155724;\n    background-color: #d4edda;\n    border-color: #c3e6cb;\n}\n\n    .alert-success hr {\n        border-top-color: #b1dfbb;\n    }\n\n    .alert-success .alert-link {\n        color: #0b2e13;\n    }\n\n.alert-info {\n    color: #0c5460;\n    background-color: #d1ecf1;\n    border-color: #bee5eb;\n}\n\n    .alert-info hr {\n        border-top-color: #abdde5;\n    }\n\n    .alert-info .alert-link {\n        color: #062c33;\n    }\n\n.alert-warning {\n    color: #856404;\n    background-color: #fff3cd;\n    border-color: #ffeeba;\n}\n\n    .alert-warning hr {\n        border-top-color: #ffe8a1;\n    }\n\n    .alert-warning .alert-link {\n        color: #533f03;\n    }\n\n.alert-danger {\n    color: #721c24;\n    background-color: #f8d7da;\n    border-color: #f5c6cb;\n}\n\n    .alert-danger hr {\n        border-top-color: #f1b0b7;\n    }\n\n    .alert-danger .alert-link {\n        color: #491217;\n    }\n\n.alert-light {\n    color: #818182;\n    background-color: #fefefe;\n    border-color: #fdfdfe;\n}\n\n    .alert-light hr {\n        border-top-color: #ececf6;\n    }\n\n    .alert-light .alert-link {\n        color: #686868;\n    }\n\n.alert-dark {\n    color: #1b1e21;\n    background-color: #d6d8d9;\n    border-color: #c6c8ca;\n}\n\n    .alert-dark hr {\n        border-top-color: #b9bbbe;\n    }\n\n    .alert-dark .alert-link {\n        color: #040505;\n    }\n\n@-webkit-keyframes progress-bar-stripes {\n    from {\n        background-position: 1rem 0;\n    }\n\n    to {\n        background-position: 0 0;\n    }\n}\n\n@keyframes progress-bar-stripes {\n    from {\n        background-position: 1rem 0;\n    }\n\n    to {\n        background-position: 0 0;\n    }\n}\n\n.progress {\n    display: -ms-flexbox;\n    display: flex;\n    height: 1rem;\n    overflow: hidden;\n    font-size: 0.75rem;\n    background-color: #e9ecef;\n    border-radius: 0.25rem;\n}\n\n.progress-bar {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n    flex-direction: column;\n    -ms-flex-pack: center;\n    justify-content: center;\n    overflow: hidden;\n    color: #fff;\n    text-align: center;\n    white-space: nowrap;\n    background-color: #007bff;\n    transition: width 0.6s ease;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .progress-bar {\n        transition: none;\n    }\n}\n\n.progress-bar-striped {\n    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);\n    background-size: 1rem 1rem;\n}\n\n.progress-bar-animated {\n    -webkit-animation: progress-bar-stripes 1s linear infinite;\n    animation: progress-bar-stripes 1s linear infinite;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .progress-bar-animated {\n        -webkit-animation: none;\n        animation: none;\n    }\n}\n\n.media {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: start;\n    align-items: flex-start;\n}\n\n.media-body {\n    -ms-flex: 1;\n    flex: 1;\n}\n\n.list-group {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n    flex-direction: column;\n    padding-left: 0;\n    margin-bottom: 0;\n}\n\n.list-group-item-action {\n    width: 100%;\n    color: #495057;\n    text-align: inherit;\n}\n\n    .list-group-item-action:hover, .list-group-item-action:focus {\n        z-index: 1;\n        color: #495057;\n        text-decoration: none;\n        background-color: #f8f9fa;\n    }\n\n    .list-group-item-action:active {\n        color: #212529;\n        background-color: #e9ecef;\n    }\n\n.list-group-item {\n    position: relative;\n    display: block;\n    padding: 0.75rem 1.25rem;\n    background-color: #fff;\n    border: 1px solid rgba(0, 0, 0, 0.125);\n}\n\n    .list-group-item:first-child {\n        border-top-left-radius: 0.25rem;\n        border-top-right-radius: 0.25rem;\n    }\n\n    .list-group-item:last-child {\n        border-bottom-right-radius: 0.25rem;\n        border-bottom-left-radius: 0.25rem;\n    }\n\n    .list-group-item.disabled, .list-group-item:disabled {\n        color: #6c757d;\n        pointer-events: none;\n        background-color: #fff;\n    }\n\n    .list-group-item.active {\n        z-index: 2;\n        color: #fff;\n        background-color: #007bff;\n        border-color: #007bff;\n    }\n\n    .list-group-item + .list-group-item {\n        border-top-width: 0;\n    }\n\n        .list-group-item + .list-group-item.active {\n            margin-top: -1px;\n            border-top-width: 1px;\n        }\n\n.list-group-horizontal {\n    -ms-flex-direction: row;\n    flex-direction: row;\n}\n\n    .list-group-horizontal .list-group-item:first-child {\n        border-bottom-left-radius: 0.25rem;\n        border-top-right-radius: 0;\n    }\n\n    .list-group-horizontal .list-group-item:last-child {\n        border-top-right-radius: 0.25rem;\n        border-bottom-left-radius: 0;\n    }\n\n    .list-group-horizontal .list-group-item.active {\n        margin-top: 0;\n    }\n\n    .list-group-horizontal .list-group-item + .list-group-item {\n        border-top-width: 1px;\n        border-left-width: 0;\n    }\n\n        .list-group-horizontal .list-group-item + .list-group-item.active {\n            margin-left: -1px;\n            border-left-width: 1px;\n        }\n\n@media (min-width: 576px) {\n    .list-group-horizontal-sm {\n        -ms-flex-direction: row;\n        flex-direction: row;\n    }\n\n        .list-group-horizontal-sm .list-group-item:first-child {\n            border-bottom-left-radius: 0.25rem;\n            border-top-right-radius: 0;\n        }\n\n        .list-group-horizontal-sm .list-group-item:last-child {\n            border-top-right-radius: 0.25rem;\n            border-bottom-left-radius: 0;\n        }\n\n        .list-group-horizontal-sm .list-group-item.active {\n            margin-top: 0;\n        }\n\n        .list-group-horizontal-sm .list-group-item + .list-group-item {\n            border-top-width: 1px;\n            border-left-width: 0;\n        }\n\n            .list-group-horizontal-sm .list-group-item + .list-group-item.active {\n                margin-left: -1px;\n                border-left-width: 1px;\n            }\n}\n\n@media (min-width: 768px) {\n    .list-group-horizontal-md {\n        -ms-flex-direction: row;\n        flex-direction: row;\n    }\n\n        .list-group-horizontal-md .list-group-item:first-child {\n            border-bottom-left-radius: 0.25rem;\n            border-top-right-radius: 0;\n        }\n\n        .list-group-horizontal-md .list-group-item:last-child {\n            border-top-right-radius: 0.25rem;\n            border-bottom-left-radius: 0;\n        }\n\n        .list-group-horizontal-md .list-group-item.active {\n            margin-top: 0;\n        }\n\n        .list-group-horizontal-md .list-group-item + .list-group-item {\n            border-top-width: 1px;\n            border-left-width: 0;\n        }\n\n            .list-group-horizontal-md .list-group-item + .list-group-item.active {\n                margin-left: -1px;\n                border-left-width: 1px;\n            }\n}\n\n@media (min-width: 992px) {\n    .list-group-horizontal-lg {\n        -ms-flex-direction: row;\n        flex-direction: row;\n    }\n\n        .list-group-horizontal-lg .list-group-item:first-child {\n            border-bottom-left-radius: 0.25rem;\n            border-top-right-radius: 0;\n        }\n\n        .list-group-horizontal-lg .list-group-item:last-child {\n            border-top-right-radius: 0.25rem;\n            border-bottom-left-radius: 0;\n        }\n\n        .list-group-horizontal-lg .list-group-item.active {\n            margin-top: 0;\n        }\n\n        .list-group-horizontal-lg .list-group-item + .list-group-item {\n            border-top-width: 1px;\n            border-left-width: 0;\n        }\n\n            .list-group-horizontal-lg .list-group-item + .list-group-item.active {\n                margin-left: -1px;\n                border-left-width: 1px;\n            }\n}\n\n@media (min-width: 1200px) {\n    .list-group-horizontal-xl {\n        -ms-flex-direction: row;\n        flex-direction: row;\n    }\n\n        .list-group-horizontal-xl .list-group-item:first-child {\n            border-bottom-left-radius: 0.25rem;\n            border-top-right-radius: 0;\n        }\n\n        .list-group-horizontal-xl .list-group-item:last-child {\n            border-top-right-radius: 0.25rem;\n            border-bottom-left-radius: 0;\n        }\n\n        .list-group-horizontal-xl .list-group-item.active {\n            margin-top: 0;\n        }\n\n        .list-group-horizontal-xl .list-group-item + .list-group-item {\n            border-top-width: 1px;\n            border-left-width: 0;\n        }\n\n            .list-group-horizontal-xl .list-group-item + .list-group-item.active {\n                margin-left: -1px;\n                border-left-width: 1px;\n            }\n}\n\n.list-group-flush .list-group-item {\n    border-right-width: 0;\n    border-left-width: 0;\n    border-radius: 0;\n}\n\n    .list-group-flush .list-group-item:first-child {\n        border-top-width: 0;\n    }\n\n.list-group-flush:last-child .list-group-item:last-child {\n    border-bottom-width: 0;\n}\n\n.list-group-item-primary {\n    color: #004085;\n    background-color: #b8daff;\n}\n\n    .list-group-item-primary.list-group-item-action:hover, .list-group-item-primary.list-group-item-action:focus {\n        color: #004085;\n        background-color: #9fcdff;\n    }\n\n    .list-group-item-primary.list-group-item-action.active {\n        color: #fff;\n        background-color: #004085;\n        border-color: #004085;\n    }\n\n.list-group-item-secondary {\n    color: #383d41;\n    background-color: #d6d8db;\n}\n\n    .list-group-item-secondary.list-group-item-action:hover, .list-group-item-secondary.list-group-item-action:focus {\n        color: #383d41;\n        background-color: #c8cbcf;\n    }\n\n    .list-group-item-secondary.list-group-item-action.active {\n        color: #fff;\n        background-color: #383d41;\n        border-color: #383d41;\n    }\n\n.list-group-item-success {\n    color: #155724;\n    background-color: #c3e6cb;\n}\n\n    .list-group-item-success.list-group-item-action:hover, .list-group-item-success.list-group-item-action:focus {\n        color: #155724;\n        background-color: #b1dfbb;\n    }\n\n    .list-group-item-success.list-group-item-action.active {\n        color: #fff;\n        background-color: #155724;\n        border-color: #155724;\n    }\n\n.list-group-item-info {\n    color: #0c5460;\n    background-color: #bee5eb;\n}\n\n    .list-group-item-info.list-group-item-action:hover, .list-group-item-info.list-group-item-action:focus {\n        color: #0c5460;\n        background-color: #abdde5;\n    }\n\n    .list-group-item-info.list-group-item-action.active {\n        color: #fff;\n        background-color: #0c5460;\n        border-color: #0c5460;\n    }\n\n.list-group-item-warning {\n    color: #856404;\n    background-color: #ffeeba;\n}\n\n    .list-group-item-warning.list-group-item-action:hover, .list-group-item-warning.list-group-item-action:focus {\n        color: #856404;\n        background-color: #ffe8a1;\n    }\n\n    .list-group-item-warning.list-group-item-action.active {\n        color: #fff;\n        background-color: #856404;\n        border-color: #856404;\n    }\n\n.list-group-item-danger {\n    color: #721c24;\n    background-color: #f5c6cb;\n}\n\n    .list-group-item-danger.list-group-item-action:hover, .list-group-item-danger.list-group-item-action:focus {\n        color: #721c24;\n        background-color: #f1b0b7;\n    }\n\n    .list-group-item-danger.list-group-item-action.active {\n        color: #fff;\n        background-color: #721c24;\n        border-color: #721c24;\n    }\n\n.list-group-item-light {\n    color: #818182;\n    background-color: #fdfdfe;\n}\n\n    .list-group-item-light.list-group-item-action:hover, .list-group-item-light.list-group-item-action:focus {\n        color: #818182;\n        background-color: #ececf6;\n    }\n\n    .list-group-item-light.list-group-item-action.active {\n        color: #fff;\n        background-color: #818182;\n        border-color: #818182;\n    }\n\n.list-group-item-dark {\n    color: #1b1e21;\n    background-color: #c6c8ca;\n}\n\n    .list-group-item-dark.list-group-item-action:hover, .list-group-item-dark.list-group-item-action:focus {\n        color: #1b1e21;\n        background-color: #b9bbbe;\n    }\n\n    .list-group-item-dark.list-group-item-action.active {\n        color: #fff;\n        background-color: #1b1e21;\n        border-color: #1b1e21;\n    }\n\n.close {\n    float: right;\n    font-size: 1.5rem;\n    font-weight: 700;\n    line-height: 1;\n    color: #000;\n    text-shadow: 0 1px 0 #fff;\n    opacity: .5;\n}\n\n    .close:hover {\n        color: #000;\n        text-decoration: none;\n    }\n\n    .close:not(:disabled):not(.disabled):hover, .close:not(:disabled):not(.disabled):focus {\n        opacity: .75;\n    }\n\nbutton.close {\n    padding: 0;\n    background-color: transparent;\n    border: 0;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n}\n\na.close.disabled {\n    pointer-events: none;\n}\n\n.toast {\n    max-width: 350px;\n    overflow: hidden;\n    font-size: 0.875rem;\n    background-color: rgba(255, 255, 255, 0.85);\n    background-clip: padding-box;\n    border: 1px solid rgba(0, 0, 0, 0.1);\n    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);\n    -webkit-backdrop-filter: blur(10px);\n    backdrop-filter: blur(10px);\n    opacity: 0;\n    border-radius: 0.25rem;\n}\n\n    .toast:not(:last-child) {\n        margin-bottom: 0.75rem;\n    }\n\n    .toast.showing {\n        opacity: 1;\n    }\n\n    .toast.show {\n        display: block;\n        opacity: 1;\n    }\n\n    .toast.hide {\n        display: none;\n    }\n\n.toast-header {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n    padding: 0.25rem 0.75rem;\n    color: #6c757d;\n    background-color: rgba(255, 255, 255, 0.85);\n    background-clip: padding-box;\n    border-bottom: 1px solid rgba(0, 0, 0, 0.05);\n}\n\n.toast-body {\n    padding: 0.75rem;\n}\n\n.modal-open {\n    overflow: hidden;\n}\n\n    .modal-open .modal {\n        overflow-x: hidden;\n        overflow-y: auto;\n    }\n\n.modal {\n    position: fixed;\n    top: 0;\n    left: 0;\n    z-index: 1050;\n    display: none;\n    width: 100%;\n    height: 100%;\n    overflow: hidden;\n    outline: 0;\n}\n\n.modal-dialog {\n    position: relative;\n    width: auto;\n    margin: 0.5rem;\n    pointer-events: none;\n}\n\n.modal.fade .modal-dialog {\n    transition: -webkit-transform 0.3s ease-out;\n    transition: transform 0.3s ease-out;\n    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;\n    -webkit-transform: translate(0, -50px);\n    transform: translate(0, -50px);\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .modal.fade .modal-dialog {\n        transition: none;\n    }\n}\n\n.modal.show .modal-dialog {\n    -webkit-transform: none;\n    transform: none;\n}\n\n.modal.modal-static .modal-dialog {\n    -webkit-transform: scale(1.02);\n    transform: scale(1.02);\n}\n\n.modal-dialog-scrollable {\n    display: -ms-flexbox;\n    display: flex;\n    max-height: calc(100% - 1rem);\n}\n\n    .modal-dialog-scrollable .modal-content {\n        max-height: calc(100vh - 1rem);\n        overflow: hidden;\n    }\n\n    .modal-dialog-scrollable .modal-header,\n    .modal-dialog-scrollable .modal-footer {\n        -ms-flex-negative: 0;\n        flex-shrink: 0;\n    }\n\n    .modal-dialog-scrollable .modal-body {\n        overflow-y: auto;\n    }\n\n.modal-dialog-centered {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n    min-height: calc(100% - 1rem);\n}\n\n    .modal-dialog-centered::before {\n        display: block;\n        height: calc(100vh - 1rem);\n        content: \"\";\n    }\n\n    .modal-dialog-centered.modal-dialog-scrollable {\n        -ms-flex-direction: column;\n        flex-direction: column;\n        -ms-flex-pack: center;\n        justify-content: center;\n        height: 100%;\n    }\n\n        .modal-dialog-centered.modal-dialog-scrollable .modal-content {\n            max-height: none;\n        }\n\n        .modal-dialog-centered.modal-dialog-scrollable::before {\n            content: none;\n        }\n\n.modal-content {\n    position: relative;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n    flex-direction: column;\n    width: 100%;\n    pointer-events: auto;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 0.3rem;\n    outline: 0;\n}\n\n.modal-backdrop {\n    position: fixed;\n    top: 0;\n    left: 0;\n    z-index: 1040;\n    width: 100vw;\n    height: 100vh;\n    background-color: #000;\n}\n\n    .modal-backdrop.fade {\n        opacity: 0;\n    }\n\n    .modal-backdrop.show {\n        opacity: 0.5;\n    }\n\n.modal-header {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: start;\n    align-items: flex-start;\n    -ms-flex-pack: justify;\n    justify-content: space-between;\n    padding: 1rem 1rem;\n    border-bottom: 1px solid #dee2e6;\n    border-top-left-radius: calc(0.3rem - 1px);\n    border-top-right-radius: calc(0.3rem - 1px);\n}\n\n    .modal-header .close {\n        padding: 1rem 1rem;\n        margin: -1rem -1rem -1rem auto;\n    }\n\n.modal-title {\n    margin-bottom: 0;\n    line-height: 1.5;\n}\n\n.modal-body {\n    position: relative;\n    -ms-flex: 1 1 auto;\n    flex: 1 1 auto;\n    padding: 1rem;\n}\n\n.modal-footer {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n    -ms-flex-align: center;\n    align-items: center;\n    -ms-flex-pack: end;\n    justify-content: flex-end;\n    padding: 0.75rem;\n    border-top: 1px solid #dee2e6;\n    border-bottom-right-radius: calc(0.3rem - 1px);\n    border-bottom-left-radius: calc(0.3rem - 1px);\n}\n\n    .modal-footer > * {\n        margin: 0.25rem;\n    }\n\n.modal-scrollbar-measure {\n    position: absolute;\n    top: -9999px;\n    width: 50px;\n    height: 50px;\n    overflow: scroll;\n}\n\n@media (min-width: 576px) {\n    .modal-dialog {\n        max-width: 500px;\n        margin: 1.75rem auto;\n    }\n\n    .modal-dialog-scrollable {\n        max-height: calc(100% - 3.5rem);\n    }\n\n        .modal-dialog-scrollable .modal-content {\n            max-height: calc(100vh - 3.5rem);\n        }\n\n    .modal-dialog-centered {\n        min-height: calc(100% - 3.5rem);\n    }\n\n        .modal-dialog-centered::before {\n            height: calc(100vh - 3.5rem);\n        }\n\n    .modal-sm {\n        max-width: 300px;\n    }\n}\n\n@media (min-width: 992px) {\n    .modal-lg,\n    .modal-xl {\n        max-width: 800px;\n    }\n}\n\n@media (min-width: 1200px) {\n    .modal-xl {\n        max-width: 1140px;\n    }\n}\n\n.tooltip {\n    position: absolute;\n    z-index: 1070;\n    display: block;\n    margin: 0;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\";\n    font-style: normal;\n    font-weight: 400;\n    line-height: 1.5;\n    text-align: left;\n    text-align: start;\n    text-decoration: none;\n    text-shadow: none;\n    text-transform: none;\n    letter-spacing: normal;\n    word-break: normal;\n    word-spacing: normal;\n    white-space: normal;\n    line-break: auto;\n    font-size: 0.875rem;\n    word-wrap: break-word;\n    opacity: 0;\n}\n\n    .tooltip.show {\n        opacity: 0.9;\n    }\n\n    .tooltip .arrow {\n        position: absolute;\n        display: block;\n        width: 0.8rem;\n        height: 0.4rem;\n    }\n\n        .tooltip .arrow::before {\n            position: absolute;\n            content: \"\";\n            border-color: transparent;\n            border-style: solid;\n        }\n\n.bs-tooltip-top, .bs-tooltip-auto[x-placement^=\"top\"] {\n    padding: 0.4rem 0;\n}\n\n    .bs-tooltip-top .arrow, .bs-tooltip-auto[x-placement^=\"top\"] .arrow {\n        bottom: 0;\n    }\n\n        .bs-tooltip-top .arrow::before, .bs-tooltip-auto[x-placement^=\"top\"] .arrow::before {\n            top: 0;\n            border-width: 0.4rem 0.4rem 0;\n            border-top-color: #000;\n        }\n\n.bs-tooltip-right, .bs-tooltip-auto[x-placement^=\"right\"] {\n    padding: 0 0.4rem;\n}\n\n    .bs-tooltip-right .arrow, .bs-tooltip-auto[x-placement^=\"right\"] .arrow {\n        left: 0;\n        width: 0.4rem;\n        height: 0.8rem;\n    }\n\n        .bs-tooltip-right .arrow::before, .bs-tooltip-auto[x-placement^=\"right\"] .arrow::before {\n            right: 0;\n            border-width: 0.4rem 0.4rem 0.4rem 0;\n            border-right-color: #000;\n        }\n\n.bs-tooltip-bottom, .bs-tooltip-auto[x-placement^=\"bottom\"] {\n    padding: 0.4rem 0;\n}\n\n    .bs-tooltip-bottom .arrow, .bs-tooltip-auto[x-placement^=\"bottom\"] .arrow {\n        top: 0;\n    }\n\n        .bs-tooltip-bottom .arrow::before, .bs-tooltip-auto[x-placement^=\"bottom\"] .arrow::before {\n            bottom: 0;\n            border-width: 0 0.4rem 0.4rem;\n            border-bottom-color: #000;\n        }\n\n.bs-tooltip-left, .bs-tooltip-auto[x-placement^=\"left\"] {\n    padding: 0 0.4rem;\n}\n\n    .bs-tooltip-left .arrow, .bs-tooltip-auto[x-placement^=\"left\"] .arrow {\n        right: 0;\n        width: 0.4rem;\n        height: 0.8rem;\n    }\n\n        .bs-tooltip-left .arrow::before, .bs-tooltip-auto[x-placement^=\"left\"] .arrow::before {\n            left: 0;\n            border-width: 0.4rem 0 0.4rem 0.4rem;\n            border-left-color: #000;\n        }\n\n.tooltip-inner {\n    max-width: 200px;\n    padding: 0.25rem 0.5rem;\n    color: #fff;\n    text-align: center;\n    background-color: #000;\n    border-radius: 0.25rem;\n}\n\n.popover {\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: 1060;\n    display: block;\n    max-width: 276px;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\";\n    font-style: normal;\n    font-weight: 400;\n    line-height: 1.5;\n    text-align: left;\n    text-align: start;\n    text-decoration: none;\n    text-shadow: none;\n    text-transform: none;\n    letter-spacing: normal;\n    word-break: normal;\n    word-spacing: normal;\n    white-space: normal;\n    line-break: auto;\n    font-size: 0.875rem;\n    word-wrap: break-word;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 0.3rem;\n}\n\n    .popover .arrow {\n        position: absolute;\n        display: block;\n        width: 1rem;\n        height: 0.5rem;\n        margin: 0 0.3rem;\n    }\n\n        .popover .arrow::before, .popover .arrow::after {\n            position: absolute;\n            display: block;\n            content: \"\";\n            border-color: transparent;\n            border-style: solid;\n        }\n\n.bs-popover-top, .bs-popover-auto[x-placement^=\"top\"] {\n    margin-bottom: 0.5rem;\n}\n\n    .bs-popover-top > .arrow, .bs-popover-auto[x-placement^=\"top\"] > .arrow {\n        bottom: calc(-0.5rem - 1px);\n    }\n\n        .bs-popover-top > .arrow::before, .bs-popover-auto[x-placement^=\"top\"] > .arrow::before {\n            bottom: 0;\n            border-width: 0.5rem 0.5rem 0;\n            border-top-color: rgba(0, 0, 0, 0.25);\n        }\n\n        .bs-popover-top > .arrow::after, .bs-popover-auto[x-placement^=\"top\"] > .arrow::after {\n            bottom: 1px;\n            border-width: 0.5rem 0.5rem 0;\n            border-top-color: #fff;\n        }\n\n.bs-popover-right, .bs-popover-auto[x-placement^=\"right\"] {\n    margin-left: 0.5rem;\n}\n\n    .bs-popover-right > .arrow, .bs-popover-auto[x-placement^=\"right\"] > .arrow {\n        left: calc(-0.5rem - 1px);\n        width: 0.5rem;\n        height: 1rem;\n        margin: 0.3rem 0;\n    }\n\n        .bs-popover-right > .arrow::before, .bs-popover-auto[x-placement^=\"right\"] > .arrow::before {\n            left: 0;\n            border-width: 0.5rem 0.5rem 0.5rem 0;\n            border-right-color: rgba(0, 0, 0, 0.25);\n        }\n\n        .bs-popover-right > .arrow::after, .bs-popover-auto[x-placement^=\"right\"] > .arrow::after {\n            left: 1px;\n            border-width: 0.5rem 0.5rem 0.5rem 0;\n            border-right-color: #fff;\n        }\n\n.bs-popover-bottom, .bs-popover-auto[x-placement^=\"bottom\"] {\n    margin-top: 0.5rem;\n}\n\n    .bs-popover-bottom > .arrow, .bs-popover-auto[x-placement^=\"bottom\"] > .arrow {\n        top: calc(-0.5rem - 1px);\n    }\n\n        .bs-popover-bottom > .arrow::before, .bs-popover-auto[x-placement^=\"bottom\"] > .arrow::before {\n            top: 0;\n            border-width: 0 0.5rem 0.5rem 0.5rem;\n            border-bottom-color: rgba(0, 0, 0, 0.25);\n        }\n\n        .bs-popover-bottom > .arrow::after, .bs-popover-auto[x-placement^=\"bottom\"] > .arrow::after {\n            top: 1px;\n            border-width: 0 0.5rem 0.5rem 0.5rem;\n            border-bottom-color: #fff;\n        }\n\n    .bs-popover-bottom .popover-header::before, .bs-popover-auto[x-placement^=\"bottom\"] .popover-header::before {\n        position: absolute;\n        top: 0;\n        left: 50%;\n        display: block;\n        width: 1rem;\n        margin-left: -0.5rem;\n        content: \"\";\n        border-bottom: 1px solid #f7f7f7;\n    }\n\n.bs-popover-left, .bs-popover-auto[x-placement^=\"left\"] {\n    margin-right: 0.5rem;\n}\n\n    .bs-popover-left > .arrow, .bs-popover-auto[x-placement^=\"left\"] > .arrow {\n        right: calc(-0.5rem - 1px);\n        width: 0.5rem;\n        height: 1rem;\n        margin: 0.3rem 0;\n    }\n\n        .bs-popover-left > .arrow::before, .bs-popover-auto[x-placement^=\"left\"] > .arrow::before {\n            right: 0;\n            border-width: 0.5rem 0 0.5rem 0.5rem;\n            border-left-color: rgba(0, 0, 0, 0.25);\n        }\n\n        .bs-popover-left > .arrow::after, .bs-popover-auto[x-placement^=\"left\"] > .arrow::after {\n            right: 1px;\n            border-width: 0.5rem 0 0.5rem 0.5rem;\n            border-left-color: #fff;\n        }\n\n.popover-header {\n    padding: 0.5rem 0.75rem;\n    margin-bottom: 0;\n    font-size: 1rem;\n    background-color: #f7f7f7;\n    border-bottom: 1px solid #ebebeb;\n    border-top-left-radius: calc(0.3rem - 1px);\n    border-top-right-radius: calc(0.3rem - 1px);\n}\n\n    .popover-header:empty {\n        display: none;\n    }\n\n.popover-body {\n    padding: 0.5rem 0.75rem;\n    color: #212529;\n}\n\n.carousel {\n    position: relative;\n}\n\n    .carousel.pointer-event {\n        -ms-touch-action: pan-y;\n        touch-action: pan-y;\n    }\n\n.carousel-inner {\n    position: relative;\n    width: 100%;\n    overflow: hidden;\n}\n\n    .carousel-inner::after {\n        display: block;\n        clear: both;\n        content: \"\";\n    }\n\n.carousel-item {\n    position: relative;\n    display: none;\n    float: left;\n    width: 100%;\n    margin-right: -100%;\n    -webkit-backface-visibility: hidden;\n    backface-visibility: hidden;\n    transition: -webkit-transform 0.6s ease-in-out;\n    transition: transform 0.6s ease-in-out;\n    transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .carousel-item {\n        transition: none;\n    }\n}\n\n.carousel-item.active,\n.carousel-item-next,\n.carousel-item-prev {\n    display: block;\n}\n\n    .carousel-item-next:not(.carousel-item-left),\n    .active.carousel-item-right {\n        -webkit-transform: translateX(100%);\n        transform: translateX(100%);\n    }\n\n    .carousel-item-prev:not(.carousel-item-right),\n    .active.carousel-item-left {\n        -webkit-transform: translateX(-100%);\n        transform: translateX(-100%);\n    }\n\n.carousel-fade .carousel-item {\n    opacity: 0;\n    transition-property: opacity;\n    -webkit-transform: none;\n    transform: none;\n}\n\n    .carousel-fade .carousel-item.active,\n    .carousel-fade .carousel-item-next.carousel-item-left,\n    .carousel-fade .carousel-item-prev.carousel-item-right {\n        z-index: 1;\n        opacity: 1;\n    }\n\n.carousel-fade .active.carousel-item-left,\n.carousel-fade .active.carousel-item-right {\n    z-index: 0;\n    opacity: 0;\n    transition: opacity 0s 0.6s;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .carousel-fade .active.carousel-item-left,\n    .carousel-fade .active.carousel-item-right {\n        transition: none;\n    }\n}\n\n.carousel-control-prev,\n.carousel-control-next {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    z-index: 1;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n    -ms-flex-pack: center;\n    justify-content: center;\n    width: 15%;\n    color: #fff;\n    text-align: center;\n    opacity: 0.5;\n    transition: opacity 0.15s ease;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .carousel-control-prev,\n    .carousel-control-next {\n        transition: none;\n    }\n}\n\n.carousel-control-prev:hover, .carousel-control-prev:focus,\n.carousel-control-next:hover,\n.carousel-control-next:focus {\n    color: #fff;\n    text-decoration: none;\n    outline: 0;\n    opacity: 0.9;\n}\n\n.carousel-control-prev {\n    left: 0;\n}\n\n.carousel-control-next {\n    right: 0;\n}\n\n.carousel-control-prev-icon,\n.carousel-control-next-icon {\n    display: inline-block;\n    width: 20px;\n    height: 20px;\n    background: no-repeat 50% / 100% 100%;\n}\n\n.carousel-control-prev-icon {\n    background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/%3e%3c/svg%3e\");\n}\n\n.carousel-control-next-icon {\n    background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e\");\n}\n\n.carousel-indicators {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 15;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-pack: center;\n    justify-content: center;\n    padding-left: 0;\n    margin-right: 15%;\n    margin-left: 15%;\n    list-style: none;\n}\n\n    .carousel-indicators li {\n        box-sizing: content-box;\n        -ms-flex: 0 1 auto;\n        flex: 0 1 auto;\n        width: 30px;\n        height: 3px;\n        margin-right: 3px;\n        margin-left: 3px;\n        text-indent: -999px;\n        cursor: pointer;\n        background-color: #fff;\n        background-clip: padding-box;\n        border-top: 10px solid transparent;\n        border-bottom: 10px solid transparent;\n        opacity: .5;\n        transition: opacity 0.6s ease;\n    }\n\n@media (prefers-reduced-motion: reduce) {\n    .carousel-indicators li {\n        transition: none;\n    }\n}\n\n.carousel-indicators .active {\n    opacity: 1;\n}\n\n.carousel-caption {\n    position: absolute;\n    right: 15%;\n    bottom: 20px;\n    left: 15%;\n    z-index: 10;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    color: #fff;\n    text-align: center;\n}\n\n@-webkit-keyframes spinner-border {\n    to {\n        -webkit-transform: rotate(360deg);\n        transform: rotate(360deg);\n    }\n}\n\n@keyframes spinner-border {\n    to {\n        -webkit-transform: rotate(360deg);\n        transform: rotate(360deg);\n    }\n}\n\n.spinner-border {\n    display: inline-block;\n    width: 2rem;\n    height: 2rem;\n    vertical-align: text-bottom;\n    border: 0.25em solid currentColor;\n    border-right-color: transparent;\n    border-radius: 50%;\n    -webkit-animation: spinner-border .75s linear infinite;\n    animation: spinner-border .75s linear infinite;\n}\n\n.spinner-border-sm {\n    width: 1rem;\n    height: 1rem;\n    border-width: 0.2em;\n}\n\n@-webkit-keyframes spinner-grow {\n    0% {\n        -webkit-transform: scale(0);\n        transform: scale(0);\n    }\n\n    50% {\n        opacity: 1;\n    }\n}\n\n@keyframes spinner-grow {\n    0% {\n        -webkit-transform: scale(0);\n        transform: scale(0);\n    }\n\n    50% {\n        opacity: 1;\n    }\n}\n\n.spinner-grow {\n    display: inline-block;\n    width: 2rem;\n    height: 2rem;\n    vertical-align: text-bottom;\n    background-color: currentColor;\n    border-radius: 50%;\n    opacity: 0;\n    -webkit-animation: spinner-grow .75s linear infinite;\n    animation: spinner-grow .75s linear infinite;\n}\n\n.spinner-grow-sm {\n    width: 1rem;\n    height: 1rem;\n}\n\n.align-baseline {\n    vertical-align: baseline !important;\n}\n\n.align-top {\n    vertical-align: top !important;\n}\n\n.align-middle {\n    vertical-align: middle !important;\n}\n\n.align-bottom {\n    vertical-align: bottom !important;\n}\n\n.align-text-bottom {\n    vertical-align: text-bottom !important;\n}\n\n.align-text-top {\n    vertical-align: text-top !important;\n}\n\n.bg-primary {\n    background-color: #007bff !important;\n}\n\na.bg-primary:hover, a.bg-primary:focus,\nbutton.bg-primary:hover,\nbutton.bg-primary:focus {\n    background-color: #0062cc !important;\n}\n\n.bg-secondary {\n    background-color: #6c757d !important;\n}\n\na.bg-secondary:hover, a.bg-secondary:focus,\nbutton.bg-secondary:hover,\nbutton.bg-secondary:focus {\n    background-color: #545b62 !important;\n}\n\n.bg-success {\n    background-color: #28a745 !important;\n}\n\na.bg-success:hover, a.bg-success:focus,\nbutton.bg-success:hover,\nbutton.bg-success:focus {\n    background-color: #1e7e34 !important;\n}\n\n.bg-info {\n    background-color: #17a2b8 !important;\n}\n\na.bg-info:hover, a.bg-info:focus,\nbutton.bg-info:hover,\nbutton.bg-info:focus {\n    background-color: #117a8b !important;\n}\n\n.bg-warning {\n    background-color: #ffc107 !important;\n}\n\na.bg-warning:hover, a.bg-warning:focus,\nbutton.bg-warning:hover,\nbutton.bg-warning:focus {\n    background-color: #d39e00 !important;\n}\n\n.bg-danger {\n    background-color: #dc3545 !important;\n}\n\na.bg-danger:hover, a.bg-danger:focus,\nbutton.bg-danger:hover,\nbutton.bg-danger:focus {\n    background-color: #bd2130 !important;\n}\n\n.bg-light {\n    background-color: #f8f9fa !important;\n}\n\na.bg-light:hover, a.bg-light:focus,\nbutton.bg-light:hover,\nbutton.bg-light:focus {\n    background-color: #dae0e5 !important;\n}\n\n.bg-dark {\n    background-color: #343a40 !important;\n}\n\na.bg-dark:hover, a.bg-dark:focus,\nbutton.bg-dark:hover,\nbutton.bg-dark:focus {\n    background-color: #1d2124 !important;\n}\n\n.bg-white {\n    background-color: #fff !important;\n}\n\n.bg-transparent {\n    background-color: transparent !important;\n}\n\n.border {\n    border: 1px solid #dee2e6 !important;\n}\n\n.border-top {\n    border-top: 1px solid #dee2e6 !important;\n}\n\n.border-right {\n    border-right: 1px solid #dee2e6 !important;\n}\n\n.border-bottom {\n    border-bottom: 1px solid #dee2e6 !important;\n}\n\n.border-left {\n    border-left: 1px solid #dee2e6 !important;\n}\n\n.border-0 {\n    border: 0 !important;\n}\n\n.border-top-0 {\n    border-top: 0 !important;\n}\n\n.border-right-0 {\n    border-right: 0 !important;\n}\n\n.border-bottom-0 {\n    border-bottom: 0 !important;\n}\n\n.border-left-0 {\n    border-left: 0 !important;\n}\n\n.border-primary {\n    border-color: #007bff !important;\n}\n\n.border-secondary {\n    border-color: #6c757d !important;\n}\n\n.border-success {\n    border-color: #28a745 !important;\n}\n\n.border-info {\n    border-color: #17a2b8 !important;\n}\n\n.border-warning {\n    border-color: #ffc107 !important;\n}\n\n.border-danger {\n    border-color: #dc3545 !important;\n}\n\n.border-light {\n    border-color: #f8f9fa !important;\n}\n\n.border-dark {\n    border-color: #343a40 !important;\n}\n\n.border-white {\n    border-color: #fff !important;\n}\n\n.rounded-sm {\n    border-radius: 0.2rem !important;\n}\n\n.rounded {\n    border-radius: 0.25rem !important;\n}\n\n.rounded-top {\n    border-top-left-radius: 0.25rem !important;\n    border-top-right-radius: 0.25rem !important;\n}\n\n.rounded-right {\n    border-top-right-radius: 0.25rem !important;\n    border-bottom-right-radius: 0.25rem !important;\n}\n\n.rounded-bottom {\n    border-bottom-right-radius: 0.25rem !important;\n    border-bottom-left-radius: 0.25rem !important;\n}\n\n.rounded-left {\n    border-top-left-radius: 0.25rem !important;\n    border-bottom-left-radius: 0.25rem !important;\n}\n\n.rounded-lg {\n    border-radius: 0.3rem !important;\n}\n\n.rounded-circle {\n    border-radius: 50% !important;\n}\n\n.rounded-pill {\n    border-radius: 50rem !important;\n}\n\n.rounded-0 {\n    border-radius: 0 !important;\n}\n\n.clearfix::after {\n    display: block;\n    clear: both;\n    content: \"\";\n}\n\n.d-none {\n    display: none !important;\n}\n\n.d-inline {\n    display: inline !important;\n}\n\n.d-inline-block {\n    display: inline-block !important;\n}\n\n.d-block {\n    display: block !important;\n}\n\n.d-table {\n    display: table !important;\n}\n\n.d-table-row {\n    display: table-row !important;\n}\n\n.d-table-cell {\n    display: table-cell !important;\n}\n\n.d-flex {\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n\n.d-inline-flex {\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n\n@media (min-width: 576px) {\n    .d-sm-none {\n        display: none !important;\n    }\n\n    .d-sm-inline {\n        display: inline !important;\n    }\n\n    .d-sm-inline-block {\n        display: inline-block !important;\n    }\n\n    .d-sm-block {\n        display: block !important;\n    }\n\n    .d-sm-table {\n        display: table !important;\n    }\n\n    .d-sm-table-row {\n        display: table-row !important;\n    }\n\n    .d-sm-table-cell {\n        display: table-cell !important;\n    }\n\n    .d-sm-flex {\n        display: -ms-flexbox !important;\n        display: flex !important;\n    }\n\n    .d-sm-inline-flex {\n        display: -ms-inline-flexbox !important;\n        display: inline-flex !important;\n    }\n}\n\n@media (min-width: 768px) {\n    .d-md-none {\n        display: none !important;\n    }\n\n    .d-md-inline {\n        display: inline !important;\n    }\n\n    .d-md-inline-block {\n        display: inline-block !important;\n    }\n\n    .d-md-block {\n        display: block !important;\n    }\n\n    .d-md-table {\n        display: table !important;\n    }\n\n    .d-md-table-row {\n        display: table-row !important;\n    }\n\n    .d-md-table-cell {\n        display: table-cell !important;\n    }\n\n    .d-md-flex {\n        display: -ms-flexbox !important;\n        display: flex !important;\n    }\n\n    .d-md-inline-flex {\n        display: -ms-inline-flexbox !important;\n        display: inline-flex !important;\n    }\n}\n\n@media (min-width: 992px) {\n    .d-lg-none {\n        display: none !important;\n    }\n\n    .d-lg-inline {\n        display: inline !important;\n    }\n\n    .d-lg-inline-block {\n        display: inline-block !important;\n    }\n\n    .d-lg-block {\n        display: block !important;\n    }\n\n    .d-lg-table {\n        display: table !important;\n    }\n\n    .d-lg-table-row {\n        display: table-row !important;\n    }\n\n    .d-lg-table-cell {\n        display: table-cell !important;\n    }\n\n    .d-lg-flex {\n        display: -ms-flexbox !important;\n        display: flex !important;\n    }\n\n    .d-lg-inline-flex {\n        display: -ms-inline-flexbox !important;\n        display: inline-flex !important;\n    }\n}\n\n@media (min-width: 1200px) {\n    .d-xl-none {\n        display: none !important;\n    }\n\n    .d-xl-inline {\n        display: inline !important;\n    }\n\n    .d-xl-inline-block {\n        display: inline-block !important;\n    }\n\n    .d-xl-block {\n        display: block !important;\n    }\n\n    .d-xl-table {\n        display: table !important;\n    }\n\n    .d-xl-table-row {\n        display: table-row !important;\n    }\n\n    .d-xl-table-cell {\n        display: table-cell !important;\n    }\n\n    .d-xl-flex {\n        display: -ms-flexbox !important;\n        display: flex !important;\n    }\n\n    .d-xl-inline-flex {\n        display: -ms-inline-flexbox !important;\n        display: inline-flex !important;\n    }\n}\n\n@media print {\n    .d-print-none {\n        display: none !important;\n    }\n\n    .d-print-inline {\n        display: inline !important;\n    }\n\n    .d-print-inline-block {\n        display: inline-block !important;\n    }\n\n    .d-print-block {\n        display: block !important;\n    }\n\n    .d-print-table {\n        display: table !important;\n    }\n\n    .d-print-table-row {\n        display: table-row !important;\n    }\n\n    .d-print-table-cell {\n        display: table-cell !important;\n    }\n\n    .d-print-flex {\n        display: -ms-flexbox !important;\n        display: flex !important;\n    }\n\n    .d-print-inline-flex {\n        display: -ms-inline-flexbox !important;\n        display: inline-flex !important;\n    }\n}\n\n.embed-responsive {\n    position: relative;\n    display: block;\n    width: 100%;\n    padding: 0;\n    overflow: hidden;\n}\n\n    .embed-responsive::before {\n        display: block;\n        content: \"\";\n    }\n\n    .embed-responsive .embed-responsive-item,\n    .embed-responsive iframe,\n    .embed-responsive embed,\n    .embed-responsive object,\n    .embed-responsive video {\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        border: 0;\n    }\n\n.embed-responsive-21by9::before {\n    padding-top: 42.857143%;\n}\n\n.embed-responsive-16by9::before {\n    padding-top: 56.25%;\n}\n\n.embed-responsive-4by3::before {\n    padding-top: 75%;\n}\n\n.embed-responsive-1by1::before {\n    padding-top: 100%;\n}\n\n.flex-row {\n    -ms-flex-direction: row !important;\n    flex-direction: row !important;\n}\n\n.flex-column {\n    -ms-flex-direction: column !important;\n    flex-direction: column !important;\n}\n\n.flex-row-reverse {\n    -ms-flex-direction: row-reverse !important;\n    flex-direction: row-reverse !important;\n}\n\n.flex-column-reverse {\n    -ms-flex-direction: column-reverse !important;\n    flex-direction: column-reverse !important;\n}\n\n.flex-wrap {\n    -ms-flex-wrap: wrap !important;\n    flex-wrap: wrap !important;\n}\n\n.flex-nowrap {\n    -ms-flex-wrap: nowrap !important;\n    flex-wrap: nowrap !important;\n}\n\n.flex-wrap-reverse {\n    -ms-flex-wrap: wrap-reverse !important;\n    flex-wrap: wrap-reverse !important;\n}\n\n.flex-fill {\n    -ms-flex: 1 1 auto !important;\n    flex: 1 1 auto !important;\n}\n\n.flex-grow-0 {\n    -ms-flex-positive: 0 !important;\n    flex-grow: 0 !important;\n}\n\n.flex-grow-1 {\n    -ms-flex-positive: 1 !important;\n    flex-grow: 1 !important;\n}\n\n.flex-shrink-0 {\n    -ms-flex-negative: 0 !important;\n    flex-shrink: 0 !important;\n}\n\n.flex-shrink-1 {\n    -ms-flex-negative: 1 !important;\n    flex-shrink: 1 !important;\n}\n\n.justify-content-start {\n    -ms-flex-pack: start !important;\n    justify-content: flex-start !important;\n}\n\n.justify-content-end {\n    -ms-flex-pack: end !important;\n    justify-content: flex-end !important;\n}\n\n.justify-content-center {\n    -ms-flex-pack: center !important;\n    justify-content: center !important;\n}\n\n.justify-content-between {\n    -ms-flex-pack: justify !important;\n    justify-content: space-between !important;\n}\n\n.justify-content-around {\n    -ms-flex-pack: distribute !important;\n    justify-content: space-around !important;\n}\n\n.align-items-start {\n    -ms-flex-align: start !important;\n    align-items: flex-start !important;\n}\n\n.align-items-end {\n    -ms-flex-align: end !important;\n    align-items: flex-end !important;\n}\n\n.align-items-center {\n    -ms-flex-align: center !important;\n    align-items: center !important;\n}\n\n.align-items-baseline {\n    -ms-flex-align: baseline !important;\n    align-items: baseline !important;\n}\n\n.align-items-stretch {\n    -ms-flex-align: stretch !important;\n    align-items: stretch !important;\n}\n\n.align-content-start {\n    -ms-flex-line-pack: start !important;\n    align-content: flex-start !important;\n}\n\n.align-content-end {\n    -ms-flex-line-pack: end !important;\n    align-content: flex-end !important;\n}\n\n.align-content-center {\n    -ms-flex-line-pack: center !important;\n    align-content: center !important;\n}\n\n.align-content-between {\n    -ms-flex-line-pack: justify !important;\n    align-content: space-between !important;\n}\n\n.align-content-around {\n    -ms-flex-line-pack: distribute !important;\n    align-content: space-around !important;\n}\n\n.align-content-stretch {\n    -ms-flex-line-pack: stretch !important;\n    align-content: stretch !important;\n}\n\n.align-self-auto {\n    -ms-flex-item-align: auto !important;\n    align-self: auto !important;\n}\n\n.align-self-start {\n    -ms-flex-item-align: start !important;\n    align-self: flex-start !important;\n}\n\n.align-self-end {\n    -ms-flex-item-align: end !important;\n    align-self: flex-end !important;\n}\n\n.align-self-center {\n    -ms-flex-item-align: center !important;\n    align-self: center !important;\n}\n\n.align-self-baseline {\n    -ms-flex-item-align: baseline !important;\n    align-self: baseline !important;\n}\n\n.align-self-stretch {\n    -ms-flex-item-align: stretch !important;\n    align-self: stretch !important;\n}\n\n@media (min-width: 576px) {\n    .flex-sm-row {\n        -ms-flex-direction: row !important;\n        flex-direction: row !important;\n    }\n\n    .flex-sm-column {\n        -ms-flex-direction: column !important;\n        flex-direction: column !important;\n    }\n\n    .flex-sm-row-reverse {\n        -ms-flex-direction: row-reverse !important;\n        flex-direction: row-reverse !important;\n    }\n\n    .flex-sm-column-reverse {\n        -ms-flex-direction: column-reverse !important;\n        flex-direction: column-reverse !important;\n    }\n\n    .flex-sm-wrap {\n        -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n    }\n\n    .flex-sm-nowrap {\n        -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n    }\n\n    .flex-sm-wrap-reverse {\n        -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n    }\n\n    .flex-sm-fill {\n        -ms-flex: 1 1 auto !important;\n        flex: 1 1 auto !important;\n    }\n\n    .flex-sm-grow-0 {\n        -ms-flex-positive: 0 !important;\n        flex-grow: 0 !important;\n    }\n\n    .flex-sm-grow-1 {\n        -ms-flex-positive: 1 !important;\n        flex-grow: 1 !important;\n    }\n\n    .flex-sm-shrink-0 {\n        -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n    }\n\n    .flex-sm-shrink-1 {\n        -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n    }\n\n    .justify-content-sm-start {\n        -ms-flex-pack: start !important;\n        justify-content: flex-start !important;\n    }\n\n    .justify-content-sm-end {\n        -ms-flex-pack: end !important;\n        justify-content: flex-end !important;\n    }\n\n    .justify-content-sm-center {\n        -ms-flex-pack: center !important;\n        justify-content: center !important;\n    }\n\n    .justify-content-sm-between {\n        -ms-flex-pack: justify !important;\n        justify-content: space-between !important;\n    }\n\n    .justify-content-sm-around {\n        -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n    }\n\n    .align-items-sm-start {\n        -ms-flex-align: start !important;\n        align-items: flex-start !important;\n    }\n\n    .align-items-sm-end {\n        -ms-flex-align: end !important;\n        align-items: flex-end !important;\n    }\n\n    .align-items-sm-center {\n        -ms-flex-align: center !important;\n        align-items: center !important;\n    }\n\n    .align-items-sm-baseline {\n        -ms-flex-align: baseline !important;\n        align-items: baseline !important;\n    }\n\n    .align-items-sm-stretch {\n        -ms-flex-align: stretch !important;\n        align-items: stretch !important;\n    }\n\n    .align-content-sm-start {\n        -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n    }\n\n    .align-content-sm-end {\n        -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n    }\n\n    .align-content-sm-center {\n        -ms-flex-line-pack: center !important;\n        align-content: center !important;\n    }\n\n    .align-content-sm-between {\n        -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n    }\n\n    .align-content-sm-around {\n        -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n    }\n\n    .align-content-sm-stretch {\n        -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n    }\n\n    .align-self-sm-auto {\n        -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n    }\n\n    .align-self-sm-start {\n        -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n    }\n\n    .align-self-sm-end {\n        -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n    }\n\n    .align-self-sm-center {\n        -ms-flex-item-align: center !important;\n        align-self: center !important;\n    }\n\n    .align-self-sm-baseline {\n        -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n    }\n\n    .align-self-sm-stretch {\n        -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n    }\n}\n\n@media (min-width: 768px) {\n    .flex-md-row {\n        -ms-flex-direction: row !important;\n        flex-direction: row !important;\n    }\n\n    .flex-md-column {\n        -ms-flex-direction: column !important;\n        flex-direction: column !important;\n    }\n\n    .flex-md-row-reverse {\n        -ms-flex-direction: row-reverse !important;\n        flex-direction: row-reverse !important;\n    }\n\n    .flex-md-column-reverse {\n        -ms-flex-direction: column-reverse !important;\n        flex-direction: column-reverse !important;\n    }\n\n    .flex-md-wrap {\n        -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n    }\n\n    .flex-md-nowrap {\n        -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n    }\n\n    .flex-md-wrap-reverse {\n        -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n    }\n\n    .flex-md-fill {\n        -ms-flex: 1 1 auto !important;\n        flex: 1 1 auto !important;\n    }\n\n    .flex-md-grow-0 {\n        -ms-flex-positive: 0 !important;\n        flex-grow: 0 !important;\n    }\n\n    .flex-md-grow-1 {\n        -ms-flex-positive: 1 !important;\n        flex-grow: 1 !important;\n    }\n\n    .flex-md-shrink-0 {\n        -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n    }\n\n    .flex-md-shrink-1 {\n        -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n    }\n\n    .justify-content-md-start {\n        -ms-flex-pack: start !important;\n        justify-content: flex-start !important;\n    }\n\n    .justify-content-md-end {\n        -ms-flex-pack: end !important;\n        justify-content: flex-end !important;\n    }\n\n    .justify-content-md-center {\n        -ms-flex-pack: center !important;\n        justify-content: center !important;\n    }\n\n    .justify-content-md-between {\n        -ms-flex-pack: justify !important;\n        justify-content: space-between !important;\n    }\n\n    .justify-content-md-around {\n        -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n    }\n\n    .align-items-md-start {\n        -ms-flex-align: start !important;\n        align-items: flex-start !important;\n    }\n\n    .align-items-md-end {\n        -ms-flex-align: end !important;\n        align-items: flex-end !important;\n    }\n\n    .align-items-md-center {\n        -ms-flex-align: center !important;\n        align-items: center !important;\n    }\n\n    .align-items-md-baseline {\n        -ms-flex-align: baseline !important;\n        align-items: baseline !important;\n    }\n\n    .align-items-md-stretch {\n        -ms-flex-align: stretch !important;\n        align-items: stretch !important;\n    }\n\n    .align-content-md-start {\n        -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n    }\n\n    .align-content-md-end {\n        -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n    }\n\n    .align-content-md-center {\n        -ms-flex-line-pack: center !important;\n        align-content: center !important;\n    }\n\n    .align-content-md-between {\n        -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n    }\n\n    .align-content-md-around {\n        -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n    }\n\n    .align-content-md-stretch {\n        -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n    }\n\n    .align-self-md-auto {\n        -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n    }\n\n    .align-self-md-start {\n        -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n    }\n\n    .align-self-md-end {\n        -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n    }\n\n    .align-self-md-center {\n        -ms-flex-item-align: center !important;\n        align-self: center !important;\n    }\n\n    .align-self-md-baseline {\n        -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n    }\n\n    .align-self-md-stretch {\n        -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n    }\n}\n\n@media (min-width: 992px) {\n    .flex-lg-row {\n        -ms-flex-direction: row !important;\n        flex-direction: row !important;\n    }\n\n    .flex-lg-column {\n        -ms-flex-direction: column !important;\n        flex-direction: column !important;\n    }\n\n    .flex-lg-row-reverse {\n        -ms-flex-direction: row-reverse !important;\n        flex-direction: row-reverse !important;\n    }\n\n    .flex-lg-column-reverse {\n        -ms-flex-direction: column-reverse !important;\n        flex-direction: column-reverse !important;\n    }\n\n    .flex-lg-wrap {\n        -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n    }\n\n    .flex-lg-nowrap {\n        -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n    }\n\n    .flex-lg-wrap-reverse {\n        -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n    }\n\n    .flex-lg-fill {\n        -ms-flex: 1 1 auto !important;\n        flex: 1 1 auto !important;\n    }\n\n    .flex-lg-grow-0 {\n        -ms-flex-positive: 0 !important;\n        flex-grow: 0 !important;\n    }\n\n    .flex-lg-grow-1 {\n        -ms-flex-positive: 1 !important;\n        flex-grow: 1 !important;\n    }\n\n    .flex-lg-shrink-0 {\n        -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n    }\n\n    .flex-lg-shrink-1 {\n        -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n    }\n\n    .justify-content-lg-start {\n        -ms-flex-pack: start !important;\n        justify-content: flex-start !important;\n    }\n\n    .justify-content-lg-end {\n        -ms-flex-pack: end !important;\n        justify-content: flex-end !important;\n    }\n\n    .justify-content-lg-center {\n        -ms-flex-pack: center !important;\n        justify-content: center !important;\n    }\n\n    .justify-content-lg-between {\n        -ms-flex-pack: justify !important;\n        justify-content: space-between !important;\n    }\n\n    .justify-content-lg-around {\n        -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n    }\n\n    .align-items-lg-start {\n        -ms-flex-align: start !important;\n        align-items: flex-start !important;\n    }\n\n    .align-items-lg-end {\n        -ms-flex-align: end !important;\n        align-items: flex-end !important;\n    }\n\n    .align-items-lg-center {\n        -ms-flex-align: center !important;\n        align-items: center !important;\n    }\n\n    .align-items-lg-baseline {\n        -ms-flex-align: baseline !important;\n        align-items: baseline !important;\n    }\n\n    .align-items-lg-stretch {\n        -ms-flex-align: stretch !important;\n        align-items: stretch !important;\n    }\n\n    .align-content-lg-start {\n        -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n    }\n\n    .align-content-lg-end {\n        -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n    }\n\n    .align-content-lg-center {\n        -ms-flex-line-pack: center !important;\n        align-content: center !important;\n    }\n\n    .align-content-lg-between {\n        -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n    }\n\n    .align-content-lg-around {\n        -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n    }\n\n    .align-content-lg-stretch {\n        -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n    }\n\n    .align-self-lg-auto {\n        -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n    }\n\n    .align-self-lg-start {\n        -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n    }\n\n    .align-self-lg-end {\n        -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n    }\n\n    .align-self-lg-center {\n        -ms-flex-item-align: center !important;\n        align-self: center !important;\n    }\n\n    .align-self-lg-baseline {\n        -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n    }\n\n    .align-self-lg-stretch {\n        -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n    }\n}\n\n@media (min-width: 1200px) {\n    .flex-xl-row {\n        -ms-flex-direction: row !important;\n        flex-direction: row !important;\n    }\n\n    .flex-xl-column {\n        -ms-flex-direction: column !important;\n        flex-direction: column !important;\n    }\n\n    .flex-xl-row-reverse {\n        -ms-flex-direction: row-reverse !important;\n        flex-direction: row-reverse !important;\n    }\n\n    .flex-xl-column-reverse {\n        -ms-flex-direction: column-reverse !important;\n        flex-direction: column-reverse !important;\n    }\n\n    .flex-xl-wrap {\n        -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n    }\n\n    .flex-xl-nowrap {\n        -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n    }\n\n    .flex-xl-wrap-reverse {\n        -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n    }\n\n    .flex-xl-fill {\n        -ms-flex: 1 1 auto !important;\n        flex: 1 1 auto !important;\n    }\n\n    .flex-xl-grow-0 {\n        -ms-flex-positive: 0 !important;\n        flex-grow: 0 !important;\n    }\n\n    .flex-xl-grow-1 {\n        -ms-flex-positive: 1 !important;\n        flex-grow: 1 !important;\n    }\n\n    .flex-xl-shrink-0 {\n        -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n    }\n\n    .flex-xl-shrink-1 {\n        -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n    }\n\n    .justify-content-xl-start {\n        -ms-flex-pack: start !important;\n        justify-content: flex-start !important;\n    }\n\n    .justify-content-xl-end {\n        -ms-flex-pack: end !important;\n        justify-content: flex-end !important;\n    }\n\n    .justify-content-xl-center {\n        -ms-flex-pack: center !important;\n        justify-content: center !important;\n    }\n\n    .justify-content-xl-between {\n        -ms-flex-pack: justify !important;\n        justify-content: space-between !important;\n    }\n\n    .justify-content-xl-around {\n        -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n    }\n\n    .align-items-xl-start {\n        -ms-flex-align: start !important;\n        align-items: flex-start !important;\n    }\n\n    .align-items-xl-end {\n        -ms-flex-align: end !important;\n        align-items: flex-end !important;\n    }\n\n    .align-items-xl-center {\n        -ms-flex-align: center !important;\n        align-items: center !important;\n    }\n\n    .align-items-xl-baseline {\n        -ms-flex-align: baseline !important;\n        align-items: baseline !important;\n    }\n\n    .align-items-xl-stretch {\n        -ms-flex-align: stretch !important;\n        align-items: stretch !important;\n    }\n\n    .align-content-xl-start {\n        -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n    }\n\n    .align-content-xl-end {\n        -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n    }\n\n    .align-content-xl-center {\n        -ms-flex-line-pack: center !important;\n        align-content: center !important;\n    }\n\n    .align-content-xl-between {\n        -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n    }\n\n    .align-content-xl-around {\n        -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n    }\n\n    .align-content-xl-stretch {\n        -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n    }\n\n    .align-self-xl-auto {\n        -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n    }\n\n    .align-self-xl-start {\n        -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n    }\n\n    .align-self-xl-end {\n        -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n    }\n\n    .align-self-xl-center {\n        -ms-flex-item-align: center !important;\n        align-self: center !important;\n    }\n\n    .align-self-xl-baseline {\n        -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n    }\n\n    .align-self-xl-stretch {\n        -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n    }\n}\n\n.float-left {\n    float: left !important;\n}\n\n.float-right {\n    float: right !important;\n}\n\n.float-none {\n    float: none !important;\n}\n\n@media (min-width: 576px) {\n    .float-sm-left {\n        float: left !important;\n    }\n\n    .float-sm-right {\n        float: right !important;\n    }\n\n    .float-sm-none {\n        float: none !important;\n    }\n}\n\n@media (min-width: 768px) {\n    .float-md-left {\n        float: left !important;\n    }\n\n    .float-md-right {\n        float: right !important;\n    }\n\n    .float-md-none {\n        float: none !important;\n    }\n}\n\n@media (min-width: 992px) {\n    .float-lg-left {\n        float: left !important;\n    }\n\n    .float-lg-right {\n        float: right !important;\n    }\n\n    .float-lg-none {\n        float: none !important;\n    }\n}\n\n@media (min-width: 1200px) {\n    .float-xl-left {\n        float: left !important;\n    }\n\n    .float-xl-right {\n        float: right !important;\n    }\n\n    .float-xl-none {\n        float: none !important;\n    }\n}\n\n.overflow-auto {\n    overflow: auto !important;\n}\n\n.overflow-hidden {\n    overflow: hidden !important;\n}\n\n.position-static {\n    position: static !important;\n}\n\n.position-relative {\n    position: relative !important;\n}\n\n.position-absolute {\n    position: absolute !important;\n}\n\n.position-fixed {\n    position: fixed !important;\n}\n\n.position-sticky {\n    position: -webkit-sticky !important;\n    position: sticky !important;\n}\n\n.fixed-top {\n    position: fixed;\n    top: 0;\n    right: 0;\n    left: 0;\n    z-index: 1030;\n}\n\n.fixed-bottom {\n    position: fixed;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 1030;\n}\n\n@supports ((position: -webkit-sticky) or (position: sticky)) {\n    .sticky-top {\n        position: -webkit-sticky;\n        position: sticky;\n        top: 0;\n        z-index: 1020;\n    }\n}\n\n.sr-only {\n    position: absolute;\n    width: 1px;\n    height: 1px;\n    padding: 0;\n    margin: -1px;\n    overflow: hidden;\n    clip: rect(0, 0, 0, 0);\n    white-space: nowrap;\n    border: 0;\n}\n\n.sr-only-focusable:active, .sr-only-focusable:focus {\n    position: static;\n    width: auto;\n    height: auto;\n    overflow: visible;\n    clip: auto;\n    white-space: normal;\n}\n\n.shadow-sm {\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;\n}\n\n.shadow {\n    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;\n}\n\n.shadow-lg {\n    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;\n}\n\n.shadow-none {\n    box-shadow: none !important;\n}\n\n.w-25 {\n    width: 25% !important;\n}\n\n.w-50 {\n    width: 50% !important;\n}\n\n.w-75 {\n    width: 75% !important;\n}\n\n.w-100 {\n    width: 100% !important;\n}\n\n.w-auto {\n    width: auto !important;\n}\n\n.h-25 {\n    height: 25% !important;\n}\n\n.h-50 {\n    height: 50% !important;\n}\n\n.h-75 {\n    height: 75% !important;\n}\n\n.h-100 {\n    height: 100% !important;\n}\n\n.h-auto {\n    height: auto !important;\n}\n\n.mw-100 {\n    max-width: 100% !important;\n}\n\n.mh-100 {\n    max-height: 100% !important;\n}\n\n.min-vw-100 {\n    min-width: 100vw !important;\n}\n\n.min-vh-100 {\n    min-height: 100vh !important;\n}\n\n.vw-100 {\n    width: 100vw !important;\n}\n\n.vh-100 {\n    height: 100vh !important;\n}\n\n.stretched-link::after {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 1;\n    pointer-events: auto;\n    content: \"\";\n    background-color: rgba(0, 0, 0, 0);\n}\n\n.m-0 {\n    margin: 0 !important;\n}\n\n.mt-0,\n.my-0 {\n    margin-top: 0 !important;\n}\n\n.mr-0,\n.mx-0 {\n    margin-right: 0 !important;\n}\n\n.mb-0,\n.my-0 {\n    margin-bottom: 0 !important;\n}\n\n.ml-0,\n.mx-0 {\n    margin-left: 0 !important;\n}\n\n.m-1 {\n    margin: 0.25rem !important;\n}\n\n.mt-1,\n.my-1 {\n    margin-top: 0.25rem !important;\n}\n\n.mr-1,\n.mx-1 {\n    margin-right: 0.25rem !important;\n}\n\n.mb-1,\n.my-1 {\n    margin-bottom: 0.25rem !important;\n}\n\n.ml-1,\n.mx-1 {\n    margin-left: 0.25rem !important;\n}\n\n.m-2 {\n    margin: 0.5rem !important;\n}\n\n.mt-2,\n.my-2 {\n    margin-top: 0.5rem !important;\n}\n\n.mr-2,\n.mx-2 {\n    margin-right: 0.5rem !important;\n}\n\n.mb-2,\n.my-2 {\n    margin-bottom: 0.5rem !important;\n}\n\n.ml-2,\n.mx-2 {\n    margin-left: 0.5rem !important;\n}\n\n.m-3 {\n    margin: 1rem !important;\n}\n\n.mt-3,\n.my-3 {\n    margin-top: 1rem !important;\n}\n\n.mr-3,\n.mx-3 {\n    margin-right: 1rem !important;\n}\n\n.mb-3,\n.my-3 {\n    margin-bottom: 1rem !important;\n}\n\n.ml-3,\n.mx-3 {\n    margin-left: 1rem !important;\n}\n\n.m-4 {\n    margin: 1.5rem !important;\n}\n\n.mt-4,\n.my-4 {\n    margin-top: 1.5rem !important;\n}\n\n.mr-4,\n.mx-4 {\n    margin-right: 1.5rem !important;\n}\n\n.mb-4,\n.my-4 {\n    margin-bottom: 1.5rem !important;\n}\n\n.ml-4,\n.mx-4 {\n    margin-left: 1.5rem !important;\n}\n\n.m-5 {\n    margin: 3rem !important;\n}\n\n.mt-5,\n.my-5 {\n    margin-top: 3rem !important;\n}\n\n.mr-5,\n.mx-5 {\n    margin-right: 3rem !important;\n}\n\n.mb-5,\n.my-5 {\n    margin-bottom: 3rem !important;\n}\n\n.ml-5,\n.mx-5 {\n    margin-left: 3rem !important;\n}\n\n.p-0 {\n    padding: 0 !important;\n}\n\n.pt-0,\n.py-0 {\n    padding-top: 0 !important;\n}\n\n.pr-0,\n.px-0 {\n    padding-right: 0 !important;\n}\n\n.pb-0,\n.py-0 {\n    padding-bottom: 0 !important;\n}\n\n.pl-0,\n.px-0 {\n    padding-left: 0 !important;\n}\n\n.p-1 {\n    padding: 0.25rem !important;\n}\n\n.pt-1,\n.py-1 {\n    padding-top: 0.25rem !important;\n}\n\n.pr-1,\n.px-1 {\n    padding-right: 0.25rem !important;\n}\n\n.pb-1,\n.py-1 {\n    padding-bottom: 0.25rem !important;\n}\n\n.pl-1,\n.px-1 {\n    padding-left: 0.25rem !important;\n}\n\n.p-2 {\n    padding: 0.5rem !important;\n}\n\n.pt-2,\n.py-2 {\n    padding-top: 0.5rem !important;\n}\n\n.pr-2,\n.px-2 {\n    padding-right: 0.5rem !important;\n}\n\n.pb-2,\n.py-2 {\n    padding-bottom: 0.5rem !important;\n}\n\n.pl-2,\n.px-2 {\n    padding-left: 0.5rem !important;\n}\n\n.p-3 {\n    padding: 1rem !important;\n}\n\n.pt-3,\n.py-3 {\n    padding-top: 1rem !important;\n}\n\n.pr-3,\n.px-3 {\n    padding-right: 1rem !important;\n}\n\n.pb-3,\n.py-3 {\n    padding-bottom: 1rem !important;\n}\n\n.pl-3,\n.px-3 {\n    padding-left: 1rem !important;\n}\n\n.p-4 {\n    padding: 1.5rem !important;\n}\n\n.pt-4,\n.py-4 {\n    padding-top: 1.5rem !important;\n}\n\n.pr-4,\n.px-4 {\n    padding-right: 1.5rem !important;\n}\n\n.pb-4,\n.py-4 {\n    padding-bottom: 1.5rem !important;\n}\n\n.pl-4,\n.px-4 {\n    padding-left: 1.5rem !important;\n}\n\n.p-5 {\n    padding: 3rem !important;\n}\n\n.pt-5,\n.py-5 {\n    padding-top: 3rem !important;\n}\n\n.pr-5,\n.px-5 {\n    padding-right: 3rem !important;\n}\n\n.pb-5,\n.py-5 {\n    padding-bottom: 3rem !important;\n}\n\n.pl-5,\n.px-5 {\n    padding-left: 3rem !important;\n}\n\n.m-n1 {\n    margin: -0.25rem !important;\n}\n\n.mt-n1,\n.my-n1 {\n    margin-top: -0.25rem !important;\n}\n\n.mr-n1,\n.mx-n1 {\n    margin-right: -0.25rem !important;\n}\n\n.mb-n1,\n.my-n1 {\n    margin-bottom: -0.25rem !important;\n}\n\n.ml-n1,\n.mx-n1 {\n    margin-left: -0.25rem !important;\n}\n\n.m-n2 {\n    margin: -0.5rem !important;\n}\n\n.mt-n2,\n.my-n2 {\n    margin-top: -0.5rem !important;\n}\n\n.mr-n2,\n.mx-n2 {\n    margin-right: -0.5rem !important;\n}\n\n.mb-n2,\n.my-n2 {\n    margin-bottom: -0.5rem !important;\n}\n\n.ml-n2,\n.mx-n2 {\n    margin-left: -0.5rem !important;\n}\n\n.m-n3 {\n    margin: -1rem !important;\n}\n\n.mt-n3,\n.my-n3 {\n    margin-top: -1rem !important;\n}\n\n.mr-n3,\n.mx-n3 {\n    margin-right: -1rem !important;\n}\n\n.mb-n3,\n.my-n3 {\n    margin-bottom: -1rem !important;\n}\n\n.ml-n3,\n.mx-n3 {\n    margin-left: -1rem !important;\n}\n\n.m-n4 {\n    margin: -1.5rem !important;\n}\n\n.mt-n4,\n.my-n4 {\n    margin-top: -1.5rem !important;\n}\n\n.mr-n4,\n.mx-n4 {\n    margin-right: -1.5rem !important;\n}\n\n.mb-n4,\n.my-n4 {\n    margin-bottom: -1.5rem !important;\n}\n\n.ml-n4,\n.mx-n4 {\n    margin-left: -1.5rem !important;\n}\n\n.m-n5 {\n    margin: -3rem !important;\n}\n\n.mt-n5,\n.my-n5 {\n    margin-top: -3rem !important;\n}\n\n.mr-n5,\n.mx-n5 {\n    margin-right: -3rem !important;\n}\n\n.mb-n5,\n.my-n5 {\n    margin-bottom: -3rem !important;\n}\n\n.ml-n5,\n.mx-n5 {\n    margin-left: -3rem !important;\n}\n\n.m-auto {\n    margin: auto !important;\n}\n\n.mt-auto,\n.my-auto {\n    margin-top: auto !important;\n}\n\n.mr-auto,\n.mx-auto {\n    margin-right: auto !important;\n}\n\n.mb-auto,\n.my-auto {\n    margin-bottom: auto !important;\n}\n\n.ml-auto,\n.mx-auto {\n    margin-left: auto !important;\n}\n\n@media (min-width: 576px) {\n    .m-sm-0 {\n        margin: 0 !important;\n    }\n\n    .mt-sm-0,\n    .my-sm-0 {\n        margin-top: 0 !important;\n    }\n\n    .mr-sm-0,\n    .mx-sm-0 {\n        margin-right: 0 !important;\n    }\n\n    .mb-sm-0,\n    .my-sm-0 {\n        margin-bottom: 0 !important;\n    }\n\n    .ml-sm-0,\n    .mx-sm-0 {\n        margin-left: 0 !important;\n    }\n\n    .m-sm-1 {\n        margin: 0.25rem !important;\n    }\n\n    .mt-sm-1,\n    .my-sm-1 {\n        margin-top: 0.25rem !important;\n    }\n\n    .mr-sm-1,\n    .mx-sm-1 {\n        margin-right: 0.25rem !important;\n    }\n\n    .mb-sm-1,\n    .my-sm-1 {\n        margin-bottom: 0.25rem !important;\n    }\n\n    .ml-sm-1,\n    .mx-sm-1 {\n        margin-left: 0.25rem !important;\n    }\n\n    .m-sm-2 {\n        margin: 0.5rem !important;\n    }\n\n    .mt-sm-2,\n    .my-sm-2 {\n        margin-top: 0.5rem !important;\n    }\n\n    .mr-sm-2,\n    .mx-sm-2 {\n        margin-right: 0.5rem !important;\n    }\n\n    .mb-sm-2,\n    .my-sm-2 {\n        margin-bottom: 0.5rem !important;\n    }\n\n    .ml-sm-2,\n    .mx-sm-2 {\n        margin-left: 0.5rem !important;\n    }\n\n    .m-sm-3 {\n        margin: 1rem !important;\n    }\n\n    .mt-sm-3,\n    .my-sm-3 {\n        margin-top: 1rem !important;\n    }\n\n    .mr-sm-3,\n    .mx-sm-3 {\n        margin-right: 1rem !important;\n    }\n\n    .mb-sm-3,\n    .my-sm-3 {\n        margin-bottom: 1rem !important;\n    }\n\n    .ml-sm-3,\n    .mx-sm-3 {\n        margin-left: 1rem !important;\n    }\n\n    .m-sm-4 {\n        margin: 1.5rem !important;\n    }\n\n    .mt-sm-4,\n    .my-sm-4 {\n        margin-top: 1.5rem !important;\n    }\n\n    .mr-sm-4,\n    .mx-sm-4 {\n        margin-right: 1.5rem !important;\n    }\n\n    .mb-sm-4,\n    .my-sm-4 {\n        margin-bottom: 1.5rem !important;\n    }\n\n    .ml-sm-4,\n    .mx-sm-4 {\n        margin-left: 1.5rem !important;\n    }\n\n    .m-sm-5 {\n        margin: 3rem !important;\n    }\n\n    .mt-sm-5,\n    .my-sm-5 {\n        margin-top: 3rem !important;\n    }\n\n    .mr-sm-5,\n    .mx-sm-5 {\n        margin-right: 3rem !important;\n    }\n\n    .mb-sm-5,\n    .my-sm-5 {\n        margin-bottom: 3rem !important;\n    }\n\n    .ml-sm-5,\n    .mx-sm-5 {\n        margin-left: 3rem !important;\n    }\n\n    .p-sm-0 {\n        padding: 0 !important;\n    }\n\n    .pt-sm-0,\n    .py-sm-0 {\n        padding-top: 0 !important;\n    }\n\n    .pr-sm-0,\n    .px-sm-0 {\n        padding-right: 0 !important;\n    }\n\n    .pb-sm-0,\n    .py-sm-0 {\n        padding-bottom: 0 !important;\n    }\n\n    .pl-sm-0,\n    .px-sm-0 {\n        padding-left: 0 !important;\n    }\n\n    .p-sm-1 {\n        padding: 0.25rem !important;\n    }\n\n    .pt-sm-1,\n    .py-sm-1 {\n        padding-top: 0.25rem !important;\n    }\n\n    .pr-sm-1,\n    .px-sm-1 {\n        padding-right: 0.25rem !important;\n    }\n\n    .pb-sm-1,\n    .py-sm-1 {\n        padding-bottom: 0.25rem !important;\n    }\n\n    .pl-sm-1,\n    .px-sm-1 {\n        padding-left: 0.25rem !important;\n    }\n\n    .p-sm-2 {\n        padding: 0.5rem !important;\n    }\n\n    .pt-sm-2,\n    .py-sm-2 {\n        padding-top: 0.5rem !important;\n    }\n\n    .pr-sm-2,\n    .px-sm-2 {\n        padding-right: 0.5rem !important;\n    }\n\n    .pb-sm-2,\n    .py-sm-2 {\n        padding-bottom: 0.5rem !important;\n    }\n\n    .pl-sm-2,\n    .px-sm-2 {\n        padding-left: 0.5rem !important;\n    }\n\n    .p-sm-3 {\n        padding: 1rem !important;\n    }\n\n    .pt-sm-3,\n    .py-sm-3 {\n        padding-top: 1rem !important;\n    }\n\n    .pr-sm-3,\n    .px-sm-3 {\n        padding-right: 1rem !important;\n    }\n\n    .pb-sm-3,\n    .py-sm-3 {\n        padding-bottom: 1rem !important;\n    }\n\n    .pl-sm-3,\n    .px-sm-3 {\n        padding-left: 1rem !important;\n    }\n\n    .p-sm-4 {\n        padding: 1.5rem !important;\n    }\n\n    .pt-sm-4,\n    .py-sm-4 {\n        padding-top: 1.5rem !important;\n    }\n\n    .pr-sm-4,\n    .px-sm-4 {\n        padding-right: 1.5rem !important;\n    }\n\n    .pb-sm-4,\n    .py-sm-4 {\n        padding-bottom: 1.5rem !important;\n    }\n\n    .pl-sm-4,\n    .px-sm-4 {\n        padding-left: 1.5rem !important;\n    }\n\n    .p-sm-5 {\n        padding: 3rem !important;\n    }\n\n    .pt-sm-5,\n    .py-sm-5 {\n        padding-top: 3rem !important;\n    }\n\n    .pr-sm-5,\n    .px-sm-5 {\n        padding-right: 3rem !important;\n    }\n\n    .pb-sm-5,\n    .py-sm-5 {\n        padding-bottom: 3rem !important;\n    }\n\n    .pl-sm-5,\n    .px-sm-5 {\n        padding-left: 3rem !important;\n    }\n\n    .m-sm-n1 {\n        margin: -0.25rem !important;\n    }\n\n    .mt-sm-n1,\n    .my-sm-n1 {\n        margin-top: -0.25rem !important;\n    }\n\n    .mr-sm-n1,\n    .mx-sm-n1 {\n        margin-right: -0.25rem !important;\n    }\n\n    .mb-sm-n1,\n    .my-sm-n1 {\n        margin-bottom: -0.25rem !important;\n    }\n\n    .ml-sm-n1,\n    .mx-sm-n1 {\n        margin-left: -0.25rem !important;\n    }\n\n    .m-sm-n2 {\n        margin: -0.5rem !important;\n    }\n\n    .mt-sm-n2,\n    .my-sm-n2 {\n        margin-top: -0.5rem !important;\n    }\n\n    .mr-sm-n2,\n    .mx-sm-n2 {\n        margin-right: -0.5rem !important;\n    }\n\n    .mb-sm-n2,\n    .my-sm-n2 {\n        margin-bottom: -0.5rem !important;\n    }\n\n    .ml-sm-n2,\n    .mx-sm-n2 {\n        margin-left: -0.5rem !important;\n    }\n\n    .m-sm-n3 {\n        margin: -1rem !important;\n    }\n\n    .mt-sm-n3,\n    .my-sm-n3 {\n        margin-top: -1rem !important;\n    }\n\n    .mr-sm-n3,\n    .mx-sm-n3 {\n        margin-right: -1rem !important;\n    }\n\n    .mb-sm-n3,\n    .my-sm-n3 {\n        margin-bottom: -1rem !important;\n    }\n\n    .ml-sm-n3,\n    .mx-sm-n3 {\n        margin-left: -1rem !important;\n    }\n\n    .m-sm-n4 {\n        margin: -1.5rem !important;\n    }\n\n    .mt-sm-n4,\n    .my-sm-n4 {\n        margin-top: -1.5rem !important;\n    }\n\n    .mr-sm-n4,\n    .mx-sm-n4 {\n        margin-right: -1.5rem !important;\n    }\n\n    .mb-sm-n4,\n    .my-sm-n4 {\n        margin-bottom: -1.5rem !important;\n    }\n\n    .ml-sm-n4,\n    .mx-sm-n4 {\n        margin-left: -1.5rem !important;\n    }\n\n    .m-sm-n5 {\n        margin: -3rem !important;\n    }\n\n    .mt-sm-n5,\n    .my-sm-n5 {\n        margin-top: -3rem !important;\n    }\n\n    .mr-sm-n5,\n    .mx-sm-n5 {\n        margin-right: -3rem !important;\n    }\n\n    .mb-sm-n5,\n    .my-sm-n5 {\n        margin-bottom: -3rem !important;\n    }\n\n    .ml-sm-n5,\n    .mx-sm-n5 {\n        margin-left: -3rem !important;\n    }\n\n    .m-sm-auto {\n        margin: auto !important;\n    }\n\n    .mt-sm-auto,\n    .my-sm-auto {\n        margin-top: auto !important;\n    }\n\n    .mr-sm-auto,\n    .mx-sm-auto {\n        margin-right: auto !important;\n    }\n\n    .mb-sm-auto,\n    .my-sm-auto {\n        margin-bottom: auto !important;\n    }\n\n    .ml-sm-auto,\n    .mx-sm-auto {\n        margin-left: auto !important;\n    }\n}\n\n@media (min-width: 768px) {\n    .m-md-0 {\n        margin: 0 !important;\n    }\n\n    .mt-md-0,\n    .my-md-0 {\n        margin-top: 0 !important;\n    }\n\n    .mr-md-0,\n    .mx-md-0 {\n        margin-right: 0 !important;\n    }\n\n    .mb-md-0,\n    .my-md-0 {\n        margin-bottom: 0 !important;\n    }\n\n    .ml-md-0,\n    .mx-md-0 {\n        margin-left: 0 !important;\n    }\n\n    .m-md-1 {\n        margin: 0.25rem !important;\n    }\n\n    .mt-md-1,\n    .my-md-1 {\n        margin-top: 0.25rem !important;\n    }\n\n    .mr-md-1,\n    .mx-md-1 {\n        margin-right: 0.25rem !important;\n    }\n\n    .mb-md-1,\n    .my-md-1 {\n        margin-bottom: 0.25rem !important;\n    }\n\n    .ml-md-1,\n    .mx-md-1 {\n        margin-left: 0.25rem !important;\n    }\n\n    .m-md-2 {\n        margin: 0.5rem !important;\n    }\n\n    .mt-md-2,\n    .my-md-2 {\n        margin-top: 0.5rem !important;\n    }\n\n    .mr-md-2,\n    .mx-md-2 {\n        margin-right: 0.5rem !important;\n    }\n\n    .mb-md-2,\n    .my-md-2 {\n        margin-bottom: 0.5rem !important;\n    }\n\n    .ml-md-2,\n    .mx-md-2 {\n        margin-left: 0.5rem !important;\n    }\n\n    .m-md-3 {\n        margin: 1rem !important;\n    }\n\n    .mt-md-3,\n    .my-md-3 {\n        margin-top: 1rem !important;\n    }\n\n    .mr-md-3,\n    .mx-md-3 {\n        margin-right: 1rem !important;\n    }\n\n    .mb-md-3,\n    .my-md-3 {\n        margin-bottom: 1rem !important;\n    }\n\n    .ml-md-3,\n    .mx-md-3 {\n        margin-left: 1rem !important;\n    }\n\n    .m-md-4 {\n        margin: 1.5rem !important;\n    }\n\n    .mt-md-4,\n    .my-md-4 {\n        margin-top: 1.5rem !important;\n    }\n\n    .mr-md-4,\n    .mx-md-4 {\n        margin-right: 1.5rem !important;\n    }\n\n    .mb-md-4,\n    .my-md-4 {\n        margin-bottom: 1.5rem !important;\n    }\n\n    .ml-md-4,\n    .mx-md-4 {\n        margin-left: 1.5rem !important;\n    }\n\n    .m-md-5 {\n        margin: 3rem !important;\n    }\n\n    .mt-md-5,\n    .my-md-5 {\n        margin-top: 3rem !important;\n    }\n\n    .mr-md-5,\n    .mx-md-5 {\n        margin-right: 3rem !important;\n    }\n\n    .mb-md-5,\n    .my-md-5 {\n        margin-bottom: 3rem !important;\n    }\n\n    .ml-md-5,\n    .mx-md-5 {\n        margin-left: 3rem !important;\n    }\n\n    .p-md-0 {\n        padding: 0 !important;\n    }\n\n    .pt-md-0,\n    .py-md-0 {\n        padding-top: 0 !important;\n    }\n\n    .pr-md-0,\n    .px-md-0 {\n        padding-right: 0 !important;\n    }\n\n    .pb-md-0,\n    .py-md-0 {\n        padding-bottom: 0 !important;\n    }\n\n    .pl-md-0,\n    .px-md-0 {\n        padding-left: 0 !important;\n    }\n\n    .p-md-1 {\n        padding: 0.25rem !important;\n    }\n\n    .pt-md-1,\n    .py-md-1 {\n        padding-top: 0.25rem !important;\n    }\n\n    .pr-md-1,\n    .px-md-1 {\n        padding-right: 0.25rem !important;\n    }\n\n    .pb-md-1,\n    .py-md-1 {\n        padding-bottom: 0.25rem !important;\n    }\n\n    .pl-md-1,\n    .px-md-1 {\n        padding-left: 0.25rem !important;\n    }\n\n    .p-md-2 {\n        padding: 0.5rem !important;\n    }\n\n    .pt-md-2,\n    .py-md-2 {\n        padding-top: 0.5rem !important;\n    }\n\n    .pr-md-2,\n    .px-md-2 {\n        padding-right: 0.5rem !important;\n    }\n\n    .pb-md-2,\n    .py-md-2 {\n        padding-bottom: 0.5rem !important;\n    }\n\n    .pl-md-2,\n    .px-md-2 {\n        padding-left: 0.5rem !important;\n    }\n\n    .p-md-3 {\n        padding: 1rem !important;\n    }\n\n    .pt-md-3,\n    .py-md-3 {\n        padding-top: 1rem !important;\n    }\n\n    .pr-md-3,\n    .px-md-3 {\n        padding-right: 1rem !important;\n    }\n\n    .pb-md-3,\n    .py-md-3 {\n        padding-bottom: 1rem !important;\n    }\n\n    .pl-md-3,\n    .px-md-3 {\n        padding-left: 1rem !important;\n    }\n\n    .p-md-4 {\n        padding: 1.5rem !important;\n    }\n\n    .pt-md-4,\n    .py-md-4 {\n        padding-top: 1.5rem !important;\n    }\n\n    .pr-md-4,\n    .px-md-4 {\n        padding-right: 1.5rem !important;\n    }\n\n    .pb-md-4,\n    .py-md-4 {\n        padding-bottom: 1.5rem !important;\n    }\n\n    .pl-md-4,\n    .px-md-4 {\n        padding-left: 1.5rem !important;\n    }\n\n    .p-md-5 {\n        padding: 3rem !important;\n    }\n\n    .pt-md-5,\n    .py-md-5 {\n        padding-top: 3rem !important;\n    }\n\n    .pr-md-5,\n    .px-md-5 {\n        padding-right: 3rem !important;\n    }\n\n    .pb-md-5,\n    .py-md-5 {\n        padding-bottom: 3rem !important;\n    }\n\n    .pl-md-5,\n    .px-md-5 {\n        padding-left: 3rem !important;\n    }\n\n    .m-md-n1 {\n        margin: -0.25rem !important;\n    }\n\n    .mt-md-n1,\n    .my-md-n1 {\n        margin-top: -0.25rem !important;\n    }\n\n    .mr-md-n1,\n    .mx-md-n1 {\n        margin-right: -0.25rem !important;\n    }\n\n    .mb-md-n1,\n    .my-md-n1 {\n        margin-bottom: -0.25rem !important;\n    }\n\n    .ml-md-n1,\n    .mx-md-n1 {\n        margin-left: -0.25rem !important;\n    }\n\n    .m-md-n2 {\n        margin: -0.5rem !important;\n    }\n\n    .mt-md-n2,\n    .my-md-n2 {\n        margin-top: -0.5rem !important;\n    }\n\n    .mr-md-n2,\n    .mx-md-n2 {\n        margin-right: -0.5rem !important;\n    }\n\n    .mb-md-n2,\n    .my-md-n2 {\n        margin-bottom: -0.5rem !important;\n    }\n\n    .ml-md-n2,\n    .mx-md-n2 {\n        margin-left: -0.5rem !important;\n    }\n\n    .m-md-n3 {\n        margin: -1rem !important;\n    }\n\n    .mt-md-n3,\n    .my-md-n3 {\n        margin-top: -1rem !important;\n    }\n\n    .mr-md-n3,\n    .mx-md-n3 {\n        margin-right: -1rem !important;\n    }\n\n    .mb-md-n3,\n    .my-md-n3 {\n        margin-bottom: -1rem !important;\n    }\n\n    .ml-md-n3,\n    .mx-md-n3 {\n        margin-left: -1rem !important;\n    }\n\n    .m-md-n4 {\n        margin: -1.5rem !important;\n    }\n\n    .mt-md-n4,\n    .my-md-n4 {\n        margin-top: -1.5rem !important;\n    }\n\n    .mr-md-n4,\n    .mx-md-n4 {\n        margin-right: -1.5rem !important;\n    }\n\n    .mb-md-n4,\n    .my-md-n4 {\n        margin-bottom: -1.5rem !important;\n    }\n\n    .ml-md-n4,\n    .mx-md-n4 {\n        margin-left: -1.5rem !important;\n    }\n\n    .m-md-n5 {\n        margin: -3rem !important;\n    }\n\n    .mt-md-n5,\n    .my-md-n5 {\n        margin-top: -3rem !important;\n    }\n\n    .mr-md-n5,\n    .mx-md-n5 {\n        margin-right: -3rem !important;\n    }\n\n    .mb-md-n5,\n    .my-md-n5 {\n        margin-bottom: -3rem !important;\n    }\n\n    .ml-md-n5,\n    .mx-md-n5 {\n        margin-left: -3rem !important;\n    }\n\n    .m-md-auto {\n        margin: auto !important;\n    }\n\n    .mt-md-auto,\n    .my-md-auto {\n        margin-top: auto !important;\n    }\n\n    .mr-md-auto,\n    .mx-md-auto {\n        margin-right: auto !important;\n    }\n\n    .mb-md-auto,\n    .my-md-auto {\n        margin-bottom: auto !important;\n    }\n\n    .ml-md-auto,\n    .mx-md-auto {\n        margin-left: auto !important;\n    }\n}\n\n@media (min-width: 992px) {\n    .m-lg-0 {\n        margin: 0 !important;\n    }\n\n    .mt-lg-0,\n    .my-lg-0 {\n        margin-top: 0 !important;\n    }\n\n    .mr-lg-0,\n    .mx-lg-0 {\n        margin-right: 0 !important;\n    }\n\n    .mb-lg-0,\n    .my-lg-0 {\n        margin-bottom: 0 !important;\n    }\n\n    .ml-lg-0,\n    .mx-lg-0 {\n        margin-left: 0 !important;\n    }\n\n    .m-lg-1 {\n        margin: 0.25rem !important;\n    }\n\n    .mt-lg-1,\n    .my-lg-1 {\n        margin-top: 0.25rem !important;\n    }\n\n    .mr-lg-1,\n    .mx-lg-1 {\n        margin-right: 0.25rem !important;\n    }\n\n    .mb-lg-1,\n    .my-lg-1 {\n        margin-bottom: 0.25rem !important;\n    }\n\n    .ml-lg-1,\n    .mx-lg-1 {\n        margin-left: 0.25rem !important;\n    }\n\n    .m-lg-2 {\n        margin: 0.5rem !important;\n    }\n\n    .mt-lg-2,\n    .my-lg-2 {\n        margin-top: 0.5rem !important;\n    }\n\n    .mr-lg-2,\n    .mx-lg-2 {\n        margin-right: 0.5rem !important;\n    }\n\n    .mb-lg-2,\n    .my-lg-2 {\n        margin-bottom: 0.5rem !important;\n    }\n\n    .ml-lg-2,\n    .mx-lg-2 {\n        margin-left: 0.5rem !important;\n    }\n\n    .m-lg-3 {\n        margin: 1rem !important;\n    }\n\n    .mt-lg-3,\n    .my-lg-3 {\n        margin-top: 1rem !important;\n    }\n\n    .mr-lg-3,\n    .mx-lg-3 {\n        margin-right: 1rem !important;\n    }\n\n    .mb-lg-3,\n    .my-lg-3 {\n        margin-bottom: 1rem !important;\n    }\n\n    .ml-lg-3,\n    .mx-lg-3 {\n        margin-left: 1rem !important;\n    }\n\n    .m-lg-4 {\n        margin: 1.5rem !important;\n    }\n\n    .mt-lg-4,\n    .my-lg-4 {\n        margin-top: 1.5rem !important;\n    }\n\n    .mr-lg-4,\n    .mx-lg-4 {\n        margin-right: 1.5rem !important;\n    }\n\n    .mb-lg-4,\n    .my-lg-4 {\n        margin-bottom: 1.5rem !important;\n    }\n\n    .ml-lg-4,\n    .mx-lg-4 {\n        margin-left: 1.5rem !important;\n    }\n\n    .m-lg-5 {\n        margin: 3rem !important;\n    }\n\n    .mt-lg-5,\n    .my-lg-5 {\n        margin-top: 3rem !important;\n    }\n\n    .mr-lg-5,\n    .mx-lg-5 {\n        margin-right: 3rem !important;\n    }\n\n    .mb-lg-5,\n    .my-lg-5 {\n        margin-bottom: 3rem !important;\n    }\n\n    .ml-lg-5,\n    .mx-lg-5 {\n        margin-left: 3rem !important;\n    }\n\n    .p-lg-0 {\n        padding: 0 !important;\n    }\n\n    .pt-lg-0,\n    .py-lg-0 {\n        padding-top: 0 !important;\n    }\n\n    .pr-lg-0,\n    .px-lg-0 {\n        padding-right: 0 !important;\n    }\n\n    .pb-lg-0,\n    .py-lg-0 {\n        padding-bottom: 0 !important;\n    }\n\n    .pl-lg-0,\n    .px-lg-0 {\n        padding-left: 0 !important;\n    }\n\n    .p-lg-1 {\n        padding: 0.25rem !important;\n    }\n\n    .pt-lg-1,\n    .py-lg-1 {\n        padding-top: 0.25rem !important;\n    }\n\n    .pr-lg-1,\n    .px-lg-1 {\n        padding-right: 0.25rem !important;\n    }\n\n    .pb-lg-1,\n    .py-lg-1 {\n        padding-bottom: 0.25rem !important;\n    }\n\n    .pl-lg-1,\n    .px-lg-1 {\n        padding-left: 0.25rem !important;\n    }\n\n    .p-lg-2 {\n        padding: 0.5rem !important;\n    }\n\n    .pt-lg-2,\n    .py-lg-2 {\n        padding-top: 0.5rem !important;\n    }\n\n    .pr-lg-2,\n    .px-lg-2 {\n        padding-right: 0.5rem !important;\n    }\n\n    .pb-lg-2,\n    .py-lg-2 {\n        padding-bottom: 0.5rem !important;\n    }\n\n    .pl-lg-2,\n    .px-lg-2 {\n        padding-left: 0.5rem !important;\n    }\n\n    .p-lg-3 {\n        padding: 1rem !important;\n    }\n\n    .pt-lg-3,\n    .py-lg-3 {\n        padding-top: 1rem !important;\n    }\n\n    .pr-lg-3,\n    .px-lg-3 {\n        padding-right: 1rem !important;\n    }\n\n    .pb-lg-3,\n    .py-lg-3 {\n        padding-bottom: 1rem !important;\n    }\n\n    .pl-lg-3,\n    .px-lg-3 {\n        padding-left: 1rem !important;\n    }\n\n    .p-lg-4 {\n        padding: 1.5rem !important;\n    }\n\n    .pt-lg-4,\n    .py-lg-4 {\n        padding-top: 1.5rem !important;\n    }\n\n    .pr-lg-4,\n    .px-lg-4 {\n        padding-right: 1.5rem !important;\n    }\n\n    .pb-lg-4,\n    .py-lg-4 {\n        padding-bottom: 1.5rem !important;\n    }\n\n    .pl-lg-4,\n    .px-lg-4 {\n        padding-left: 1.5rem !important;\n    }\n\n    .p-lg-5 {\n        padding: 3rem !important;\n    }\n\n    .pt-lg-5,\n    .py-lg-5 {\n        padding-top: 3rem !important;\n    }\n\n    .pr-lg-5,\n    .px-lg-5 {\n        padding-right: 3rem !important;\n    }\n\n    .pb-lg-5,\n    .py-lg-5 {\n        padding-bottom: 3rem !important;\n    }\n\n    .pl-lg-5,\n    .px-lg-5 {\n        padding-left: 3rem !important;\n    }\n\n    .m-lg-n1 {\n        margin: -0.25rem !important;\n    }\n\n    .mt-lg-n1,\n    .my-lg-n1 {\n        margin-top: -0.25rem !important;\n    }\n\n    .mr-lg-n1,\n    .mx-lg-n1 {\n        margin-right: -0.25rem !important;\n    }\n\n    .mb-lg-n1,\n    .my-lg-n1 {\n        margin-bottom: -0.25rem !important;\n    }\n\n    .ml-lg-n1,\n    .mx-lg-n1 {\n        margin-left: -0.25rem !important;\n    }\n\n    .m-lg-n2 {\n        margin: -0.5rem !important;\n    }\n\n    .mt-lg-n2,\n    .my-lg-n2 {\n        margin-top: -0.5rem !important;\n    }\n\n    .mr-lg-n2,\n    .mx-lg-n2 {\n        margin-right: -0.5rem !important;\n    }\n\n    .mb-lg-n2,\n    .my-lg-n2 {\n        margin-bottom: -0.5rem !important;\n    }\n\n    .ml-lg-n2,\n    .mx-lg-n2 {\n        margin-left: -0.5rem !important;\n    }\n\n    .m-lg-n3 {\n        margin: -1rem !important;\n    }\n\n    .mt-lg-n3,\n    .my-lg-n3 {\n        margin-top: -1rem !important;\n    }\n\n    .mr-lg-n3,\n    .mx-lg-n3 {\n        margin-right: -1rem !important;\n    }\n\n    .mb-lg-n3,\n    .my-lg-n3 {\n        margin-bottom: -1rem !important;\n    }\n\n    .ml-lg-n3,\n    .mx-lg-n3 {\n        margin-left: -1rem !important;\n    }\n\n    .m-lg-n4 {\n        margin: -1.5rem !important;\n    }\n\n    .mt-lg-n4,\n    .my-lg-n4 {\n        margin-top: -1.5rem !important;\n    }\n\n    .mr-lg-n4,\n    .mx-lg-n4 {\n        margin-right: -1.5rem !important;\n    }\n\n    .mb-lg-n4,\n    .my-lg-n4 {\n        margin-bottom: -1.5rem !important;\n    }\n\n    .ml-lg-n4,\n    .mx-lg-n4 {\n        margin-left: -1.5rem !important;\n    }\n\n    .m-lg-n5 {\n        margin: -3rem !important;\n    }\n\n    .mt-lg-n5,\n    .my-lg-n5 {\n        margin-top: -3rem !important;\n    }\n\n    .mr-lg-n5,\n    .mx-lg-n5 {\n        margin-right: -3rem !important;\n    }\n\n    .mb-lg-n5,\n    .my-lg-n5 {\n        margin-bottom: -3rem !important;\n    }\n\n    .ml-lg-n5,\n    .mx-lg-n5 {\n        margin-left: -3rem !important;\n    }\n\n    .m-lg-auto {\n        margin: auto !important;\n    }\n\n    .mt-lg-auto,\n    .my-lg-auto {\n        margin-top: auto !important;\n    }\n\n    .mr-lg-auto,\n    .mx-lg-auto {\n        margin-right: auto !important;\n    }\n\n    .mb-lg-auto,\n    .my-lg-auto {\n        margin-bottom: auto !important;\n    }\n\n    .ml-lg-auto,\n    .mx-lg-auto {\n        margin-left: auto !important;\n    }\n}\n\n@media (min-width: 1200px) {\n    .m-xl-0 {\n        margin: 0 !important;\n    }\n\n    .mt-xl-0,\n    .my-xl-0 {\n        margin-top: 0 !important;\n    }\n\n    .mr-xl-0,\n    .mx-xl-0 {\n        margin-right: 0 !important;\n    }\n\n    .mb-xl-0,\n    .my-xl-0 {\n        margin-bottom: 0 !important;\n    }\n\n    .ml-xl-0,\n    .mx-xl-0 {\n        margin-left: 0 !important;\n    }\n\n    .m-xl-1 {\n        margin: 0.25rem !important;\n    }\n\n    .mt-xl-1,\n    .my-xl-1 {\n        margin-top: 0.25rem !important;\n    }\n\n    .mr-xl-1,\n    .mx-xl-1 {\n        margin-right: 0.25rem !important;\n    }\n\n    .mb-xl-1,\n    .my-xl-1 {\n        margin-bottom: 0.25rem !important;\n    }\n\n    .ml-xl-1,\n    .mx-xl-1 {\n        margin-left: 0.25rem !important;\n    }\n\n    .m-xl-2 {\n        margin: 0.5rem !important;\n    }\n\n    .mt-xl-2,\n    .my-xl-2 {\n        margin-top: 0.5rem !important;\n    }\n\n    .mr-xl-2,\n    .mx-xl-2 {\n        margin-right: 0.5rem !important;\n    }\n\n    .mb-xl-2,\n    .my-xl-2 {\n        margin-bottom: 0.5rem !important;\n    }\n\n    .ml-xl-2,\n    .mx-xl-2 {\n        margin-left: 0.5rem !important;\n    }\n\n    .m-xl-3 {\n        margin: 1rem !important;\n    }\n\n    .mt-xl-3,\n    .my-xl-3 {\n        margin-top: 1rem !important;\n    }\n\n    .mr-xl-3,\n    .mx-xl-3 {\n        margin-right: 1rem !important;\n    }\n\n    .mb-xl-3,\n    .my-xl-3 {\n        margin-bottom: 1rem !important;\n    }\n\n    .ml-xl-3,\n    .mx-xl-3 {\n        margin-left: 1rem !important;\n    }\n\n    .m-xl-4 {\n        margin: 1.5rem !important;\n    }\n\n    .mt-xl-4,\n    .my-xl-4 {\n        margin-top: 1.5rem !important;\n    }\n\n    .mr-xl-4,\n    .mx-xl-4 {\n        margin-right: 1.5rem !important;\n    }\n\n    .mb-xl-4,\n    .my-xl-4 {\n        margin-bottom: 1.5rem !important;\n    }\n\n    .ml-xl-4,\n    .mx-xl-4 {\n        margin-left: 1.5rem !important;\n    }\n\n    .m-xl-5 {\n        margin: 3rem !important;\n    }\n\n    .mt-xl-5,\n    .my-xl-5 {\n        margin-top: 3rem !important;\n    }\n\n    .mr-xl-5,\n    .mx-xl-5 {\n        margin-right: 3rem !important;\n    }\n\n    .mb-xl-5,\n    .my-xl-5 {\n        margin-bottom: 3rem !important;\n    }\n\n    .ml-xl-5,\n    .mx-xl-5 {\n        margin-left: 3rem !important;\n    }\n\n    .p-xl-0 {\n        padding: 0 !important;\n    }\n\n    .pt-xl-0,\n    .py-xl-0 {\n        padding-top: 0 !important;\n    }\n\n    .pr-xl-0,\n    .px-xl-0 {\n        padding-right: 0 !important;\n    }\n\n    .pb-xl-0,\n    .py-xl-0 {\n        padding-bottom: 0 !important;\n    }\n\n    .pl-xl-0,\n    .px-xl-0 {\n        padding-left: 0 !important;\n    }\n\n    .p-xl-1 {\n        padding: 0.25rem !important;\n    }\n\n    .pt-xl-1,\n    .py-xl-1 {\n        padding-top: 0.25rem !important;\n    }\n\n    .pr-xl-1,\n    .px-xl-1 {\n        padding-right: 0.25rem !important;\n    }\n\n    .pb-xl-1,\n    .py-xl-1 {\n        padding-bottom: 0.25rem !important;\n    }\n\n    .pl-xl-1,\n    .px-xl-1 {\n        padding-left: 0.25rem !important;\n    }\n\n    .p-xl-2 {\n        padding: 0.5rem !important;\n    }\n\n    .pt-xl-2,\n    .py-xl-2 {\n        padding-top: 0.5rem !important;\n    }\n\n    .pr-xl-2,\n    .px-xl-2 {\n        padding-right: 0.5rem !important;\n    }\n\n    .pb-xl-2,\n    .py-xl-2 {\n        padding-bottom: 0.5rem !important;\n    }\n\n    .pl-xl-2,\n    .px-xl-2 {\n        padding-left: 0.5rem !important;\n    }\n\n    .p-xl-3 {\n        padding: 1rem !important;\n    }\n\n    .pt-xl-3,\n    .py-xl-3 {\n        padding-top: 1rem !important;\n    }\n\n    .pr-xl-3,\n    .px-xl-3 {\n        padding-right: 1rem !important;\n    }\n\n    .pb-xl-3,\n    .py-xl-3 {\n        padding-bottom: 1rem !important;\n    }\n\n    .pl-xl-3,\n    .px-xl-3 {\n        padding-left: 1rem !important;\n    }\n\n    .p-xl-4 {\n        padding: 1.5rem !important;\n    }\n\n    .pt-xl-4,\n    .py-xl-4 {\n        padding-top: 1.5rem !important;\n    }\n\n    .pr-xl-4,\n    .px-xl-4 {\n        padding-right: 1.5rem !important;\n    }\n\n    .pb-xl-4,\n    .py-xl-4 {\n        padding-bottom: 1.5rem !important;\n    }\n\n    .pl-xl-4,\n    .px-xl-4 {\n        padding-left: 1.5rem !important;\n    }\n\n    .p-xl-5 {\n        padding: 3rem !important;\n    }\n\n    .pt-xl-5,\n    .py-xl-5 {\n        padding-top: 3rem !important;\n    }\n\n    .pr-xl-5,\n    .px-xl-5 {\n        padding-right: 3rem !important;\n    }\n\n    .pb-xl-5,\n    .py-xl-5 {\n        padding-bottom: 3rem !important;\n    }\n\n    .pl-xl-5,\n    .px-xl-5 {\n        padding-left: 3rem !important;\n    }\n\n    .m-xl-n1 {\n        margin: -0.25rem !important;\n    }\n\n    .mt-xl-n1,\n    .my-xl-n1 {\n        margin-top: -0.25rem !important;\n    }\n\n    .mr-xl-n1,\n    .mx-xl-n1 {\n        margin-right: -0.25rem !important;\n    }\n\n    .mb-xl-n1,\n    .my-xl-n1 {\n        margin-bottom: -0.25rem !important;\n    }\n\n    .ml-xl-n1,\n    .mx-xl-n1 {\n        margin-left: -0.25rem !important;\n    }\n\n    .m-xl-n2 {\n        margin: -0.5rem !important;\n    }\n\n    .mt-xl-n2,\n    .my-xl-n2 {\n        margin-top: -0.5rem !important;\n    }\n\n    .mr-xl-n2,\n    .mx-xl-n2 {\n        margin-right: -0.5rem !important;\n    }\n\n    .mb-xl-n2,\n    .my-xl-n2 {\n        margin-bottom: -0.5rem !important;\n    }\n\n    .ml-xl-n2,\n    .mx-xl-n2 {\n        margin-left: -0.5rem !important;\n    }\n\n    .m-xl-n3 {\n        margin: -1rem !important;\n    }\n\n    .mt-xl-n3,\n    .my-xl-n3 {\n        margin-top: -1rem !important;\n    }\n\n    .mr-xl-n3,\n    .mx-xl-n3 {\n        margin-right: -1rem !important;\n    }\n\n    .mb-xl-n3,\n    .my-xl-n3 {\n        margin-bottom: -1rem !important;\n    }\n\n    .ml-xl-n3,\n    .mx-xl-n3 {\n        margin-left: -1rem !important;\n    }\n\n    .m-xl-n4 {\n        margin: -1.5rem !important;\n    }\n\n    .mt-xl-n4,\n    .my-xl-n4 {\n        margin-top: -1.5rem !important;\n    }\n\n    .mr-xl-n4,\n    .mx-xl-n4 {\n        margin-right: -1.5rem !important;\n    }\n\n    .mb-xl-n4,\n    .my-xl-n4 {\n        margin-bottom: -1.5rem !important;\n    }\n\n    .ml-xl-n4,\n    .mx-xl-n4 {\n        margin-left: -1.5rem !important;\n    }\n\n    .m-xl-n5 {\n        margin: -3rem !important;\n    }\n\n    .mt-xl-n5,\n    .my-xl-n5 {\n        margin-top: -3rem !important;\n    }\n\n    .mr-xl-n5,\n    .mx-xl-n5 {\n        margin-right: -3rem !important;\n    }\n\n    .mb-xl-n5,\n    .my-xl-n5 {\n        margin-bottom: -3rem !important;\n    }\n\n    .ml-xl-n5,\n    .mx-xl-n5 {\n        margin-left: -3rem !important;\n    }\n\n    .m-xl-auto {\n        margin: auto !important;\n    }\n\n    .mt-xl-auto,\n    .my-xl-auto {\n        margin-top: auto !important;\n    }\n\n    .mr-xl-auto,\n    .mx-xl-auto {\n        margin-right: auto !important;\n    }\n\n    .mb-xl-auto,\n    .my-xl-auto {\n        margin-bottom: auto !important;\n    }\n\n    .ml-xl-auto,\n    .mx-xl-auto {\n        margin-left: auto !important;\n    }\n}\n\n.text-monospace {\n    font-family: SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace !important;\n}\n\n.text-justify {\n    text-align: justify !important;\n}\n\n.text-wrap {\n    white-space: normal !important;\n}\n\n.text-nowrap {\n    white-space: nowrap !important;\n}\n\n.text-truncate {\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n\n.text-left {\n    text-align: left !important;\n}\n\n.text-right {\n    text-align: right !important;\n}\n\n.text-center {\n    text-align: center !important;\n}\n\n@media (min-width: 576px) {\n    .text-sm-left {\n        text-align: left !important;\n    }\n\n    .text-sm-right {\n        text-align: right !important;\n    }\n\n    .text-sm-center {\n        text-align: center !important;\n    }\n}\n\n@media (min-width: 768px) {\n    .text-md-left {\n        text-align: left !important;\n    }\n\n    .text-md-right {\n        text-align: right !important;\n    }\n\n    .text-md-center {\n        text-align: center !important;\n    }\n}\n\n@media (min-width: 992px) {\n    .text-lg-left {\n        text-align: left !important;\n    }\n\n    .text-lg-right {\n        text-align: right !important;\n    }\n\n    .text-lg-center {\n        text-align: center !important;\n    }\n}\n\n@media (min-width: 1200px) {\n    .text-xl-left {\n        text-align: left !important;\n    }\n\n    .text-xl-right {\n        text-align: right !important;\n    }\n\n    .text-xl-center {\n        text-align: center !important;\n    }\n}\n\n.text-lowercase {\n    text-transform: lowercase !important;\n}\n\n.text-uppercase {\n    text-transform: uppercase !important;\n}\n\n.text-capitalize {\n    text-transform: capitalize !important;\n}\n\n.font-weight-light {\n    font-weight: 300 !important;\n}\n\n.font-weight-lighter {\n    font-weight: lighter !important;\n}\n\n.font-weight-normal {\n    font-weight: 400 !important;\n}\n\n.font-weight-bold {\n    font-weight: 700 !important;\n}\n\n.font-weight-bolder {\n    font-weight: bolder !important;\n}\n\n.font-italic {\n    font-style: italic !important;\n}\n\n.text-white {\n    color: #fff !important;\n}\n\n.text-primary {\n    color: #007bff !important;\n}\n\na.text-primary:hover, a.text-primary:focus {\n    color: #0056b3 !important;\n}\n\n.text-secondary {\n    color: #6c757d !important;\n}\n\na.text-secondary:hover, a.text-secondary:focus {\n    color: #494f54 !important;\n}\n\n.text-success {\n    color: #28a745 !important;\n}\n\na.text-success:hover, a.text-success:focus {\n    color: #19692c !important;\n}\n\n.text-info {\n    color: #17a2b8 !important;\n}\n\na.text-info:hover, a.text-info:focus {\n    color: #0f6674 !important;\n}\n\n.text-warning {\n    color: #ffc107 !important;\n}\n\na.text-warning:hover, a.text-warning:focus {\n    color: #ba8b00 !important;\n}\n\n.text-danger {\n    color: #dc3545 !important;\n}\n\na.text-danger:hover, a.text-danger:focus {\n    color: #a71d2a !important;\n}\n\n.text-light {\n    color: #f8f9fa !important;\n}\n\na.text-light:hover, a.text-light:focus {\n    color: #cbd3da !important;\n}\n\n.text-dark {\n    color: #343a40 !important;\n}\n\na.text-dark:hover, a.text-dark:focus {\n    color: #121416 !important;\n}\n\n.text-body {\n    color: #212529 !important;\n}\n\n.text-muted {\n    color: #6c757d !important;\n}\n\n.text-black-50 {\n    color: rgba(0, 0, 0, 0.5) !important;\n}\n\n.text-white-50 {\n    color: rgba(255, 255, 255, 0.5) !important;\n}\n\n.text-hide {\n    font: 0/0 a;\n    color: transparent;\n    text-shadow: none;\n    background-color: transparent;\n    border: 0;\n}\n\n.text-decoration-none {\n    text-decoration: none !important;\n}\n\n.text-break {\n    word-break: break-word !important;\n    overflow-wrap: break-word !important;\n}\n\n.text-reset {\n    color: inherit !important;\n}\n\n.visible {\n    visibility: visible !important;\n}\n\n.invisible {\n    visibility: hidden !important;\n}\n\n@media print {\n    *,\n    *::before,\n    *::after {\n        text-shadow: none !important;\n        box-shadow: none !important;\n    }\n\n    a:not(.btn) {\n        text-decoration: underline;\n    }\n\n    abbr[title]::after {\n        content: \" (\" attr(title) \")\";\n    }\n\n    pre {\n        white-space: pre-wrap !important;\n    }\n\n    pre,\n    blockquote {\n        border: 1px solid #adb5bd;\n        page-break-inside: avoid;\n    }\n\n    thead {\n        display: table-header-group;\n    }\n\n    tr,\n    img {\n        page-break-inside: avoid;\n    }\n\n    p,\n    h2,\n    h3 {\n        orphans: 3;\n        widows: 3;\n    }\n\n    h2,\n    h3 {\n        page-break-after: avoid;\n    }\n\n    @page {\n        size: a3;\n    }\n\n    body {\n        min-width: 992px !important;\n    }\n\n    .container {\n        min-width: 992px !important;\n    }\n\n    .navbar {\n        display: none;\n    }\n\n    .badge {\n        border: 1px solid #000\n    }\n\n    .table {\n        border-collapse: collapse !important;\n    }\n\n        .table td,\n        .table th {\n            background-color: #fff !important;\n        }\n\n    .table-bordered th,\n    .table-bordered td {\n        border: 1px solid #dee2e6 !important;\n    }\n\n    .table-dark {\n        color: inherit;\n    }\n\n        .table-dark th,\n        .table-dark td,\n        .table-dark thead th,\n        .table-dark tbody + tbody {\n            border-color: #dee2e6;\n        }\n\n    .table .thead-dark th {\n        color: inherit;\n        border-color: #dee2e6;\n    }\n}", ""]);
+exports.push([module.i, "/*!\n * Bootstrap v4.4.1 (https://getbootstrap.com/)\n * Copyright 2011-2019 The Bootstrap Authors\n * Copyright 2011-2019 Twitter, Inc.\n * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)\n */\n:root {\n    --blue: #007bff;\n    --indigo: #6610f2;\n    --purple: #6f42c1;\n    --pink: #e83e8c;\n    --red: #dc3545;\n    --orange: #fd7e14;\n    --yellow: #ffc107;\n    --green: #28a745;\n    --teal: #20c997;\n    --cyan: #17a2b8;\n    --white: #fff;\n    --gray: #6c757d;\n    --gray-dark: #343a40;\n    --primary: #007bff;\n    --secondary: #6c757d;\n    --success: #28a745;\n    --info: #17a2b8;\n    --warning: #ffc107;\n    --danger: #dc3545;\n    --light: #f8f9fa;\n    --dark: #343a40;\n    --breakpoint-xs: 0;\n    --breakpoint-sm: 576px;\n    --breakpoint-md: 768px;\n    --breakpoint-lg: 992px;\n    --breakpoint-xl: 1200px;\n    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\";\n    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace;\n}\n\n*,\n*::before,\n*::after {\n    box-sizing: border-box;\n}\n\nhtml {\n    font-family: sans-serif;\n    line-height: 1.15;\n    -webkit-text-size-adjust: 100%;\n    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n}\n\narticle, aside, figcaption, figure, footer, header, hgroup, main, nav, section {\n    display: block;\n}\n\nbody {\n    margin: 0;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\";\n    font-size: 1rem;\n    font-weight: 400;\n    line-height: 1.5;\n    color: #212529;\n    text-align: left;\n    background-color: #fff;\n}\n\n\n[tabindex=\"-1\"]:focus:not(:focus-visible) {\n    outline: 0 !important;\n}\n\nhr {\n    box-sizing: content-box;\n    height: 0;\n    overflow: visible;\n}\n\nh1, h2, h3, h4, h5, h6 {\n    margin-top: 0;\n    margin-bottom: 0.5rem;\n}\n\np {\n    margin-top: 0;\n    margin-bottom: 1rem;\n}\n\nabbr[title],\nabbr[data-original-title] {\n    text-decoration: underline;\n    _webkit-text-decoration: underline dotted;\n    text-decoration: underline dotted;\n    cursor: help;\n    border-bottom: 0;\n    _webkit-text-decoration-skip-ink: none;\n    text-decoration-skip-ink: none;\n}\n\naddress {\n    margin-bottom: 1rem;\n    font-style: normal;\n    line-height: inherit;\n}\n\nol,\nul,\ndl {\n    margin-top: 0;\n    margin-bottom: 1rem;\n}\n\n    ol ol,\n    ul ul,\n    ol ul,\n    ul ol {\n        margin-bottom: 0;\n    }\n\ndt {\n    font-weight: 700;\n}\n\ndd {\n    margin-bottom: .5rem;\n    margin-left: 0;\n}\n\nblockquote {\n    margin: 0 0 1rem;\n}\n\nb,\nstrong {\n    font-weight: bolder;\n}\n\nsmall {\n    font-size: 80%;\n}\n\nsub,\nsup {\n    position: relative;\n    font-size: 75%;\n    line-height: 0;\n    vertical-align: baseline;\n}\n\nsub {\n    bottom: -.25em;\n}\n\nsup {\n    top: -.5em;\n}\n\na {\n    color: #007bff;\n    font-size: 14px;\n    text-decoration: none;\n    background-color: transparent;\n}\n\n    a:hover {\n        color: #0056b3;\n        text-decoration: underline;\n    }\n\n    a:not([href]) {\n        color: inherit;\n        text-decoration: none;\n    }\n\n        a:not([href]):hover {\n            color: inherit;\n            text-decoration: none;\n        }\n\npre,\ncode,\nkbd,\nsamp {\n    font-family: SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace;\n    font-size: 1em;\n}\n\npre {\n    margin-top: 0;\n    margin-bottom: 1rem;\n    overflow: auto;\n}\n\nfigure {\n    margin: 0 0 1rem;\n}\n\nimg {\n    vertical-align: middle;\n    border-style: none;\n}\n\nsvg {\n    overflow: hidden;\n    vertical-align: middle;\n}\n\ntable {\n    border-collapse: collapse;\n}\n\ncaption {\n    padding-top: 0.75rem;\n    padding-bottom: 0.75rem;\n    color: #6c757d;\n    text-align: left;\n    caption-side: bottom;\n}\n\nth {\n    text-align: inherit;\n}\n\nlabel {\n    display: inline-block;\n    margin-bottom: 0.5rem;\n}\n\nbutton {\n    border-radius: 0;\n}\n\n    button:focus {\n        outline: 1px dotted;\n        outline: 5px auto -webkit-focus-ring-color;\n    }\n\ninput,\nbutton,\nselect,\noptgroup,\ntextarea {\n    margin: 0;\n    font-family: inherit;\n    font-size: inherit;\n    line-height: inherit;\n}\n\nbutton,\ninput {\n    overflow: visible;\n}\n\nbutton,\nselect {\n    text-transform: none;\n}\n\nselect {\n    word-wrap: normal;\n}\n\nbutton,\n[type=\"button\"],\n[type=\"reset\"],\n[type=\"submit\"] {\n    -webkit-appearance: button;\n}\n\n    button:not(:disabled),\n    [type=\"button\"]:not(:disabled),\n    [type=\"reset\"]:not(:disabled),\n    [type=\"submit\"]:not(:disabled) {\n        cursor: pointer;\n    }\n\n    button::-moz-focus-inner,\n    [type=\"button\"]::-moz-focus-inner,\n    [type=\"reset\"]::-moz-focus-inner,\n    [type=\"submit\"]::-moz-focus-inner {\n        padding: 0;\n        border-style: none;\n    }\n\ninput[type=\"radio\"],\ninput[type=\"checkbox\"] {\n    box-sizing: border-box;\n    padding: 0;\n}\n\ninput[type=\"date\"],\ninput[type=\"time\"],\ninput[type=\"datetime-local\"],\ninput[type=\"month\"] {\n    -webkit-appearance: listbox;\n}\n\ntextarea {\n    overflow: auto;\n    resize: vertical;\n}\n\nfieldset {\n    min-width: 0;\n    padding: 0;\n    margin: 0;\n    border: 0;\n}\n\nlegend {\n    display: block;\n    width: 100%;\n    max-width: 100%;\n    padding: 0;\n    margin-bottom: .5rem;\n    font-size: 1.5rem;\n    line-height: inherit;\n    color: inherit;\n    white-space: normal;\n}\n\nprogress {\n    vertical-align: baseline;\n}\n\n[type=\"number\"]::-webkit-inner-spin-button,\n[type=\"number\"]::-webkit-outer-spin-button {\n    height: auto;\n}\n\n[type=\"search\"] {\n    outline-offset: -2px;\n    -webkit-appearance: none;\n}\n\n    [type=\"search\"]::-webkit-search-decoration {\n        -webkit-appearance: none;\n    }\n\n::-webkit-file-upload-button {\n    font: inherit;\n    -webkit-appearance: button;\n}\n\noutput {\n    display: inline-block;\n}\n\nsummary {\n    display: list-item;\n    cursor: pointer;\n}\n\ntemplate {\n    display: none;\n}\n\n[hidden] {\n    display: none !important;\n}\n\nh1, h2, h3, h4, h5, h6,\n.h1, .h2, .h3, .h4, .h5, .h6 {\n    margin-bottom: 0.5rem;\n    font-weight: 500;\n    line-height: 1.2;\n}\n\nh1, .h1 {\n    font-size: 2.5rem;\n}\n\nh2, .h2 {\n    font-size: 2rem;\n}\n\nh3, .h3 {\n    font-size: 1.75rem;\n}\n\nh4, .h4 {\n    font-size: 1.5rem;\n}\n\nh5, .h5 {\n    font-size: 1.25rem;\n}\n\nh6, .h6 {\n    font-size: 1rem;\n}\n\n.stretchy {\n    _webkit-background-size: cover;\n    _moz-background-size: cover;\n    _o-background-size: cover;\n    background-size: cover;\n}\n\n.lead {\n    font-size: 1.25rem;\n    font-weight: 300;\n}\n\n.display-1 {\n    font-size: 6rem;\n    font-weight: 300;\n    line-height: 1.2;\n}\n\n.display-2 {\n    font-size: 5.5rem;\n    font-weight: 300;\n    line-height: 1.2;\n}\n\n.display-3 {\n    font-size: 4.5rem;\n    font-weight: 300;\n    line-height: 1.2;\n}\n\n.display-4 {\n    font-size: 3.5rem;\n    font-weight: 300;\n    line-height: 1.2;\n}\n\nhr {\n    margin-top: 1rem;\n    margin-bottom: 1rem;\n    border: 0;\n    border-top: 1px solid rgba(0, 0, 0, 0.1);\n}\n\nsmall,\n.small {\n    font-size: 80%;\n    font-weight: 400;\n}\n\nmark,\n.mark {\n    padding: 0.2em;\n    background-color: #fcf8e3;\n}\n\n.list-unstyled {\n    padding-left: 0;\n    list-style: none;\n}\n\n.list-inline {\n    padding-left: 0;\n    list-style: none;\n}\n\n.list-inline-item {\n    display: inline-block;\n}\n\n    .list-inline-item:not(:last-child) {\n        margin-right: 0.5rem;\n    }\n\n.initialism {\n    font-size: 90%;\n    text-transform: uppercase;\n}\n\n.blockquote {\n    margin-bottom: 1rem;\n    font-size: 1.25rem;\n}\n\n.blockquote-footer {\n    display: block;\n    font-size: 80%;\n    color: #6c757d;\n}\n\n    .blockquote-footer::before {\n        content: \"\\2014\\00A0\";\n    }\n\n.img-fluid {\n    max-width: 100%;\n    height: auto;\n}\n\n.img-thumbnail {\n    padding: 0.25rem;\n    background-color: #fff;\n    border: 1px solid #dee2e6;\n    border-radius: 0.25rem;\n    max-width: 100%;\n    height: auto;\n}\n\n.figure {\n    display: inline-block;\n}\n\n.figure-img {\n    margin-bottom: 0.5rem;\n    line-height: 1;\n}\n\n.figure-caption {\n    font-size: 90%;\n    color: #6c757d;\n}\n\ncode {\n    font-size: 87.5%;\n    color: #e83e8c;\n    word-wrap: break-word;\n}\n\na > code {\n    color: inherit;\n}\n\nkbd {\n    padding: 0.2rem 0.4rem;\n    font-size: 87.5%;\n    color: #fff;\n    background-color: #212529;\n    border-radius: 0.2rem;\n}\n\n    kbd kbd {\n        padding: 0;\n        font-size: 100%;\n        font-weight: 700;\n    }\n\npre {\n    display: block;\n    font-size: 87.5%;\n    color: #212529;\n}\n\n    pre code {\n        font-size: inherit;\n        color: inherit;\n        word-break: normal;\n    }\n\n.pre-scrollable {\n    max-height: 340px;\n    overflow-y: scroll;\n}\n\n.container {\n    /*position:absolute;\n    top: 23%;*/\n    left: 7%;\n    width: 100%;\n    padding-right: 15px;\n    padding-left: 15px;\n    margin-right: auto;\n    margin-left: auto;\n}\n\n@media (min-width: 576px) {\n    .container {\n        max-width: 540px;\n    }\n}\n\n@media (min-width: 768px) {\n    .container {\n        max-width: 720px;\n    }\n}\n\n@media (min-width: 992px) {\n    .container {\n        max-width: 960px;\n    }\n}\n\n@media (min-width: 1200px) {\n    .container {\n        max-width: 1140px;\n    }\n}\n\n.container-fluid, .container-sm, .container-md, .container-lg, .container-xl {\n    width: 100%;\n    padding-right: 15px;\n    padding-left: 15px;\n    margin-right: auto;\n    margin-left: auto;\n}\n\n@media (min-width: 576px) {\n    .container, .container-sm {\n        max-width: 540px;\n    }\n}\n\n@media (min-width: 768px) {\n    .container, .container-sm, .container-md {\n        max-width: 720px;\n    }\n}\n\n@media (min-width: 992px) {\n    .container, .container-sm, .container-md, .container-lg {\n        max-width: 960px;\n    }\n}\n\n@media (min-width: 1200px) {\n    .container, .container-sm, .container-md, .container-lg, .container-xl {\n        max-width: 1140px;\n    }\n}\n\n.row {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n    margin-right: -15px;\n    margin-left: -15px;\n}\n\n.no-gutters {\n    margin-right: 0;\n    margin-left: 0;\n}\n\n    .no-gutters > .col,\n    .no-gutters > [class*=\"col-\"] {\n        padding-right: 0;\n        padding-left: 0;\n    }\n\n.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,\n.col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,\n.col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,\n.col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,\n.col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,\n.col-xl-auto {\n    position: relative;\n    width: 100%;\n    padding-right: 15px;\n    padding-left: 15px;\n}\n\n.col {\n    -ms-flex-preferred-size: 0;\n    flex-basis: 0;\n    -ms-flex-positive: 1;\n    flex-grow: 1;\n    max-width: 100%;\n}\n\n.row-cols-1 > * {\n    -ms-flex: 0 0 100%;\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n\n.row-cols-2 > * {\n    -ms-flex: 0 0 50%;\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n\n.row-cols-3 > * {\n    -ms-flex: 0 0 33.333333%;\n    flex: 0 0 33.333333%;\n    max-width: 33.333333%;\n}\n\n.row-cols-4 > * {\n    -ms-flex: 0 0 25%;\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n\n.row-cols-5 > * {\n    -ms-flex: 0 0 20%;\n    flex: 0 0 20%;\n    max-width: 20%;\n}\n\n.row-cols-6 > * {\n    -ms-flex: 0 0 16.666667%;\n    flex: 0 0 16.666667%;\n    max-width: 16.666667%;\n}\n\n.col-auto {\n    -ms-flex: 0 0 auto;\n    flex: 0 0 auto;\n    width: auto;\n    max-width: 100%;\n}\n\n.col-1 {\n    -ms-flex: 0 0 8.333333%;\n    flex: 0 0 8.333333%;\n    max-width: 8.333333%;\n}\n\n.col-2 {\n    -ms-flex: 0 0 16.666667%;\n    flex: 0 0 16.666667%;\n    max-width: 16.666667%;\n}\n\n.col-3 {\n    -ms-flex: 0 0 25%;\n    flex: 0 0 25%;\n    max-width: 25%;\n}\n\n.col-4 {\n    -ms-flex: 0 0 33.333333%;\n    flex: 0 0 33.333333%;\n    max-width: 33.333333%;\n}\n\n.col-5 {\n    -ms-flex: 0 0 41.666667%;\n    flex: 0 0 41.666667%;\n    max-width: 41.666667%;\n}\n\n.col-6 {\n    -ms-flex: 0 0 50%;\n    flex: 0 0 50%;\n    max-width: 50%;\n}\n\n.col-7 {\n    -ms-flex: 0 0 58.333333%;\n    flex: 0 0 58.333333%;\n    max-width: 58.333333%;\n}\n\n.col-8 {\n    -ms-flex: 0 0 66.666667%;\n    flex: 0 0 66.666667%;\n    max-width: 66.666667%;\n}\n\n.col-9 {\n    -ms-flex: 0 0 75%;\n    flex: 0 0 75%;\n    max-width: 75%;\n}\n\n.col-10 {\n    -ms-flex: 0 0 83.333333%;\n    flex: 0 0 83.333333%;\n    max-width: 83.333333%;\n}\n\n.col-11 {\n    -ms-flex: 0 0 91.666667%;\n    flex: 0 0 91.666667%;\n    max-width: 91.666667%;\n}\n\n.col-12 {\n    -ms-flex: 0 0 100%;\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n\n.order-first {\n    -ms-flex-order: -1;\n    order: -1;\n}\n\n.order-last {\n    -ms-flex-order: 13;\n    order: 13;\n}\n\n.order-0 {\n    -ms-flex-order: 0;\n    order: 0;\n}\n\n.order-1 {\n    -ms-flex-order: 1;\n    order: 1;\n}\n\n.order-2 {\n    -ms-flex-order: 2;\n    order: 2;\n}\n\n.order-3 {\n    -ms-flex-order: 3;\n    order: 3;\n}\n\n.order-4 {\n    -ms-flex-order: 4;\n    order: 4;\n}\n\n.order-5 {\n    -ms-flex-order: 5;\n    order: 5;\n}\n\n.order-6 {\n    -ms-flex-order: 6;\n    order: 6;\n}\n\n.order-7 {\n    -ms-flex-order: 7;\n    order: 7;\n}\n\n.order-8 {\n    -ms-flex-order: 8;\n    order: 8;\n}\n\n.order-9 {\n    -ms-flex-order: 9;\n    order: 9;\n}\n\n.order-10 {\n    -ms-flex-order: 10;\n    order: 10;\n}\n\n.order-11 {\n    -ms-flex-order: 11;\n    order: 11;\n}\n\n.order-12 {\n    -ms-flex-order: 12;\n    order: 12;\n}\n\n.offset-1 {\n    margin-left: 8.333333%;\n}\n\n.offset-2 {\n    margin-left: 16.666667%;\n}\n\n.offset-3 {\n    margin-left: 25%;\n}\n\n.offset-4 {\n    margin-left: 33.333333%;\n}\n\n.offset-5 {\n    margin-left: 41.666667%;\n}\n\n.offset-6 {\n    margin-left: 50%;\n}\n\n.offset-7 {\n    margin-left: 58.333333%;\n}\n\n.offset-8 {\n    margin-left: 66.666667%;\n}\n\n.offset-9 {\n    margin-left: 75%;\n}\n\n.offset-10 {\n    margin-left: 83.333333%;\n}\n\n.offset-11 {\n    margin-left: 91.666667%;\n}\n\n@media (min-width: 576px) {\n    .col-sm {\n        -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n        -ms-flex-positive: 1;\n        flex-grow: 1;\n        max-width: 100%;\n    }\n\n    .row-cols-sm-1 > * {\n        -ms-flex: 0 0 100%;\n        flex: 0 0 100%;\n        max-width: 100%;\n    }\n\n    .row-cols-sm-2 > * {\n        -ms-flex: 0 0 50%;\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n\n    .row-cols-sm-3 > * {\n        -ms-flex: 0 0 33.333333%;\n        flex: 0 0 33.333333%;\n        max-width: 33.333333%;\n    }\n\n    .row-cols-sm-4 > * {\n        -ms-flex: 0 0 25%;\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n\n    .row-cols-sm-5 > * {\n        -ms-flex: 0 0 20%;\n        flex: 0 0 20%;\n        max-width: 20%;\n    }\n\n    .row-cols-sm-6 > * {\n        -ms-flex: 0 0 16.666667%;\n        flex: 0 0 16.666667%;\n        max-width: 16.666667%;\n    }\n\n    .col-sm-auto {\n        -ms-flex: 0 0 auto;\n        flex: 0 0 auto;\n        width: auto;\n        max-width: 100%;\n    }\n\n    .col-sm-1 {\n        -ms-flex: 0 0 8.333333%;\n        flex: 0 0 8.333333%;\n        max-width: 8.333333%;\n    }\n\n    .col-sm-2 {\n        -ms-flex: 0 0 16.666667%;\n        flex: 0 0 16.666667%;\n        max-width: 16.666667%;\n    }\n\n    .col-sm-3 {\n        -ms-flex: 0 0 25%;\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n\n    .col-sm-4 {\n        -ms-flex: 0 0 33.333333%;\n        flex: 0 0 33.333333%;\n        max-width: 33.333333%;\n    }\n\n    .col-sm-5 {\n        -ms-flex: 0 0 41.666667%;\n        flex: 0 0 41.666667%;\n        max-width: 41.666667%;\n    }\n\n    .col-sm-6 {\n        -ms-flex: 0 0 50%;\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n\n    .col-sm-7 {\n        -ms-flex: 0 0 58.333333%;\n        flex: 0 0 58.333333%;\n        max-width: 58.333333%;\n    }\n\n    .col-sm-8 {\n        -ms-flex: 0 0 66.666667%;\n        flex: 0 0 66.666667%;\n        max-width: 66.666667%;\n    }\n\n    .col-sm-9 {\n        -ms-flex: 0 0 75%;\n        flex: 0 0 75%;\n        max-width: 75%;\n    }\n\n    .col-sm-10 {\n        -ms-flex: 0 0 83.333333%;\n        flex: 0 0 83.333333%;\n        max-width: 83.333333%;\n    }\n\n    .col-sm-11 {\n        -ms-flex: 0 0 91.666667%;\n        flex: 0 0 91.666667%;\n        max-width: 91.666667%;\n    }\n\n    .col-sm-12 {\n        -ms-flex: 0 0 100%;\n        flex: 0 0 100%;\n        max-width: 100%;\n    }\n\n    .order-sm-first {\n        -ms-flex-order: -1;\n        order: -1;\n    }\n\n    .order-sm-last {\n        -ms-flex-order: 13;\n        order: 13;\n    }\n\n    .order-sm-0 {\n        -ms-flex-order: 0;\n        order: 0;\n    }\n\n    .order-sm-1 {\n        -ms-flex-order: 1;\n        order: 1;\n    }\n\n    .order-sm-2 {\n        -ms-flex-order: 2;\n        order: 2;\n    }\n\n    .order-sm-3 {\n        -ms-flex-order: 3;\n        order: 3;\n    }\n\n    .order-sm-4 {\n        -ms-flex-order: 4;\n        order: 4;\n    }\n\n    .order-sm-5 {\n        -ms-flex-order: 5;\n        order: 5;\n    }\n\n    .order-sm-6 {\n        -ms-flex-order: 6;\n        order: 6;\n    }\n\n    .order-sm-7 {\n        -ms-flex-order: 7;\n        order: 7;\n    }\n\n    .order-sm-8 {\n        -ms-flex-order: 8;\n        order: 8;\n    }\n\n    .order-sm-9 {\n        -ms-flex-order: 9;\n        order: 9;\n    }\n\n    .order-sm-10 {\n        -ms-flex-order: 10;\n        order: 10;\n    }\n\n    .order-sm-11 {\n        -ms-flex-order: 11;\n        order: 11;\n    }\n\n    .order-sm-12 {\n        -ms-flex-order: 12;\n        order: 12;\n    }\n\n    .offset-sm-0 {\n        margin-left: 0;\n    }\n\n    .offset-sm-1 {\n        margin-left: 8.333333%;\n    }\n\n    .offset-sm-2 {\n        margin-left: 16.666667%;\n    }\n\n    .offset-sm-3 {\n        margin-left: 25%;\n    }\n\n    .offset-sm-4 {\n        margin-left: 33.333333%;\n    }\n\n    .offset-sm-5 {\n        margin-left: 41.666667%;\n    }\n\n    .offset-sm-6 {\n        margin-left: 50%;\n    }\n\n    .offset-sm-7 {\n        margin-left: 58.333333%;\n    }\n\n    .offset-sm-8 {\n        margin-left: 66.666667%;\n    }\n\n    .offset-sm-9 {\n        margin-left: 75%;\n    }\n\n    .offset-sm-10 {\n        margin-left: 83.333333%;\n    }\n\n    .offset-sm-11 {\n        margin-left: 91.666667%;\n    }\n}\n\n@media (min-width: 768px) {\n    .col-md {\n        -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n        -ms-flex-positive: 1;\n        flex-grow: 1;\n        max-width: 100%;\n    }\n\n    .row-cols-md-1 > * {\n        -ms-flex: 0 0 100%;\n        flex: 0 0 100%;\n        max-width: 100%;\n    }\n\n    .row-cols-md-2 > * {\n        -ms-flex: 0 0 50%;\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n\n    .row-cols-md-3 > * {\n        -ms-flex: 0 0 33.333333%;\n        flex: 0 0 33.333333%;\n        max-width: 33.333333%;\n    }\n\n    .row-cols-md-4 > * {\n        -ms-flex: 0 0 25%;\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n\n    .row-cols-md-5 > * {\n        -ms-flex: 0 0 20%;\n        flex: 0 0 20%;\n        max-width: 20%;\n    }\n\n    .row-cols-md-6 > * {\n        -ms-flex: 0 0 16.666667%;\n        flex: 0 0 16.666667%;\n        max-width: 16.666667%;\n    }\n\n    .col-md-auto {\n        -ms-flex: 0 0 auto;\n        flex: 0 0 auto;\n        width: auto;\n        max-width: 100%;\n    }\n\n    .col-md-1 {\n        -ms-flex: 0 0 8.333333%;\n        flex: 0 0 8.333333%;\n        max-width: 8.333333%;\n    }\n\n    .col-md-2 {\n        -ms-flex: 0 0 16.666667%;\n        flex: 0 0 16.666667%;\n        max-width: 16.666667%;\n    }\n\n    .col-md-3 {\n        -ms-flex: 0 0 25%;\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n\n    .col-md-4 {\n        -ms-flex: 0 0 33.333333%;\n        flex: 0 0 33.333333%;\n        max-width: 33.333333%;\n    }\n\n    .col-md-5 {\n        -ms-flex: 0 0 41.666667%;\n        flex: 0 0 41.666667%;\n        max-width: 41.666667%;\n    }\n\n    .col-md-6 {\n        -ms-flex: 0 0 50%;\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n\n    .col-md-7 {\n        -ms-flex: 0 0 58.333333%;\n        flex: 0 0 58.333333%;\n        max-width: 58.333333%;\n    }\n\n    .col-md-8 {\n        -ms-flex: 0 0 66.666667%;\n        flex: 0 0 66.666667%;\n        max-width: 66.666667%;\n    }\n\n    .col-md-9 {\n        -ms-flex: 0 0 75%;\n        flex: 0 0 75%;\n        max-width: 75%;\n    }\n\n    .col-md-10 {\n        -ms-flex: 0 0 83.333333%;\n        flex: 0 0 83.333333%;\n        max-width: 83.333333%;\n    }\n\n    .col-md-11 {\n        -ms-flex: 0 0 91.666667%;\n        flex: 0 0 91.666667%;\n        max-width: 91.666667%;\n    }\n\n    .col-md-12 {\n        -ms-flex: 0 0 100%;\n        flex: 0 0 100%;\n        max-width: 100%;\n    }\n\n    .order-md-first {\n        -ms-flex-order: -1;\n        order: -1;\n    }\n\n    .order-md-last {\n        -ms-flex-order: 13;\n        order: 13;\n    }\n\n    .order-md-0 {\n        -ms-flex-order: 0;\n        order: 0;\n    }\n\n    .order-md-1 {\n        -ms-flex-order: 1;\n        order: 1;\n    }\n\n    .order-md-2 {\n        -ms-flex-order: 2;\n        order: 2;\n    }\n\n    .order-md-3 {\n        -ms-flex-order: 3;\n        order: 3;\n    }\n\n    .order-md-4 {\n        -ms-flex-order: 4;\n        order: 4;\n    }\n\n    .order-md-5 {\n        -ms-flex-order: 5;\n        order: 5;\n    }\n\n    .order-md-6 {\n        -ms-flex-order: 6;\n        order: 6;\n    }\n\n    .order-md-7 {\n        -ms-flex-order: 7;\n        order: 7;\n    }\n\n    .order-md-8 {\n        -ms-flex-order: 8;\n        order: 8;\n    }\n\n    .order-md-9 {\n        -ms-flex-order: 9;\n        order: 9;\n    }\n\n    .order-md-10 {\n        -ms-flex-order: 10;\n        order: 10;\n    }\n\n    .order-md-11 {\n        -ms-flex-order: 11;\n        order: 11;\n    }\n\n    .order-md-12 {\n        -ms-flex-order: 12;\n        order: 12;\n    }\n\n    .offset-md-0 {\n        margin-left: 0;\n    }\n\n    .offset-md-1 {\n        margin-left: 8.333333%;\n    }\n\n    .offset-md-2 {\n        margin-left: 16.666667%;\n    }\n\n    .offset-md-3 {\n        margin-left: 25%;\n    }\n\n    .offset-md-4 {\n        margin-left: 33.333333%;\n    }\n\n    .offset-md-5 {\n        margin-left: 41.666667%;\n    }\n\n    .offset-md-6 {\n        margin-left: 50%;\n    }\n\n    .offset-md-7 {\n        margin-left: 58.333333%;\n    }\n\n    .offset-md-8 {\n        margin-left: 66.666667%;\n    }\n\n    .offset-md-9 {\n        margin-left: 75%;\n    }\n\n    .offset-md-10 {\n        margin-left: 83.333333%;\n    }\n\n    .offset-md-11 {\n        margin-left: 91.666667%;\n    }\n}\n\n@media (min-width: 992px) {\n    .col-lg {\n        -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n        -ms-flex-positive: 1;\n        flex-grow: 1;\n        max-width: 100%;\n    }\n\n    .row-cols-lg-1 > * {\n        -ms-flex: 0 0 100%;\n        flex: 0 0 100%;\n        max-width: 100%;\n    }\n\n    .row-cols-lg-2 > * {\n        -ms-flex: 0 0 50%;\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n\n    .row-cols-lg-3 > * {\n        -ms-flex: 0 0 33.333333%;\n        flex: 0 0 33.333333%;\n        max-width: 33.333333%;\n    }\n\n    .row-cols-lg-4 > * {\n        -ms-flex: 0 0 25%;\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n\n    .row-cols-lg-5 > * {\n        -ms-flex: 0 0 20%;\n        flex: 0 0 20%;\n        max-width: 20%;\n    }\n\n    .row-cols-lg-6 > * {\n        -ms-flex: 0 0 16.666667%;\n        flex: 0 0 16.666667%;\n        max-width: 16.666667%;\n    }\n\n    .col-lg-auto {\n        -ms-flex: 0 0 auto;\n        flex: 0 0 auto;\n        width: auto;\n        max-width: 100%;\n    }\n\n    .col-lg-1 {\n        -ms-flex: 0 0 8.333333%;\n        flex: 0 0 8.333333%;\n        max-width: 8.333333%;\n    }\n\n    .col-lg-2 {\n        -ms-flex: 0 0 16.666667%;\n        flex: 0 0 16.666667%;\n        max-width: 16.666667%;\n    }\n\n    .col-lg-3 {\n        -ms-flex: 0 0 25%;\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n\n    .col-lg-4 {\n        -ms-flex: 0 0 33.333333%;\n        flex: 0 0 33.333333%;\n        max-width: 33.333333%;\n    }\n\n    .col-lg-5 {\n        -ms-flex: 0 0 41.666667%;\n        flex: 0 0 41.666667%;\n        max-width: 41.666667%;\n    }\n\n    .col-lg-6 {\n        -ms-flex: 0 0 50%;\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n\n    .col-lg-7 {\n        -ms-flex: 0 0 58.333333%;\n        flex: 0 0 58.333333%;\n        max-width: 58.333333%;\n    }\n\n    .col-lg-8 {\n        -ms-flex: 0 0 66.666667%;\n        flex: 0 0 66.666667%;\n        max-width: 66.666667%;\n    }\n\n    .col-lg-9 {\n        -ms-flex: 0 0 75%;\n        flex: 0 0 75%;\n        max-width: 75%;\n    }\n\n    .col-lg-10 {\n        -ms-flex: 0 0 83.333333%;\n        flex: 0 0 83.333333%;\n        max-width: 83.333333%;\n    }\n\n    .col-lg-11 {\n        -ms-flex: 0 0 91.666667%;\n        flex: 0 0 91.666667%;\n        max-width: 91.666667%;\n    }\n\n    .col-lg-12 {\n        -ms-flex: 0 0 100%;\n        flex: 0 0 100%;\n        max-width: 100%;\n    }\n\n    .order-lg-first {\n        -ms-flex-order: -1;\n        order: -1;\n    }\n\n    .order-lg-last {\n        -ms-flex-order: 13;\n        order: 13;\n    }\n\n    .order-lg-0 {\n        -ms-flex-order: 0;\n        order: 0;\n    }\n\n    .order-lg-1 {\n        -ms-flex-order: 1;\n        order: 1;\n    }\n\n    .order-lg-2 {\n        -ms-flex-order: 2;\n        order: 2;\n    }\n\n    .order-lg-3 {\n        -ms-flex-order: 3;\n        order: 3;\n    }\n\n    .order-lg-4 {\n        -ms-flex-order: 4;\n        order: 4;\n    }\n\n    .order-lg-5 {\n        -ms-flex-order: 5;\n        order: 5;\n    }\n\n    .order-lg-6 {\n        -ms-flex-order: 6;\n        order: 6;\n    }\n\n    .order-lg-7 {\n        -ms-flex-order: 7;\n        order: 7;\n    }\n\n    .order-lg-8 {\n        -ms-flex-order: 8;\n        order: 8;\n    }\n\n    .order-lg-9 {\n        -ms-flex-order: 9;\n        order: 9;\n    }\n\n    .order-lg-10 {\n        -ms-flex-order: 10;\n        order: 10;\n    }\n\n    .order-lg-11 {\n        -ms-flex-order: 11;\n        order: 11;\n    }\n\n    .order-lg-12 {\n        -ms-flex-order: 12;\n        order: 12;\n    }\n\n    .offset-lg-0 {\n        margin-left: 0;\n    }\n\n    .offset-lg-1 {\n        margin-left: 8.333333%;\n    }\n\n    .offset-lg-2 {\n        margin-left: 16.666667%;\n    }\n\n    .offset-lg-3 {\n        margin-left: 25%;\n    }\n\n    .offset-lg-4 {\n        margin-left: 33.333333%;\n    }\n\n    .offset-lg-5 {\n        margin-left: 41.666667%;\n    }\n\n    .offset-lg-6 {\n        margin-left: 50%;\n    }\n\n    .offset-lg-7 {\n        margin-left: 58.333333%;\n    }\n\n    .offset-lg-8 {\n        margin-left: 66.666667%;\n    }\n\n    .offset-lg-9 {\n        margin-left: 75%;\n    }\n\n    .offset-lg-10 {\n        margin-left: 83.333333%;\n    }\n\n    .offset-lg-11 {\n        margin-left: 91.666667%;\n    }\n}\n\n@media (min-width: 1200px) {\n    .col-xl {\n        -ms-flex-preferred-size: 0;\n        flex-basis: 0;\n        -ms-flex-positive: 1;\n        flex-grow: 1;\n        max-width: 100%;\n    }\n\n    .row-cols-xl-1 > * {\n        -ms-flex: 0 0 100%;\n        flex: 0 0 100%;\n        max-width: 100%;\n    }\n\n    .row-cols-xl-2 > * {\n        -ms-flex: 0 0 50%;\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n\n    .row-cols-xl-3 > * {\n        -ms-flex: 0 0 33.333333%;\n        flex: 0 0 33.333333%;\n        max-width: 33.333333%;\n    }\n\n    .row-cols-xl-4 > * {\n        -ms-flex: 0 0 25%;\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n\n    .row-cols-xl-5 > * {\n        -ms-flex: 0 0 20%;\n        flex: 0 0 20%;\n        max-width: 20%;\n    }\n\n    .row-cols-xl-6 > * {\n        -ms-flex: 0 0 16.666667%;\n        flex: 0 0 16.666667%;\n        max-width: 16.666667%;\n    }\n\n    .col-xl-auto {\n        -ms-flex: 0 0 auto;\n        flex: 0 0 auto;\n        width: auto;\n        max-width: 100%;\n    }\n\n    .col-xl-1 {\n        -ms-flex: 0 0 8.333333%;\n        flex: 0 0 8.333333%;\n        max-width: 8.333333%;\n    }\n\n    .col-xl-2 {\n        -ms-flex: 0 0 16.666667%;\n        flex: 0 0 16.666667%;\n        max-width: 16.666667%;\n    }\n\n    .col-xl-3 {\n        -ms-flex: 0 0 25%;\n        flex: 0 0 25%;\n        max-width: 25%;\n    }\n\n    .col-xl-4 {\n        -ms-flex: 0 0 33.333333%;\n        flex: 0 0 33.333333%;\n        max-width: 33.333333%;\n    }\n\n    .col-xl-5 {\n        -ms-flex: 0 0 41.666667%;\n        flex: 0 0 41.666667%;\n        max-width: 41.666667%;\n    }\n\n    .col-xl-6 {\n        -ms-flex: 0 0 50%;\n        flex: 0 0 50%;\n        max-width: 50%;\n    }\n\n    .col-xl-7 {\n        -ms-flex: 0 0 58.333333%;\n        flex: 0 0 58.333333%;\n        max-width: 58.333333%;\n    }\n\n    .col-xl-8 {\n        -ms-flex: 0 0 66.666667%;\n        flex: 0 0 66.666667%;\n        max-width: 66.666667%;\n    }\n\n    .col-xl-9 {\n        -ms-flex: 0 0 75%;\n        flex: 0 0 75%;\n        max-width: 75%;\n    }\n\n    .col-xl-10 {\n        -ms-flex: 0 0 83.333333%;\n        flex: 0 0 83.333333%;\n        max-width: 83.333333%;\n    }\n\n    .col-xl-11 {\n        -ms-flex: 0 0 91.666667%;\n        flex: 0 0 91.666667%;\n        max-width: 91.666667%;\n    }\n\n    .col-xl-12 {\n        -ms-flex: 0 0 100%;\n        flex: 0 0 100%;\n        max-width: 100%;\n    }\n\n    .order-xl-first {\n        -ms-flex-order: -1;\n        order: -1;\n    }\n\n    .order-xl-last {\n        -ms-flex-order: 13;\n        order: 13;\n    }\n\n    .order-xl-0 {\n        -ms-flex-order: 0;\n        order: 0;\n    }\n\n    .order-xl-1 {\n        -ms-flex-order: 1;\n        order: 1;\n    }\n\n    .order-xl-2 {\n        -ms-flex-order: 2;\n        order: 2;\n    }\n\n    .order-xl-3 {\n        -ms-flex-order: 3;\n        order: 3;\n    }\n\n    .order-xl-4 {\n        -ms-flex-order: 4;\n        order: 4;\n    }\n\n    .order-xl-5 {\n        -ms-flex-order: 5;\n        order: 5;\n    }\n\n    .order-xl-6 {\n        -ms-flex-order: 6;\n        order: 6;\n    }\n\n    .order-xl-7 {\n        -ms-flex-order: 7;\n        order: 7;\n    }\n\n    .order-xl-8 {\n        -ms-flex-order: 8;\n        order: 8;\n    }\n\n    .order-xl-9 {\n        -ms-flex-order: 9;\n        order: 9;\n    }\n\n    .order-xl-10 {\n        -ms-flex-order: 10;\n        order: 10;\n    }\n\n    .order-xl-11 {\n        -ms-flex-order: 11;\n        order: 11;\n    }\n\n    .order-xl-12 {\n        -ms-flex-order: 12;\n        order: 12;\n    }\n\n    .offset-xl-0 {\n        margin-left: 0;\n    }\n\n    .offset-xl-1 {\n        margin-left: 8.333333%;\n    }\n\n    .offset-xl-2 {\n        margin-left: 16.666667%;\n    }\n\n    .offset-xl-3 {\n        margin-left: 25%;\n    }\n\n    .offset-xl-4 {\n        margin-left: 33.333333%;\n    }\n\n    .offset-xl-5 {\n        margin-left: 41.666667%;\n    }\n\n    .offset-xl-6 {\n        margin-left: 50%;\n    }\n\n    .offset-xl-7 {\n        margin-left: 58.333333%;\n    }\n\n    .offset-xl-8 {\n        margin-left: 66.666667%;\n    }\n\n    .offset-xl-9 {\n        margin-left: 75%;\n    }\n\n    .offset-xl-10 {\n        margin-left: 83.333333%;\n    }\n\n    .offset-xl-11 {\n        margin-left: 91.666667%;\n    }\n}\n\n.table {\n    width: 100%;\n    margin-bottom: 1rem;\n    color: #212529;\n}\n\n    .table th,\n    .table td {\n        padding: 0.75rem;\n        vertical-align: top;\n        border-top: 1px solid #dee2e6;\n    }\n\n    .table thead th {\n        vertical-align: bottom;\n        border-bottom: 2px solid #dee2e6;\n    }\n\n    .table tbody + tbody {\n        border-top: 2px solid #dee2e6;\n    }\n\n.table-sm th,\n.table-sm td {\n    padding: 0.3rem;\n}\n\n.table-bordered {\n    border: 1px solid #dee2e6;\n}\n\n    .table-bordered th,\n    .table-bordered td {\n        border: 1px solid #dee2e6;\n    }\n\n    .table-bordered thead th,\n    .table-bordered thead td {\n        border-bottom-width: 2px;\n    }\n\n.table-borderless th,\n.table-borderless td,\n.table-borderless thead th,\n.table-borderless tbody + tbody {\n    border: 0;\n}\n\n.table-striped tbody tr:nth-of-type(odd) {\n    background-color: rgba(0, 0, 0, 0.05);\n}\n\n.table-hover tbody tr:hover {\n    color: #212529;\n    background-color: rgba(0, 0, 0, 0.075);\n}\n\n.table-primary,\n.table-primary > th,\n.table-primary > td {\n    background-color: #b8daff;\n}\n\n    .table-primary th,\n    .table-primary td,\n    .table-primary thead th,\n    .table-primary tbody + tbody {\n        border-color: #7abaff;\n    }\n\n.table-hover .table-primary:hover {\n    background-color: #9fcdff;\n}\n\n    .table-hover .table-primary:hover > td,\n    .table-hover .table-primary:hover > th {\n        background-color: #9fcdff;\n    }\n\n.table-secondary,\n.table-secondary > th,\n.table-secondary > td {\n    background-color: #d6d8db;\n}\n\n    .table-secondary th,\n    .table-secondary td,\n    .table-secondary thead th,\n    .table-secondary tbody + tbody {\n        border-color: #b3b7bb;\n    }\n\n.table-hover .table-secondary:hover {\n    background-color: #c8cbcf;\n}\n\n    .table-hover .table-secondary:hover > td,\n    .table-hover .table-secondary:hover > th {\n        background-color: #c8cbcf;\n    }\n\n.table-success,\n.table-success > th,\n.table-success > td {\n    background-color: #c3e6cb;\n}\n\n    .table-success th,\n    .table-success td,\n    .table-success thead th,\n    .table-success tbody + tbody {\n        border-color: #8fd19e;\n    }\n\n.table-hover .table-success:hover {\n    background-color: #b1dfbb;\n}\n\n    .table-hover .table-success:hover > td,\n    .table-hover .table-success:hover > th {\n        background-color: #b1dfbb;\n    }\n\n.table-info,\n.table-info > th,\n.table-info > td {\n    background-color: #bee5eb;\n}\n\n    .table-info th,\n    .table-info td,\n    .table-info thead th,\n    .table-info tbody + tbody {\n        border-color: #86cfda;\n    }\n\n.table-hover .table-info:hover {\n    background-color: #abdde5;\n}\n\n    .table-hover .table-info:hover > td,\n    .table-hover .table-info:hover > th {\n        background-color: #abdde5;\n    }\n\n.table-warning,\n.table-warning > th,\n.table-warning > td {\n    background-color: #ffeeba;\n}\n\n    .table-warning th,\n    .table-warning td,\n    .table-warning thead th,\n    .table-warning tbody + tbody {\n        border-color: #ffdf7e;\n    }\n\n.table-hover .table-warning:hover {\n    background-color: #ffe8a1;\n}\n\n    .table-hover .table-warning:hover > td,\n    .table-hover .table-warning:hover > th {\n        background-color: #ffe8a1;\n    }\n\n.table-danger,\n.table-danger > th,\n.table-danger > td {\n    background-color: #f5c6cb;\n}\n\n    .table-danger th,\n    .table-danger td,\n    .table-danger thead th,\n    .table-danger tbody + tbody {\n        border-color: #ed969e;\n    }\n\n.table-hover .table-danger:hover {\n    background-color: #f1b0b7;\n}\n\n    .table-hover .table-danger:hover > td,\n    .table-hover .table-danger:hover > th {\n        background-color: #f1b0b7;\n    }\n\n.table-light,\n.table-light > th,\n.table-light > td {\n    background-color: #fdfdfe;\n}\n\n    .table-light th,\n    .table-light td,\n    .table-light thead th,\n    .table-light tbody + tbody {\n        border-color: #fbfcfc;\n    }\n\n.table-hover .table-light:hover {\n    background-color: #ececf6;\n}\n\n    .table-hover .table-light:hover > td,\n    .table-hover .table-light:hover > th {\n        background-color: #ececf6;\n    }\n\n.table-dark,\n.table-dark > th,\n.table-dark > td {\n    background-color: #c6c8ca;\n}\n\n    .table-dark th,\n    .table-dark td,\n    .table-dark thead th,\n    .table-dark tbody + tbody {\n        border-color: #95999c;\n    }\n\n.table-hover .table-dark:hover {\n    background-color: #b9bbbe;\n}\n\n    .table-hover .table-dark:hover > td,\n    .table-hover .table-dark:hover > th {\n        background-color: #b9bbbe;\n    }\n\n.table-active,\n.table-active > th,\n.table-active > td {\n    background-color: rgba(0, 0, 0, 0.075);\n}\n\n.table-hover .table-active:hover {\n    background-color: rgba(0, 0, 0, 0.075);\n}\n\n    .table-hover .table-active:hover > td,\n    .table-hover .table-active:hover > th {\n        background-color: rgba(0, 0, 0, 0.075);\n    }\n\n.table .thead-dark th {\n    color: #fff;\n    background-color: #343a40;\n    border-color: #454d55;\n}\n\n.table .thead-light th {\n    color: #495057;\n    background-color: #e9ecef;\n    border-color: #dee2e6;\n}\n\n.table-dark {\n    color: #fff;\n    background-color: #343a40;\n}\n\n    .table-dark th,\n    .table-dark td,\n    .table-dark thead th {\n        border-color: #454d55;\n    }\n\n    .table-dark.table-bordered {\n        border: 0;\n    }\n\n    .table-dark.table-striped tbody tr:nth-of-type(odd) {\n        background-color: rgba(255, 255, 255, 0.05);\n    }\n\n    .table-dark.table-hover tbody tr:hover {\n        color: #fff;\n        background-color: rgba(255, 255, 255, 0.075);\n    }\n\n@media (max-width: 575.98px) {\n    .table-responsive-sm {\n        display: block;\n        width: 100%;\n        overflow-x: auto;\n        -webkit-overflow-scrolling: touch;\n    }\n\n        .table-responsive-sm > .table-bordered {\n            border: 0;\n        }\n}\n\n@media (max-width: 767.98px) {\n    .table-responsive-md {\n        display: block;\n        width: 100%;\n        overflow-x: auto;\n        -webkit-overflow-scrolling: touch;\n    }\n\n        .table-responsive-md > .table-bordered {\n            border: 0;\n        }\n}\n\n@media (max-width: 991.98px) {\n    .table-responsive-lg {\n        display: block;\n        width: 100%;\n        overflow-x: auto;\n        -webkit-overflow-scrolling: touch;\n    }\n\n        .table-responsive-lg > .table-bordered {\n            border: 0;\n        }\n}\n\n@media (max-width: 1199.98px) {\n    .table-responsive-xl {\n        display: block;\n        width: 100%;\n        overflow-x: auto;\n        -webkit-overflow-scrolling: touch;\n    }\n\n        .table-responsive-xl > .table-bordered {\n            border: 0;\n        }\n}\n\n.table-responsive {\n    display: block;\n    width: 100%;\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n}\n\n    .table-responsive > .table-bordered {\n        border: 0;\n    }\n\n.form-control {\n    display: block;\n    width: 100%;\n    /*height: calc(1.5em + 0.75rem + 2px);*/\n    padding: 0.375rem 0.75rem;\n    font-size: 1rem;\n    font-weight: 400;\n    line-height: 1.5;\n    color: #495057;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid #ced4da;\n    border-radius: 0.25rem;\n    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .form-control {\n        transition: none;\n    }\n}\n\n.form-control::-ms-expand {\n    background-color: transparent;\n    border: 0;\n}\n\n.form-control:-moz-focusring {\n    color: transparent;\n    text-shadow: 0 0 0 #495057;\n}\n\n.form-control:focus {\n    color: #495057;\n    background-color: #fff;\n    border-color: #80bdff;\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n}\n\n.form-control::-webkit-input-placeholder {\n    color: #6c757d;\n    opacity: 1;\n}\n\n.form-control::-moz-placeholder {\n    color: #6c757d;\n    opacity: 1;\n}\n\n.form-control:-ms-input-placeholder {\n    color: #6c757d;\n    opacity: 1;\n}\n\n.form-control::-ms-input-placeholder {\n    color: #6c757d;\n    opacity: 1;\n}\n\n.form-control::placeholder {\n    color: #6c757d;\n    opacity: 1;\n}\n\n.form-control:disabled, .form-control[readonly] {\n    background-color: #e9ecef;\n    opacity: 1;\n}\n\nselect.form-control:focus::-ms-value {\n    color: #495057;\n    background-color: #fff;\n}\n\n.form-control-file,\n.form-control-range {\n    display: block;\n    width: 100%;\n}\n\n.col-form-label {\n    padding-top: calc(0.375rem + 1px);\n    padding-bottom: calc(0.375rem + 1px);\n    margin-bottom: 0;\n    font-size: inherit;\n    line-height: 1.5;\n}\n\n.col-form-label-lg {\n    padding-top: calc(0.5rem + 1px);\n    padding-bottom: calc(0.5rem + 1px);\n    font-size: 1.25rem;\n    line-height: 1.5;\n}\n\n.col-form-label-sm {\n    padding-top: calc(0.25rem + 1px);\n    padding-bottom: calc(0.25rem + 1px);\n    font-size: 0.875rem;\n    line-height: 1.5;\n}\n\n.form-control-plaintext {\n    display: block;\n    width: 100%;\n    padding: 0.375rem 0;\n    margin-bottom: 0;\n    font-size: 1rem;\n    line-height: 1.5;\n    color: #212529;\n    background-color: transparent;\n    border: solid transparent;\n    border-width: 1px 0;\n}\n\n    .form-control-plaintext.form-control-sm, .form-control-plaintext.form-control-lg {\n        padding-right: 0;\n        padding-left: 0;\n    }\n\n.form-control-sm {\n    height: calc(1.5em + 0.5rem + 2px);\n    padding: 0.25rem 0.5rem;\n    font-size: 0.875rem;\n    line-height: 1.5;\n    border-radius: 0.2rem;\n}\n\n.form-control-lg {\n    height: calc(1.5em + 1rem + 2px);\n    padding: 0.5rem 1rem;\n    font-size: 1.25rem;\n    line-height: 1.5;\n    border-radius: 0.3rem;\n}\n\nselect.form-control[size], select.form-control[multiple] {\n    height: auto;\n}\n\ntextarea.form-control {\n    height: auto;\n}\n\n.form-group {\n    margin-bottom: 1rem;\n}\n\n.form-text {\n    display: block;\n    margin-top: 0.25rem;\n}\n\n.form-row {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n    margin-right: -5px;\n    margin-left: -5px;\n}\n\n    .form-row > .col,\n    .form-row > [class*=\"col-\"] {\n        padding-right: 5px;\n        padding-left: 5px;\n    }\n\n.form-check {\n    position: relative;\n    display: block;\n    padding-left: 1.25rem;\n}\n\n.form-check-input {\n    position: absolute;\n    margin-top: 0.3rem;\n    margin-left: -1.25rem;\n}\n\n    .form-check-input[disabled] ~ .form-check-label,\n    .form-check-input:disabled ~ .form-check-label {\n        color: #6c757d;\n    }\n\n.form-check-label {\n    margin-bottom: 0;\n}\n\n.form-check-inline {\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n    -ms-flex-align: center;\n    align-items: center;\n    padding-left: 0;\n    margin-right: 0.75rem;\n}\n\n    .form-check-inline .form-check-input {\n        position: static;\n        margin-top: 0;\n        margin-right: 0.3125rem;\n        margin-left: 0;\n    }\n\n.valid-feedback {\n    display: none;\n    width: 100%;\n    margin-top: 0.25rem;\n    font-size: 80%;\n    color: #28a745;\n}\n\n.valid-tooltip {\n    position: absolute;\n    top: 100%;\n    z-index: 5;\n    display: none;\n    max-width: 100%;\n    padding: 0.25rem 0.5rem;\n    margin-top: .1rem;\n    font-size: 0.875rem;\n    line-height: 1.5;\n    color: #fff;\n    background-color: rgba(40, 167, 69, 0.9);\n    border-radius: 0.25rem;\n}\n\n.was-validated :valid ~ .valid-feedback,\n.was-validated :valid ~ .valid-tooltip,\n.is-valid ~ .valid-feedback,\n.is-valid ~ .valid-tooltip {\n    display: block;\n}\n\n.was-validated .form-control:valid, .form-control.is-valid {\n    border-color: #28a745;\n    padding-right: calc(1.5em + 0.75rem);\n    background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e\");\n    background-repeat: no-repeat;\n    background-position: right calc(0.375em + 0.1875rem) center;\n    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);\n}\n\n    .was-validated .form-control:valid:focus, .form-control.is-valid:focus {\n        border-color: #28a745;\n        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);\n    }\n\n.was-validated textarea.form-control:valid, textarea.form-control.is-valid {\n    padding-right: calc(1.5em + 0.75rem);\n    background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);\n}\n\n.was-validated .custom-select:valid, .custom-select.is-valid {\n    border-color: #28a745;\n    padding-right: calc(0.75em + 2.3125rem);\n    background: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e\") no-repeat right 0.75rem center/8px 10px, url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e\") #fff no-repeat center right 1.75rem/calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);\n}\n\n    .was-validated .custom-select:valid:focus, .custom-select.is-valid:focus {\n        border-color: #28a745;\n        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);\n    }\n\n.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {\n    color: #28a745;\n}\n\n.was-validated .form-check-input:valid ~ .valid-feedback,\n.was-validated .form-check-input:valid ~ .valid-tooltip, .form-check-input.is-valid ~ .valid-feedback,\n.form-check-input.is-valid ~ .valid-tooltip {\n    display: block;\n}\n\n.was-validated .custom-control-input:valid ~ .custom-control-label, .custom-control-input.is-valid ~ .custom-control-label {\n    color: #28a745;\n}\n\n    .was-validated .custom-control-input:valid ~ .custom-control-label::before, .custom-control-input.is-valid ~ .custom-control-label::before {\n        border-color: #28a745;\n    }\n\n.was-validated .custom-control-input:valid:checked ~ .custom-control-label::before, .custom-control-input.is-valid:checked ~ .custom-control-label::before {\n    border-color: #34ce57;\n    background-color: #34ce57;\n}\n\n.was-validated .custom-control-input:valid:focus ~ .custom-control-label::before, .custom-control-input.is-valid:focus ~ .custom-control-label::before {\n    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);\n}\n\n.was-validated .custom-control-input:valid:focus:not(:checked) ~ .custom-control-label::before, .custom-control-input.is-valid:focus:not(:checked) ~ .custom-control-label::before {\n    border-color: #28a745;\n}\n\n.was-validated .custom-file-input:valid ~ .custom-file-label, .custom-file-input.is-valid ~ .custom-file-label {\n    border-color: #28a745;\n}\n\n.was-validated .custom-file-input:valid:focus ~ .custom-file-label, .custom-file-input.is-valid:focus ~ .custom-file-label {\n    border-color: #28a745;\n    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);\n}\n\n.invalid-feedback {\n    display: none;\n    width: 100%;\n    margin-top: 0.25rem;\n    font-size: 80%;\n    color: #dc3545;\n}\n\n.invalid-tooltip {\n    position: absolute;\n    top: 100%;\n    z-index: 5;\n    display: none;\n    max-width: 100%;\n    padding: 0.25rem 0.5rem;\n    margin-top: .1rem;\n    font-size: 0.875rem;\n    line-height: 1.5;\n    color: #fff;\n    background-color: rgba(220, 53, 69, 0.9);\n    border-radius: 0.25rem;\n}\n\n.was-validated :invalid ~ .invalid-feedback,\n.was-validated :invalid ~ .invalid-tooltip,\n.is-invalid ~ .invalid-feedback,\n.is-invalid ~ .invalid-tooltip {\n    display: block;\n}\n\n.was-validated .form-control:invalid, .form-control.is-invalid {\n    border-color: #dc3545;\n    padding-right: calc(1.5em + 0.75rem);\n    background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e\");\n    background-repeat: no-repeat;\n    background-position: right calc(0.375em + 0.1875rem) center;\n    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);\n}\n\n    .was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {\n        border-color: #dc3545;\n        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);\n    }\n\n.was-validated textarea.form-control:invalid, textarea.form-control.is-invalid {\n    padding-right: calc(1.5em + 0.75rem);\n    background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);\n}\n\n.was-validated .custom-select:invalid, .custom-select.is-invalid {\n    border-color: #dc3545;\n    padding-right: calc(0.75em + 2.3125rem);\n    background: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e\") no-repeat right 0.75rem center/8px 10px, url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e\") #fff no-repeat center right 1.75rem/calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);\n}\n\n    .was-validated .custom-select:invalid:focus, .custom-select.is-invalid:focus {\n        border-color: #dc3545;\n        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);\n    }\n\n.was-validated .form-check-input:invalid ~ .form-check-label, .form-check-input.is-invalid ~ .form-check-label {\n    color: #dc3545;\n}\n\n.was-validated .form-check-input:invalid ~ .invalid-feedback,\n.was-validated .form-check-input:invalid ~ .invalid-tooltip, .form-check-input.is-invalid ~ .invalid-feedback,\n.form-check-input.is-invalid ~ .invalid-tooltip {\n    display: block;\n}\n\n.was-validated .custom-control-input:invalid ~ .custom-control-label, .custom-control-input.is-invalid ~ .custom-control-label {\n    color: #dc3545;\n}\n\n    .was-validated .custom-control-input:invalid ~ .custom-control-label::before, .custom-control-input.is-invalid ~ .custom-control-label::before {\n        border-color: #dc3545;\n    }\n\n.was-validated .custom-control-input:invalid:checked ~ .custom-control-label::before, .custom-control-input.is-invalid:checked ~ .custom-control-label::before {\n    border-color: #e4606d;\n    background-color: #e4606d;\n}\n\n.was-validated .custom-control-input:invalid:focus ~ .custom-control-label::before, .custom-control-input.is-invalid:focus ~ .custom-control-label::before {\n    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);\n}\n\n.was-validated .custom-control-input:invalid:focus:not(:checked) ~ .custom-control-label::before, .custom-control-input.is-invalid:focus:not(:checked) ~ .custom-control-label::before {\n    border-color: #dc3545;\n}\n\n.was-validated .custom-file-input:invalid ~ .custom-file-label, .custom-file-input.is-invalid ~ .custom-file-label {\n    border-color: #dc3545;\n}\n\n.was-validated .custom-file-input:invalid:focus ~ .custom-file-label, .custom-file-input.is-invalid:focus ~ .custom-file-label {\n    border-color: #dc3545;\n    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);\n}\n\n.form-inline {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-flow: row wrap;\n    flex-flow: row wrap;\n    -ms-flex-align: center;\n    align-items: center;\n}\n\n    .form-inline .form-check {\n        width: 100%;\n    }\n\n@media (min-width: 576px) {\n    .form-inline label {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-align: center;\n        align-items: center;\n        -ms-flex-pack: center;\n        justify-content: center;\n        margin-bottom: 0;\n    }\n\n    .form-inline .form-group {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex: 0 0 auto;\n        flex: 0 0 auto;\n        -ms-flex-flow: row wrap;\n        flex-flow: row wrap;\n        -ms-flex-align: center;\n        align-items: center;\n        margin-bottom: 0;\n    }\n\n    .form-inline .form-control {\n        display: inline-block;\n        width: auto;\n        vertical-align: middle;\n    }\n\n    .form-inline .form-control-plaintext {\n        display: inline-block;\n    }\n\n    .form-inline .input-group,\n    .form-inline .custom-select {\n        width: auto;\n    }\n\n    .form-inline .form-check {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-align: center;\n        align-items: center;\n        -ms-flex-pack: center;\n        justify-content: center;\n        width: auto;\n        padding-left: 0;\n    }\n\n    .form-inline .form-check-input {\n        position: relative;\n        -ms-flex-negative: 0;\n        flex-shrink: 0;\n        margin-top: 0;\n        margin-right: 0.25rem;\n        margin-left: 0;\n    }\n\n    .form-inline .custom-control {\n        -ms-flex-align: center;\n        align-items: center;\n        -ms-flex-pack: center;\n        justify-content: center;\n    }\n\n    .form-inline .custom-control-label {\n        margin-bottom: 0;\n    }\n}\n\n.btn {\n    display: inline-block;\n    font-weight: 400;\n    color: #212529;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n    -webkit-user-select: none;\n    -moz-user-select: none;\n    -ms-user-select: none;\n    user-select: none;\n    background-color: transparent;\n    border: 1px solid transparent;\n    padding: 0.375rem 0.75rem;\n    font-size: 1rem;\n    line-height: 1.5;\n    border-radius: 0.25rem;\n    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .btn {\n        transition: none;\n    }\n}\n\n.btn:hover {\n    color: #212529;\n    text-decoration: none;\n}\n\n.btn:focus, .btn.focus {\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n}\n\n.btn.disabled, .btn:disabled {\n    opacity: 0.65;\n}\n\na.btn.disabled,\nfieldset:disabled a.btn {\n    pointer-events: none;\n}\n\n.btn-primary {\n    color: #fff;\n    background-color: #007bff;\n    border-color: #007bff;\n}\n\n    .btn-primary:hover {\n        color: #fff;\n        background-color: #0069d9;\n        border-color: #0062cc;\n    }\n\n    .btn-primary:focus, .btn-primary.focus {\n        color: #fff;\n        background-color: #0069d9;\n        border-color: #0062cc;\n        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);\n    }\n\n    .btn-primary.disabled, .btn-primary:disabled {\n        color: #fff;\n        background-color: #007bff;\n        border-color: #007bff;\n    }\n\n    .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,\n    .show > .btn-primary.dropdown-toggle {\n        color: #fff;\n        background-color: #0062cc;\n        border-color: #005cbf;\n    }\n\n        .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-primary.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);\n        }\n\n.btn-secondary {\n    color: #fff;\n    background-color: #6c757d;\n    border-color: #6c757d;\n}\n\n    .btn-secondary:hover {\n        color: #fff;\n        background-color: #5a6268;\n        border-color: #545b62;\n    }\n\n    .btn-secondary:focus, .btn-secondary.focus {\n        color: #fff;\n        background-color: #5a6268;\n        border-color: #545b62;\n        box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);\n    }\n\n    .btn-secondary.disabled, .btn-secondary:disabled {\n        color: #fff;\n        background-color: #6c757d;\n        border-color: #6c757d;\n    }\n\n    .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active,\n    .show > .btn-secondary.dropdown-toggle {\n        color: #fff;\n        background-color: #545b62;\n        border-color: #4e555b;\n    }\n\n        .btn-secondary:not(:disabled):not(.disabled):active:focus, .btn-secondary:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-secondary.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);\n        }\n\n.btn-success {\n    color: #fff;\n    background-color: #28a745;\n    border-color: #28a745;\n}\n\n    .btn-success:hover {\n        color: #fff;\n        background-color: #218838;\n        border-color: #1e7e34;\n    }\n\n    .btn-success:focus, .btn-success.focus {\n        color: #fff;\n        background-color: #218838;\n        border-color: #1e7e34;\n        box-shadow: 0 0 0 0.2rem rgba(72, 180, 97, 0.5);\n    }\n\n    .btn-success.disabled, .btn-success:disabled {\n        color: #fff;\n        background-color: #28a745;\n        border-color: #28a745;\n    }\n\n    .btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active,\n    .show > .btn-success.dropdown-toggle {\n        color: #fff;\n        background-color: #1e7e34;\n        border-color: #1c7430;\n    }\n\n        .btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-success.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(72, 180, 97, 0.5);\n        }\n\n.btn-info {\n    color: #fff;\n    background-color: #17a2b8;\n    border-color: #17a2b8;\n}\n\n    .btn-info:hover {\n        color: #fff;\n        background-color: #138496;\n        border-color: #117a8b;\n    }\n\n    .btn-info:focus, .btn-info.focus {\n        color: #fff;\n        background-color: #138496;\n        border-color: #117a8b;\n        box-shadow: 0 0 0 0.2rem rgba(58, 176, 195, 0.5);\n    }\n\n    .btn-info.disabled, .btn-info:disabled {\n        color: #fff;\n        background-color: #17a2b8;\n        border-color: #17a2b8;\n    }\n\n    .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active,\n    .show > .btn-info.dropdown-toggle {\n        color: #fff;\n        background-color: #117a8b;\n        border-color: #10707f;\n    }\n\n        .btn-info:not(:disabled):not(.disabled):active:focus, .btn-info:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-info.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(58, 176, 195, 0.5);\n        }\n\n.btn-warning {\n    color: #212529;\n    background-color: #ffc107;\n    border-color: #ffc107;\n}\n\n    .btn-warning:hover {\n        color: #212529;\n        background-color: #e0a800;\n        border-color: #d39e00;\n    }\n\n    .btn-warning:focus, .btn-warning.focus {\n        color: #212529;\n        background-color: #e0a800;\n        border-color: #d39e00;\n        box-shadow: 0 0 0 0.2rem rgba(222, 170, 12, 0.5);\n    }\n\n    .btn-warning.disabled, .btn-warning:disabled {\n        color: #212529;\n        background-color: #ffc107;\n        border-color: #ffc107;\n    }\n\n    .btn-warning:not(:disabled):not(.disabled):active, .btn-warning:not(:disabled):not(.disabled).active,\n    .show > .btn-warning.dropdown-toggle {\n        color: #212529;\n        background-color: #d39e00;\n        border-color: #c69500;\n    }\n\n        .btn-warning:not(:disabled):not(.disabled):active:focus, .btn-warning:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-warning.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(222, 170, 12, 0.5);\n        }\n\n.btn-danger {\n    color: #fff;\n    background-color: #dc3545;\n    border-color: #dc3545;\n}\n\n    .btn-danger:hover {\n        color: #fff;\n        background-color: #c82333;\n        border-color: #bd2130;\n    }\n\n    .btn-danger:focus, .btn-danger.focus {\n        color: #fff;\n        background-color: #c82333;\n        border-color: #bd2130;\n        box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);\n    }\n\n    .btn-danger.disabled, .btn-danger:disabled {\n        color: #fff;\n        background-color: #dc3545;\n        border-color: #dc3545;\n    }\n\n    .btn-danger:not(:disabled):not(.disabled):active, .btn-danger:not(:disabled):not(.disabled).active,\n    .show > .btn-danger.dropdown-toggle {\n        color: #fff;\n        background-color: #bd2130;\n        border-color: #b21f2d;\n    }\n\n        .btn-danger:not(:disabled):not(.disabled):active:focus, .btn-danger:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-danger.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);\n        }\n\n.btn-light {\n    color: #212529;\n    background-color: #f8f9fa;\n    border-color: #f8f9fa;\n}\n\n    .btn-light:hover {\n        color: #212529;\n        background-color: #e2e6ea;\n        border-color: #dae0e5;\n    }\n\n    .btn-light:focus, .btn-light.focus {\n        color: #212529;\n        background-color: #e2e6ea;\n        border-color: #dae0e5;\n        box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);\n    }\n\n    .btn-light.disabled, .btn-light:disabled {\n        color: #212529;\n        background-color: #f8f9fa;\n        border-color: #f8f9fa;\n    }\n\n    .btn-light:not(:disabled):not(.disabled):active, .btn-light:not(:disabled):not(.disabled).active,\n    .show > .btn-light.dropdown-toggle {\n        color: #212529;\n        background-color: #dae0e5;\n        border-color: #d3d9df;\n    }\n\n        .btn-light:not(:disabled):not(.disabled):active:focus, .btn-light:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-light.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);\n        }\n\n.btn-dark {\n    color: #fff;\n    background-color: #343a40;\n    border-color: #343a40;\n}\n\n    .btn-dark:hover {\n        color: #fff;\n        background-color: #23272b;\n        border-color: #1d2124;\n    }\n\n    .btn-dark:focus, .btn-dark.focus {\n        color: #fff;\n        background-color: #23272b;\n        border-color: #1d2124;\n        box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);\n    }\n\n    .btn-dark.disabled, .btn-dark:disabled {\n        color: #fff;\n        background-color: #343a40;\n        border-color: #343a40;\n    }\n\n    .btn-dark:not(:disabled):not(.disabled):active, .btn-dark:not(:disabled):not(.disabled).active,\n    .show > .btn-dark.dropdown-toggle {\n        color: #fff;\n        background-color: #1d2124;\n        border-color: #171a1d;\n    }\n\n        .btn-dark:not(:disabled):not(.disabled):active:focus, .btn-dark:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-dark.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);\n        }\n\n.btn-outline-primary {\n    color: #007bff;\n    border-color: #007bff;\n}\n\n    .btn-outline-primary:hover {\n        color: #fff;\n        background-color: #007bff;\n        border-color: #007bff;\n    }\n\n    .btn-outline-primary:focus, .btn-outline-primary.focus {\n        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);\n    }\n\n    .btn-outline-primary.disabled, .btn-outline-primary:disabled {\n        color: #007bff;\n        background-color: transparent;\n    }\n\n    .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active,\n    .show > .btn-outline-primary.dropdown-toggle {\n        color: #fff;\n        background-color: #007bff;\n        border-color: #007bff;\n    }\n\n        .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-outline-primary.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);\n        }\n\n.btn-outline-secondary {\n    color: #6c757d;\n    border-color: #6c757d;\n}\n\n    .btn-outline-secondary:hover {\n        color: #fff;\n        background-color: #6c757d;\n        border-color: #6c757d;\n    }\n\n    .btn-outline-secondary:focus, .btn-outline-secondary.focus {\n        box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);\n    }\n\n    .btn-outline-secondary.disabled, .btn-outline-secondary:disabled {\n        color: #6c757d;\n        background-color: transparent;\n    }\n\n    .btn-outline-secondary:not(:disabled):not(.disabled):active, .btn-outline-secondary:not(:disabled):not(.disabled).active,\n    .show > .btn-outline-secondary.dropdown-toggle {\n        color: #fff;\n        background-color: #6c757d;\n        border-color: #6c757d;\n    }\n\n        .btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-outline-secondary.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);\n        }\n\n.btn-outline-success {\n    color: #28a745;\n    border-color: #28a745;\n}\n\n    .btn-outline-success:hover {\n        color: #fff;\n        background-color: #28a745;\n        border-color: #28a745;\n    }\n\n    .btn-outline-success:focus, .btn-outline-success.focus {\n        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);\n    }\n\n    .btn-outline-success.disabled, .btn-outline-success:disabled {\n        color: #28a745;\n        background-color: transparent;\n    }\n\n    .btn-outline-success:not(:disabled):not(.disabled):active, .btn-outline-success:not(:disabled):not(.disabled).active,\n    .show > .btn-outline-success.dropdown-toggle {\n        color: #fff;\n        background-color: #28a745;\n        border-color: #28a745;\n    }\n\n        .btn-outline-success:not(:disabled):not(.disabled):active:focus, .btn-outline-success:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-outline-success.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);\n        }\n\n.btn-outline-info {\n    color: #17a2b8;\n    border-color: #17a2b8;\n}\n\n    .btn-outline-info:hover {\n        color: #fff;\n        background-color: #17a2b8;\n        border-color: #17a2b8;\n    }\n\n    .btn-outline-info:focus, .btn-outline-info.focus {\n        box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);\n    }\n\n    .btn-outline-info.disabled, .btn-outline-info:disabled {\n        color: #17a2b8;\n        background-color: transparent;\n    }\n\n    .btn-outline-info:not(:disabled):not(.disabled):active, .btn-outline-info:not(:disabled):not(.disabled).active,\n    .show > .btn-outline-info.dropdown-toggle {\n        color: #fff;\n        background-color: #17a2b8;\n        border-color: #17a2b8;\n    }\n\n        .btn-outline-info:not(:disabled):not(.disabled):active:focus, .btn-outline-info:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-outline-info.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);\n        }\n\n.btn-outline-warning {\n    color: #ffc107;\n    border-color: #ffc107;\n}\n\n    .btn-outline-warning:hover {\n        color: #212529;\n        background-color: #ffc107;\n        border-color: #ffc107;\n    }\n\n    .btn-outline-warning:focus, .btn-outline-warning.focus {\n        box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);\n    }\n\n    .btn-outline-warning.disabled, .btn-outline-warning:disabled {\n        color: #ffc107;\n        background-color: transparent;\n    }\n\n    .btn-outline-warning:not(:disabled):not(.disabled):active, .btn-outline-warning:not(:disabled):not(.disabled).active,\n    .show > .btn-outline-warning.dropdown-toggle {\n        color: #212529;\n        background-color: #ffc107;\n        border-color: #ffc107;\n    }\n\n        .btn-outline-warning:not(:disabled):not(.disabled):active:focus, .btn-outline-warning:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-outline-warning.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);\n        }\n\n.btn-outline-danger {\n    color: #dc3545;\n    border-color: #dc3545;\n}\n\n    .btn-outline-danger:hover {\n        color: #fff;\n        background-color: #dc3545;\n        border-color: #dc3545;\n    }\n\n    .btn-outline-danger:focus, .btn-outline-danger.focus {\n        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);\n    }\n\n    .btn-outline-danger.disabled, .btn-outline-danger:disabled {\n        color: #dc3545;\n        background-color: transparent;\n    }\n\n    .btn-outline-danger:not(:disabled):not(.disabled):active, .btn-outline-danger:not(:disabled):not(.disabled).active,\n    .show > .btn-outline-danger.dropdown-toggle {\n        color: #fff;\n        background-color: #dc3545;\n        border-color: #dc3545;\n    }\n\n        .btn-outline-danger:not(:disabled):not(.disabled):active:focus, .btn-outline-danger:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-outline-danger.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);\n        }\n\n.btn-outline-light {\n    color: #f8f9fa;\n    border-color: #f8f9fa;\n}\n\n    .btn-outline-light:hover {\n        color: #212529;\n        background-color: #f8f9fa;\n        border-color: #f8f9fa;\n    }\n\n    .btn-outline-light:focus, .btn-outline-light.focus {\n        box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);\n    }\n\n    .btn-outline-light.disabled, .btn-outline-light:disabled {\n        color: #f8f9fa;\n        background-color: transparent;\n    }\n\n    .btn-outline-light:not(:disabled):not(.disabled):active, .btn-outline-light:not(:disabled):not(.disabled).active,\n    .show > .btn-outline-light.dropdown-toggle {\n        color: #212529;\n        background-color: #f8f9fa;\n        border-color: #f8f9fa;\n    }\n\n        .btn-outline-light:not(:disabled):not(.disabled):active:focus, .btn-outline-light:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-outline-light.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);\n        }\n\n.btn-outline-dark {\n    color: #343a40;\n    border-color: #343a40;\n}\n\n    .btn-outline-dark:hover {\n        color: #fff;\n        background-color: #343a40;\n        border-color: #343a40;\n    }\n\n    .btn-outline-dark:focus, .btn-outline-dark.focus {\n        box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);\n    }\n\n    .btn-outline-dark.disabled, .btn-outline-dark:disabled {\n        color: #343a40;\n        background-color: transparent;\n    }\n\n    .btn-outline-dark:not(:disabled):not(.disabled):active, .btn-outline-dark:not(:disabled):not(.disabled).active,\n    .show > .btn-outline-dark.dropdown-toggle {\n        color: #fff;\n        background-color: #343a40;\n        border-color: #343a40;\n    }\n\n        .btn-outline-dark:not(:disabled):not(.disabled):active:focus, .btn-outline-dark:not(:disabled):not(.disabled).active:focus,\n        .show > .btn-outline-dark.dropdown-toggle:focus {\n            box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);\n        }\n\n.btn-link {\n    font-weight: 400;\n    color: #007bff;\n    text-decoration: none;\n}\n\n    .btn-link:hover {\n        color: #0056b3;\n        text-decoration: underline;\n    }\n\n    .btn-link:focus, .btn-link.focus {\n        text-decoration: underline;\n        box-shadow: none;\n    }\n\n    .btn-link:disabled, .btn-link.disabled {\n        color: #6c757d;\n        pointer-events: none;\n    }\n\n.btn-lg, .btn-group-lg > .btn {\n    padding: 0.5rem 1rem;\n    font-size: 1.25rem;\n    line-height: 1.5;\n    border-radius: 0.3rem;\n}\n\n.btn-sm, .btn-group-sm > .btn {\n    padding: 0.25rem 0.5rem;\n    font-size: 0.875rem;\n    line-height: 1.5;\n    border-radius: 0.2rem;\n}\n\n.btn-block {\n    display: block;\n    width: 100%;\n}\n\n    .btn-block + .btn-block {\n        margin-top: 0.5rem;\n    }\n\ninput[type=\"submit\"].btn-block,\ninput[type=\"reset\"].btn-block,\ninput[type=\"button\"].btn-block {\n    width: 100%;\n}\n\n.fade {\n    transition: opacity 0.15s linear;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .fade {\n        transition: none;\n    }\n}\n\n.fade:not(.show) {\n    opacity: 0;\n}\n\n.collapse:not(.show) {\n    display: none;\n}\n\n.collapsing {\n    position: relative;\n    height: 0;\n    overflow: hidden;\n    transition: height 0.35s ease;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .collapsing {\n        transition: none;\n    }\n}\n\n.dropup,\n.dropright,\n.dropdown,\n.dropleft {\n    position: relative;\n}\n\n.dropdown-toggle {\n    white-space: nowrap;\n}\n\n    .dropdown-toggle::after {\n        display: inline-block;\n        margin-left: 0.255em;\n        vertical-align: 0.255em;\n        content: \"\";\n        border-top: 0.3em solid;\n        border-right: 0.3em solid transparent;\n        border-bottom: 0;\n        border-left: 0.3em solid transparent;\n    }\n\n    .dropdown-toggle:empty::after {\n        margin-left: 0;\n    }\n\n.dropdown-menu {\n    position: absolute;\n    top: 100%;\n    left: 0;\n    z-index: 1000;\n    display: none;\n    float: left;\n    min-width: 10rem;\n    padding: 0.5rem 0;\n    margin: 0.125rem 0 0;\n    font-size: 1rem;\n    color: #212529;\n    text-align: left;\n    list-style: none;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid rgba(0, 0, 0, 0.15);\n    border-radius: 0.25rem;\n}\n\n.dropdown-menu-left {\n    right: auto;\n    left: 0;\n}\n\n.dropdown-menu-right {\n    right: 0;\n    left: auto;\n}\n\n@media (min-width: 576px) {\n    .dropdown-menu-sm-left {\n        right: auto;\n        left: 0;\n    }\n\n    .dropdown-menu-sm-right {\n        right: 0;\n        left: auto;\n    }\n}\n\n@media (min-width: 768px) {\n    .dropdown-menu-md-left {\n        right: auto;\n        left: 0;\n    }\n\n    .dropdown-menu-md-right {\n        right: 0;\n        left: auto;\n    }\n}\n\n@media (min-width: 992px) {\n    .dropdown-menu-lg-left {\n        right: auto;\n        left: 0;\n    }\n\n    .dropdown-menu-lg-right {\n        right: 0;\n        left: auto;\n    }\n}\n\n@media (min-width: 1200px) {\n    .dropdown-menu-xl-left {\n        right: auto;\n        left: 0;\n    }\n\n    .dropdown-menu-xl-right {\n        right: 0;\n        left: auto;\n    }\n}\n\n.dropup .dropdown-menu {\n    top: auto;\n    bottom: 100%;\n    margin-top: 0;\n    margin-bottom: 0.125rem;\n}\n\n.dropup .dropdown-toggle::after {\n    display: inline-block;\n    margin-left: 0.255em;\n    vertical-align: 0.255em;\n    content: \"\";\n    border-top: 0;\n    border-right: 0.3em solid transparent;\n    border-bottom: 0.3em solid;\n    border-left: 0.3em solid transparent;\n}\n\n.dropup .dropdown-toggle:empty::after {\n    margin-left: 0;\n}\n\n.dropright .dropdown-menu {\n    top: 0;\n    right: auto;\n    left: 100%;\n    margin-top: 0;\n    margin-left: 0.125rem;\n}\n\n.dropright .dropdown-toggle::after {\n    display: inline-block;\n    margin-left: 0.255em;\n    vertical-align: 0.255em;\n    content: \"\";\n    border-top: 0.3em solid transparent;\n    border-right: 0;\n    border-bottom: 0.3em solid transparent;\n    border-left: 0.3em solid;\n}\n\n.dropright .dropdown-toggle:empty::after {\n    margin-left: 0;\n}\n\n.dropright .dropdown-toggle::after {\n    vertical-align: 0;\n}\n\n.dropleft .dropdown-menu {\n    top: 0;\n    right: 100%;\n    left: auto;\n    margin-top: 0;\n    margin-right: 0.125rem;\n}\n\n.dropleft .dropdown-toggle::after {\n    display: inline-block;\n    margin-left: 0.255em;\n    vertical-align: 0.255em;\n    content: \"\";\n}\n\n.dropleft .dropdown-toggle::after {\n    display: none;\n}\n\n.dropleft .dropdown-toggle::before {\n    display: inline-block;\n    margin-right: 0.255em;\n    vertical-align: 0.255em;\n    content: \"\";\n    border-top: 0.3em solid transparent;\n    border-right: 0.3em solid;\n    border-bottom: 0.3em solid transparent;\n}\n\n.dropleft .dropdown-toggle:empty::after {\n    margin-left: 0;\n}\n\n.dropleft .dropdown-toggle::before {\n    vertical-align: 0;\n}\n\n.dropdown-menu[x-placement^=\"top\"], .dropdown-menu[x-placement^=\"right\"], .dropdown-menu[x-placement^=\"bottom\"], .dropdown-menu[x-placement^=\"left\"] {\n    right: auto;\n    bottom: auto;\n}\n\n.dropdown-divider {\n    height: 0;\n    margin: 0.5rem 0;\n    overflow: hidden;\n    border-top: 1px solid #e9ecef;\n}\n\n.dropdown-item {\n    display: block;\n    width: 100%;\n    padding: 0.25rem 1.5rem;\n    clear: both;\n    font-weight: 400;\n    color: #09C6AB;\n    text-align: inherit;\n    white-space: nowrap;\n    background-color: transparent;\n    border: 0;\n}\n\n    .dropdown-item:hover, .dropdown-item:focus {\n        color: #16181b;\n        text-decoration: none;\n        background-color: #f8f9fa;\n    }\n\n    .dropdown-item.active, .dropdown-item:active {\n        color: #fff;\n        text-decoration: none;\n        background-color: #007bff;\n    }\n\n    .dropdown-item.disabled, .dropdown-item:disabled {\n        color: #6c757d;\n        pointer-events: none;\n        background-color: transparent;\n    }\n\n.dropdown-menu.show {\n    display: block;\n}\n\n.dropdown-header {\n    display: block;\n    padding: 0.5rem 1.5rem;\n    margin-bottom: 0;\n    font-size: 0.875rem;\n    color: #6c757d;\n    white-space: nowrap;\n}\n\n.dropdown-item-text {\n    display: block;\n    padding: 0.25rem 1.5rem;\n    color: #212529;\n}\n\n.btn-group,\n.btn-group-vertical {\n    position: relative;\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n    vertical-align: middle;\n}\n\n    .btn-group > .btn,\n    .btn-group-vertical > .btn {\n        position: relative;\n        -ms-flex: 1 1 auto;\n        flex: 1 1 auto;\n    }\n\n        .btn-group > .btn:hover,\n        .btn-group-vertical > .btn:hover {\n            z-index: 1;\n        }\n\n        .btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active,\n        .btn-group-vertical > .btn:focus,\n        .btn-group-vertical > .btn:active,\n        .btn-group-vertical > .btn.active {\n            z-index: 1;\n        }\n\n.btn-toolbar {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n    -ms-flex-pack: start;\n    justify-content: flex-start;\n}\n\n    .btn-toolbar .input-group {\n        width: auto;\n    }\n\n.btn-group > .btn:not(:first-child),\n.btn-group > .btn-group:not(:first-child) {\n    margin-left: -1px;\n}\n\n.btn-group > .btn:not(:last-child):not(.dropdown-toggle),\n.btn-group > .btn-group:not(:last-child) > .btn {\n    border-top-right-radius: 0;\n    border-bottom-right-radius: 0;\n}\n\n.btn-group > .btn:not(:first-child),\n.btn-group > .btn-group:not(:first-child) > .btn {\n    border-top-left-radius: 0;\n    border-bottom-left-radius: 0;\n}\n\n.dropdown-toggle-split {\n    padding-right: 0.5625rem;\n    padding-left: 0.5625rem;\n}\n\n    .dropdown-toggle-split::after,\n    .dropup .dropdown-toggle-split::after,\n    .dropright .dropdown-toggle-split::after {\n        margin-left: 0;\n    }\n\n.dropleft .dropdown-toggle-split::before {\n    margin-right: 0;\n}\n\n.btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split {\n    padding-right: 0.375rem;\n    padding-left: 0.375rem;\n}\n\n.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split {\n    padding-right: 0.75rem;\n    padding-left: 0.75rem;\n}\n\n.btn-group-vertical {\n    -ms-flex-direction: column;\n    flex-direction: column;\n    -ms-flex-align: start;\n    align-items: flex-start;\n    -ms-flex-pack: center;\n    justify-content: center;\n}\n\n    .btn-group-vertical > .btn,\n    .btn-group-vertical > .btn-group {\n        width: 100%;\n    }\n\n        .btn-group-vertical > .btn:not(:first-child),\n        .btn-group-vertical > .btn-group:not(:first-child) {\n            margin-top: -1px;\n        }\n\n        .btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle),\n        .btn-group-vertical > .btn-group:not(:last-child) > .btn {\n            border-bottom-right-radius: 0;\n            border-bottom-left-radius: 0;\n        }\n\n        .btn-group-vertical > .btn:not(:first-child),\n        .btn-group-vertical > .btn-group:not(:first-child) > .btn {\n            border-top-left-radius: 0;\n            border-top-right-radius: 0;\n        }\n\n.btn-group-toggle > .btn,\n.btn-group-toggle > .btn-group > .btn {\n    margin-bottom: 0;\n}\n\n    .btn-group-toggle > .btn input[type=\"radio\"],\n    .btn-group-toggle > .btn input[type=\"checkbox\"],\n    .btn-group-toggle > .btn-group > .btn input[type=\"radio\"],\n    .btn-group-toggle > .btn-group > .btn input[type=\"checkbox\"] {\n        position: absolute;\n        clip: rect(0, 0, 0, 0);\n        pointer-events: none;\n    }\n\n.input-group {\n    position: relative;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n    -ms-flex-align: stretch;\n    align-items: stretch;\n    width: 100%;\n}\n\n    .input-group > .form-control,\n    .input-group > .form-control-plaintext,\n    .input-group > .custom-select,\n    .input-group > .custom-file {\n        position: relative;\n        -ms-flex: 1 1 0%;\n        flex: 1 1 0%;\n        min-width: 0;\n        margin-bottom: 0;\n    }\n\n        .input-group > .form-control + .form-control,\n        .input-group > .form-control + .custom-select,\n        .input-group > .form-control + .custom-file,\n        .input-group > .form-control-plaintext + .form-control,\n        .input-group > .form-control-plaintext + .custom-select,\n        .input-group > .form-control-plaintext + .custom-file,\n        .input-group > .custom-select + .form-control,\n        .input-group > .custom-select + .custom-select,\n        .input-group > .custom-select + .custom-file,\n        .input-group > .custom-file + .form-control,\n        .input-group > .custom-file + .custom-select,\n        .input-group > .custom-file + .custom-file {\n            margin-left: -1px;\n        }\n\n        .input-group > .form-control:focus,\n        .input-group > .custom-select:focus,\n        .input-group > .custom-file .custom-file-input:focus ~ .custom-file-label {\n            z-index: 3;\n        }\n\n        .input-group > .custom-file .custom-file-input:focus {\n            z-index: 4;\n        }\n\n        .input-group > .form-control:not(:last-child),\n        .input-group > .custom-select:not(:last-child) {\n            border-top-right-radius: 0;\n            border-bottom-right-radius: 0;\n        }\n\n        .input-group > .form-control:not(:first-child),\n        .input-group > .custom-select:not(:first-child) {\n            border-top-left-radius: 0;\n            border-bottom-left-radius: 0;\n        }\n\n    .input-group > .custom-file {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-align: center;\n        align-items: center;\n    }\n\n        .input-group > .custom-file:not(:last-child) .custom-file-label,\n        .input-group > .custom-file:not(:last-child) .custom-file-label::after {\n            border-top-right-radius: 0;\n            border-bottom-right-radius: 0;\n        }\n\n        .input-group > .custom-file:not(:first-child) .custom-file-label {\n            border-top-left-radius: 0;\n            border-bottom-left-radius: 0;\n        }\n\n.input-group-prepend,\n.input-group-append {\n    display: -ms-flexbox;\n    display: flex;\n}\n\n    .input-group-prepend .btn,\n    .input-group-append .btn {\n        position: relative;\n        z-index: 2;\n    }\n\n        .input-group-prepend .btn:focus,\n        .input-group-append .btn:focus {\n            z-index: 3;\n        }\n\n        .input-group-prepend .btn + .btn,\n        .input-group-prepend .btn + .input-group-text,\n        .input-group-prepend .input-group-text + .input-group-text,\n        .input-group-prepend .input-group-text + .btn,\n        .input-group-append .btn + .btn,\n        .input-group-append .btn + .input-group-text,\n        .input-group-append .input-group-text + .input-group-text,\n        .input-group-append .input-group-text + .btn {\n            margin-left: -1px;\n        }\n\n.input-group-prepend {\n    margin-right: -1px;\n}\n\n.input-group-append {\n    margin-left: -1px;\n}\n\n.input-group-text {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n    padding: 0.375rem 0.75rem;\n    margin-bottom: 0;\n    font-size: 1rem;\n    font-weight: 400;\n    line-height: 1.5;\n    color: #495057;\n    text-align: center;\n    white-space: nowrap;\n    background-color: #e9ecef;\n    border: 1px solid #ced4da;\n    border-radius: 0.25rem;\n}\n\n    .input-group-text input[type=\"radio\"],\n    .input-group-text input[type=\"checkbox\"] {\n        margin-top: 0;\n    }\n\n.input-group-lg > .form-control:not(textarea),\n.input-group-lg > .custom-select {\n    height: calc(1.5em + 1rem + 2px);\n}\n\n.input-group-lg > .form-control,\n.input-group-lg > .custom-select,\n.input-group-lg > .input-group-prepend > .input-group-text,\n.input-group-lg > .input-group-append > .input-group-text,\n.input-group-lg > .input-group-prepend > .btn,\n.input-group-lg > .input-group-append > .btn {\n    padding: 0.5rem 1rem;\n    font-size: 1.25rem;\n    line-height: 1.5;\n    border-radius: 0.3rem;\n}\n\n.input-group-sm > .form-control:not(textarea),\n.input-group-sm > .custom-select {\n    height: calc(1.5em + 0.5rem + 2px);\n}\n\n.input-group-sm > .form-control,\n.input-group-sm > .custom-select,\n.input-group-sm > .input-group-prepend > .input-group-text,\n.input-group-sm > .input-group-append > .input-group-text,\n.input-group-sm > .input-group-prepend > .btn,\n.input-group-sm > .input-group-append > .btn {\n    padding: 0.25rem 0.5rem;\n    font-size: 0.875rem;\n    line-height: 1.5;\n    border-radius: 0.2rem;\n}\n\n.input-group-lg > .custom-select,\n.input-group-sm > .custom-select {\n    padding-right: 1.75rem;\n}\n\n.input-group > .input-group-prepend > .btn,\n.input-group > .input-group-prepend > .input-group-text,\n.input-group > .input-group-append:not(:last-child) > .btn,\n.input-group > .input-group-append:not(:last-child) > .input-group-text,\n.input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),\n.input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {\n    border-top-right-radius: 0;\n    border-bottom-right-radius: 0;\n}\n\n.input-group > .input-group-append > .btn,\n.input-group > .input-group-append > .input-group-text,\n.input-group > .input-group-prepend:not(:first-child) > .btn,\n.input-group > .input-group-prepend:not(:first-child) > .input-group-text,\n.input-group > .input-group-prepend:first-child > .btn:not(:first-child),\n.input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {\n    border-top-left-radius: 0;\n    border-bottom-left-radius: 0;\n}\n\n.custom-control {\n    position: relative;\n    display: block;\n    min-height: 1.5rem;\n    padding-left: 1.5rem;\n}\n\n.custom-control-inline {\n    display: -ms-inline-flexbox;\n    display: inline-flex;\n    margin-right: 1rem;\n}\n\n.custom-control-input {\n    position: absolute;\n    left: 0;\n    z-index: -1;\n    width: 1rem;\n    height: 1.25rem;\n    opacity: 0;\n}\n\n    .custom-control-input:checked ~ .custom-control-label::before {\n        color: #fff;\n        border-color: #007bff;\n        background-color: #007bff;\n    }\n\n    .custom-control-input:focus ~ .custom-control-label::before {\n        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n    }\n\n    .custom-control-input:focus:not(:checked) ~ .custom-control-label::before {\n        border-color: #80bdff;\n    }\n\n    .custom-control-input:not(:disabled):active ~ .custom-control-label::before {\n        color: #fff;\n        background-color: #b3d7ff;\n        border-color: #b3d7ff;\n    }\n\n    .custom-control-input[disabled] ~ .custom-control-label, .custom-control-input:disabled ~ .custom-control-label {\n        color: #6c757d;\n    }\n\n        .custom-control-input[disabled] ~ .custom-control-label::before, .custom-control-input:disabled ~ .custom-control-label::before {\n            background-color: #e9ecef;\n        }\n\n.custom-control-label {\n    position: relative;\n    margin-bottom: 0;\n    vertical-align: top;\n}\n\n    .custom-control-label::before {\n        position: absolute;\n        top: 0.25rem;\n        left: -1.5rem;\n        display: block;\n        width: 1rem;\n        height: 1rem;\n        pointer-events: none;\n        content: \"\";\n        background-color: #fff;\n        border: #adb5bd solid 1px;\n    }\n\n    .custom-control-label::after {\n        position: absolute;\n        top: 0.25rem;\n        left: -1.5rem;\n        display: block;\n        width: 1rem;\n        height: 1rem;\n        content: \"\";\n        background: no-repeat 50% / 50% 50%;\n    }\n\n.custom-checkbox .custom-control-label::before {\n    border-radius: 0.25rem;\n}\n\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {\n    background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e\");\n}\n\n.custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {\n    border-color: #007bff;\n    background-color: #007bff;\n}\n\n.custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::after {\n    background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3e%3cpath stroke='%23fff' d='M0 2h4'/%3e%3c/svg%3e\");\n}\n\n.custom-checkbox .custom-control-input:disabled:checked ~ .custom-control-label::before {\n    background-color: rgba(0, 123, 255, 0.5);\n}\n\n.custom-checkbox .custom-control-input:disabled:indeterminate ~ .custom-control-label::before {\n    background-color: rgba(0, 123, 255, 0.5);\n}\n\n.custom-radio .custom-control-label::before {\n    border-radius: 50%;\n}\n\n.custom-radio .custom-control-input:checked ~ .custom-control-label::after {\n    background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e\");\n}\n\n.custom-radio .custom-control-input:disabled:checked ~ .custom-control-label::before {\n    background-color: rgba(0, 123, 255, 0.5);\n}\n\n.custom-switch {\n    padding-left: 2.25rem;\n}\n\n    .custom-switch .custom-control-label::before {\n        left: -2.25rem;\n        width: 1.75rem;\n        pointer-events: all;\n        border-radius: 0.5rem;\n    }\n\n    .custom-switch .custom-control-label::after {\n        top: calc(0.25rem + 2px);\n        left: calc(-2.25rem + 2px);\n        width: calc(1rem - 4px);\n        height: calc(1rem - 4px);\n        background-color: #adb5bd;\n        border-radius: 0.5rem;\n        transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;\n        transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n        transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;\n    }\n\n@media (prefers-reduced-motion: reduce) {\n    .custom-switch .custom-control-label::after {\n        transition: none;\n    }\n}\n\n.custom-switch .custom-control-input:checked ~ .custom-control-label::after {\n    background-color: #fff;\n    -webkit-transform: translateX(0.75rem);\n    transform: translateX(0.75rem);\n}\n\n.custom-switch .custom-control-input:disabled:checked ~ .custom-control-label::before {\n    background-color: rgba(0, 123, 255, 0.5);\n}\n\n.custom-select {\n    display: inline-block;\n    width: 100%;\n    height: calc(1.5em + 0.75rem + 2px);\n    padding: 0.375rem 1.75rem 0.375rem 0.75rem;\n    font-size: 1rem;\n    font-weight: 400;\n    line-height: 1.5;\n    color: #495057;\n    vertical-align: middle;\n    background: #fff url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e\") no-repeat right 0.75rem center/8px 10px;\n    border: 1px solid #ced4da;\n    border-radius: 0.25rem;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n}\n\n    .custom-select:focus {\n        border-color: #80bdff;\n        outline: 0;\n        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n    }\n\n        .custom-select:focus::-ms-value {\n            color: #495057;\n            background-color: #fff;\n        }\n\n    .custom-select[multiple], .custom-select[size]:not([size=\"1\"]) {\n        height: auto;\n        padding-right: 0.75rem;\n        background-image: none;\n    }\n\n    .custom-select:disabled {\n        color: #6c757d;\n        background-color: #e9ecef;\n    }\n\n    .custom-select::-ms-expand {\n        display: none;\n    }\n\n    .custom-select:-moz-focusring {\n        color: transparent;\n        text-shadow: 0 0 0 #495057;\n    }\n\n.custom-select-sm {\n    height: calc(1.5em + 0.5rem + 2px);\n    padding-top: 0.25rem;\n    padding-bottom: 0.25rem;\n    padding-left: 0.5rem;\n    font-size: 0.875rem;\n}\n\n.custom-select-lg {\n    height: calc(1.5em + 1rem + 2px);\n    padding-top: 0.5rem;\n    padding-bottom: 0.5rem;\n    padding-left: 1rem;\n    font-size: 1.25rem;\n}\n\n.custom-file {\n    position: relative;\n    display: inline-block;\n    width: 100%;\n    height: calc(1.5em + 0.75rem + 2px);\n    margin-bottom: 0;\n}\n\n.custom-file-input {\n    position: relative;\n    z-index: 2;\n    width: 100%;\n    height: calc(1.5em + 0.75rem + 2px);\n    margin: 0;\n    opacity: 0;\n}\n\n    .custom-file-input:focus ~ .custom-file-label {\n        border-color: #80bdff;\n        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n    }\n\n    .custom-file-input[disabled] ~ .custom-file-label,\n    .custom-file-input:disabled ~ .custom-file-label {\n        background-color: #e9ecef;\n    }\n\n    .custom-file-input:lang(en) ~ .custom-file-label::after {\n        content: \"Browse\";\n    }\n\n    .custom-file-input ~ .custom-file-label[data-browse]::after {\n        content: attr(data-browse);\n    }\n\n.custom-file-label {\n    position: absolute;\n    top: 0;\n    right: 0;\n    left: 0;\n    z-index: 1;\n    height: calc(1.5em + 0.75rem + 2px);\n    padding: 0.375rem 0.75rem;\n    font-weight: 400;\n    line-height: 1.5;\n    color: #495057;\n    background-color: #fff;\n    border: 1px solid #ced4da;\n    border-radius: 0.25rem;\n}\n\n    .custom-file-label::after {\n        position: absolute;\n        top: 0;\n        right: 0;\n        bottom: 0;\n        z-index: 3;\n        display: block;\n        height: calc(1.5em + 0.75rem);\n        padding: 0.375rem 0.75rem;\n        line-height: 1.5;\n        color: #495057;\n        content: \"Browse\";\n        background-color: #e9ecef;\n        border-left: inherit;\n        border-radius: 0 0.25rem 0.25rem 0;\n    }\n\n.custom-range {\n    width: 100%;\n    height: 1.4rem;\n    padding: 0;\n    background-color: transparent;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n}\n\n    .custom-range:focus {\n        outline: none;\n    }\n\n        .custom-range:focus::-webkit-slider-thumb {\n            box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n        }\n\n        .custom-range:focus::-moz-range-thumb {\n            box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n        }\n\n        .custom-range:focus::-ms-thumb {\n            box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n        }\n\n    .custom-range::-moz-focus-outer {\n        border: 0;\n    }\n\n    .custom-range::-webkit-slider-thumb {\n        width: 1rem;\n        height: 1rem;\n        margin-top: -0.25rem;\n        background-color: #007bff;\n        border: 0;\n        border-radius: 1rem;\n        -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n        transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n        -webkit-appearance: none;\n        appearance: none;\n    }\n\n@media (prefers-reduced-motion: reduce) {\n    .custom-range::-webkit-slider-thumb {\n        -webkit-transition: none;\n        transition: none;\n    }\n}\n\n.custom-range::-webkit-slider-thumb:active {\n    background-color: #b3d7ff;\n}\n\n.custom-range::-webkit-slider-runnable-track {\n    width: 100%;\n    height: 0.5rem;\n    color: transparent;\n    cursor: pointer;\n    background-color: #dee2e6;\n    border-color: transparent;\n    border-radius: 1rem;\n}\n\n.custom-range::-moz-range-thumb {\n    width: 1rem;\n    height: 1rem;\n    background-color: #007bff;\n    border: 0;\n    border-radius: 1rem;\n    -moz-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n    -moz-appearance: none;\n    appearance: none;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .custom-range::-moz-range-thumb {\n        -moz-transition: none;\n        transition: none;\n    }\n}\n\n.custom-range::-moz-range-thumb:active {\n    background-color: #b3d7ff;\n}\n\n.custom-range::-moz-range-track {\n    width: 100%;\n    height: 0.5rem;\n    color: transparent;\n    cursor: pointer;\n    background-color: #dee2e6;\n    border-color: transparent;\n    border-radius: 1rem;\n}\n\n.custom-range::-ms-thumb {\n    width: 1rem;\n    height: 1rem;\n    margin-top: 0;\n    margin-right: 0.2rem;\n    margin-left: 0.2rem;\n    background-color: #007bff;\n    border: 0;\n    border-radius: 1rem;\n    -ms-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n    appearance: none;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .custom-range::-ms-thumb {\n        -ms-transition: none;\n        transition: none;\n    }\n}\n\n.custom-range::-ms-thumb:active {\n    background-color: #b3d7ff;\n}\n\n.custom-range::-ms-track {\n    width: 100%;\n    height: 0.5rem;\n    color: transparent;\n    cursor: pointer;\n    background-color: transparent;\n    border-color: transparent;\n    border-width: 0.5rem;\n}\n\n.custom-range::-ms-fill-lower {\n    background-color: #dee2e6;\n    border-radius: 1rem;\n}\n\n.custom-range::-ms-fill-upper {\n    margin-right: 15px;\n    background-color: #dee2e6;\n    border-radius: 1rem;\n}\n\n.custom-range:disabled::-webkit-slider-thumb {\n    background-color: #adb5bd;\n}\n\n.custom-range:disabled::-webkit-slider-runnable-track {\n    cursor: default;\n}\n\n.custom-range:disabled::-moz-range-thumb {\n    background-color: #adb5bd;\n}\n\n.custom-range:disabled::-moz-range-track {\n    cursor: default;\n}\n\n.custom-range:disabled::-ms-thumb {\n    background-color: #adb5bd;\n}\n\n.custom-control-label::before,\n.custom-file-label,\n.custom-select {\n    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .custom-control-label::before,\n    .custom-file-label,\n    .custom-select {\n        transition: none;\n    }\n}\n\n.nav {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n    padding-left: 0;\n    margin-bottom: 0;\n    list-style: none;\n}\n\n.nav-link {\n    display: block;\n    padding: 0.5rem 1rem;\n}\n\n    .nav-link:hover, .nav-link:focus {\n        text-decoration: none;\n    }\n\n    .nav-link.disabled {\n        color: #6c757d;\n        pointer-events: none;\n        cursor: default;\n    }\n\n.nav-tabs {\n    border-bottom: 1px solid #dee2e6;\n}\n\n    .nav-tabs .nav-item {\n        margin-bottom: -1px;\n    }\n\n    .nav-tabs .nav-link {\n        border: 1px solid transparent;\n        border-top-left-radius: 0.25rem;\n        border-top-right-radius: 0.25rem;\n    }\n\n        .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {\n            border-color: #e9ecef #e9ecef #dee2e6;\n        }\n\n        .nav-tabs .nav-link.disabled {\n            color: #6c757d;\n            background-color: transparent;\n            border-color: transparent;\n        }\n\n        .nav-tabs .nav-link.active,\n        .nav-tabs .nav-item.show .nav-link {\n            color: #495057;\n            background-color: #fff;\n            border-color: #dee2e6 #dee2e6 #fff;\n        }\n\n    .nav-tabs .dropdown-menu {\n        margin-top: -1px;\n        border-top-left-radius: 0;\n        border-top-right-radius: 0;\n    }\n\n.nav-pills .nav-link {\n    border-radius: 0.25rem;\n}\n\n    .nav-pills .nav-link.active,\n    .nav-pills .show > .nav-link {\n        color: #fff;\n        background-color: #007bff;\n    }\n\n.nav-fill .nav-item {\n    -ms-flex: 1 1 auto;\n    flex: 1 1 auto;\n    text-align: center;\n}\n\n.nav-justified .nav-item {\n    -ms-flex-preferred-size: 0;\n    flex-basis: 0;\n    -ms-flex-positive: 1;\n    flex-grow: 1;\n    text-align: center;\n}\n\n.tab-content > .tab-pane {\n    display: none;\n}\n\n.tab-content > .active {\n    display: block;\n}\n\n.navbar {\n    position: relative;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n    -ms-flex-align: center;\n    align-items: center;\n    -ms-flex-pack: justify;\n    justify-content: space-between;\n    padding: 0.5rem 1rem;\n}\n\n.navbar_inverse {\n    margin: 10px;\n    background-color: #00061a;\n    opacity: 0.7;\n    border-color: transparent;\n    border-left: 3px white dotted;\n    border-right: 3px white dotted;\n    border-radius: 40px;\n}\n\n    .navbar .container,\n    .navbar .container-fluid, .navbar .container-sm, .navbar .container-md, .navbar .container-lg, .navbar .container-xl {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n        -ms-flex-align: center;\n        align-items: center;\n        -ms-flex-pack: justify;\n        justify-content: space-between;\n    }\n\n.navbar-brand {\n    display: inline-block;\n    padding-top: 0.3125rem;\n    padding-bottom: 0.3125rem;\n    margin-right: 1rem;\n    font-size: 1.25rem;\n    line-height: inherit;\n    white-space: nowrap;\n}\n\n    .navbar-brand:hover, .navbar-brand:focus {\n        text-decoration: none;\n    }\n\n.navbar-nav {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n    flex-direction: column;\n    padding-left: 0;\n    margin-bottom: 0;\n    list-style: none;\n}\n\n    .navbar-nav .nav-link {\n        padding-right: 0;\n        padding-left: 0;\n    }\n\n    .navbar-nav .dropdown-menu {\n        position: static;\n        float: none;\n    }\n\n.navbar-text {\n    display: inline-block;\n    padding-top: 0.5rem;\n    padding-bottom: 0.5rem;\n}\n\n.navbar-collapse {\n    -ms-flex-preferred-size: 100%;\n    flex-basis: 100%;\n    -ms-flex-positive: 1;\n    flex-grow: 1;\n    -ms-flex-align: center;\n    align-items: center;\n}\n\n.navbar-toggler {\n    padding: 0.25rem 0.75rem;\n    font-size: 1.25rem;\n    line-height: 1;\n    background-color: transparent;\n    border: 1px solid transparent;\n    border-radius: 0.25rem;\n}\n\n    .navbar-toggler:hover, .navbar-toggler:focus {\n        text-decoration: none;\n    }\n\n/*.navbar-toggler-icon {\n    display: inline-block;\n    width: 1.5em;\n    height: 1.5em;\n    vertical-align: middle;\n    content: \"\";\n    background: no-repeat center center;\n    background-size: 100% 100%;\n}*/\n\n@media (max-width: 575.98px) {\n    .navbar-expand-sm > .container,\n    .navbar-expand-sm > .container-fluid, .navbar-expand-sm > .container-sm, .navbar-expand-sm > .container-md, .navbar-expand-sm > .container-lg, .navbar-expand-sm > .container-xl {\n        padding-right: 0;\n        padding-left: 0;\n    }\n}\n\n@media (min-width: 576px) {\n    .navbar-expand-sm {\n        -ms-flex-flow: row nowrap;\n        flex-flow: row nowrap;\n        -ms-flex-pack: start;\n        justify-content: flex-start;\n    }\n\n        .navbar-expand-sm .navbar-nav {\n            -ms-flex-direction: row;\n            flex-direction: row;\n        }\n\n            .navbar-expand-sm .navbar-nav .dropdown-menu {\n                position: absolute;\n            }\n\n            .navbar-expand-sm .navbar-nav .nav-link {\n                padding-right: 0.5rem;\n                padding-left: 0.5rem;\n            }\n\n        .navbar-expand-sm > .container,\n        .navbar-expand-sm > .container-fluid, .navbar-expand-sm > .container-sm, .navbar-expand-sm > .container-md, .navbar-expand-sm > .container-lg, .navbar-expand-sm > .container-xl {\n            -ms-flex-wrap: nowrap;\n            flex-wrap: nowrap;\n        }\n\n        .navbar-expand-sm .navbar-collapse {\n            display: -ms-flexbox !important;\n            display: flex !important;\n            -ms-flex-preferred-size: auto;\n            flex-basis: auto;\n        }\n\n        .navbar-expand-sm .navbar-toggler {\n            display: none;\n        }\n}\n\n@media (max-width: 767.98px) {\n    .navbar-expand-md > .container,\n    .navbar-expand-md > .container-fluid, .navbar-expand-md > .container-sm, .navbar-expand-md > .container-md, .navbar-expand-md > .container-lg, .navbar-expand-md > .container-xl {\n        padding-right: 0;\n        padding-left: 0;\n    }\n}\n\n@media (min-width: 768px) {\n    .navbar-expand-md {\n        -ms-flex-flow: row nowrap;\n        flex-flow: row nowrap;\n        -ms-flex-pack: start;\n        justify-content: flex-start;\n    }\n\n        .navbar-expand-md .navbar-nav {\n            -ms-flex-direction: row;\n            flex-direction: row;\n        }\n\n            .navbar-expand-md .navbar-nav .dropdown-menu {\n                position: absolute;\n            }\n\n            .navbar-expand-md .navbar-nav .nav-link {\n                padding-right: 0.5rem;\n                padding-left: 0.5rem;\n            }\n\n        .navbar-expand-md > .container,\n        .navbar-expand-md > .container-fluid, .navbar-expand-md > .container-sm, .navbar-expand-md > .container-md, .navbar-expand-md > .container-lg, .navbar-expand-md > .container-xl {\n            -ms-flex-wrap: nowrap;\n            flex-wrap: nowrap;\n        }\n\n        .navbar-expand-md .navbar-collapse {\n            display: -ms-flexbox !important;\n            display: flex !important;\n            -ms-flex-preferred-size: auto;\n            flex-basis: auto;\n        }\n\n        .navbar-expand-md .navbar-toggler {\n            display: none;\n        }\n}\n\n@media (max-width: 991.98px) {\n    .navbar-expand-lg > .container,\n    .navbar-expand-lg > .container-fluid, .navbar-expand-lg > .container-sm, .navbar-expand-lg > .container-md, .navbar-expand-lg > .container-lg, .navbar-expand-lg > .container-xl {\n        padding-right: 0;\n        padding-left: 0;\n    }\n}\n\n@media (min-width: 992px) {\n    .navbar-expand-lg {\n        -ms-flex-flow: row nowrap;\n        flex-flow: row nowrap;\n        -ms-flex-pack: start;\n        justify-content: flex-start;\n    }\n\n        .navbar-expand-lg .navbar-nav {\n            -ms-flex-direction: row;\n            flex-direction: row;\n        }\n\n            .navbar-expand-lg .navbar-nav .dropdown-menu {\n                position: absolute;\n            }\n\n            .navbar-expand-lg .navbar-nav .nav-link {\n                border-left: 3px lightblue solid;\n                padding-right: 0.5rem;\n                padding-left: 0.5rem;\n            }\n\n        .navbar-expand-lg > .container,\n        .navbar-expand-lg > .container-fluid, .navbar-expand-lg > .container-sm, .navbar-expand-lg > .container-md, .navbar-expand-lg > .container-lg, .navbar-expand-lg > .container-xl {\n            -ms-flex-wrap: nowrap;\n            flex-wrap: nowrap;\n        }\n\n        .navbar-expand-lg .navbar-collapse {\n            display: -ms-flexbox !important;\n            display: flex !important;\n            -ms-flex-preferred-size: auto;\n            flex-basis: auto;\n        }\n\n        .navbar-expand-lg .navbar-toggler {\n            display: none;\n        }\n}\n\n@media (max-width: 1199.98px) {\n    .navbar-expand-xl > .container,\n    .navbar-expand-xl > .container-fluid, .navbar-expand-xl > .container-sm, .navbar-expand-xl > .container-md, .navbar-expand-xl > .container-lg, .navbar-expand-xl > .container-xl {\n        padding-right: 0;\n        padding-left: 0;\n    }\n}\n\n@media (min-width: 1200px) {\n    .navbar-expand-xl {\n        -ms-flex-flow: row nowrap;\n        flex-flow: row nowrap;\n        -ms-flex-pack: start;\n        justify-content: flex-start;\n    }\n\n        .navbar-expand-xl .navbar-nav {\n            -ms-flex-direction: row;\n            flex-direction: row;\n        }\n\n            .navbar-expand-xl .navbar-nav .dropdown-menu {\n                position: absolute;\n            }\n\n            .navbar-expand-xl .navbar-nav .nav-link {\n                padding-right: 0.5rem;\n                padding-left: 0.5rem;\n            }\n\n        .navbar-expand-xl > .container,\n        .navbar-expand-xl > .container-fluid, .navbar-expand-xl > .container-sm, .navbar-expand-xl > .container-md, .navbar-expand-xl > .container-lg, .navbar-expand-xl > .container-xl {\n            -ms-flex-wrap: nowrap;\n            flex-wrap: nowrap;\n        }\n\n        .navbar-expand-xl .navbar-collapse {\n            display: -ms-flexbox !important;\n            display: flex !important;\n            -ms-flex-preferred-size: auto;\n            flex-basis: auto;\n        }\n\n        .navbar-expand-xl .navbar-toggler {\n            display: none;\n        }\n}\n\n.navbar-expand {\n    -ms-flex-flow: row nowrap;\n    flex-flow: row nowrap;\n    -ms-flex-pack: start;\n    justify-content: flex-start;\n}\n\n    .navbar-expand > .container,\n    .navbar-expand > .container-fluid, .navbar-expand > .container-sm, .navbar-expand > .container-md, .navbar-expand > .container-lg, .navbar-expand > .container-xl {\n        padding-right: 0;\n        padding-left: 0;\n    }\n\n    .navbar-expand .navbar-nav {\n        -ms-flex-direction: row;\n        flex-direction: row;\n    }\n\n        .navbar-expand .navbar-nav .dropdown-menu {\n            position: absolute;\n        }\n\n        .navbar-expand .navbar-nav .nav-link {\n            padding-right: 0.5rem;\n            padding-left: 0.5rem;\n        }\n\n    .navbar-expand > .container,\n    .navbar-expand > .container-fluid, .navbar-expand > .container-sm, .navbar-expand > .container-md, .navbar-expand > .container-lg, .navbar-expand > .container-xl {\n        -ms-flex-wrap: nowrap;\n        flex-wrap: nowrap;\n    }\n\n    .navbar-expand .navbar-collapse {\n        display: -ms-flexbox !important;\n        display: flex !important;\n        -ms-flex-preferred-size: auto;\n        flex-basis: auto;\n    }\n\n    .navbar-expand .navbar-toggler {\n        display: none;\n    }\n\n.navbar-light .navbar-brand {\n    color: #09C6AB;\n}\n\n    .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {\n        color: white;\n    }\n\n.navbar-light .navbar-nav .nav-link {\n    color: #09C6AB;\n}\n\n    .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {\n        color: white;\n    }\n\n    .navbar-light .navbar-nav .nav-link.disabled {\n        color: gray;\n    }\n\n    .navbar-light .navbar-nav .show > .nav-link,\n    .navbar-light .navbar-nav .active > .nav-link,\n    .navbar-light .navbar-nav .nav-link.show,\n    .navbar-light .navbar-nav .nav-link.active {\n        color: white;\n    }\n\n.navbar-light .navbar-toggler {\n    color: white;\n    border-color: rgba(0, 0, 0, 0.1);\n}\n\n.navbar-light .navbar-toggler-icon {\n    color: aqua;\n}   \n\n.navbar-light .navbar-text {\n    color: rgba(0, 0, 0, 0.5);\n}\n\n    .navbar-light .navbar-text a {\n        color: rgba(0, 0, 0, 0.9);\n    }\n\n        .navbar-light .navbar-text a:hover, .navbar-light .navbar-text a:focus {\n            color: rgba(0, 0, 0, 0.9);\n        }\n\n.navbar-dark .navbar-brand {\n    color: #fff;\n}\n\n    .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {\n        color: #fff;\n    }\n\n.navbar-dark .navbar-nav .nav-link {\n    color: rgba(255, 255, 255, 0.5);\n}\n\n    .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {\n        color: rgba(255, 255, 255, 0.75);\n    }\n\n    .navbar-dark .navbar-nav .nav-link.disabled {\n        color: rgba(255, 255, 255, 0.25);\n    }\n\n    .navbar-dark .navbar-nav .show > .nav-link,\n    .navbar-dark .navbar-nav .active > .nav-link,\n    .navbar-dark .navbar-nav .nav-link.show,\n    .navbar-dark .navbar-nav .nav-link.active {\n        color: #fff;\n    }\n\n.navbar-dark .navbar-toggler {\n    color: rgba(255, 255, 255, 0.5);\n    border-color: rgba(255, 255, 255, 0.1);\n}\n\n.navbar-dark .navbar-toggler-icon {\n    background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e\");\n}\n\n.navbar-dark .navbar-text {\n    color: rgba(255, 255, 255, 0.5);\n}\n\n    .navbar-dark .navbar-text a {\n        color: #fff;\n    }\n\n        .navbar-dark .navbar-text a:hover, .navbar-dark .navbar-text a:focus {\n            color: #fff;\n        }\n\n.card {\n    position: relative;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n    flex-direction: column;\n    min-width: 0;\n    word-wrap: break-word;\n    background-color: #fff;\n    background-clip: border-box;\n    border: 1px solid rgba(0, 0, 0, 0.125);\n    border-radius: 0.25rem;\n}\n\n    .card > hr {\n        margin-right: 0;\n        margin-left: 0;\n    }\n\n    .card > .list-group:first-child .list-group-item:first-child {\n        border-top-left-radius: 0.25rem;\n        border-top-right-radius: 0.25rem;\n    }\n\n    .card > .list-group:last-child .list-group-item:last-child {\n        border-bottom-right-radius: 0.25rem;\n        border-bottom-left-radius: 0.25rem;\n    }\n\n.card-body {\n    -ms-flex: 1 1 auto;\n    flex: 1 1 auto;\n    min-height: 1px;\n    padding: 1.25rem;\n}\n\n.card-title {\n    margin-bottom: 0.75rem;\n}\n\n.card-subtitle {\n    margin-top: -0.375rem;\n    margin-bottom: 0;\n}\n\n.card-text:last-child {\n    margin-bottom: 0;\n}\n\n.card-link:hover {\n    text-decoration: none;\n}\n\n.card-link + .card-link {\n    margin-left: 1.25rem;\n}\n\n.card-header {\n    padding: 0.75rem 1.25rem;\n    margin-bottom: 0;\n    background-color: rgba(0, 0, 0, 0.03);\n    border-bottom: 1px solid rgba(0, 0, 0, 0.125);\n}\n\n    .card-header:first-child {\n        border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;\n    }\n\n    .card-header + .list-group .list-group-item:first-child {\n        border-top: 0;\n    }\n\n.card-footer {\n    padding: 0.75rem 1.25rem;\n    background-color: rgba(0, 0, 0, 0.03);\n    border-top: 1px solid rgba(0, 0, 0, 0.125);\n}\n\n    .card-footer:last-child {\n        border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);\n    }\n\n.card-header-tabs {\n    margin-right: -0.625rem;\n    margin-bottom: -0.75rem;\n    margin-left: -0.625rem;\n    border-bottom: 0;\n}\n\n.card-header-pills {\n    margin-right: -0.625rem;\n    margin-left: -0.625rem;\n}\n\n.card-img-overlay {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    padding: 1.25rem;\n}\n\n.card-img,\n.card-img-top,\n.card-img-bottom {\n    -ms-flex-negative: 0;\n    flex-shrink: 0;\n    width: 100%;\n}\n\n.card-img,\n.card-img-top {\n    border-top-left-radius: calc(0.25rem - 1px);\n    border-top-right-radius: calc(0.25rem - 1px);\n}\n\n.card-img,\n.card-img-bottom {\n    border-bottom-right-radius: calc(0.25rem - 1px);\n    border-bottom-left-radius: calc(0.25rem - 1px);\n}\n\n.card-deck .card {\n    margin-bottom: 15px;\n}\n\n@media (min-width: 576px) {\n    .card-deck {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-flow: row wrap;\n        flex-flow: row wrap;\n        margin-right: -15px;\n        margin-left: -15px;\n    }\n\n        .card-deck .card {\n            -ms-flex: 1 0 0%;\n            flex: 1 0 0%;\n            margin-right: 15px;\n            margin-bottom: 0;\n            margin-left: 15px;\n        }\n}\n\n.card-group > .card {\n    margin-bottom: 15px;\n}\n\n@media (min-width: 576px) {\n    .card-group {\n        display: -ms-flexbox;\n        display: flex;\n        -ms-flex-flow: row wrap;\n        flex-flow: row wrap;\n    }\n\n        .card-group > .card {\n            -ms-flex: 1 0 0%;\n            flex: 1 0 0%;\n            margin-bottom: 0;\n        }\n\n            .card-group > .card + .card {\n                margin-left: 0;\n                border-left: 0;\n            }\n\n            .card-group > .card:not(:last-child) {\n                border-top-right-radius: 0;\n                border-bottom-right-radius: 0;\n            }\n\n                .card-group > .card:not(:last-child) .card-img-top,\n                .card-group > .card:not(:last-child) .card-header {\n                    border-top-right-radius: 0;\n                }\n\n                .card-group > .card:not(:last-child) .card-img-bottom,\n                .card-group > .card:not(:last-child) .card-footer {\n                    border-bottom-right-radius: 0;\n                }\n\n            .card-group > .card:not(:first-child) {\n                border-top-left-radius: 0;\n                border-bottom-left-radius: 0;\n            }\n\n                .card-group > .card:not(:first-child) .card-img-top,\n                .card-group > .card:not(:first-child) .card-header {\n                    border-top-left-radius: 0;\n                }\n\n                .card-group > .card:not(:first-child) .card-img-bottom,\n                .card-group > .card:not(:first-child) .card-footer {\n                    border-bottom-left-radius: 0;\n                }\n}\n\n.card-columns .card {\n    margin-bottom: 0.75rem;\n}\n\n@media (min-width: 576px) {\n    .card-columns {\n        -webkit-column-count: 3;\n        -moz-column-count: 3;\n        column-count: 3;\n        -webkit-column-gap: 1.25rem;\n        -moz-column-gap: 1.25rem;\n        column-gap: 1.25rem;\n        orphans: 1;\n        widows: 1;\n    }\n\n        .card-columns .card {\n            display: inline-block;\n            width: 100%;\n        }\n}\n\n.accordion > .card {\n    overflow: hidden;\n}\n\n    .accordion > .card:not(:last-of-type) {\n        border-bottom: 0;\n        border-bottom-right-radius: 0;\n        border-bottom-left-radius: 0;\n    }\n\n    .accordion > .card:not(:first-of-type) {\n        border-top-left-radius: 0;\n        border-top-right-radius: 0;\n    }\n\n    .accordion > .card > .card-header {\n        border-radius: 0;\n        margin-bottom: -1px;\n    }\n\n.breadcrumb {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n    padding: 0.75rem 1rem;\n    margin-bottom: 1rem;\n    list-style: none;\n    background-color: #e9ecef;\n    border-radius: 0.25rem;\n}\n\n.breadcrumb-item + .breadcrumb-item {\n    padding-left: 0.5rem;\n}\n\n    .breadcrumb-item + .breadcrumb-item::before {\n        display: inline-block;\n        padding-right: 0.5rem;\n        color: #6c757d;\n        content: \"/\";\n    }\n\n    .breadcrumb-item + .breadcrumb-item:hover::before {\n        text-decoration: underline;\n    }\n\n    .breadcrumb-item + .breadcrumb-item:hover::before {\n        text-decoration: none;\n    }\n\n.breadcrumb-item.active {\n    color: #6c757d;\n}\n\n.pagination {\n    display: -ms-flexbox;\n    display: flex;\n    padding-left: 0;\n    list-style: none;\n    border-radius: 0.25rem;\n}\n\n.page-link {\n    position: relative;\n    display: block;\n    padding: 0.5rem 0.75rem;\n    margin-left: -1px;\n    line-height: 1.25;\n    color: #007bff;\n    background-color: #fff;\n    border: 1px solid #dee2e6;\n}\n\n    .page-link:hover {\n        z-index: 2;\n        color: #0056b3;\n        text-decoration: none;\n        background-color: #e9ecef;\n        border-color: #dee2e6;\n    }\n\n    .page-link:focus {\n        z-index: 3;\n        outline: 0;\n        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n    }\n\n.page-item:first-child .page-link {\n    margin-left: 0;\n    border-top-left-radius: 0.25rem;\n    border-bottom-left-radius: 0.25rem;\n}\n\n.page-item:last-child .page-link {\n    border-top-right-radius: 0.25rem;\n    border-bottom-right-radius: 0.25rem;\n}\n\n.page-item.active .page-link {\n    z-index: 3;\n    color: #fff;\n    background-color: #007bff;\n    border-color: #007bff;\n}\n\n.page-item.disabled .page-link {\n    color: #6c757d;\n    pointer-events: none;\n    cursor: auto;\n    background-color: #fff;\n    border-color: #dee2e6;\n}\n\n.pagination-lg .page-link {\n    padding: 0.75rem 1.5rem;\n    font-size: 1.25rem;\n    line-height: 1.5;\n}\n\n.pagination-lg .page-item:first-child .page-link {\n    border-top-left-radius: 0.3rem;\n    border-bottom-left-radius: 0.3rem;\n}\n\n.pagination-lg .page-item:last-child .page-link {\n    border-top-right-radius: 0.3rem;\n    border-bottom-right-radius: 0.3rem;\n}\n\n.pagination-sm .page-link {\n    padding: 0.25rem 0.5rem;\n    font-size: 0.875rem;\n    line-height: 1.5;\n}\n\n.pagination-sm .page-item:first-child .page-link {\n    border-top-left-radius: 0.2rem;\n    border-bottom-left-radius: 0.2rem;\n}\n\n.pagination-sm .page-item:last-child .page-link {\n    border-top-right-radius: 0.2rem;\n    border-bottom-right-radius: 0.2rem;\n}\n\n.badge {\n    display: inline-block;\n    padding: 0.25em 0.4em;\n    font-size: 75%;\n    font-weight: 700;\n    line-height: 1;\n    text-align: center;\n    white-space: nowrap;\n    vertical-align: baseline;\n    border-radius: 0.25rem;\n    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .badge {\n        transition: none;\n    }\n}\n\na.badge:hover, a.badge:focus {\n    text-decoration: none;\n}\n\n.badge:empty {\n    display: none;\n}\n\n.btn .badge {\n    position: relative;\n    top: -1px;\n}\n\n.badge-pill {\n    padding-right: 0.6em;\n    padding-left: 0.6em;\n    border-radius: 10rem;\n}\n\n.badge-primary {\n    color: #fff;\n    background-color: #007bff;\n}\n\na.badge-primary:hover, a.badge-primary:focus {\n    color: #fff;\n    background-color: #0062cc;\n}\n\na.badge-primary:focus, a.badge-primary.focus {\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);\n}\n\n.badge-secondary {\n    color: #fff;\n    background-color: #6c757d;\n}\n\na.badge-secondary:hover, a.badge-secondary:focus {\n    color: #fff;\n    background-color: #545b62;\n}\n\na.badge-secondary:focus, a.badge-secondary.focus {\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);\n}\n\n.badge-success {\n    color: #fff;\n    background-color: #28a745;\n}\n\na.badge-success:hover, a.badge-success:focus {\n    color: #fff;\n    background-color: #1e7e34;\n}\n\na.badge-success:focus, a.badge-success.focus {\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);\n}\n\n.badge-info {\n    color: #fff;\n    background-color: #17a2b8;\n}\n\na.badge-info:hover, a.badge-info:focus {\n    color: #fff;\n    background-color: #117a8b;\n}\n\na.badge-info:focus, a.badge-info.focus {\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);\n}\n\n.badge-warning {\n    color: #212529;\n    background-color: #ffc107;\n}\n\na.badge-warning:hover, a.badge-warning:focus {\n    color: #212529;\n    background-color: #d39e00;\n}\n\na.badge-warning:focus, a.badge-warning.focus {\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);\n}\n\n.badge-danger {\n    color: #fff;\n    background-color: #dc3545;\n}\n\na.badge-danger:hover, a.badge-danger:focus {\n    color: #fff;\n    background-color: #bd2130;\n}\n\na.badge-danger:focus, a.badge-danger.focus {\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);\n}\n\n.badge-light {\n    color: #212529;\n    background-color: #f8f9fa;\n}\n\na.badge-light:hover, a.badge-light:focus {\n    color: #212529;\n    background-color: #dae0e5;\n}\n\na.badge-light:focus, a.badge-light.focus {\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);\n}\n\n.badge-dark {\n    color: #fff;\n    background-color: #343a40;\n}\n\na.badge-dark:hover, a.badge-dark:focus {\n    color: #fff;\n    background-color: #1d2124;\n}\n\na.badge-dark:focus, a.badge-dark.focus {\n    outline: 0;\n    box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);\n}\n\n.jumbotron {\n    padding: 2rem 1rem;\n    margin-bottom: 2rem;\n    background-color: #e9ecef;\n    border-radius: 0.3rem;\n}\n\n@media (min-width: 576px) {\n    .jumbotron {\n        padding: 4rem 2rem;\n    }\n}\n\n.jumbotron-fluid {\n    padding-right: 0;\n    padding-left: 0;\n    border-radius: 0;\n}\n\n.alert {\n    position: relative;\n    padding: 0.75rem 1.25rem;\n    margin-bottom: 1rem;\n    border: 1px solid transparent;\n    border-radius: 0.25rem;\n}\n\n.alert-heading {\n    color: inherit;\n}\n\n.alert-link {\n    font-weight: 700;\n}\n\n.alert-dismissible {\n    padding-right: 4rem;\n}\n\n    .alert-dismissible .close {\n        position: absolute;\n        top: 0;\n        right: 0;\n        padding: 0.75rem 1.25rem;\n        color: inherit;\n    }\n\n.alert-primary {\n    color: #004085;\n    background-color: #cce5ff;\n    border-color: #b8daff;\n}\n\n    .alert-primary hr {\n        border-top-color: #9fcdff;\n    }\n\n    .alert-primary .alert-link {\n        color: #002752;\n    }\n\n.alert-secondary {\n    color: #383d41;\n    background-color: #e2e3e5;\n    border-color: #d6d8db;\n}\n\n    .alert-secondary hr {\n        border-top-color: #c8cbcf;\n    }\n\n    .alert-secondary .alert-link {\n        color: #202326;\n    }\n\n.alert-success {\n    color: #155724;\n    background-color: #d4edda;\n    border-color: #c3e6cb;\n}\n\n    .alert-success hr {\n        border-top-color: #b1dfbb;\n    }\n\n    .alert-success .alert-link {\n        color: #0b2e13;\n    }\n\n.alert-info {\n    color: #0c5460;\n    background-color: #d1ecf1;\n    border-color: #bee5eb;\n}\n\n    .alert-info hr {\n        border-top-color: #abdde5;\n    }\n\n    .alert-info .alert-link {\n        color: #062c33;\n    }\n\n.alert-warning {\n    color: #856404;\n    background-color: #fff3cd;\n    border-color: #ffeeba;\n}\n\n    .alert-warning hr {\n        border-top-color: #ffe8a1;\n    }\n\n    .alert-warning .alert-link {\n        color: #533f03;\n    }\n\n.alert-danger {\n    color: #721c24;\n    background-color: #f8d7da;\n    border-color: #f5c6cb;\n}\n\n    .alert-danger hr {\n        border-top-color: #f1b0b7;\n    }\n\n    .alert-danger .alert-link {\n        color: #491217;\n    }\n\n.alert-light {\n    color: #818182;\n    background-color: #fefefe;\n    border-color: #fdfdfe;\n}\n\n    .alert-light hr {\n        border-top-color: #ececf6;\n    }\n\n    .alert-light .alert-link {\n        color: #686868;\n    }\n\n.alert-dark {\n    color: #1b1e21;\n    background-color: #d6d8d9;\n    border-color: #c6c8ca;\n}\n\n    .alert-dark hr {\n        border-top-color: #b9bbbe;\n    }\n\n    .alert-dark .alert-link {\n        color: #040505;\n    }\n\n@-webkit-keyframes progress-bar-stripes {\n    from {\n        background-position: 1rem 0;\n    }\n\n    to {\n        background-position: 0 0;\n    }\n}\n\n@keyframes progress-bar-stripes {\n    from {\n        background-position: 1rem 0;\n    }\n\n    to {\n        background-position: 0 0;\n    }\n}\n\n.progress {\n    display: -ms-flexbox;\n    display: flex;\n    height: 1rem;\n    overflow: hidden;\n    font-size: 0.75rem;\n    background-color: #e9ecef;\n    border-radius: 0.25rem;\n}\n\n.progress-bar {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n    flex-direction: column;\n    -ms-flex-pack: center;\n    justify-content: center;\n    overflow: hidden;\n    color: #fff;\n    text-align: center;\n    white-space: nowrap;\n    background-color: #007bff;\n    transition: width 0.6s ease;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .progress-bar {\n        transition: none;\n    }\n}\n\n.progress-bar-striped {\n    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);\n    background-size: 1rem 1rem;\n}\n\n.progress-bar-animated {\n    -webkit-animation: progress-bar-stripes 1s linear infinite;\n    animation: progress-bar-stripes 1s linear infinite;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .progress-bar-animated {\n        -webkit-animation: none;\n        animation: none;\n    }\n}\n\n.media {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: start;\n    align-items: flex-start;\n}\n\n.media-body {\n    -ms-flex: 1;\n    flex: 1;\n}\n\n.list-group {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n    flex-direction: column;\n    padding-left: 0;\n    margin-bottom: 0;\n}\n\n.list-group-item-action {\n    width: 100%;\n    color: #495057;\n    text-align: inherit;\n}\n\n    .list-group-item-action:hover, .list-group-item-action:focus {\n        z-index: 1;\n        color: #495057;\n        text-decoration: none;\n        background-color: #f8f9fa;\n    }\n\n    .list-group-item-action:active {\n        color: #212529;\n        background-color: #e9ecef;\n    }\n\n.list-group-item {\n    position: relative;\n    display: block;\n    padding: 0.75rem 1.25rem;\n    background-color: #fff;\n    border: 1px solid rgba(0, 0, 0, 0.125);\n}\n\n    .list-group-item:first-child {\n        border-top-left-radius: 0.25rem;\n        border-top-right-radius: 0.25rem;\n    }\n\n    .list-group-item:last-child {\n        border-bottom-right-radius: 0.25rem;\n        border-bottom-left-radius: 0.25rem;\n    }\n\n    .list-group-item.disabled, .list-group-item:disabled {\n        color: #6c757d;\n        pointer-events: none;\n        background-color: #fff;\n    }\n\n    .list-group-item.active {\n        z-index: 2;\n        color: #fff;\n        background-color: #007bff;\n        border-color: #007bff;\n    }\n\n    .list-group-item + .list-group-item {\n        border-top-width: 0;\n    }\n\n        .list-group-item + .list-group-item.active {\n            margin-top: -1px;\n            border-top-width: 1px;\n        }\n\n.list-group-horizontal {\n    -ms-flex-direction: row;\n    flex-direction: row;\n}\n\n    .list-group-horizontal .list-group-item:first-child {\n        border-bottom-left-radius: 0.25rem;\n        border-top-right-radius: 0;\n    }\n\n    .list-group-horizontal .list-group-item:last-child {\n        border-top-right-radius: 0.25rem;\n        border-bottom-left-radius: 0;\n    }\n\n    .list-group-horizontal .list-group-item.active {\n        margin-top: 0;\n    }\n\n    .list-group-horizontal .list-group-item + .list-group-item {\n        border-top-width: 1px;\n        border-left-width: 0;\n    }\n\n        .list-group-horizontal .list-group-item + .list-group-item.active {\n            margin-left: -1px;\n            border-left-width: 1px;\n        }\n\n@media (min-width: 576px) {\n    .list-group-horizontal-sm {\n        -ms-flex-direction: row;\n        flex-direction: row;\n    }\n\n        .list-group-horizontal-sm .list-group-item:first-child {\n            border-bottom-left-radius: 0.25rem;\n            border-top-right-radius: 0;\n        }\n\n        .list-group-horizontal-sm .list-group-item:last-child {\n            border-top-right-radius: 0.25rem;\n            border-bottom-left-radius: 0;\n        }\n\n        .list-group-horizontal-sm .list-group-item.active {\n            margin-top: 0;\n        }\n\n        .list-group-horizontal-sm .list-group-item + .list-group-item {\n            border-top-width: 1px;\n            border-left-width: 0;\n        }\n\n            .list-group-horizontal-sm .list-group-item + .list-group-item.active {\n                margin-left: -1px;\n                border-left-width: 1px;\n            }\n}\n\n@media (min-width: 768px) {\n    .list-group-horizontal-md {\n        -ms-flex-direction: row;\n        flex-direction: row;\n    }\n\n        .list-group-horizontal-md .list-group-item:first-child {\n            border-bottom-left-radius: 0.25rem;\n            border-top-right-radius: 0;\n        }\n\n        .list-group-horizontal-md .list-group-item:last-child {\n            border-top-right-radius: 0.25rem;\n            border-bottom-left-radius: 0;\n        }\n\n        .list-group-horizontal-md .list-group-item.active {\n            margin-top: 0;\n        }\n\n        .list-group-horizontal-md .list-group-item + .list-group-item {\n            border-top-width: 1px;\n            border-left-width: 0;\n        }\n\n            .list-group-horizontal-md .list-group-item + .list-group-item.active {\n                margin-left: -1px;\n                border-left-width: 1px;\n            }\n}\n\n@media (min-width: 992px) {\n    .list-group-horizontal-lg {\n        -ms-flex-direction: row;\n        flex-direction: row;\n    }\n\n        .list-group-horizontal-lg .list-group-item:first-child {\n            border-bottom-left-radius: 0.25rem;\n            border-top-right-radius: 0;\n        }\n\n        .list-group-horizontal-lg .list-group-item:last-child {\n            border-top-right-radius: 0.25rem;\n            border-bottom-left-radius: 0;\n        }\n\n        .list-group-horizontal-lg .list-group-item.active {\n            margin-top: 0;\n        }\n\n        .list-group-horizontal-lg .list-group-item + .list-group-item {\n            border-top-width: 1px;\n            border-left-width: 0;\n        }\n\n            .list-group-horizontal-lg .list-group-item + .list-group-item.active {\n                margin-left: -1px;\n                border-left-width: 1px;\n            }\n}\n\n@media (min-width: 1200px) {\n    .list-group-horizontal-xl {\n        -ms-flex-direction: row;\n        flex-direction: row;\n    }\n\n        .list-group-horizontal-xl .list-group-item:first-child {\n            border-bottom-left-radius: 0.25rem;\n            border-top-right-radius: 0;\n        }\n\n        .list-group-horizontal-xl .list-group-item:last-child {\n            border-top-right-radius: 0.25rem;\n            border-bottom-left-radius: 0;\n        }\n\n        .list-group-horizontal-xl .list-group-item.active {\n            margin-top: 0;\n        }\n\n        .list-group-horizontal-xl .list-group-item + .list-group-item {\n            border-top-width: 1px;\n            border-left-width: 0;\n        }\n\n            .list-group-horizontal-xl .list-group-item + .list-group-item.active {\n                margin-left: -1px;\n                border-left-width: 1px;\n            }\n}\n\n.list-group-flush .list-group-item {\n    border-right-width: 0;\n    border-left-width: 0;\n    border-radius: 0;\n}\n\n    .list-group-flush .list-group-item:first-child {\n        border-top-width: 0;\n    }\n\n.list-group-flush:last-child .list-group-item:last-child {\n    border-bottom-width: 0;\n}\n\n.list-group-item-primary {\n    color: #004085;\n    background-color: #b8daff;\n}\n\n    .list-group-item-primary.list-group-item-action:hover, .list-group-item-primary.list-group-item-action:focus {\n        color: #004085;\n        background-color: #9fcdff;\n    }\n\n    .list-group-item-primary.list-group-item-action.active {\n        color: #fff;\n        background-color: #004085;\n        border-color: #004085;\n    }\n\n.list-group-item-secondary {\n    color: #383d41;\n    background-color: #d6d8db;\n}\n\n    .list-group-item-secondary.list-group-item-action:hover, .list-group-item-secondary.list-group-item-action:focus {\n        color: #383d41;\n        background-color: #c8cbcf;\n    }\n\n    .list-group-item-secondary.list-group-item-action.active {\n        color: #fff;\n        background-color: #383d41;\n        border-color: #383d41;\n    }\n\n.list-group-item-success {\n    color: #155724;\n    background-color: #c3e6cb;\n}\n\n    .list-group-item-success.list-group-item-action:hover, .list-group-item-success.list-group-item-action:focus {\n        color: #155724;\n        background-color: #b1dfbb;\n    }\n\n    .list-group-item-success.list-group-item-action.active {\n        color: #fff;\n        background-color: #155724;\n        border-color: #155724;\n    }\n\n.list-group-item-info {\n    color: #0c5460;\n    background-color: #bee5eb;\n}\n\n    .list-group-item-info.list-group-item-action:hover, .list-group-item-info.list-group-item-action:focus {\n        color: #0c5460;\n        background-color: #abdde5;\n    }\n\n    .list-group-item-info.list-group-item-action.active {\n        color: #fff;\n        background-color: #0c5460;\n        border-color: #0c5460;\n    }\n\n.list-group-item-warning {\n    color: #856404;\n    background-color: #ffeeba;\n}\n\n    .list-group-item-warning.list-group-item-action:hover, .list-group-item-warning.list-group-item-action:focus {\n        color: #856404;\n        background-color: #ffe8a1;\n    }\n\n    .list-group-item-warning.list-group-item-action.active {\n        color: #fff;\n        background-color: #856404;\n        border-color: #856404;\n    }\n\n.list-group-item-danger {\n    color: #721c24;\n    background-color: #f5c6cb;\n}\n\n    .list-group-item-danger.list-group-item-action:hover, .list-group-item-danger.list-group-item-action:focus {\n        color: #721c24;\n        background-color: #f1b0b7;\n    }\n\n    .list-group-item-danger.list-group-item-action.active {\n        color: #fff;\n        background-color: #721c24;\n        border-color: #721c24;\n    }\n\n.list-group-item-light {\n    color: #818182;\n    background-color: #fdfdfe;\n}\n\n    .list-group-item-light.list-group-item-action:hover, .list-group-item-light.list-group-item-action:focus {\n        color: #818182;\n        background-color: #ececf6;\n    }\n\n    .list-group-item-light.list-group-item-action.active {\n        color: #fff;\n        background-color: #818182;\n        border-color: #818182;\n    }\n\n.list-group-item-dark {\n    color: #1b1e21;\n    background-color: #c6c8ca;\n}\n\n    .list-group-item-dark.list-group-item-action:hover, .list-group-item-dark.list-group-item-action:focus {\n        color: #1b1e21;\n        background-color: #b9bbbe;\n    }\n\n    .list-group-item-dark.list-group-item-action.active {\n        color: #fff;\n        background-color: #1b1e21;\n        border-color: #1b1e21;\n    }\n\n.close {\n    float: right;\n    font-size: 1.5rem;\n    font-weight: 700;\n    line-height: 1;\n    color: #000;\n    text-shadow: 0 1px 0 #fff;\n    opacity: .5;\n}\n\n    .close:hover {\n        color: #000;\n        text-decoration: none;\n    }\n\n    .close:not(:disabled):not(.disabled):hover, .close:not(:disabled):not(.disabled):focus {\n        opacity: .75;\n    }\n\nbutton.close {\n    padding: 0;\n    background-color: transparent;\n    border: 0;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n}\n\na.close.disabled {\n    pointer-events: none;\n}\n\n.toast {\n    max-width: 350px;\n    overflow: hidden;\n    font-size: 0.875rem;\n    background-color: rgba(255, 255, 255, 0.85);\n    background-clip: padding-box;\n    border: 1px solid rgba(0, 0, 0, 0.1);\n    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);\n    -webkit-backdrop-filter: blur(10px);\n    backdrop-filter: blur(10px);\n    opacity: 0;\n    border-radius: 0.25rem;\n}\n\n    .toast:not(:last-child) {\n        margin-bottom: 0.75rem;\n    }\n\n    .toast.showing {\n        opacity: 1;\n    }\n\n    .toast.show {\n        display: block;\n        opacity: 1;\n    }\n\n    .toast.hide {\n        display: none;\n    }\n\n.toast-header {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n    padding: 0.25rem 0.75rem;\n    color: #6c757d;\n    background-color: rgba(255, 255, 255, 0.85);\n    background-clip: padding-box;\n    border-bottom: 1px solid rgba(0, 0, 0, 0.05);\n}\n\n.toast-body {\n    padding: 0.75rem;\n}\n\n.modal-open {\n    overflow: hidden;\n}\n\n    .modal-open .modal {\n        overflow-x: hidden;\n        overflow-y: auto;\n    }\n\n.modal {\n    position: fixed;\n    top: 0;\n    left: 0;\n    z-index: 1050;\n    display: none;\n    width: 100%;\n    height: 100%;\n    overflow: hidden;\n    outline: 0;\n}\n\n.modal-dialog {\n    position: relative;\n    width: auto;\n    margin: 0.5rem;\n    pointer-events: none;\n}\n\n.modal.fade .modal-dialog {\n    transition: -webkit-transform 0.3s ease-out;\n    transition: transform 0.3s ease-out;\n    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;\n    -webkit-transform: translate(0, -50px);\n    transform: translate(0, -50px);\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .modal.fade .modal-dialog {\n        transition: none;\n    }\n}\n\n.modal.show .modal-dialog {\n    -webkit-transform: none;\n    transform: none;\n}\n\n.modal.modal-static .modal-dialog {\n    -webkit-transform: scale(1.02);\n    transform: scale(1.02);\n}\n\n.modal-dialog-scrollable {\n    display: -ms-flexbox;\n    display: flex;\n    max-height: calc(100% - 1rem);\n}\n\n    .modal-dialog-scrollable .modal-content {\n        max-height: calc(100vh - 1rem);\n        overflow: hidden;\n    }\n\n    .modal-dialog-scrollable .modal-header,\n    .modal-dialog-scrollable .modal-footer {\n        -ms-flex-negative: 0;\n        flex-shrink: 0;\n    }\n\n    .modal-dialog-scrollable .modal-body {\n        overflow-y: auto;\n    }\n\n.modal-dialog-centered {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n    min-height: calc(100% - 1rem);\n}\n\n    .modal-dialog-centered::before {\n        display: block;\n        height: calc(100vh - 1rem);\n        content: \"\";\n    }\n\n    .modal-dialog-centered.modal-dialog-scrollable {\n        -ms-flex-direction: column;\n        flex-direction: column;\n        -ms-flex-pack: center;\n        justify-content: center;\n        height: 100%;\n    }\n\n        .modal-dialog-centered.modal-dialog-scrollable .modal-content {\n            max-height: none;\n        }\n\n        .modal-dialog-centered.modal-dialog-scrollable::before {\n            content: none;\n        }\n\n.modal-content {\n    position: relative;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n    flex-direction: column;\n    width: 100%;\n    pointer-events: auto;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 0.3rem;\n    outline: 0;\n}\n\n.modal-backdrop {\n    position: fixed;\n    top: 0;\n    left: 0;\n    z-index: 1040;\n    width: 100vw;\n    height: 100vh;\n    background-color: #000;\n}\n\n    .modal-backdrop.fade {\n        opacity: 0;\n    }\n\n    .modal-backdrop.show {\n        opacity: 0.5;\n    }\n\n.modal-header {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: start;\n    align-items: flex-start;\n    -ms-flex-pack: justify;\n    justify-content: space-between;\n    padding: 1rem 1rem;\n    border-bottom: 1px solid #dee2e6;\n    border-top-left-radius: calc(0.3rem - 1px);\n    border-top-right-radius: calc(0.3rem - 1px);\n}\n\n    .modal-header .close {\n        padding: 1rem 1rem;\n        margin: -1rem -1rem -1rem auto;\n    }\n\n.modal-title {\n    margin-bottom: 0;\n    line-height: 1.5;\n}\n\n.modal-body {\n    position: relative;\n    -ms-flex: 1 1 auto;\n    flex: 1 1 auto;\n    padding: 1rem;\n}\n\n.modal-footer {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n    -ms-flex-align: center;\n    align-items: center;\n    -ms-flex-pack: end;\n    justify-content: flex-end;\n    padding: 0.75rem;\n    border-top: 1px solid #dee2e6;\n    border-bottom-right-radius: calc(0.3rem - 1px);\n    border-bottom-left-radius: calc(0.3rem - 1px);\n}\n\n    .modal-footer > * {\n        margin: 0.25rem;\n    }\n\n.modal-scrollbar-measure {\n    position: absolute;\n    top: -9999px;\n    width: 50px;\n    height: 50px;\n    overflow: scroll;\n}\n\n@media (min-width: 576px) {\n    .modal-dialog {\n        max-width: 500px;\n        margin: 1.75rem auto;\n    }\n\n    .modal-dialog-scrollable {\n        max-height: calc(100% - 3.5rem);\n    }\n\n        .modal-dialog-scrollable .modal-content {\n            max-height: calc(100vh - 3.5rem);\n        }\n\n    .modal-dialog-centered {\n        min-height: calc(100% - 3.5rem);\n    }\n\n        .modal-dialog-centered::before {\n            height: calc(100vh - 3.5rem);\n        }\n\n    .modal-sm {\n        max-width: 300px;\n    }\n}\n\n@media (min-width: 992px) {\n    .modal-lg,\n    .modal-xl {\n        max-width: 800px;\n    }\n}\n\n@media (min-width: 1200px) {\n    .modal-xl {\n        max-width: 1140px;\n    }\n}\n\n.tooltip {\n    position: absolute;\n    z-index: 1070;\n    display: block;\n    margin: 0;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\";\n    font-style: normal;\n    font-weight: 400;\n    line-height: 1.5;\n    text-align: left;\n    text-align: start;\n    text-decoration: none;\n    text-shadow: none;\n    text-transform: none;\n    letter-spacing: normal;\n    word-break: normal;\n    word-spacing: normal;\n    white-space: normal;\n    line-break: auto;\n    font-size: 0.875rem;\n    word-wrap: break-word;\n    opacity: 0;\n}\n\n    .tooltip.show {\n        opacity: 0.9;\n    }\n\n    .tooltip .arrow {\n        position: absolute;\n        display: block;\n        width: 0.8rem;\n        height: 0.4rem;\n    }\n\n        .tooltip .arrow::before {\n            position: absolute;\n            content: \"\";\n            border-color: transparent;\n            border-style: solid;\n        }\n\n.bs-tooltip-top, .bs-tooltip-auto[x-placement^=\"top\"] {\n    padding: 0.4rem 0;\n}\n\n    .bs-tooltip-top .arrow, .bs-tooltip-auto[x-placement^=\"top\"] .arrow {\n        bottom: 0;\n    }\n\n        .bs-tooltip-top .arrow::before, .bs-tooltip-auto[x-placement^=\"top\"] .arrow::before {\n            top: 0;\n            border-width: 0.4rem 0.4rem 0;\n            border-top-color: #000;\n        }\n\n.bs-tooltip-right, .bs-tooltip-auto[x-placement^=\"right\"] {\n    padding: 0 0.4rem;\n}\n\n    .bs-tooltip-right .arrow, .bs-tooltip-auto[x-placement^=\"right\"] .arrow {\n        left: 0;\n        width: 0.4rem;\n        height: 0.8rem;\n    }\n\n        .bs-tooltip-right .arrow::before, .bs-tooltip-auto[x-placement^=\"right\"] .arrow::before {\n            right: 0;\n            border-width: 0.4rem 0.4rem 0.4rem 0;\n            border-right-color: #000;\n        }\n\n.bs-tooltip-bottom, .bs-tooltip-auto[x-placement^=\"bottom\"] {\n    padding: 0.4rem 0;\n}\n\n    .bs-tooltip-bottom .arrow, .bs-tooltip-auto[x-placement^=\"bottom\"] .arrow {\n        top: 0;\n    }\n\n        .bs-tooltip-bottom .arrow::before, .bs-tooltip-auto[x-placement^=\"bottom\"] .arrow::before {\n            bottom: 0;\n            border-width: 0 0.4rem 0.4rem;\n            border-bottom-color: #000;\n        }\n\n.bs-tooltip-left, .bs-tooltip-auto[x-placement^=\"left\"] {\n    padding: 0 0.4rem;\n}\n\n    .bs-tooltip-left .arrow, .bs-tooltip-auto[x-placement^=\"left\"] .arrow {\n        right: 0;\n        width: 0.4rem;\n        height: 0.8rem;\n    }\n\n        .bs-tooltip-left .arrow::before, .bs-tooltip-auto[x-placement^=\"left\"] .arrow::before {\n            left: 0;\n            border-width: 0.4rem 0 0.4rem 0.4rem;\n            border-left-color: #000;\n        }\n\n.tooltip-inner {\n    max-width: 200px;\n    padding: 0.25rem 0.5rem;\n    color: #fff;\n    text-align: center;\n    background-color: #000;\n    border-radius: 0.25rem;\n}\n\n.popover {\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: 1060;\n    display: block;\n    max-width: 276px;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\";\n    font-style: normal;\n    font-weight: 400;\n    line-height: 1.5;\n    text-align: left;\n    text-align: start;\n    text-decoration: none;\n    text-shadow: none;\n    text-transform: none;\n    letter-spacing: normal;\n    word-break: normal;\n    word-spacing: normal;\n    white-space: normal;\n    line-break: auto;\n    font-size: 0.875rem;\n    word-wrap: break-word;\n    background-color: #fff;\n    background-clip: padding-box;\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    border-radius: 0.3rem;\n}\n\n    .popover .arrow {\n        position: absolute;\n        display: block;\n        width: 1rem;\n        height: 0.5rem;\n        margin: 0 0.3rem;\n    }\n\n        .popover .arrow::before, .popover .arrow::after {\n            position: absolute;\n            display: block;\n            content: \"\";\n            border-color: transparent;\n            border-style: solid;\n        }\n\n.bs-popover-top, .bs-popover-auto[x-placement^=\"top\"] {\n    margin-bottom: 0.5rem;\n}\n\n    .bs-popover-top > .arrow, .bs-popover-auto[x-placement^=\"top\"] > .arrow {\n        bottom: calc(-0.5rem - 1px);\n    }\n\n        .bs-popover-top > .arrow::before, .bs-popover-auto[x-placement^=\"top\"] > .arrow::before {\n            bottom: 0;\n            border-width: 0.5rem 0.5rem 0;\n            border-top-color: rgba(0, 0, 0, 0.25);\n        }\n\n        .bs-popover-top > .arrow::after, .bs-popover-auto[x-placement^=\"top\"] > .arrow::after {\n            bottom: 1px;\n            border-width: 0.5rem 0.5rem 0;\n            border-top-color: #fff;\n        }\n\n.bs-popover-right, .bs-popover-auto[x-placement^=\"right\"] {\n    margin-left: 0.5rem;\n}\n\n    .bs-popover-right > .arrow, .bs-popover-auto[x-placement^=\"right\"] > .arrow {\n        left: calc(-0.5rem - 1px);\n        width: 0.5rem;\n        height: 1rem;\n        margin: 0.3rem 0;\n    }\n\n        .bs-popover-right > .arrow::before, .bs-popover-auto[x-placement^=\"right\"] > .arrow::before {\n            left: 0;\n            border-width: 0.5rem 0.5rem 0.5rem 0;\n            border-right-color: rgba(0, 0, 0, 0.25);\n        }\n\n        .bs-popover-right > .arrow::after, .bs-popover-auto[x-placement^=\"right\"] > .arrow::after {\n            left: 1px;\n            border-width: 0.5rem 0.5rem 0.5rem 0;\n            border-right-color: #fff;\n        }\n\n.bs-popover-bottom, .bs-popover-auto[x-placement^=\"bottom\"] {\n    margin-top: 0.5rem;\n}\n\n    .bs-popover-bottom > .arrow, .bs-popover-auto[x-placement^=\"bottom\"] > .arrow {\n        top: calc(-0.5rem - 1px);\n    }\n\n        .bs-popover-bottom > .arrow::before, .bs-popover-auto[x-placement^=\"bottom\"] > .arrow::before {\n            top: 0;\n            border-width: 0 0.5rem 0.5rem 0.5rem;\n            border-bottom-color: rgba(0, 0, 0, 0.25);\n        }\n\n        .bs-popover-bottom > .arrow::after, .bs-popover-auto[x-placement^=\"bottom\"] > .arrow::after {\n            top: 1px;\n            border-width: 0 0.5rem 0.5rem 0.5rem;\n            border-bottom-color: #fff;\n        }\n\n    .bs-popover-bottom .popover-header::before, .bs-popover-auto[x-placement^=\"bottom\"] .popover-header::before {\n        position: absolute;\n        top: 0;\n        left: 50%;\n        display: block;\n        width: 1rem;\n        margin-left: -0.5rem;\n        content: \"\";\n        border-bottom: 1px solid #f7f7f7;\n    }\n\n.bs-popover-left, .bs-popover-auto[x-placement^=\"left\"] {\n    margin-right: 0.5rem;\n}\n\n    .bs-popover-left > .arrow, .bs-popover-auto[x-placement^=\"left\"] > .arrow {\n        right: calc(-0.5rem - 1px);\n        width: 0.5rem;\n        height: 1rem;\n        margin: 0.3rem 0;\n    }\n\n        .bs-popover-left > .arrow::before, .bs-popover-auto[x-placement^=\"left\"] > .arrow::before {\n            right: 0;\n            border-width: 0.5rem 0 0.5rem 0.5rem;\n            border-left-color: rgba(0, 0, 0, 0.25);\n        }\n\n        .bs-popover-left > .arrow::after, .bs-popover-auto[x-placement^=\"left\"] > .arrow::after {\n            right: 1px;\n            border-width: 0.5rem 0 0.5rem 0.5rem;\n            border-left-color: #fff;\n        }\n\n.popover-header {\n    padding: 0.5rem 0.75rem;\n    margin-bottom: 0;\n    font-size: 1rem;\n    background-color: #f7f7f7;\n    border-bottom: 1px solid #ebebeb;\n    border-top-left-radius: calc(0.3rem - 1px);\n    border-top-right-radius: calc(0.3rem - 1px);\n}\n\n    .popover-header:empty {\n        display: none;\n    }\n\n.popover-body {\n    padding: 0.5rem 0.75rem;\n    color: #212529;\n}\n\n.carousel {\n    position: relative;\n}\n\n    .carousel.pointer-event {\n        -ms-touch-action: pan-y;\n        touch-action: pan-y;\n    }\n\n.carousel-inner {\n    position: relative;\n    width: 100%;\n    overflow: hidden;\n}\n\n    .carousel-inner::after {\n        display: block;\n        clear: both;\n        content: \"\";\n    }\n\n.carousel-item {\n    position: relative;\n    display: none;\n    float: left;\n    width: 100%;\n    margin-right: -100%;\n    -webkit-backface-visibility: hidden;\n    backface-visibility: hidden;\n    transition: -webkit-transform 0.6s ease-in-out;\n    transition: transform 0.6s ease-in-out;\n    transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .carousel-item {\n        transition: none;\n    }\n}\n\n.carousel-item.active,\n.carousel-item-next,\n.carousel-item-prev {\n    display: block;\n}\n\n    .carousel-item-next:not(.carousel-item-left),\n    .active.carousel-item-right {\n        -webkit-transform: translateX(100%);\n        transform: translateX(100%);\n    }\n\n    .carousel-item-prev:not(.carousel-item-right),\n    .active.carousel-item-left {\n        -webkit-transform: translateX(-100%);\n        transform: translateX(-100%);\n    }\n\n.carousel-fade .carousel-item {\n    opacity: 0;\n    transition-property: opacity;\n    -webkit-transform: none;\n    transform: none;\n}\n\n    .carousel-fade .carousel-item.active,\n    .carousel-fade .carousel-item-next.carousel-item-left,\n    .carousel-fade .carousel-item-prev.carousel-item-right {\n        z-index: 1;\n        opacity: 1;\n    }\n\n.carousel-fade .active.carousel-item-left,\n.carousel-fade .active.carousel-item-right {\n    z-index: 0;\n    opacity: 0;\n    transition: opacity 0s 0.6s;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .carousel-fade .active.carousel-item-left,\n    .carousel-fade .active.carousel-item-right {\n        transition: none;\n    }\n}\n\n.carousel-control-prev,\n.carousel-control-next {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    z-index: 1;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n    -ms-flex-pack: center;\n    justify-content: center;\n    width: 15%;\n    color: #fff;\n    text-align: center;\n    opacity: 0.5;\n    transition: opacity 0.15s ease;\n}\n\n@media (prefers-reduced-motion: reduce) {\n    .carousel-control-prev,\n    .carousel-control-next {\n        transition: none;\n    }\n}\n\n.carousel-control-prev:hover, .carousel-control-prev:focus,\n.carousel-control-next:hover,\n.carousel-control-next:focus {\n    color: #fff;\n    text-decoration: none;\n    outline: 0;\n    opacity: 0.9;\n}\n\n.carousel-control-prev {\n    left: 0;\n}\n\n.carousel-control-next {\n    right: 0;\n}\n\n.carousel-control-prev-icon,\n.carousel-control-next-icon {\n    display: inline-block;\n    width: 20px;\n    height: 20px;\n    background: no-repeat 50% / 100% 100%;\n}\n\n.carousel-control-prev-icon {\n    background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/%3e%3c/svg%3e\");\n}\n\n.carousel-control-next-icon {\n    background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e\");\n}\n\n.carousel-indicators {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 15;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-pack: center;\n    justify-content: center;\n    padding-left: 0;\n    margin-right: 15%;\n    margin-left: 15%;\n    list-style: none;\n}\n\n    .carousel-indicators li {\n        box-sizing: content-box;\n        -ms-flex: 0 1 auto;\n        flex: 0 1 auto;\n        width: 30px;\n        height: 3px;\n        margin-right: 3px;\n        margin-left: 3px;\n        text-indent: -999px;\n        cursor: pointer;\n        background-color: #fff;\n        background-clip: padding-box;\n        border-top: 10px solid transparent;\n        border-bottom: 10px solid transparent;\n        opacity: .5;\n        transition: opacity 0.6s ease;\n    }\n\n@media (prefers-reduced-motion: reduce) {\n    .carousel-indicators li {\n        transition: none;\n    }\n}\n\n.carousel-indicators .active {\n    opacity: 1;\n}\n\n.carousel-caption {\n    position: absolute;\n    right: 15%;\n    bottom: 20px;\n    left: 15%;\n    z-index: 10;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    color: #fff;\n    text-align: center;\n}\n\n@-webkit-keyframes spinner-border {\n    to {\n        -webkit-transform: rotate(360deg);\n        transform: rotate(360deg);\n    }\n}\n\n@keyframes spinner-border {\n    to {\n        -webkit-transform: rotate(360deg);\n        transform: rotate(360deg);\n    }\n}\n\n.spinner-border {\n    display: inline-block;\n    width: 2rem;\n    height: 2rem;\n    vertical-align: text-bottom;\n    border: 0.25em solid currentColor;\n    border-right-color: transparent;\n    border-radius: 50%;\n    -webkit-animation: spinner-border .75s linear infinite;\n    animation: spinner-border .75s linear infinite;\n}\n\n.spinner-border-sm {\n    width: 1rem;\n    height: 1rem;\n    border-width: 0.2em;\n}\n\n@-webkit-keyframes spinner-grow {\n    0% {\n        -webkit-transform: scale(0);\n        transform: scale(0);\n    }\n\n    50% {\n        opacity: 1;\n    }\n}\n\n@keyframes spinner-grow {\n    0% {\n        -webkit-transform: scale(0);\n        transform: scale(0);\n    }\n\n    50% {\n        opacity: 1;\n    }\n}\n\n.spinner-grow {\n    display: inline-block;\n    width: 2rem;\n    height: 2rem;\n    vertical-align: text-bottom;\n    background-color: currentColor;\n    border-radius: 50%;\n    opacity: 0;\n    -webkit-animation: spinner-grow .75s linear infinite;\n    animation: spinner-grow .75s linear infinite;\n}\n\n.spinner-grow-sm {\n    width: 1rem;\n    height: 1rem;\n}\n\n.align-baseline {\n    vertical-align: baseline !important;\n}\n\n.align-top {\n    vertical-align: top !important;\n}\n\n.align-middle {\n    vertical-align: middle !important;\n}\n\n.align-bottom {\n    vertical-align: bottom !important;\n}\n\n.align-text-bottom {\n    vertical-align: text-bottom !important;\n}\n\n.align-text-top {\n    vertical-align: text-top !important;\n}\n\n.bg-primary {\n    background-color: #007bff !important;\n}\n\na.bg-primary:hover, a.bg-primary:focus,\nbutton.bg-primary:hover,\nbutton.bg-primary:focus {\n    background-color: #0062cc !important;\n}\n\n.bg-secondary {\n    background-color: #6c757d !important;\n}\n\na.bg-secondary:hover, a.bg-secondary:focus,\nbutton.bg-secondary:hover,\nbutton.bg-secondary:focus {\n    background-color: #545b62 !important;\n}\n\n.bg-success {\n    background-color: #28a745 !important;\n}\n\na.bg-success:hover, a.bg-success:focus,\nbutton.bg-success:hover,\nbutton.bg-success:focus {\n    background-color: #1e7e34 !important;\n}\n\n.bg-info {\n    background-color: #17a2b8 !important;\n}\n\na.bg-info:hover, a.bg-info:focus,\nbutton.bg-info:hover,\nbutton.bg-info:focus {\n    background-color: #117a8b !important;\n}\n\n.bg-warning {\n    background-color: #ffc107 !important;\n}\n\na.bg-warning:hover, a.bg-warning:focus,\nbutton.bg-warning:hover,\nbutton.bg-warning:focus {\n    background-color: #d39e00 !important;\n}\n\n.bg-danger {\n    background-color: #dc3545 !important;\n}\n\na.bg-danger:hover, a.bg-danger:focus,\nbutton.bg-danger:hover,\nbutton.bg-danger:focus {\n    background-color: #bd2130 !important;\n}\n\n.bg-light {\n    background-color: #f8f9fa !important;\n}\n\na.bg-light:hover, a.bg-light:focus,\nbutton.bg-light:hover,\nbutton.bg-light:focus {\n    background-color: #dae0e5 !important;\n}\n\n.bg-dark {\n    background-color: #343a40 !important;\n}\n\na.bg-dark:hover, a.bg-dark:focus,\nbutton.bg-dark:hover,\nbutton.bg-dark:focus {\n    background-color: #1d2124 !important;\n}\n\n.bg-white {\n    background-color: #fff !important;\n}\n\n.bg-transparent {\n    background-color: transparent !important;\n}\n\n.border {\n    border: 1px solid #dee2e6 !important;\n}\n\n.border-top {\n    border-top: 1px solid #dee2e6 !important;\n}\n\n.border-right {\n    border-right: 1px solid #dee2e6 !important;\n}\n\n.border-bottom {\n    border-bottom: 1px solid #dee2e6 !important;\n}\n\n.border-left {\n    border-left: 1px solid #dee2e6 !important;\n}\n\n.border-0 {\n    border: 0 !important;\n}\n\n.border-top-0 {\n    border-top: 0 !important;\n}\n\n.border-right-0 {\n    border-right: 0 !important;\n}\n\n.border-bottom-0 {\n    border-bottom: 0 !important;\n}\n\n.border-left-0 {\n    border-left: 0 !important;\n}\n\n.border-primary {\n    border-color: #007bff !important;\n}\n\n.border-secondary {\n    border-color: #6c757d !important;\n}\n\n.border-success {\n    border-color: #28a745 !important;\n}\n\n.border-info {\n    border-color: #17a2b8 !important;\n}\n\n.border-warning {\n    border-color: #ffc107 !important;\n}\n\n.border-danger {\n    border-color: #dc3545 !important;\n}\n\n.border-light {\n    border-color: #f8f9fa !important;\n}\n\n.border-dark {\n    border-color: #343a40 !important;\n}\n\n.border-white {\n    border-color: #fff !important;\n}\n\n.rounded-sm {\n    border-radius: 0.2rem !important;\n}\n\n.rounded {\n    border-radius: 0.25rem !important;\n}\n\n.rounded-top {\n    border-top-left-radius: 0.25rem !important;\n    border-top-right-radius: 0.25rem !important;\n}\n\n.rounded-right {\n    border-top-right-radius: 0.25rem !important;\n    border-bottom-right-radius: 0.25rem !important;\n}\n\n.rounded-bottom {\n    border-bottom-right-radius: 0.25rem !important;\n    border-bottom-left-radius: 0.25rem !important;\n}\n\n.rounded-left {\n    border-top-left-radius: 0.25rem !important;\n    border-bottom-left-radius: 0.25rem !important;\n}\n\n.rounded-lg {\n    border-radius: 0.3rem !important;\n}\n\n.rounded-circle {\n    border-radius: 50% !important;\n}\n\n.rounded-pill {\n    border-radius: 50rem !important;\n}\n\n.rounded-0 {\n    border-radius: 0 !important;\n}\n\n.clearfix::after {\n    display: block;\n    clear: both;\n    content: \"\";\n}\n\n.d-none {\n    display: none !important;\n}\n\n.d-inline {\n    display: inline !important;\n}\n\n.d-inline-block {\n    display: inline-block !important;\n}\n\n.d-block {\n    display: block !important;\n}\n\n.d-table {\n    display: table !important;\n}\n\n.d-table-row {\n    display: table-row !important;\n}\n\n.d-table-cell {\n    display: table-cell !important;\n}\n\n.d-flex {\n    display: -ms-flexbox !important;\n    display: flex !important;\n}\n\n.d-inline-flex {\n    display: -ms-inline-flexbox !important;\n    display: inline-flex !important;\n}\n\n@media (min-width: 576px) {\n    .d-sm-none {\n        display: none !important;\n    }\n\n    .d-sm-inline {\n        display: inline !important;\n    }\n\n    .d-sm-inline-block {\n        display: inline-block !important;\n    }\n\n    .d-sm-block {\n        display: block !important;\n    }\n\n    .d-sm-table {\n        display: table !important;\n    }\n\n    .d-sm-table-row {\n        display: table-row !important;\n    }\n\n    .d-sm-table-cell {\n        display: table-cell !important;\n    }\n\n    .d-sm-flex {\n        display: -ms-flexbox !important;\n        display: flex !important;\n    }\n\n    .d-sm-inline-flex {\n        display: -ms-inline-flexbox !important;\n        display: inline-flex !important;\n    }\n}\n\n@media (min-width: 768px) {\n    .d-md-none {\n        display: none !important;\n    }\n\n    .d-md-inline {\n        display: inline !important;\n    }\n\n    .d-md-inline-block {\n        display: inline-block !important;\n    }\n\n    .d-md-block {\n        display: block !important;\n    }\n\n    .d-md-table {\n        display: table !important;\n    }\n\n    .d-md-table-row {\n        display: table-row !important;\n    }\n\n    .d-md-table-cell {\n        display: table-cell !important;\n    }\n\n    .d-md-flex {\n        display: -ms-flexbox !important;\n        display: flex !important;\n    }\n\n    .d-md-inline-flex {\n        display: -ms-inline-flexbox !important;\n        display: inline-flex !important;\n    }\n}\n\n@media (min-width: 992px) {\n    .d-lg-none {\n        display: none !important;\n    }\n\n    .d-lg-inline {\n        display: inline !important;\n    }\n\n    .d-lg-inline-block {\n        display: inline-block !important;\n    }\n\n    .d-lg-block {\n        display: block !important;\n    }\n\n    .d-lg-table {\n        display: table !important;\n    }\n\n    .d-lg-table-row {\n        display: table-row !important;\n    }\n\n    .d-lg-table-cell {\n        display: table-cell !important;\n    }\n\n    .d-lg-flex {\n        display: -ms-flexbox !important;\n        display: flex !important;\n    }\n\n    .d-lg-inline-flex {\n        display: -ms-inline-flexbox !important;\n        display: inline-flex !important;\n    }\n}\n\n@media (min-width: 1200px) {\n    .d-xl-none {\n        display: none !important;\n    }\n\n    .d-xl-inline {\n        display: inline !important;\n    }\n\n    .d-xl-inline-block {\n        display: inline-block !important;\n    }\n\n    .d-xl-block {\n        display: block !important;\n    }\n\n    .d-xl-table {\n        display: table !important;\n    }\n\n    .d-xl-table-row {\n        display: table-row !important;\n    }\n\n    .d-xl-table-cell {\n        display: table-cell !important;\n    }\n\n    .d-xl-flex {\n        display: -ms-flexbox !important;\n        display: flex !important;\n    }\n\n    .d-xl-inline-flex {\n        display: -ms-inline-flexbox !important;\n        display: inline-flex !important;\n    }\n}\n\n@media print {\n    .d-print-none {\n        display: none !important;\n    }\n\n    .d-print-inline {\n        display: inline !important;\n    }\n\n    .d-print-inline-block {\n        display: inline-block !important;\n    }\n\n    .d-print-block {\n        display: block !important;\n    }\n\n    .d-print-table {\n        display: table !important;\n    }\n\n    .d-print-table-row {\n        display: table-row !important;\n    }\n\n    .d-print-table-cell {\n        display: table-cell !important;\n    }\n\n    .d-print-flex {\n        display: -ms-flexbox !important;\n        display: flex !important;\n    }\n\n    .d-print-inline-flex {\n        display: -ms-inline-flexbox !important;\n        display: inline-flex !important;\n    }\n}\n\n.embed-responsive {\n    position: relative;\n    display: block;\n    width: 100%;\n    padding: 0;\n    overflow: hidden;\n}\n\n    .embed-responsive::before {\n        display: block;\n        content: \"\";\n    }\n\n    .embed-responsive .embed-responsive-item,\n    .embed-responsive iframe,\n    .embed-responsive embed,\n    .embed-responsive object,\n    .embed-responsive video {\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        border: 0;\n    }\n\n.embed-responsive-21by9::before {\n    padding-top: 42.857143%;\n}\n\n.embed-responsive-16by9::before {\n    padding-top: 56.25%;\n}\n\n.embed-responsive-4by3::before {\n    padding-top: 75%;\n}\n\n.embed-responsive-1by1::before {\n    padding-top: 100%;\n}\n\n.flex-row {\n    -ms-flex-direction: row !important;\n    flex-direction: row !important;\n}\n\n.flex-column {\n    -ms-flex-direction: column !important;\n    flex-direction: column !important;\n}\n\n.flex-row-reverse {\n    -ms-flex-direction: row-reverse !important;\n    flex-direction: row-reverse !important;\n}\n\n.flex-column-reverse {\n    -ms-flex-direction: column-reverse !important;\n    flex-direction: column-reverse !important;\n}\n\n.flex-wrap {\n    -ms-flex-wrap: wrap !important;\n    flex-wrap: wrap !important;\n}\n\n.flex-nowrap {\n    -ms-flex-wrap: nowrap !important;\n    flex-wrap: nowrap !important;\n}\n\n.flex-wrap-reverse {\n    -ms-flex-wrap: wrap-reverse !important;\n    flex-wrap: wrap-reverse !important;\n}\n\n.flex-fill {\n    -ms-flex: 1 1 auto !important;\n    flex: 1 1 auto !important;\n}\n\n.flex-grow-0 {\n    -ms-flex-positive: 0 !important;\n    flex-grow: 0 !important;\n}\n\n.flex-grow-1 {\n    -ms-flex-positive: 1 !important;\n    flex-grow: 1 !important;\n}\n\n.flex-shrink-0 {\n    -ms-flex-negative: 0 !important;\n    flex-shrink: 0 !important;\n}\n\n.flex-shrink-1 {\n    -ms-flex-negative: 1 !important;\n    flex-shrink: 1 !important;\n}\n\n.justify-content-start {\n    -ms-flex-pack: start !important;\n    justify-content: flex-start !important;\n}\n\n.justify-content-end {\n    -ms-flex-pack: end !important;\n    justify-content: flex-end !important;\n}\n\n.justify-content-center {\n    -ms-flex-pack: center !important;\n    justify-content: center !important;\n}\n\n.justify-content-between {\n    -ms-flex-pack: justify !important;\n    justify-content: space-between !important;\n}\n\n.justify-content-around {\n    -ms-flex-pack: distribute !important;\n    justify-content: space-around !important;\n}\n\n.align-items-start {\n    -ms-flex-align: start !important;\n    align-items: flex-start !important;\n}\n\n.align-items-end {\n    -ms-flex-align: end !important;\n    align-items: flex-end !important;\n}\n\n.align-items-center {\n    -ms-flex-align: center !important;\n    align-items: center !important;\n}\n\n.align-items-baseline {\n    -ms-flex-align: baseline !important;\n    align-items: baseline !important;\n}\n\n.align-items-stretch {\n    -ms-flex-align: stretch !important;\n    align-items: stretch !important;\n}\n\n.align-content-start {\n    -ms-flex-line-pack: start !important;\n    align-content: flex-start !important;\n}\n\n.align-content-end {\n    -ms-flex-line-pack: end !important;\n    align-content: flex-end !important;\n}\n\n.align-content-center {\n    -ms-flex-line-pack: center !important;\n    align-content: center !important;\n}\n\n.align-content-between {\n    -ms-flex-line-pack: justify !important;\n    align-content: space-between !important;\n}\n\n.align-content-around {\n    -ms-flex-line-pack: distribute !important;\n    align-content: space-around !important;\n}\n\n.align-content-stretch {\n    -ms-flex-line-pack: stretch !important;\n    align-content: stretch !important;\n}\n\n.align-self-auto {\n    -ms-flex-item-align: auto !important;\n    align-self: auto !important;\n}\n\n.align-self-start {\n    -ms-flex-item-align: start !important;\n    align-self: flex-start !important;\n}\n\n.align-self-end {\n    -ms-flex-item-align: end !important;\n    align-self: flex-end !important;\n}\n\n.align-self-center {\n    -ms-flex-item-align: center !important;\n    align-self: center !important;\n}\n\n.align-self-baseline {\n    -ms-flex-item-align: baseline !important;\n    align-self: baseline !important;\n}\n\n.align-self-stretch {\n    -ms-flex-item-align: stretch !important;\n    align-self: stretch !important;\n}\n\n@media (min-width: 576px) {\n    .flex-sm-row {\n        -ms-flex-direction: row !important;\n        flex-direction: row !important;\n    }\n\n    .flex-sm-column {\n        -ms-flex-direction: column !important;\n        flex-direction: column !important;\n    }\n\n    .flex-sm-row-reverse {\n        -ms-flex-direction: row-reverse !important;\n        flex-direction: row-reverse !important;\n    }\n\n    .flex-sm-column-reverse {\n        -ms-flex-direction: column-reverse !important;\n        flex-direction: column-reverse !important;\n    }\n\n    .flex-sm-wrap {\n        -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n    }\n\n    .flex-sm-nowrap {\n        -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n    }\n\n    .flex-sm-wrap-reverse {\n        -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n    }\n\n    .flex-sm-fill {\n        -ms-flex: 1 1 auto !important;\n        flex: 1 1 auto !important;\n    }\n\n    .flex-sm-grow-0 {\n        -ms-flex-positive: 0 !important;\n        flex-grow: 0 !important;\n    }\n\n    .flex-sm-grow-1 {\n        -ms-flex-positive: 1 !important;\n        flex-grow: 1 !important;\n    }\n\n    .flex-sm-shrink-0 {\n        -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n    }\n\n    .flex-sm-shrink-1 {\n        -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n    }\n\n    .justify-content-sm-start {\n        -ms-flex-pack: start !important;\n        justify-content: flex-start !important;\n    }\n\n    .justify-content-sm-end {\n        -ms-flex-pack: end !important;\n        justify-content: flex-end !important;\n    }\n\n    .justify-content-sm-center {\n        -ms-flex-pack: center !important;\n        justify-content: center !important;\n    }\n\n    .justify-content-sm-between {\n        -ms-flex-pack: justify !important;\n        justify-content: space-between !important;\n    }\n\n    .justify-content-sm-around {\n        -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n    }\n\n    .align-items-sm-start {\n        -ms-flex-align: start !important;\n        align-items: flex-start !important;\n    }\n\n    .align-items-sm-end {\n        -ms-flex-align: end !important;\n        align-items: flex-end !important;\n    }\n\n    .align-items-sm-center {\n        -ms-flex-align: center !important;\n        align-items: center !important;\n    }\n\n    .align-items-sm-baseline {\n        -ms-flex-align: baseline !important;\n        align-items: baseline !important;\n    }\n\n    .align-items-sm-stretch {\n        -ms-flex-align: stretch !important;\n        align-items: stretch !important;\n    }\n\n    .align-content-sm-start {\n        -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n    }\n\n    .align-content-sm-end {\n        -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n    }\n\n    .align-content-sm-center {\n        -ms-flex-line-pack: center !important;\n        align-content: center !important;\n    }\n\n    .align-content-sm-between {\n        -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n    }\n\n    .align-content-sm-around {\n        -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n    }\n\n    .align-content-sm-stretch {\n        -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n    }\n\n    .align-self-sm-auto {\n        -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n    }\n\n    .align-self-sm-start {\n        -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n    }\n\n    .align-self-sm-end {\n        -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n    }\n\n    .align-self-sm-center {\n        -ms-flex-item-align: center !important;\n        align-self: center !important;\n    }\n\n    .align-self-sm-baseline {\n        -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n    }\n\n    .align-self-sm-stretch {\n        -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n    }\n}\n\n@media (min-width: 768px) {\n    .flex-md-row {\n        -ms-flex-direction: row !important;\n        flex-direction: row !important;\n    }\n\n    .flex-md-column {\n        -ms-flex-direction: column !important;\n        flex-direction: column !important;\n    }\n\n    .flex-md-row-reverse {\n        -ms-flex-direction: row-reverse !important;\n        flex-direction: row-reverse !important;\n    }\n\n    .flex-md-column-reverse {\n        -ms-flex-direction: column-reverse !important;\n        flex-direction: column-reverse !important;\n    }\n\n    .flex-md-wrap {\n        -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n    }\n\n    .flex-md-nowrap {\n        -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n    }\n\n    .flex-md-wrap-reverse {\n        -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n    }\n\n    .flex-md-fill {\n        -ms-flex: 1 1 auto !important;\n        flex: 1 1 auto !important;\n    }\n\n    .flex-md-grow-0 {\n        -ms-flex-positive: 0 !important;\n        flex-grow: 0 !important;\n    }\n\n    .flex-md-grow-1 {\n        -ms-flex-positive: 1 !important;\n        flex-grow: 1 !important;\n    }\n\n    .flex-md-shrink-0 {\n        -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n    }\n\n    .flex-md-shrink-1 {\n        -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n    }\n\n    .justify-content-md-start {\n        -ms-flex-pack: start !important;\n        justify-content: flex-start !important;\n    }\n\n    .justify-content-md-end {\n        -ms-flex-pack: end !important;\n        justify-content: flex-end !important;\n    }\n\n    .justify-content-md-center {\n        -ms-flex-pack: center !important;\n        justify-content: center !important;\n    }\n\n    .justify-content-md-between {\n        -ms-flex-pack: justify !important;\n        justify-content: space-between !important;\n    }\n\n    .justify-content-md-around {\n        -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n    }\n\n    .align-items-md-start {\n        -ms-flex-align: start !important;\n        align-items: flex-start !important;\n    }\n\n    .align-items-md-end {\n        -ms-flex-align: end !important;\n        align-items: flex-end !important;\n    }\n\n    .align-items-md-center {\n        -ms-flex-align: center !important;\n        align-items: center !important;\n    }\n\n    .align-items-md-baseline {\n        -ms-flex-align: baseline !important;\n        align-items: baseline !important;\n    }\n\n    .align-items-md-stretch {\n        -ms-flex-align: stretch !important;\n        align-items: stretch !important;\n    }\n\n    .align-content-md-start {\n        -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n    }\n\n    .align-content-md-end {\n        -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n    }\n\n    .align-content-md-center {\n        -ms-flex-line-pack: center !important;\n        align-content: center !important;\n    }\n\n    .align-content-md-between {\n        -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n    }\n\n    .align-content-md-around {\n        -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n    }\n\n    .align-content-md-stretch {\n        -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n    }\n\n    .align-self-md-auto {\n        -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n    }\n\n    .align-self-md-start {\n        -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n    }\n\n    .align-self-md-end {\n        -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n    }\n\n    .align-self-md-center {\n        -ms-flex-item-align: center !important;\n        align-self: center !important;\n    }\n\n    .align-self-md-baseline {\n        -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n    }\n\n    .align-self-md-stretch {\n        -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n    }\n}\n\n@media (min-width: 992px) {\n    .flex-lg-row {\n        -ms-flex-direction: row !important;\n        flex-direction: row !important;\n    }\n\n    .flex-lg-column {\n        -ms-flex-direction: column !important;\n        flex-direction: column !important;\n    }\n\n    .flex-lg-row-reverse {\n        -ms-flex-direction: row-reverse !important;\n        flex-direction: row-reverse !important;\n    }\n\n    .flex-lg-column-reverse {\n        -ms-flex-direction: column-reverse !important;\n        flex-direction: column-reverse !important;\n    }\n\n    .flex-lg-wrap {\n        -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n    }\n\n    .flex-lg-nowrap {\n        -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n    }\n\n    .flex-lg-wrap-reverse {\n        -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n    }\n\n    .flex-lg-fill {\n        -ms-flex: 1 1 auto !important;\n        flex: 1 1 auto !important;\n    }\n\n    .flex-lg-grow-0 {\n        -ms-flex-positive: 0 !important;\n        flex-grow: 0 !important;\n    }\n\n    .flex-lg-grow-1 {\n        -ms-flex-positive: 1 !important;\n        flex-grow: 1 !important;\n    }\n\n    .flex-lg-shrink-0 {\n        -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n    }\n\n    .flex-lg-shrink-1 {\n        -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n    }\n\n    .justify-content-lg-start {\n        -ms-flex-pack: start !important;\n        justify-content: flex-start !important;\n    }\n\n    .justify-content-lg-end {\n        -ms-flex-pack: end !important;\n        justify-content: flex-end !important;\n    }\n\n    .justify-content-lg-center {\n        -ms-flex-pack: center !important;\n        justify-content: center !important;\n    }\n\n    .justify-content-lg-between {\n        -ms-flex-pack: justify !important;\n        justify-content: space-between !important;\n    }\n\n    .justify-content-lg-around {\n        -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n    }\n\n    .align-items-lg-start {\n        -ms-flex-align: start !important;\n        align-items: flex-start !important;\n    }\n\n    .align-items-lg-end {\n        -ms-flex-align: end !important;\n        align-items: flex-end !important;\n    }\n\n    .align-items-lg-center {\n        -ms-flex-align: center !important;\n        align-items: center !important;\n    }\n\n    .align-items-lg-baseline {\n        -ms-flex-align: baseline !important;\n        align-items: baseline !important;\n    }\n\n    .align-items-lg-stretch {\n        -ms-flex-align: stretch !important;\n        align-items: stretch !important;\n    }\n\n    .align-content-lg-start {\n        -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n    }\n\n    .align-content-lg-end {\n        -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n    }\n\n    .align-content-lg-center {\n        -ms-flex-line-pack: center !important;\n        align-content: center !important;\n    }\n\n    .align-content-lg-between {\n        -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n    }\n\n    .align-content-lg-around {\n        -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n    }\n\n    .align-content-lg-stretch {\n        -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n    }\n\n    .align-self-lg-auto {\n        -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n    }\n\n    .align-self-lg-start {\n        -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n    }\n\n    .align-self-lg-end {\n        -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n    }\n\n    .align-self-lg-center {\n        -ms-flex-item-align: center !important;\n        align-self: center !important;\n    }\n\n    .align-self-lg-baseline {\n        -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n    }\n\n    .align-self-lg-stretch {\n        -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n    }\n}\n\n@media (min-width: 1200px) {\n    .flex-xl-row {\n        -ms-flex-direction: row !important;\n        flex-direction: row !important;\n    }\n\n    .flex-xl-column {\n        -ms-flex-direction: column !important;\n        flex-direction: column !important;\n    }\n\n    .flex-xl-row-reverse {\n        -ms-flex-direction: row-reverse !important;\n        flex-direction: row-reverse !important;\n    }\n\n    .flex-xl-column-reverse {\n        -ms-flex-direction: column-reverse !important;\n        flex-direction: column-reverse !important;\n    }\n\n    .flex-xl-wrap {\n        -ms-flex-wrap: wrap !important;\n        flex-wrap: wrap !important;\n    }\n\n    .flex-xl-nowrap {\n        -ms-flex-wrap: nowrap !important;\n        flex-wrap: nowrap !important;\n    }\n\n    .flex-xl-wrap-reverse {\n        -ms-flex-wrap: wrap-reverse !important;\n        flex-wrap: wrap-reverse !important;\n    }\n\n    .flex-xl-fill {\n        -ms-flex: 1 1 auto !important;\n        flex: 1 1 auto !important;\n    }\n\n    .flex-xl-grow-0 {\n        -ms-flex-positive: 0 !important;\n        flex-grow: 0 !important;\n    }\n\n    .flex-xl-grow-1 {\n        -ms-flex-positive: 1 !important;\n        flex-grow: 1 !important;\n    }\n\n    .flex-xl-shrink-0 {\n        -ms-flex-negative: 0 !important;\n        flex-shrink: 0 !important;\n    }\n\n    .flex-xl-shrink-1 {\n        -ms-flex-negative: 1 !important;\n        flex-shrink: 1 !important;\n    }\n\n    .justify-content-xl-start {\n        -ms-flex-pack: start !important;\n        justify-content: flex-start !important;\n    }\n\n    .justify-content-xl-end {\n        -ms-flex-pack: end !important;\n        justify-content: flex-end !important;\n    }\n\n    .justify-content-xl-center {\n        -ms-flex-pack: center !important;\n        justify-content: center !important;\n    }\n\n    .justify-content-xl-between {\n        -ms-flex-pack: justify !important;\n        justify-content: space-between !important;\n    }\n\n    .justify-content-xl-around {\n        -ms-flex-pack: distribute !important;\n        justify-content: space-around !important;\n    }\n\n    .align-items-xl-start {\n        -ms-flex-align: start !important;\n        align-items: flex-start !important;\n    }\n\n    .align-items-xl-end {\n        -ms-flex-align: end !important;\n        align-items: flex-end !important;\n    }\n\n    .align-items-xl-center {\n        -ms-flex-align: center !important;\n        align-items: center !important;\n    }\n\n    .align-items-xl-baseline {\n        -ms-flex-align: baseline !important;\n        align-items: baseline !important;\n    }\n\n    .align-items-xl-stretch {\n        -ms-flex-align: stretch !important;\n        align-items: stretch !important;\n    }\n\n    .align-content-xl-start {\n        -ms-flex-line-pack: start !important;\n        align-content: flex-start !important;\n    }\n\n    .align-content-xl-end {\n        -ms-flex-line-pack: end !important;\n        align-content: flex-end !important;\n    }\n\n    .align-content-xl-center {\n        -ms-flex-line-pack: center !important;\n        align-content: center !important;\n    }\n\n    .align-content-xl-between {\n        -ms-flex-line-pack: justify !important;\n        align-content: space-between !important;\n    }\n\n    .align-content-xl-around {\n        -ms-flex-line-pack: distribute !important;\n        align-content: space-around !important;\n    }\n\n    .align-content-xl-stretch {\n        -ms-flex-line-pack: stretch !important;\n        align-content: stretch !important;\n    }\n\n    .align-self-xl-auto {\n        -ms-flex-item-align: auto !important;\n        align-self: auto !important;\n    }\n\n    .align-self-xl-start {\n        -ms-flex-item-align: start !important;\n        align-self: flex-start !important;\n    }\n\n    .align-self-xl-end {\n        -ms-flex-item-align: end !important;\n        align-self: flex-end !important;\n    }\n\n    .align-self-xl-center {\n        -ms-flex-item-align: center !important;\n        align-self: center !important;\n    }\n\n    .align-self-xl-baseline {\n        -ms-flex-item-align: baseline !important;\n        align-self: baseline !important;\n    }\n\n    .align-self-xl-stretch {\n        -ms-flex-item-align: stretch !important;\n        align-self: stretch !important;\n    }\n}\n\n.float-left {\n    float: left !important;\n}\n\n.float-right {\n    float: right !important;\n}\n\n.float-none {\n    float: none !important;\n}\n\n@media (min-width: 576px) {\n    .float-sm-left {\n        float: left !important;\n    }\n\n    .float-sm-right {\n        float: right !important;\n    }\n\n    .float-sm-none {\n        float: none !important;\n    }\n}\n\n@media (min-width: 768px) {\n    .float-md-left {\n        float: left !important;\n    }\n\n    .float-md-right {\n        float: right !important;\n    }\n\n    .float-md-none {\n        float: none !important;\n    }\n}\n\n@media (min-width: 992px) {\n    .float-lg-left {\n        float: left !important;\n    }\n\n    .float-lg-right {\n        float: right !important;\n    }\n\n    .float-lg-none {\n        float: none !important;\n    }\n}\n\n@media (min-width: 1200px) {\n    .float-xl-left {\n        float: left !important;\n    }\n\n    .float-xl-right {\n        float: right !important;\n    }\n\n    .float-xl-none {\n        float: none !important;\n    }\n}\n\n.overflow-auto {\n    overflow: auto !important;\n}\n\n.overflow-hidden {\n    overflow: hidden !important;\n}\n\n.position-static {\n    position: static !important;\n}\n\n.position-relative {\n    position: relative !important;\n}\n\n.position-absolute {\n    position: absolute !important;\n}\n\n.position-fixed {\n    position: fixed !important;\n}\n\n.position-sticky {\n    position: -webkit-sticky !important;\n    position: sticky !important;\n}\n\n.fixed-top {\n    position: fixed;\n    top: 0;\n    right: 0;\n    left: 0;\n    z-index: 1030;\n}\n\n.fixed-bottom {\n    position: fixed;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 1030;\n}\n\n@supports ((position: -webkit-sticky) or (position: sticky)) {\n    .sticky-top {\n        position: -webkit-sticky;\n        position: sticky;\n        top: 0;\n        z-index: 1020;\n    }\n}\n\n.sr-only {\n    position: absolute;\n    width: 1px;\n    height: 1px;\n    padding: 0;\n    margin: -1px;\n    overflow: hidden;\n    clip: rect(0, 0, 0, 0);\n    white-space: nowrap;\n    border: 0;\n}\n\n.sr-only-focusable:active, .sr-only-focusable:focus {\n    position: static;\n    width: auto;\n    height: auto;\n    overflow: visible;\n    clip: auto;\n    white-space: normal;\n}\n\n.shadow-sm {\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;\n}\n\n.shadow {\n    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;\n}\n\n.shadow-lg {\n    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;\n}\n\n.shadow-none {\n    box-shadow: none !important;\n}\n\n.w-25 {\n    width: 25% !important;\n}\n\n.w-50 {\n    width: 50% !important;\n}\n\n.w-75 {\n    width: 75% !important;\n}\n\n.w-100 {\n    width: 100% !important;\n}\n\n.w-auto {\n    width: auto !important;\n}\n\n.h-25 {\n    height: 25% !important;\n}\n\n.h-50 {\n    height: 50% !important;\n}\n\n.h-75 {\n    height: 75% !important;\n}\n\n.h-100 {\n    height: 100% !important;\n}\n\n.h-auto {\n    height: auto !important;\n}\n\n.mw-100 {\n    max-width: 100% !important;\n}\n\n.mh-100 {\n    max-height: 100% !important;\n}\n\n.min-vw-100 {\n    min-width: 100vw !important;\n}\n\n.min-vh-100 {\n    min-height: 100vh !important;\n}\n\n.vw-100 {\n    width: 100vw !important;\n}\n\n.vh-100 {\n    height: 100vh !important;\n}\n\n.stretched-link::after {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 1;\n    pointer-events: auto;\n    content: \"\";\n    background-color: rgba(0, 0, 0, 0);\n}\n\n.m-0 {\n    margin: 0 !important;\n}\n\n.mt-0,\n.my-0 {\n    margin-top: 0 !important;\n}\n\n.mr-0,\n.mx-0 {\n    margin-right: 0 !important;\n}\n\n.mb-0,\n.my-0 {\n    margin-bottom: 0 !important;\n}\n\n.ml-0,\n.mx-0 {\n    margin-left: 0 !important;\n}\n\n.m-1 {\n    margin: 0.25rem !important;\n}\n\n.mt-1,\n.my-1 {\n    margin-top: 0.25rem !important;\n}\n\n.mr-1,\n.mx-1 {\n    margin-right: 0.25rem !important;\n}\n\n.mb-1,\n.my-1 {\n    margin-bottom: 0.25rem !important;\n}\n\n.ml-1,\n.mx-1 {\n    margin-left: 0.25rem !important;\n}\n\n.m-2 {\n    margin: 0.5rem !important;\n}\n\n.mt-2,\n.my-2 {\n    margin-top: 0.5rem !important;\n}\n\n.mr-2,\n.mx-2 {\n    margin-right: 0.5rem !important;\n}\n\n.mb-2,\n.my-2 {\n    margin-bottom: 0.5rem !important;\n}\n\n.ml-2,\n.mx-2 {\n    margin-left: 0.5rem !important;\n}\n\n.m-3 {\n    margin: 1rem !important;\n}\n\n.mt-3,\n.my-3 {\n    margin-top: 1rem !important;\n}\n\n.mr-3,\n.mx-3 {\n    margin-right: 1rem !important;\n}\n\n.mb-3,\n.my-3 {\n    margin-bottom: 1rem !important;\n}\n\n.ml-3,\n.mx-3 {\n    margin-left: 1rem !important;\n}\n\n.m-4 {\n    margin: 1.5rem !important;\n}\n\n.mt-4,\n.my-4 {\n    margin-top: 1.5rem !important;\n}\n\n.mr-4,\n.mx-4 {\n    margin-right: 1.5rem !important;\n}\n\n.mb-4,\n.my-4 {\n    margin-bottom: 1.5rem !important;\n}\n\n.ml-4,\n.mx-4 {\n    margin-left: 1.5rem !important;\n}\n\n.m-5 {\n    margin: 3rem !important;\n}\n\n.mt-5,\n.my-5 {\n    margin-top: 3rem !important;\n}\n\n.mr-5,\n.mx-5 {\n    margin-right: 3rem !important;\n}\n\n.mb-5,\n.my-5 {\n    margin-bottom: 3rem !important;\n}\n\n.ml-5,\n.mx-5 {\n    margin-left: 3rem !important;\n}\n\n.p-0 {\n    padding: 0 !important;\n}\n\n.pt-0,\n.py-0 {\n    padding-top: 0 !important;\n}\n\n.pr-0,\n.px-0 {\n    padding-right: 0 !important;\n}\n\n.pb-0,\n.py-0 {\n    padding-bottom: 0 !important;\n}\n\n.pl-0,\n.px-0 {\n    padding-left: 0 !important;\n}\n\n.p-1 {\n    padding: 0.25rem !important;\n}\n\n.pt-1,\n.py-1 {\n    padding-top: 0.25rem !important;\n}\n\n.pr-1,\n.px-1 {\n    padding-right: 0.25rem !important;\n}\n\n.pb-1,\n.py-1 {\n    padding-bottom: 0.25rem !important;\n}\n\n.pl-1,\n.px-1 {\n    padding-left: 0.25rem !important;\n}\n\n.p-2 {\n    padding: 0.5rem !important;\n}\n\n.pt-2,\n.py-2 {\n    padding-top: 0.5rem !important;\n}\n\n.pr-2,\n.px-2 {\n    padding-right: 0.5rem !important;\n}\n\n.pb-2,\n.py-2 {\n    padding-bottom: 0.5rem !important;\n}\n\n.pl-2,\n.px-2 {\n    padding-left: 0.5rem !important;\n}\n\n.p-3 {\n    padding: 1rem !important;\n}\n\n.pt-3,\n.py-3 {\n    padding-top: 1rem !important;\n}\n\n.pr-3,\n.px-3 {\n    padding-right: 1rem !important;\n}\n\n.pb-3,\n.py-3 {\n    padding-bottom: 1rem !important;\n}\n\n.pl-3,\n.px-3 {\n    padding-left: 1rem !important;\n}\n\n.p-4 {\n    padding: 1.5rem !important;\n}\n\n.pt-4,\n.py-4 {\n    padding-top: 1.5rem !important;\n}\n\n.pr-4,\n.px-4 {\n    padding-right: 1.5rem !important;\n}\n\n.pb-4,\n.py-4 {\n    padding-bottom: 1.5rem !important;\n}\n\n.pl-4,\n.px-4 {\n    padding-left: 1.5rem !important;\n}\n\n.p-5 {\n    padding: 3rem !important;\n}\n\n.pt-5,\n.py-5 {\n    padding-top: 3rem !important;\n}\n\n.pr-5,\n.px-5 {\n    padding-right: 3rem !important;\n}\n\n.pb-5,\n.py-5 {\n    padding-bottom: 3rem !important;\n}\n\n.pl-5,\n.px-5 {\n    padding-left: 3rem !important;\n}\n\n.m-n1 {\n    margin: -0.25rem !important;\n}\n\n.mt-n1,\n.my-n1 {\n    margin-top: -0.25rem !important;\n}\n\n.mr-n1,\n.mx-n1 {\n    margin-right: -0.25rem !important;\n}\n\n.mb-n1,\n.my-n1 {\n    margin-bottom: -0.25rem !important;\n}\n\n.ml-n1,\n.mx-n1 {\n    margin-left: -0.25rem !important;\n}\n\n.m-n2 {\n    margin: -0.5rem !important;\n}\n\n.mt-n2,\n.my-n2 {\n    margin-top: -0.5rem !important;\n}\n\n.mr-n2,\n.mx-n2 {\n    margin-right: -0.5rem !important;\n}\n\n.mb-n2,\n.my-n2 {\n    margin-bottom: -0.5rem !important;\n}\n\n.ml-n2,\n.mx-n2 {\n    margin-left: -0.5rem !important;\n}\n\n.m-n3 {\n    margin: -1rem !important;\n}\n\n.mt-n3,\n.my-n3 {\n    margin-top: -1rem !important;\n}\n\n.mr-n3,\n.mx-n3 {\n    margin-right: -1rem !important;\n}\n\n.mb-n3,\n.my-n3 {\n    margin-bottom: -1rem !important;\n}\n\n.ml-n3,\n.mx-n3 {\n    margin-left: -1rem !important;\n}\n\n.m-n4 {\n    margin: -1.5rem !important;\n}\n\n.mt-n4,\n.my-n4 {\n    margin-top: -1.5rem !important;\n}\n\n.mr-n4,\n.mx-n4 {\n    margin-right: -1.5rem !important;\n}\n\n.mb-n4,\n.my-n4 {\n    margin-bottom: -1.5rem !important;\n}\n\n.ml-n4,\n.mx-n4 {\n    margin-left: -1.5rem !important;\n}\n\n.m-n5 {\n    margin: -3rem !important;\n}\n\n.mt-n5,\n.my-n5 {\n    margin-top: -3rem !important;\n}\n\n.mr-n5,\n.mx-n5 {\n    margin-right: -3rem !important;\n}\n\n.mb-n5,\n.my-n5 {\n    margin-bottom: -3rem !important;\n}\n\n.ml-n5,\n.mx-n5 {\n    margin-left: -3rem !important;\n}\n\n.m-auto {\n    margin: auto !important;\n}\n\n.mt-auto,\n.my-auto {\n    margin-top: auto !important;\n}\n\n.mr-auto,\n.mx-auto {\n    margin-right: auto !important;\n}\n\n.mb-auto,\n.my-auto {\n    margin-bottom: auto !important;\n}\n\n.ml-auto,\n.mx-auto {\n    margin-left: auto !important;\n}\n\n@media (min-width: 576px) {\n    .m-sm-0 {\n        margin: 0 !important;\n    }\n\n    .mt-sm-0,\n    .my-sm-0 {\n        margin-top: 0 !important;\n    }\n\n    .mr-sm-0,\n    .mx-sm-0 {\n        margin-right: 0 !important;\n    }\n\n    .mb-sm-0,\n    .my-sm-0 {\n        margin-bottom: 0 !important;\n    }\n\n    .ml-sm-0,\n    .mx-sm-0 {\n        margin-left: 0 !important;\n    }\n\n    .m-sm-1 {\n        margin: 0.25rem !important;\n    }\n\n    .mt-sm-1,\n    .my-sm-1 {\n        margin-top: 0.25rem !important;\n    }\n\n    .mr-sm-1,\n    .mx-sm-1 {\n        margin-right: 0.25rem !important;\n    }\n\n    .mb-sm-1,\n    .my-sm-1 {\n        margin-bottom: 0.25rem !important;\n    }\n\n    .ml-sm-1,\n    .mx-sm-1 {\n        margin-left: 0.25rem !important;\n    }\n\n    .m-sm-2 {\n        margin: 0.5rem !important;\n    }\n\n    .mt-sm-2,\n    .my-sm-2 {\n        margin-top: 0.5rem !important;\n    }\n\n    .mr-sm-2,\n    .mx-sm-2 {\n        margin-right: 0.5rem !important;\n    }\n\n    .mb-sm-2,\n    .my-sm-2 {\n        margin-bottom: 0.5rem !important;\n    }\n\n    .ml-sm-2,\n    .mx-sm-2 {\n        margin-left: 0.5rem !important;\n    }\n\n    .m-sm-3 {\n        margin: 1rem !important;\n    }\n\n    .mt-sm-3,\n    .my-sm-3 {\n        margin-top: 1rem !important;\n    }\n\n    .mr-sm-3,\n    .mx-sm-3 {\n        margin-right: 1rem !important;\n    }\n\n    .mb-sm-3,\n    .my-sm-3 {\n        margin-bottom: 1rem !important;\n    }\n\n    .ml-sm-3,\n    .mx-sm-3 {\n        margin-left: 1rem !important;\n    }\n\n    .m-sm-4 {\n        margin: 1.5rem !important;\n    }\n\n    .mt-sm-4,\n    .my-sm-4 {\n        margin-top: 1.5rem !important;\n    }\n\n    .mr-sm-4,\n    .mx-sm-4 {\n        margin-right: 1.5rem !important;\n    }\n\n    .mb-sm-4,\n    .my-sm-4 {\n        margin-bottom: 1.5rem !important;\n    }\n\n    .ml-sm-4,\n    .mx-sm-4 {\n        margin-left: 1.5rem !important;\n    }\n\n    .m-sm-5 {\n        margin: 3rem !important;\n    }\n\n    .mt-sm-5,\n    .my-sm-5 {\n        margin-top: 3rem !important;\n    }\n\n    .mr-sm-5,\n    .mx-sm-5 {\n        margin-right: 3rem !important;\n    }\n\n    .mb-sm-5,\n    .my-sm-5 {\n        margin-bottom: 3rem !important;\n    }\n\n    .ml-sm-5,\n    .mx-sm-5 {\n        margin-left: 3rem !important;\n    }\n\n    .p-sm-0 {\n        padding: 0 !important;\n    }\n\n    .pt-sm-0,\n    .py-sm-0 {\n        padding-top: 0 !important;\n    }\n\n    .pr-sm-0,\n    .px-sm-0 {\n        padding-right: 0 !important;\n    }\n\n    .pb-sm-0,\n    .py-sm-0 {\n        padding-bottom: 0 !important;\n    }\n\n    .pl-sm-0,\n    .px-sm-0 {\n        padding-left: 0 !important;\n    }\n\n    .p-sm-1 {\n        padding: 0.25rem !important;\n    }\n\n    .pt-sm-1,\n    .py-sm-1 {\n        padding-top: 0.25rem !important;\n    }\n\n    .pr-sm-1,\n    .px-sm-1 {\n        padding-right: 0.25rem !important;\n    }\n\n    .pb-sm-1,\n    .py-sm-1 {\n        padding-bottom: 0.25rem !important;\n    }\n\n    .pl-sm-1,\n    .px-sm-1 {\n        padding-left: 0.25rem !important;\n    }\n\n    .p-sm-2 {\n        padding: 0.5rem !important;\n    }\n\n    .pt-sm-2,\n    .py-sm-2 {\n        padding-top: 0.5rem !important;\n    }\n\n    .pr-sm-2,\n    .px-sm-2 {\n        padding-right: 0.5rem !important;\n    }\n\n    .pb-sm-2,\n    .py-sm-2 {\n        padding-bottom: 0.5rem !important;\n    }\n\n    .pl-sm-2,\n    .px-sm-2 {\n        padding-left: 0.5rem !important;\n    }\n\n    .p-sm-3 {\n        padding: 1rem !important;\n    }\n\n    .pt-sm-3,\n    .py-sm-3 {\n        padding-top: 1rem !important;\n    }\n\n    .pr-sm-3,\n    .px-sm-3 {\n        padding-right: 1rem !important;\n    }\n\n    .pb-sm-3,\n    .py-sm-3 {\n        padding-bottom: 1rem !important;\n    }\n\n    .pl-sm-3,\n    .px-sm-3 {\n        padding-left: 1rem !important;\n    }\n\n    .p-sm-4 {\n        padding: 1.5rem !important;\n    }\n\n    .pt-sm-4,\n    .py-sm-4 {\n        padding-top: 1.5rem !important;\n    }\n\n    .pr-sm-4,\n    .px-sm-4 {\n        padding-right: 1.5rem !important;\n    }\n\n    .pb-sm-4,\n    .py-sm-4 {\n        padding-bottom: 1.5rem !important;\n    }\n\n    .pl-sm-4,\n    .px-sm-4 {\n        padding-left: 1.5rem !important;\n    }\n\n    .p-sm-5 {\n        padding: 3rem !important;\n    }\n\n    .pt-sm-5,\n    .py-sm-5 {\n        padding-top: 3rem !important;\n    }\n\n    .pr-sm-5,\n    .px-sm-5 {\n        padding-right: 3rem !important;\n    }\n\n    .pb-sm-5,\n    .py-sm-5 {\n        padding-bottom: 3rem !important;\n    }\n\n    .pl-sm-5,\n    .px-sm-5 {\n        padding-left: 3rem !important;\n    }\n\n    .m-sm-n1 {\n        margin: -0.25rem !important;\n    }\n\n    .mt-sm-n1,\n    .my-sm-n1 {\n        margin-top: -0.25rem !important;\n    }\n\n    .mr-sm-n1,\n    .mx-sm-n1 {\n        margin-right: -0.25rem !important;\n    }\n\n    .mb-sm-n1,\n    .my-sm-n1 {\n        margin-bottom: -0.25rem !important;\n    }\n\n    .ml-sm-n1,\n    .mx-sm-n1 {\n        margin-left: -0.25rem !important;\n    }\n\n    .m-sm-n2 {\n        margin: -0.5rem !important;\n    }\n\n    .mt-sm-n2,\n    .my-sm-n2 {\n        margin-top: -0.5rem !important;\n    }\n\n    .mr-sm-n2,\n    .mx-sm-n2 {\n        margin-right: -0.5rem !important;\n    }\n\n    .mb-sm-n2,\n    .my-sm-n2 {\n        margin-bottom: -0.5rem !important;\n    }\n\n    .ml-sm-n2,\n    .mx-sm-n2 {\n        margin-left: -0.5rem !important;\n    }\n\n    .m-sm-n3 {\n        margin: -1rem !important;\n    }\n\n    .mt-sm-n3,\n    .my-sm-n3 {\n        margin-top: -1rem !important;\n    }\n\n    .mr-sm-n3,\n    .mx-sm-n3 {\n        margin-right: -1rem !important;\n    }\n\n    .mb-sm-n3,\n    .my-sm-n3 {\n        margin-bottom: -1rem !important;\n    }\n\n    .ml-sm-n3,\n    .mx-sm-n3 {\n        margin-left: -1rem !important;\n    }\n\n    .m-sm-n4 {\n        margin: -1.5rem !important;\n    }\n\n    .mt-sm-n4,\n    .my-sm-n4 {\n        margin-top: -1.5rem !important;\n    }\n\n    .mr-sm-n4,\n    .mx-sm-n4 {\n        margin-right: -1.5rem !important;\n    }\n\n    .mb-sm-n4,\n    .my-sm-n4 {\n        margin-bottom: -1.5rem !important;\n    }\n\n    .ml-sm-n4,\n    .mx-sm-n4 {\n        margin-left: -1.5rem !important;\n    }\n\n    .m-sm-n5 {\n        margin: -3rem !important;\n    }\n\n    .mt-sm-n5,\n    .my-sm-n5 {\n        margin-top: -3rem !important;\n    }\n\n    .mr-sm-n5,\n    .mx-sm-n5 {\n        margin-right: -3rem !important;\n    }\n\n    .mb-sm-n5,\n    .my-sm-n5 {\n        margin-bottom: -3rem !important;\n    }\n\n    .ml-sm-n5,\n    .mx-sm-n5 {\n        margin-left: -3rem !important;\n    }\n\n    .m-sm-auto {\n        margin: auto !important;\n    }\n\n    .mt-sm-auto,\n    .my-sm-auto {\n        margin-top: auto !important;\n    }\n\n    .mr-sm-auto,\n    .mx-sm-auto {\n        margin-right: auto !important;\n    }\n\n    .mb-sm-auto,\n    .my-sm-auto {\n        margin-bottom: auto !important;\n    }\n\n    .ml-sm-auto,\n    .mx-sm-auto {\n        margin-left: auto !important;\n    }\n}\n\n@media (min-width: 768px) {\n    .m-md-0 {\n        margin: 0 !important;\n    }\n\n    .mt-md-0,\n    .my-md-0 {\n        margin-top: 0 !important;\n    }\n\n    .mr-md-0,\n    .mx-md-0 {\n        margin-right: 0 !important;\n    }\n\n    .mb-md-0,\n    .my-md-0 {\n        margin-bottom: 0 !important;\n    }\n\n    .ml-md-0,\n    .mx-md-0 {\n        margin-left: 0 !important;\n    }\n\n    .m-md-1 {\n        margin: 0.25rem !important;\n    }\n\n    .mt-md-1,\n    .my-md-1 {\n        margin-top: 0.25rem !important;\n    }\n\n    .mr-md-1,\n    .mx-md-1 {\n        margin-right: 0.25rem !important;\n    }\n\n    .mb-md-1,\n    .my-md-1 {\n        margin-bottom: 0.25rem !important;\n    }\n\n    .ml-md-1,\n    .mx-md-1 {\n        margin-left: 0.25rem !important;\n    }\n\n    .m-md-2 {\n        margin: 0.5rem !important;\n    }\n\n    .mt-md-2,\n    .my-md-2 {\n        margin-top: 0.5rem !important;\n    }\n\n    .mr-md-2,\n    .mx-md-2 {\n        margin-right: 0.5rem !important;\n    }\n\n    .mb-md-2,\n    .my-md-2 {\n        margin-bottom: 0.5rem !important;\n    }\n\n    .ml-md-2,\n    .mx-md-2 {\n        margin-left: 0.5rem !important;\n    }\n\n    .m-md-3 {\n        margin: 1rem !important;\n    }\n\n    .mt-md-3,\n    .my-md-3 {\n        margin-top: 1rem !important;\n    }\n\n    .mr-md-3,\n    .mx-md-3 {\n        margin-right: 1rem !important;\n    }\n\n    .mb-md-3,\n    .my-md-3 {\n        margin-bottom: 1rem !important;\n    }\n\n    .ml-md-3,\n    .mx-md-3 {\n        margin-left: 1rem !important;\n    }\n\n    .m-md-4 {\n        margin: 1.5rem !important;\n    }\n\n    .mt-md-4,\n    .my-md-4 {\n        margin-top: 1.5rem !important;\n    }\n\n    .mr-md-4,\n    .mx-md-4 {\n        margin-right: 1.5rem !important;\n    }\n\n    .mb-md-4,\n    .my-md-4 {\n        margin-bottom: 1.5rem !important;\n    }\n\n    .ml-md-4,\n    .mx-md-4 {\n        margin-left: 1.5rem !important;\n    }\n\n    .m-md-5 {\n        margin: 3rem !important;\n    }\n\n    .mt-md-5,\n    .my-md-5 {\n        margin-top: 3rem !important;\n    }\n\n    .mr-md-5,\n    .mx-md-5 {\n        margin-right: 3rem !important;\n    }\n\n    .mb-md-5,\n    .my-md-5 {\n        margin-bottom: 3rem !important;\n    }\n\n    .ml-md-5,\n    .mx-md-5 {\n        margin-left: 3rem !important;\n    }\n\n    .p-md-0 {\n        padding: 0 !important;\n    }\n\n    .pt-md-0,\n    .py-md-0 {\n        padding-top: 0 !important;\n    }\n\n    .pr-md-0,\n    .px-md-0 {\n        padding-right: 0 !important;\n    }\n\n    .pb-md-0,\n    .py-md-0 {\n        padding-bottom: 0 !important;\n    }\n\n    .pl-md-0,\n    .px-md-0 {\n        padding-left: 0 !important;\n    }\n\n    .p-md-1 {\n        padding: 0.25rem !important;\n    }\n\n    .pt-md-1,\n    .py-md-1 {\n        padding-top: 0.25rem !important;\n    }\n\n    .pr-md-1,\n    .px-md-1 {\n        padding-right: 0.25rem !important;\n    }\n\n    .pb-md-1,\n    .py-md-1 {\n        padding-bottom: 0.25rem !important;\n    }\n\n    .pl-md-1,\n    .px-md-1 {\n        padding-left: 0.25rem !important;\n    }\n\n    .p-md-2 {\n        padding: 0.5rem !important;\n    }\n\n    .pt-md-2,\n    .py-md-2 {\n        padding-top: 0.5rem !important;\n    }\n\n    .pr-md-2,\n    .px-md-2 {\n        padding-right: 0.5rem !important;\n    }\n\n    .pb-md-2,\n    .py-md-2 {\n        padding-bottom: 0.5rem !important;\n    }\n\n    .pl-md-2,\n    .px-md-2 {\n        padding-left: 0.5rem !important;\n    }\n\n    .p-md-3 {\n        padding: 1rem !important;\n    }\n\n    .pt-md-3,\n    .py-md-3 {\n        padding-top: 1rem !important;\n    }\n\n    .pr-md-3,\n    .px-md-3 {\n        padding-right: 1rem !important;\n    }\n\n    .pb-md-3,\n    .py-md-3 {\n        padding-bottom: 1rem !important;\n    }\n\n    .pl-md-3,\n    .px-md-3 {\n        padding-left: 1rem !important;\n    }\n\n    .p-md-4 {\n        padding: 1.5rem !important;\n    }\n\n    .pt-md-4,\n    .py-md-4 {\n        padding-top: 1.5rem !important;\n    }\n\n    .pr-md-4,\n    .px-md-4 {\n        padding-right: 1.5rem !important;\n    }\n\n    .pb-md-4,\n    .py-md-4 {\n        padding-bottom: 1.5rem !important;\n    }\n\n    .pl-md-4,\n    .px-md-4 {\n        padding-left: 1.5rem !important;\n    }\n\n    .p-md-5 {\n        padding: 3rem !important;\n    }\n\n    .pt-md-5,\n    .py-md-5 {\n        padding-top: 3rem !important;\n    }\n\n    .pr-md-5,\n    .px-md-5 {\n        padding-right: 3rem !important;\n    }\n\n    .pb-md-5,\n    .py-md-5 {\n        padding-bottom: 3rem !important;\n    }\n\n    .pl-md-5,\n    .px-md-5 {\n        padding-left: 3rem !important;\n    }\n\n    .m-md-n1 {\n        margin: -0.25rem !important;\n    }\n\n    .mt-md-n1,\n    .my-md-n1 {\n        margin-top: -0.25rem !important;\n    }\n\n    .mr-md-n1,\n    .mx-md-n1 {\n        margin-right: -0.25rem !important;\n    }\n\n    .mb-md-n1,\n    .my-md-n1 {\n        margin-bottom: -0.25rem !important;\n    }\n\n    .ml-md-n1,\n    .mx-md-n1 {\n        margin-left: -0.25rem !important;\n    }\n\n    .m-md-n2 {\n        margin: -0.5rem !important;\n    }\n\n    .mt-md-n2,\n    .my-md-n2 {\n        margin-top: -0.5rem !important;\n    }\n\n    .mr-md-n2,\n    .mx-md-n2 {\n        margin-right: -0.5rem !important;\n    }\n\n    .mb-md-n2,\n    .my-md-n2 {\n        margin-bottom: -0.5rem !important;\n    }\n\n    .ml-md-n2,\n    .mx-md-n2 {\n        margin-left: -0.5rem !important;\n    }\n\n    .m-md-n3 {\n        margin: -1rem !important;\n    }\n\n    .mt-md-n3,\n    .my-md-n3 {\n        margin-top: -1rem !important;\n    }\n\n    .mr-md-n3,\n    .mx-md-n3 {\n        margin-right: -1rem !important;\n    }\n\n    .mb-md-n3,\n    .my-md-n3 {\n        margin-bottom: -1rem !important;\n    }\n\n    .ml-md-n3,\n    .mx-md-n3 {\n        margin-left: -1rem !important;\n    }\n\n    .m-md-n4 {\n        margin: -1.5rem !important;\n    }\n\n    .mt-md-n4,\n    .my-md-n4 {\n        margin-top: -1.5rem !important;\n    }\n\n    .mr-md-n4,\n    .mx-md-n4 {\n        margin-right: -1.5rem !important;\n    }\n\n    .mb-md-n4,\n    .my-md-n4 {\n        margin-bottom: -1.5rem !important;\n    }\n\n    .ml-md-n4,\n    .mx-md-n4 {\n        margin-left: -1.5rem !important;\n    }\n\n    .m-md-n5 {\n        margin: -3rem !important;\n    }\n\n    .mt-md-n5,\n    .my-md-n5 {\n        margin-top: -3rem !important;\n    }\n\n    .mr-md-n5,\n    .mx-md-n5 {\n        margin-right: -3rem !important;\n    }\n\n    .mb-md-n5,\n    .my-md-n5 {\n        margin-bottom: -3rem !important;\n    }\n\n    .ml-md-n5,\n    .mx-md-n5 {\n        margin-left: -3rem !important;\n    }\n\n    .m-md-auto {\n        margin: auto !important;\n    }\n\n    .mt-md-auto,\n    .my-md-auto {\n        margin-top: auto !important;\n    }\n\n    .mr-md-auto,\n    .mx-md-auto {\n        margin-right: auto !important;\n    }\n\n    .mb-md-auto,\n    .my-md-auto {\n        margin-bottom: auto !important;\n    }\n\n    .ml-md-auto,\n    .mx-md-auto {\n        margin-left: auto !important;\n    }\n}\n\n@media (min-width: 992px) {\n    .m-lg-0 {\n        margin: 0 !important;\n    }\n\n    .mt-lg-0,\n    .my-lg-0 {\n        margin-top: 0 !important;\n    }\n\n    .mr-lg-0,\n    .mx-lg-0 {\n        margin-right: 0 !important;\n    }\n\n    .mb-lg-0,\n    .my-lg-0 {\n        margin-bottom: 0 !important;\n    }\n\n    .ml-lg-0,\n    .mx-lg-0 {\n        margin-left: 0 !important;\n    }\n\n    .m-lg-1 {\n        margin: 0.25rem !important;\n    }\n\n    .mt-lg-1,\n    .my-lg-1 {\n        margin-top: 0.25rem !important;\n    }\n\n    .mr-lg-1,\n    .mx-lg-1 {\n        margin-right: 0.25rem !important;\n    }\n\n    .mb-lg-1,\n    .my-lg-1 {\n        margin-bottom: 0.25rem !important;\n    }\n\n    .ml-lg-1,\n    .mx-lg-1 {\n        margin-left: 0.25rem !important;\n    }\n\n    .m-lg-2 {\n        margin: 0.5rem !important;\n    }\n\n    .mt-lg-2,\n    .my-lg-2 {\n        margin-top: 0.5rem !important;\n    }\n\n    .mr-lg-2,\n    .mx-lg-2 {\n        margin-right: 0.5rem !important;\n    }\n\n    .mb-lg-2,\n    .my-lg-2 {\n        margin-bottom: 0.5rem !important;\n    }\n\n    .ml-lg-2,\n    .mx-lg-2 {\n        margin-left: 0.5rem !important;\n    }\n\n    .m-lg-3 {\n        margin: 1rem !important;\n    }\n\n    .mt-lg-3,\n    .my-lg-3 {\n        margin-top: 1rem !important;\n    }\n\n    .mr-lg-3,\n    .mx-lg-3 {\n        margin-right: 1rem !important;\n    }\n\n    .mb-lg-3,\n    .my-lg-3 {\n        margin-bottom: 1rem !important;\n    }\n\n    .ml-lg-3,\n    .mx-lg-3 {\n        margin-left: 1rem !important;\n    }\n\n    .m-lg-4 {\n        margin: 1.5rem !important;\n    }\n\n    .mt-lg-4,\n    .my-lg-4 {\n        margin-top: 1.5rem !important;\n    }\n\n    .mr-lg-4,\n    .mx-lg-4 {\n        margin-right: 1.5rem !important;\n    }\n\n    .mb-lg-4,\n    .my-lg-4 {\n        margin-bottom: 1.5rem !important;\n    }\n\n    .ml-lg-4,\n    .mx-lg-4 {\n        margin-left: 1.5rem !important;\n    }\n\n    .m-lg-5 {\n        margin: 3rem !important;\n    }\n\n    .mt-lg-5,\n    .my-lg-5 {\n        margin-top: 3rem !important;\n    }\n\n    .mr-lg-5,\n    .mx-lg-5 {\n        margin-right: 3rem !important;\n    }\n\n    .mb-lg-5,\n    .my-lg-5 {\n        margin-bottom: 3rem !important;\n    }\n\n    .ml-lg-5,\n    .mx-lg-5 {\n        margin-left: 3rem !important;\n    }\n\n    .p-lg-0 {\n        padding: 0 !important;\n    }\n\n    .pt-lg-0,\n    .py-lg-0 {\n        padding-top: 0 !important;\n    }\n\n    .pr-lg-0,\n    .px-lg-0 {\n        padding-right: 0 !important;\n    }\n\n    .pb-lg-0,\n    .py-lg-0 {\n        padding-bottom: 0 !important;\n    }\n\n    .pl-lg-0,\n    .px-lg-0 {\n        padding-left: 0 !important;\n    }\n\n    .p-lg-1 {\n        padding: 0.25rem !important;\n    }\n\n    .pt-lg-1,\n    .py-lg-1 {\n        padding-top: 0.25rem !important;\n    }\n\n    .pr-lg-1,\n    .px-lg-1 {\n        padding-right: 0.25rem !important;\n    }\n\n    .pb-lg-1,\n    .py-lg-1 {\n        padding-bottom: 0.25rem !important;\n    }\n\n    .pl-lg-1,\n    .px-lg-1 {\n        padding-left: 0.25rem !important;\n    }\n\n    .p-lg-2 {\n        padding: 0.5rem !important;\n    }\n\n    .pt-lg-2,\n    .py-lg-2 {\n        padding-top: 0.5rem !important;\n    }\n\n    .pr-lg-2,\n    .px-lg-2 {\n        padding-right: 0.5rem !important;\n    }\n\n    .pb-lg-2,\n    .py-lg-2 {\n        padding-bottom: 0.5rem !important;\n    }\n\n    .pl-lg-2,\n    .px-lg-2 {\n        padding-left: 0.5rem !important;\n    }\n\n    .p-lg-3 {\n        padding: 1rem !important;\n    }\n\n    .pt-lg-3,\n    .py-lg-3 {\n        padding-top: 1rem !important;\n    }\n\n    .pr-lg-3,\n    .px-lg-3 {\n        padding-right: 1rem !important;\n    }\n\n    .pb-lg-3,\n    .py-lg-3 {\n        padding-bottom: 1rem !important;\n    }\n\n    .pl-lg-3,\n    .px-lg-3 {\n        padding-left: 1rem !important;\n    }\n\n    .p-lg-4 {\n        padding: 1.5rem !important;\n    }\n\n    .pt-lg-4,\n    .py-lg-4 {\n        padding-top: 1.5rem !important;\n    }\n\n    .pr-lg-4,\n    .px-lg-4 {\n        padding-right: 1.5rem !important;\n    }\n\n    .pb-lg-4,\n    .py-lg-4 {\n        padding-bottom: 1.5rem !important;\n    }\n\n    .pl-lg-4,\n    .px-lg-4 {\n        padding-left: 1.5rem !important;\n    }\n\n    .p-lg-5 {\n        padding: 3rem !important;\n    }\n\n    .pt-lg-5,\n    .py-lg-5 {\n        padding-top: 3rem !important;\n    }\n\n    .pr-lg-5,\n    .px-lg-5 {\n        padding-right: 3rem !important;\n    }\n\n    .pb-lg-5,\n    .py-lg-5 {\n        padding-bottom: 3rem !important;\n    }\n\n    .pl-lg-5,\n    .px-lg-5 {\n        padding-left: 3rem !important;\n    }\n\n    .m-lg-n1 {\n        margin: -0.25rem !important;\n    }\n\n    .mt-lg-n1,\n    .my-lg-n1 {\n        margin-top: -0.25rem !important;\n    }\n\n    .mr-lg-n1,\n    .mx-lg-n1 {\n        margin-right: -0.25rem !important;\n    }\n\n    .mb-lg-n1,\n    .my-lg-n1 {\n        margin-bottom: -0.25rem !important;\n    }\n\n    .ml-lg-n1,\n    .mx-lg-n1 {\n        margin-left: -0.25rem !important;\n    }\n\n    .m-lg-n2 {\n        margin: -0.5rem !important;\n    }\n\n    .mt-lg-n2,\n    .my-lg-n2 {\n        margin-top: -0.5rem !important;\n    }\n\n    .mr-lg-n2,\n    .mx-lg-n2 {\n        margin-right: -0.5rem !important;\n    }\n\n    .mb-lg-n2,\n    .my-lg-n2 {\n        margin-bottom: -0.5rem !important;\n    }\n\n    .ml-lg-n2,\n    .mx-lg-n2 {\n        margin-left: -0.5rem !important;\n    }\n\n    .m-lg-n3 {\n        margin: -1rem !important;\n    }\n\n    .mt-lg-n3,\n    .my-lg-n3 {\n        margin-top: -1rem !important;\n    }\n\n    .mr-lg-n3,\n    .mx-lg-n3 {\n        margin-right: -1rem !important;\n    }\n\n    .mb-lg-n3,\n    .my-lg-n3 {\n        margin-bottom: -1rem !important;\n    }\n\n    .ml-lg-n3,\n    .mx-lg-n3 {\n        margin-left: -1rem !important;\n    }\n\n    .m-lg-n4 {\n        margin: -1.5rem !important;\n    }\n\n    .mt-lg-n4,\n    .my-lg-n4 {\n        margin-top: -1.5rem !important;\n    }\n\n    .mr-lg-n4,\n    .mx-lg-n4 {\n        margin-right: -1.5rem !important;\n    }\n\n    .mb-lg-n4,\n    .my-lg-n4 {\n        margin-bottom: -1.5rem !important;\n    }\n\n    .ml-lg-n4,\n    .mx-lg-n4 {\n        margin-left: -1.5rem !important;\n    }\n\n    .m-lg-n5 {\n        margin: -3rem !important;\n    }\n\n    .mt-lg-n5,\n    .my-lg-n5 {\n        margin-top: -3rem !important;\n    }\n\n    .mr-lg-n5,\n    .mx-lg-n5 {\n        margin-right: -3rem !important;\n    }\n\n    .mb-lg-n5,\n    .my-lg-n5 {\n        margin-bottom: -3rem !important;\n    }\n\n    .ml-lg-n5,\n    .mx-lg-n5 {\n        margin-left: -3rem !important;\n    }\n\n    .m-lg-auto {\n        margin: auto !important;\n    }\n\n    .mt-lg-auto,\n    .my-lg-auto {\n        margin-top: auto !important;\n    }\n\n    .mr-lg-auto,\n    .mx-lg-auto {\n        margin-right: auto !important;\n    }\n\n    .mb-lg-auto,\n    .my-lg-auto {\n        margin-bottom: auto !important;\n    }\n\n    .ml-lg-auto,\n    .mx-lg-auto {\n        margin-left: auto !important;\n    }\n}\n\n@media (min-width: 1200px) {\n    .m-xl-0 {\n        margin: 0 !important;\n    }\n\n    .mt-xl-0,\n    .my-xl-0 {\n        margin-top: 0 !important;\n    }\n\n    .mr-xl-0,\n    .mx-xl-0 {\n        margin-right: 0 !important;\n    }\n\n    .mb-xl-0,\n    .my-xl-0 {\n        margin-bottom: 0 !important;\n    }\n\n    .ml-xl-0,\n    .mx-xl-0 {\n        margin-left: 0 !important;\n    }\n\n    .m-xl-1 {\n        margin: 0.25rem !important;\n    }\n\n    .mt-xl-1,\n    .my-xl-1 {\n        margin-top: 0.25rem !important;\n    }\n\n    .mr-xl-1,\n    .mx-xl-1 {\n        margin-right: 0.25rem !important;\n    }\n\n    .mb-xl-1,\n    .my-xl-1 {\n        margin-bottom: 0.25rem !important;\n    }\n\n    .ml-xl-1,\n    .mx-xl-1 {\n        margin-left: 0.25rem !important;\n    }\n\n    .m-xl-2 {\n        margin: 0.5rem !important;\n    }\n\n    .mt-xl-2,\n    .my-xl-2 {\n        margin-top: 0.5rem !important;\n    }\n\n    .mr-xl-2,\n    .mx-xl-2 {\n        margin-right: 0.5rem !important;\n    }\n\n    .mb-xl-2,\n    .my-xl-2 {\n        margin-bottom: 0.5rem !important;\n    }\n\n    .ml-xl-2,\n    .mx-xl-2 {\n        margin-left: 0.5rem !important;\n    }\n\n    .m-xl-3 {\n        margin: 1rem !important;\n    }\n\n    .mt-xl-3,\n    .my-xl-3 {\n        margin-top: 1rem !important;\n    }\n\n    .mr-xl-3,\n    .mx-xl-3 {\n        margin-right: 1rem !important;\n    }\n\n    .mb-xl-3,\n    .my-xl-3 {\n        margin-bottom: 1rem !important;\n    }\n\n    .ml-xl-3,\n    .mx-xl-3 {\n        margin-left: 1rem !important;\n    }\n\n    .m-xl-4 {\n        margin: 1.5rem !important;\n    }\n\n    .mt-xl-4,\n    .my-xl-4 {\n        margin-top: 1.5rem !important;\n    }\n\n    .mr-xl-4,\n    .mx-xl-4 {\n        margin-right: 1.5rem !important;\n    }\n\n    .mb-xl-4,\n    .my-xl-4 {\n        margin-bottom: 1.5rem !important;\n    }\n\n    .ml-xl-4,\n    .mx-xl-4 {\n        margin-left: 1.5rem !important;\n    }\n\n    .m-xl-5 {\n        margin: 3rem !important;\n    }\n\n    .mt-xl-5,\n    .my-xl-5 {\n        margin-top: 3rem !important;\n    }\n\n    .mr-xl-5,\n    .mx-xl-5 {\n        margin-right: 3rem !important;\n    }\n\n    .mb-xl-5,\n    .my-xl-5 {\n        margin-bottom: 3rem !important;\n    }\n\n    .ml-xl-5,\n    .mx-xl-5 {\n        margin-left: 3rem !important;\n    }\n\n    .p-xl-0 {\n        padding: 0 !important;\n    }\n\n    .pt-xl-0,\n    .py-xl-0 {\n        padding-top: 0 !important;\n    }\n\n    .pr-xl-0,\n    .px-xl-0 {\n        padding-right: 0 !important;\n    }\n\n    .pb-xl-0,\n    .py-xl-0 {\n        padding-bottom: 0 !important;\n    }\n\n    .pl-xl-0,\n    .px-xl-0 {\n        padding-left: 0 !important;\n    }\n\n    .p-xl-1 {\n        padding: 0.25rem !important;\n    }\n\n    .pt-xl-1,\n    .py-xl-1 {\n        padding-top: 0.25rem !important;\n    }\n\n    .pr-xl-1,\n    .px-xl-1 {\n        padding-right: 0.25rem !important;\n    }\n\n    .pb-xl-1,\n    .py-xl-1 {\n        padding-bottom: 0.25rem !important;\n    }\n\n    .pl-xl-1,\n    .px-xl-1 {\n        padding-left: 0.25rem !important;\n    }\n\n    .p-xl-2 {\n        padding: 0.5rem !important;\n    }\n\n    .pt-xl-2,\n    .py-xl-2 {\n        padding-top: 0.5rem !important;\n    }\n\n    .pr-xl-2,\n    .px-xl-2 {\n        padding-right: 0.5rem !important;\n    }\n\n    .pb-xl-2,\n    .py-xl-2 {\n        padding-bottom: 0.5rem !important;\n    }\n\n    .pl-xl-2,\n    .px-xl-2 {\n        padding-left: 0.5rem !important;\n    }\n\n    .p-xl-3 {\n        padding: 1rem !important;\n    }\n\n    .pt-xl-3,\n    .py-xl-3 {\n        padding-top: 1rem !important;\n    }\n\n    .pr-xl-3,\n    .px-xl-3 {\n        padding-right: 1rem !important;\n    }\n\n    .pb-xl-3,\n    .py-xl-3 {\n        padding-bottom: 1rem !important;\n    }\n\n    .pl-xl-3,\n    .px-xl-3 {\n        padding-left: 1rem !important;\n    }\n\n    .p-xl-4 {\n        padding: 1.5rem !important;\n    }\n\n    .pt-xl-4,\n    .py-xl-4 {\n        padding-top: 1.5rem !important;\n    }\n\n    .pr-xl-4,\n    .px-xl-4 {\n        padding-right: 1.5rem !important;\n    }\n\n    .pb-xl-4,\n    .py-xl-4 {\n        padding-bottom: 1.5rem !important;\n    }\n\n    .pl-xl-4,\n    .px-xl-4 {\n        padding-left: 1.5rem !important;\n    }\n\n    .p-xl-5 {\n        padding: 3rem !important;\n    }\n\n    .pt-xl-5,\n    .py-xl-5 {\n        padding-top: 3rem !important;\n    }\n\n    .pr-xl-5,\n    .px-xl-5 {\n        padding-right: 3rem !important;\n    }\n\n    .pb-xl-5,\n    .py-xl-5 {\n        padding-bottom: 3rem !important;\n    }\n\n    .pl-xl-5,\n    .px-xl-5 {\n        padding-left: 3rem !important;\n    }\n\n    .m-xl-n1 {\n        margin: -0.25rem !important;\n    }\n\n    .mt-xl-n1,\n    .my-xl-n1 {\n        margin-top: -0.25rem !important;\n    }\n\n    .mr-xl-n1,\n    .mx-xl-n1 {\n        margin-right: -0.25rem !important;\n    }\n\n    .mb-xl-n1,\n    .my-xl-n1 {\n        margin-bottom: -0.25rem !important;\n    }\n\n    .ml-xl-n1,\n    .mx-xl-n1 {\n        margin-left: -0.25rem !important;\n    }\n\n    .m-xl-n2 {\n        margin: -0.5rem !important;\n    }\n\n    .mt-xl-n2,\n    .my-xl-n2 {\n        margin-top: -0.5rem !important;\n    }\n\n    .mr-xl-n2,\n    .mx-xl-n2 {\n        margin-right: -0.5rem !important;\n    }\n\n    .mb-xl-n2,\n    .my-xl-n2 {\n        margin-bottom: -0.5rem !important;\n    }\n\n    .ml-xl-n2,\n    .mx-xl-n2 {\n        margin-left: -0.5rem !important;\n    }\n\n    .m-xl-n3 {\n        margin: -1rem !important;\n    }\n\n    .mt-xl-n3,\n    .my-xl-n3 {\n        margin-top: -1rem !important;\n    }\n\n    .mr-xl-n3,\n    .mx-xl-n3 {\n        margin-right: -1rem !important;\n    }\n\n    .mb-xl-n3,\n    .my-xl-n3 {\n        margin-bottom: -1rem !important;\n    }\n\n    .ml-xl-n3,\n    .mx-xl-n3 {\n        margin-left: -1rem !important;\n    }\n\n    .m-xl-n4 {\n        margin: -1.5rem !important;\n    }\n\n    .mt-xl-n4,\n    .my-xl-n4 {\n        margin-top: -1.5rem !important;\n    }\n\n    .mr-xl-n4,\n    .mx-xl-n4 {\n        margin-right: -1.5rem !important;\n    }\n\n    .mb-xl-n4,\n    .my-xl-n4 {\n        margin-bottom: -1.5rem !important;\n    }\n\n    .ml-xl-n4,\n    .mx-xl-n4 {\n        margin-left: -1.5rem !important;\n    }\n\n    .m-xl-n5 {\n        margin: -3rem !important;\n    }\n\n    .mt-xl-n5,\n    .my-xl-n5 {\n        margin-top: -3rem !important;\n    }\n\n    .mr-xl-n5,\n    .mx-xl-n5 {\n        margin-right: -3rem !important;\n    }\n\n    .mb-xl-n5,\n    .my-xl-n5 {\n        margin-bottom: -3rem !important;\n    }\n\n    .ml-xl-n5,\n    .mx-xl-n5 {\n        margin-left: -3rem !important;\n    }\n\n    .m-xl-auto {\n        margin: auto !important;\n    }\n\n    .mt-xl-auto,\n    .my-xl-auto {\n        margin-top: auto !important;\n    }\n\n    .mr-xl-auto,\n    .mx-xl-auto {\n        margin-right: auto !important;\n    }\n\n    .mb-xl-auto,\n    .my-xl-auto {\n        margin-bottom: auto !important;\n    }\n\n    .ml-xl-auto,\n    .mx-xl-auto {\n        margin-left: auto !important;\n    }\n}\n\n.text-monospace {\n    font-family: SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace !important;\n}\n\n.text-justify {\n    text-align: justify !important;\n}\n\n.text-wrap {\n    white-space: normal !important;\n}\n\n.text-nowrap {\n    white-space: nowrap !important;\n}\n\n.text-truncate {\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n\n.text-left {\n    text-align: left !important;\n}\n\n.text-right {\n    text-align: right !important;\n}\n\n.text-center {\n    text-align: center !important;\n}\n\n@media (min-width: 576px) {\n    .text-sm-left {\n        text-align: left !important;\n    }\n\n    .text-sm-right {\n        text-align: right !important;\n    }\n\n    .text-sm-center {\n        text-align: center !important;\n    }\n}\n\n@media (min-width: 768px) {\n    .text-md-left {\n        text-align: left !important;\n    }\n\n    .text-md-right {\n        text-align: right !important;\n    }\n\n    .text-md-center {\n        text-align: center !important;\n    }\n}\n\n@media (min-width: 992px) {\n    .text-lg-left {\n        text-align: left !important;\n    }\n\n    .text-lg-right {\n        text-align: right !important;\n    }\n\n    .text-lg-center {\n        text-align: center !important;\n    }\n}\n\n@media (min-width: 1200px) {\n    .text-xl-left {\n        text-align: left !important;\n    }\n\n    .text-xl-right {\n        text-align: right !important;\n    }\n\n    .text-xl-center {\n        text-align: center !important;\n    }\n}\n\n.text-lowercase {\n    text-transform: lowercase !important;\n}\n\n.text-uppercase {\n    text-transform: uppercase !important;\n}\n\n.text-capitalize {\n    text-transform: capitalize !important;\n}\n\n.font-weight-light {\n    font-weight: 300 !important;\n}\n\n.font-weight-lighter {\n    font-weight: lighter !important;\n}\n\n.font-weight-normal {\n    font-weight: 400 !important;\n}\n\n.font-weight-bold {\n    font-weight: 700 !important;\n}\n\n.font-weight-bolder {\n    font-weight: bolder !important;\n}\n\n.font-italic {\n    font-style: italic !important;\n}\n\n.text-white {\n    color: #fff !important;\n}\n\n.text-primary {\n    color: #007bff !important;\n}\n\na.text-primary:hover, a.text-primary:focus {\n    color: #0056b3 !important;\n}\n\n.text-secondary {\n    color: #6c757d !important;\n}\n\na.text-secondary:hover, a.text-secondary:focus {\n    color: #494f54 !important;\n}\n\n.text-success {\n    color: #28a745 !important;\n}\n\na.text-success:hover, a.text-success:focus {\n    color: #19692c !important;\n}\n\n.text-info {\n    color: #17a2b8 !important;\n}\n\na.text-info:hover, a.text-info:focus {\n    color: #0f6674 !important;\n}\n\n.text-warning {\n    color: #ffc107 !important;\n}\n\na.text-warning:hover, a.text-warning:focus {\n    color: #ba8b00 !important;\n}\n\n.text-danger {\n    color: #dc3545 !important;\n}\n\na.text-danger:hover, a.text-danger:focus {\n    color: #a71d2a !important;\n}\n\n.text-light {\n    color: #f8f9fa !important;\n}\n\na.text-light:hover, a.text-light:focus {\n    color: #cbd3da !important;\n}\n\n.text-dark {\n    color: #343a40 !important;\n}\n\na.text-dark:hover, a.text-dark:focus {\n    color: #121416 !important;\n}\n\n.text-body {\n    color: #212529 !important;\n}\n\n.text-muted {\n    color: #6c757d !important;\n}\n\n.text-black-50 {\n    color: rgba(0, 0, 0, 0.5) !important;\n}\n\n.text-white-50 {\n    color: rgba(255, 255, 255, 0.5) !important;\n}\n\n.text-hide {\n    font: 0/0 a;\n    color: transparent;\n    text-shadow: none;\n    background-color: transparent;\n    border: 0;\n}\n\n.text-decoration-none {\n    text-decoration: none !important;\n}\n\n.text-break {\n    word-break: break-word !important;\n    overflow-wrap: break-word !important;\n}\n\n.text-reset {\n    color: inherit !important;\n}\n\n.visible {\n    visibility: visible !important;\n}\n\n.invisible {\n    visibility: hidden !important;\n}\n\n@media print {\n    *,\n    *::before,\n    *::after {\n        text-shadow: none !important;\n        box-shadow: none !important;\n    }\n\n    a:not(.btn) {\n        text-decoration: underline;\n    }\n\n    abbr[title]::after {\n        content: \" (\" attr(title) \")\";\n    }\n\n    pre {\n        white-space: pre-wrap !important;\n    }\n\n    pre,\n    blockquote {\n        border: 1px solid #adb5bd;\n        page-break-inside: avoid;\n    }\n\n    thead {\n        display: table-header-group;\n    }\n\n    tr,\n    img {\n        page-break-inside: avoid;\n    }\n\n    p,\n    h2,\n    h3 {\n        orphans: 3;\n        widows: 3;\n    }\n\n    h2,\n    h3 {\n        page-break-after: avoid;\n    }\n\n    @page {\n        size: a3;\n    }\n\n    body {\n        min-width: 992px !important;\n    }\n\n    .container {\n        min-width: 992px !important;\n    }\n\n    .navbar {\n        display: none;\n    }\n\n    .badge {\n        border: 1px solid #000\n    }\n\n    .table {\n        border-collapse: collapse !important;\n    }\n\n        .table td,\n        .table th {\n            background-color: #fff !important;\n        }\n\n    .table-bordered th,\n    .table-bordered td {\n        border: 1px solid #dee2e6 !important;\n    }\n\n    .table-dark {\n        color: inherit;\n    }\n\n        .table-dark th,\n        .table-dark td,\n        .table-dark thead th,\n        .table-dark tbody + tbody {\n            border-color: #dee2e6;\n        }\n\n    .table .thead-dark th {\n        color: inherit;\n        border-color: #dee2e6;\n    }\n}", ""]);
 // Exports
 module.exports = exports;
 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js?!./components/loginPageStyle.module.css":
-/*!**********************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ref--7-1!./components/loginPageStyle.module.css ***!
-  \**********************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js?!./src/pages/LoginPageStyle.module.css":
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--5-1!./src/pages/LoginPageStyle.module.css ***!
+  \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".sJ8vkZ8r30qAZFj3TyJu2 {\n    height: 400px;\n    width: 350px;\n    margin-top: auto;\n    margin-bottom: auto;\n    background-image: linear-gradient( #668cff, #3366ff, #00134d);\n    position: relative;\n    display: flex;\n    justify-content: center;\n    flex-direction: column;\n    padding: 10px;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    border-radius: 5px;\n    box-shadow: -1px 1px 15px 7px black;\n}\n\n._39KaOLnbMgkH0iJcVkciuJ {\n    position: absolute;\n    height: 170px;\n    width: 170px;\n    top: -75px;\n    border-radius: 50%;\n    background: #60a3bc;\n    padding: 10px;\n    text-align: center;\n}\n\n._3BmLzt-9oU_xnfrbnK0Woh {\n    height: 150px;\n    width: 150px;\n    border-radius: 50%;\n    border: 2px solid white;\n}\n\n.Kg0yJTFeAogY6j07RCR-q {\n    margin-top: 100px;\n}\n\n._1xnjPlYMRACGSqJSzUALpG {\n    width: 100%;\n    background: #c0392b !important;\n    color: white !important;\n}\n\n    ._1xnjPlYMRACGSqJSzUALpG:focus {\n        box-shadow: none !important;\n        outline: 0px !important;\n    }\n\n._3FnUNlmQ1XF1nv8-fvQmxg {\n    padding: 0 2rem;\n}\n\n._9BiWKULmtfGju0IxAkLqW {\n    background: #c0392b !important;\n    color: white !important;\n    border: 0 !important;\n    border-radius: 0.25rem 0 0 0.25rem !important;\n    padding: 12px;\n}\n\n.WcXT9MIi5fQ6f5VAJQGN3,\n._1XCtxejPmFfwD-J9Ab097q:focus {\n    box-shadow: none !important;\n    outline: 0px !important;\n}\n\n._1ViWO0Gz9uYJ0A6_5cPSXz .A8OT0cSD8SwtVddjfmEGs:checked ~ ._1Lfl0ecHELXmGm_El6Pe7T::before {\n    background-color: #c0392b !important;\n}", ""]);
+exports.push([module.i, ".N_uPxaOHxUlJKPwjSN2lo {\n    height: 400px;\n    width: 350px;\n    margin-top: auto;\n    margin-bottom: auto;\n    background-image: linear-gradient( #668cff, #3366ff, #00134d);\n    position: relative;\n    display: flex;\n    justify-content: center;\n    flex-direction: column;\n    padding: 10px;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n    border-radius: 5px;\n    box-shadow: -1px 1px 15px 7px black;\n}\n\n.v4aGNOaSe2t9T4HGcGqUe {\n    position: absolute;\n    height: 170px;\n    width: 170px;\n    top: -75px;\n    border-radius: 50%;\n    background: #60a3bc;\n    padding: 10px;\n    text-align: center;\n}\n\n._2CnSYus6AQa6IkflbLVOrE {\n    height: 150px;\n    width: 150px;\n    border-radius: 50%;\n    border: 2px solid white;\n}\n\n._1rtPFolV-pxkHJrYZLP69s {\n    margin-top: 100px;\n}\n\n.ajq5_7k2HpEq7Dt_iyWgS {\n    width: 100%;\n    background: #c0392b !important;\n    color: white !important;\n}\n\n    .ajq5_7k2HpEq7Dt_iyWgS:focus {\n        box-shadow: none !important;\n        outline: 0px !important;\n    }\n\n._1_j1aIyXFWlWv_kbcmssrt {\n    padding: 0 2rem;\n}\n\n._3pghXPck-0Cf5KcVFx9RW3 {\n    background: #c0392b !important;\n    color: white !important;\n    border: 0 !important;\n    border-radius: 0.25rem 0 0 0.25rem !important;\n    padding: 12px;\n}\n\n._3TAVdduI1TNu99dG0T2fb_,\n._3qv7HUNW8gAyoy7lK54Po:focus {\n    box-shadow: none !important;\n    outline: 0px !important;\n}\n\n._2B8GI6ZQM_DJJCoY0XIgMy ._1tUu-cPRAF3A2z5oythiEa:checked ~ ._1JypmeTq_G-G9yJ1Q2P_KJ::before {\n    background-color: #c0392b !important;\n}", ""]);
 // Exports
 exports.locals = {
-	"user_card": "sJ8vkZ8r30qAZFj3TyJu2",
-	"brand_logo_container": "_39KaOLnbMgkH0iJcVkciuJ",
-	"brand_logo": "_3BmLzt-9oU_xnfrbnK0Woh",
-	"form_container": "Kg0yJTFeAogY6j07RCR-q",
-	"login_btn": "_1xnjPlYMRACGSqJSzUALpG",
-	"login_container": "_3FnUNlmQ1XF1nv8-fvQmxg",
-	"input_group_text": "_9BiWKULmtfGju0IxAkLqW",
-	"input_user": "WcXT9MIi5fQ6f5VAJQGN3",
-	"input_pass": "_1XCtxejPmFfwD-J9Ab097q",
-	"custom-checkbox": "_1ViWO0Gz9uYJ0A6_5cPSXz",
-	"custom-control-input": "A8OT0cSD8SwtVddjfmEGs",
-	"custom-control-label": "_1Lfl0ecHELXmGm_El6Pe7T"
+	"user_card": "N_uPxaOHxUlJKPwjSN2lo",
+	"brand_logo_container": "v4aGNOaSe2t9T4HGcGqUe",
+	"brand_logo": "_2CnSYus6AQa6IkflbLVOrE",
+	"form_container": "_1rtPFolV-pxkHJrYZLP69s",
+	"login_btn": "ajq5_7k2HpEq7Dt_iyWgS",
+	"login_container": "_1_j1aIyXFWlWv_kbcmssrt",
+	"input_group_text": "_3pghXPck-0Cf5KcVFx9RW3",
+	"input_user": "_3TAVdduI1TNu99dG0T2fb_",
+	"input_pass": "_3qv7HUNW8gAyoy7lK54Po",
+	"custom-checkbox": "_2B8GI6ZQM_DJJCoY0XIgMy",
+	"custom-control-input": "_1tUu-cPRAF3A2z5oythiEa",
+	"custom-control-label": "_1JypmeTq_G-G9yJ1Q2P_KJ"
 };
 module.exports = exports;
 
@@ -4703,6 +6107,950 @@ function transitionEnd(element, handler, duration) {
 
 /***/ }),
 
+/***/ "./node_modules/history/esm/history.js":
+/*!*********************************************!*\
+  !*** ./node_modules/history/esm/history.js ***!
+  \*********************************************/
+/*! exports provided: createBrowserHistory, createHashHistory, createMemoryHistory, createLocation, locationsAreEqual, parsePath, createPath */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBrowserHistory", function() { return createBrowserHistory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createHashHistory", function() { return createHashHistory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createMemoryHistory", function() { return createMemoryHistory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createLocation", function() { return createLocation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "locationsAreEqual", function() { return locationsAreEqual; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parsePath", function() { return parsePath; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createPath", function() { return createPath; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var resolve_pathname__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! resolve-pathname */ "./node_modules/resolve-pathname/esm/resolve-pathname.js");
+/* harmony import */ var value_equal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! value-equal */ "./node_modules/value-equal/esm/value-equal.js");
+/* harmony import */ var tiny_warning__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tiny-warning */ "./node_modules/tiny-warning/dist/tiny-warning.esm.js");
+/* harmony import */ var tiny_invariant__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tiny-invariant */ "./node_modules/tiny-invariant/dist/tiny-invariant.esm.js");
+
+
+
+
+
+
+function addLeadingSlash(path) {
+  return path.charAt(0) === '/' ? path : '/' + path;
+}
+function stripLeadingSlash(path) {
+  return path.charAt(0) === '/' ? path.substr(1) : path;
+}
+function hasBasename(path, prefix) {
+  return path.toLowerCase().indexOf(prefix.toLowerCase()) === 0 && '/?#'.indexOf(path.charAt(prefix.length)) !== -1;
+}
+function stripBasename(path, prefix) {
+  return hasBasename(path, prefix) ? path.substr(prefix.length) : path;
+}
+function stripTrailingSlash(path) {
+  return path.charAt(path.length - 1) === '/' ? path.slice(0, -1) : path;
+}
+function parsePath(path) {
+  var pathname = path || '/';
+  var search = '';
+  var hash = '';
+  var hashIndex = pathname.indexOf('#');
+
+  if (hashIndex !== -1) {
+    hash = pathname.substr(hashIndex);
+    pathname = pathname.substr(0, hashIndex);
+  }
+
+  var searchIndex = pathname.indexOf('?');
+
+  if (searchIndex !== -1) {
+    search = pathname.substr(searchIndex);
+    pathname = pathname.substr(0, searchIndex);
+  }
+
+  return {
+    pathname: pathname,
+    search: search === '?' ? '' : search,
+    hash: hash === '#' ? '' : hash
+  };
+}
+function createPath(location) {
+  var pathname = location.pathname,
+      search = location.search,
+      hash = location.hash;
+  var path = pathname || '/';
+  if (search && search !== '?') path += search.charAt(0) === '?' ? search : "?" + search;
+  if (hash && hash !== '#') path += hash.charAt(0) === '#' ? hash : "#" + hash;
+  return path;
+}
+
+function createLocation(path, state, key, currentLocation) {
+  var location;
+
+  if (typeof path === 'string') {
+    // Two-arg form: push(path, state)
+    location = parsePath(path);
+    location.state = state;
+  } else {
+    // One-arg form: push(location)
+    location = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, path);
+    if (location.pathname === undefined) location.pathname = '';
+
+    if (location.search) {
+      if (location.search.charAt(0) !== '?') location.search = '?' + location.search;
+    } else {
+      location.search = '';
+    }
+
+    if (location.hash) {
+      if (location.hash.charAt(0) !== '#') location.hash = '#' + location.hash;
+    } else {
+      location.hash = '';
+    }
+
+    if (state !== undefined && location.state === undefined) location.state = state;
+  }
+
+  try {
+    location.pathname = decodeURI(location.pathname);
+  } catch (e) {
+    if (e instanceof URIError) {
+      throw new URIError('Pathname "' + location.pathname + '" could not be decoded. ' + 'This is likely caused by an invalid percent-encoding.');
+    } else {
+      throw e;
+    }
+  }
+
+  if (key) location.key = key;
+
+  if (currentLocation) {
+    // Resolve incomplete/relative pathname relative to current location.
+    if (!location.pathname) {
+      location.pathname = currentLocation.pathname;
+    } else if (location.pathname.charAt(0) !== '/') {
+      location.pathname = Object(resolve_pathname__WEBPACK_IMPORTED_MODULE_1__["default"])(location.pathname, currentLocation.pathname);
+    }
+  } else {
+    // When there is no prior location and pathname is empty, set it to /
+    if (!location.pathname) {
+      location.pathname = '/';
+    }
+  }
+
+  return location;
+}
+function locationsAreEqual(a, b) {
+  return a.pathname === b.pathname && a.search === b.search && a.hash === b.hash && a.key === b.key && Object(value_equal__WEBPACK_IMPORTED_MODULE_2__["default"])(a.state, b.state);
+}
+
+function createTransitionManager() {
+  var prompt = null;
+
+  function setPrompt(nextPrompt) {
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__["default"])(prompt == null, 'A history supports only one prompt at a time') : undefined;
+    prompt = nextPrompt;
+    return function () {
+      if (prompt === nextPrompt) prompt = null;
+    };
+  }
+
+  function confirmTransitionTo(location, action, getUserConfirmation, callback) {
+    // TODO: If another transition starts while we're still confirming
+    // the previous one, we may end up in a weird state. Figure out the
+    // best way to handle this.
+    if (prompt != null) {
+      var result = typeof prompt === 'function' ? prompt(location, action) : prompt;
+
+      if (typeof result === 'string') {
+        if (typeof getUserConfirmation === 'function') {
+          getUserConfirmation(result, callback);
+        } else {
+           true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__["default"])(false, 'A history needs a getUserConfirmation function in order to use a prompt message') : undefined;
+          callback(true);
+        }
+      } else {
+        // Return false from a transition hook to cancel the transition.
+        callback(result !== false);
+      }
+    } else {
+      callback(true);
+    }
+  }
+
+  var listeners = [];
+
+  function appendListener(fn) {
+    var isActive = true;
+
+    function listener() {
+      if (isActive) fn.apply(void 0, arguments);
+    }
+
+    listeners.push(listener);
+    return function () {
+      isActive = false;
+      listeners = listeners.filter(function (item) {
+        return item !== listener;
+      });
+    };
+  }
+
+  function notifyListeners() {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    listeners.forEach(function (listener) {
+      return listener.apply(void 0, args);
+    });
+  }
+
+  return {
+    setPrompt: setPrompt,
+    confirmTransitionTo: confirmTransitionTo,
+    appendListener: appendListener,
+    notifyListeners: notifyListeners
+  };
+}
+
+var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+function getConfirmation(message, callback) {
+  callback(window.confirm(message)); // eslint-disable-line no-alert
+}
+/**
+ * Returns true if the HTML5 history API is supported. Taken from Modernizr.
+ *
+ * https://github.com/Modernizr/Modernizr/blob/master/LICENSE
+ * https://github.com/Modernizr/Modernizr/blob/master/feature-detects/history.js
+ * changed to avoid false negatives for Windows Phones: https://github.com/reactjs/react-router/issues/586
+ */
+
+function supportsHistory() {
+  var ua = window.navigator.userAgent;
+  if ((ua.indexOf('Android 2.') !== -1 || ua.indexOf('Android 4.0') !== -1) && ua.indexOf('Mobile Safari') !== -1 && ua.indexOf('Chrome') === -1 && ua.indexOf('Windows Phone') === -1) return false;
+  return window.history && 'pushState' in window.history;
+}
+/**
+ * Returns true if browser fires popstate on hash change.
+ * IE10 and IE11 do not.
+ */
+
+function supportsPopStateOnHashChange() {
+  return window.navigator.userAgent.indexOf('Trident') === -1;
+}
+/**
+ * Returns false if using go(n) with hash history causes a full page reload.
+ */
+
+function supportsGoWithoutReloadUsingHash() {
+  return window.navigator.userAgent.indexOf('Firefox') === -1;
+}
+/**
+ * Returns true if a given popstate event is an extraneous WebKit event.
+ * Accounts for the fact that Chrome on iOS fires real popstate events
+ * containing undefined state when pressing the back button.
+ */
+
+function isExtraneousPopstateEvent(event) {
+  return event.state === undefined && navigator.userAgent.indexOf('CriOS') === -1;
+}
+
+var PopStateEvent = 'popstate';
+var HashChangeEvent = 'hashchange';
+
+function getHistoryState() {
+  try {
+    return window.history.state || {};
+  } catch (e) {
+    // IE 11 sometimes throws when accessing window.history.state
+    // See https://github.com/ReactTraining/history/pull/289
+    return {};
+  }
+}
+/**
+ * Creates a history object that uses the HTML5 history API including
+ * pushState, replaceState, and the popstate event.
+ */
+
+
+function createBrowserHistory(props) {
+  if (props === void 0) {
+    props = {};
+  }
+
+  !canUseDOM ?  true ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_4__["default"])(false, 'Browser history needs a DOM') : undefined : void 0;
+  var globalHistory = window.history;
+  var canUseHistory = supportsHistory();
+  var needsHashChangeListener = !supportsPopStateOnHashChange();
+  var _props = props,
+      _props$forceRefresh = _props.forceRefresh,
+      forceRefresh = _props$forceRefresh === void 0 ? false : _props$forceRefresh,
+      _props$getUserConfirm = _props.getUserConfirmation,
+      getUserConfirmation = _props$getUserConfirm === void 0 ? getConfirmation : _props$getUserConfirm,
+      _props$keyLength = _props.keyLength,
+      keyLength = _props$keyLength === void 0 ? 6 : _props$keyLength;
+  var basename = props.basename ? stripTrailingSlash(addLeadingSlash(props.basename)) : '';
+
+  function getDOMLocation(historyState) {
+    var _ref = historyState || {},
+        key = _ref.key,
+        state = _ref.state;
+
+    var _window$location = window.location,
+        pathname = _window$location.pathname,
+        search = _window$location.search,
+        hash = _window$location.hash;
+    var path = pathname + search + hash;
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__["default"])(!basename || hasBasename(path, basename), 'You are attempting to use a basename on a page whose URL path does not begin ' + 'with the basename. Expected path "' + path + '" to begin with "' + basename + '".') : undefined;
+    if (basename) path = stripBasename(path, basename);
+    return createLocation(path, state, key);
+  }
+
+  function createKey() {
+    return Math.random().toString(36).substr(2, keyLength);
+  }
+
+  var transitionManager = createTransitionManager();
+
+  function setState(nextState) {
+    Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])(history, nextState);
+
+    history.length = globalHistory.length;
+    transitionManager.notifyListeners(history.location, history.action);
+  }
+
+  function handlePopState(event) {
+    // Ignore extraneous popstate events in WebKit.
+    if (isExtraneousPopstateEvent(event)) return;
+    handlePop(getDOMLocation(event.state));
+  }
+
+  function handleHashChange() {
+    handlePop(getDOMLocation(getHistoryState()));
+  }
+
+  var forceNextPop = false;
+
+  function handlePop(location) {
+    if (forceNextPop) {
+      forceNextPop = false;
+      setState();
+    } else {
+      var action = 'POP';
+      transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+        if (ok) {
+          setState({
+            action: action,
+            location: location
+          });
+        } else {
+          revertPop(location);
+        }
+      });
+    }
+  }
+
+  function revertPop(fromLocation) {
+    var toLocation = history.location; // TODO: We could probably make this more reliable by
+    // keeping a list of keys we've seen in sessionStorage.
+    // Instead, we just default to 0 for keys we don't know.
+
+    var toIndex = allKeys.indexOf(toLocation.key);
+    if (toIndex === -1) toIndex = 0;
+    var fromIndex = allKeys.indexOf(fromLocation.key);
+    if (fromIndex === -1) fromIndex = 0;
+    var delta = toIndex - fromIndex;
+
+    if (delta) {
+      forceNextPop = true;
+      go(delta);
+    }
+  }
+
+  var initialLocation = getDOMLocation(getHistoryState());
+  var allKeys = [initialLocation.key]; // Public interface
+
+  function createHref(location) {
+    return basename + createPath(location);
+  }
+
+  function push(path, state) {
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__["default"])(!(typeof path === 'object' && path.state !== undefined && state !== undefined), 'You should avoid providing a 2nd state argument to push when the 1st ' + 'argument is a location-like object that already has state; it is ignored') : undefined;
+    var action = 'PUSH';
+    var location = createLocation(path, state, createKey(), history.location);
+    transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+      if (!ok) return;
+      var href = createHref(location);
+      var key = location.key,
+          state = location.state;
+
+      if (canUseHistory) {
+        globalHistory.pushState({
+          key: key,
+          state: state
+        }, null, href);
+
+        if (forceRefresh) {
+          window.location.href = href;
+        } else {
+          var prevIndex = allKeys.indexOf(history.location.key);
+          var nextKeys = allKeys.slice(0, prevIndex + 1);
+          nextKeys.push(location.key);
+          allKeys = nextKeys;
+          setState({
+            action: action,
+            location: location
+          });
+        }
+      } else {
+         true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__["default"])(state === undefined, 'Browser history cannot push state in browsers that do not support HTML5 history') : undefined;
+        window.location.href = href;
+      }
+    });
+  }
+
+  function replace(path, state) {
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__["default"])(!(typeof path === 'object' && path.state !== undefined && state !== undefined), 'You should avoid providing a 2nd state argument to replace when the 1st ' + 'argument is a location-like object that already has state; it is ignored') : undefined;
+    var action = 'REPLACE';
+    var location = createLocation(path, state, createKey(), history.location);
+    transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+      if (!ok) return;
+      var href = createHref(location);
+      var key = location.key,
+          state = location.state;
+
+      if (canUseHistory) {
+        globalHistory.replaceState({
+          key: key,
+          state: state
+        }, null, href);
+
+        if (forceRefresh) {
+          window.location.replace(href);
+        } else {
+          var prevIndex = allKeys.indexOf(history.location.key);
+          if (prevIndex !== -1) allKeys[prevIndex] = location.key;
+          setState({
+            action: action,
+            location: location
+          });
+        }
+      } else {
+         true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__["default"])(state === undefined, 'Browser history cannot replace state in browsers that do not support HTML5 history') : undefined;
+        window.location.replace(href);
+      }
+    });
+  }
+
+  function go(n) {
+    globalHistory.go(n);
+  }
+
+  function goBack() {
+    go(-1);
+  }
+
+  function goForward() {
+    go(1);
+  }
+
+  var listenerCount = 0;
+
+  function checkDOMListeners(delta) {
+    listenerCount += delta;
+
+    if (listenerCount === 1 && delta === 1) {
+      window.addEventListener(PopStateEvent, handlePopState);
+      if (needsHashChangeListener) window.addEventListener(HashChangeEvent, handleHashChange);
+    } else if (listenerCount === 0) {
+      window.removeEventListener(PopStateEvent, handlePopState);
+      if (needsHashChangeListener) window.removeEventListener(HashChangeEvent, handleHashChange);
+    }
+  }
+
+  var isBlocked = false;
+
+  function block(prompt) {
+    if (prompt === void 0) {
+      prompt = false;
+    }
+
+    var unblock = transitionManager.setPrompt(prompt);
+
+    if (!isBlocked) {
+      checkDOMListeners(1);
+      isBlocked = true;
+    }
+
+    return function () {
+      if (isBlocked) {
+        isBlocked = false;
+        checkDOMListeners(-1);
+      }
+
+      return unblock();
+    };
+  }
+
+  function listen(listener) {
+    var unlisten = transitionManager.appendListener(listener);
+    checkDOMListeners(1);
+    return function () {
+      checkDOMListeners(-1);
+      unlisten();
+    };
+  }
+
+  var history = {
+    length: globalHistory.length,
+    action: 'POP',
+    location: initialLocation,
+    createHref: createHref,
+    push: push,
+    replace: replace,
+    go: go,
+    goBack: goBack,
+    goForward: goForward,
+    block: block,
+    listen: listen
+  };
+  return history;
+}
+
+var HashChangeEvent$1 = 'hashchange';
+var HashPathCoders = {
+  hashbang: {
+    encodePath: function encodePath(path) {
+      return path.charAt(0) === '!' ? path : '!/' + stripLeadingSlash(path);
+    },
+    decodePath: function decodePath(path) {
+      return path.charAt(0) === '!' ? path.substr(1) : path;
+    }
+  },
+  noslash: {
+    encodePath: stripLeadingSlash,
+    decodePath: addLeadingSlash
+  },
+  slash: {
+    encodePath: addLeadingSlash,
+    decodePath: addLeadingSlash
+  }
+};
+
+function stripHash(url) {
+  var hashIndex = url.indexOf('#');
+  return hashIndex === -1 ? url : url.slice(0, hashIndex);
+}
+
+function getHashPath() {
+  // We can't use window.location.hash here because it's not
+  // consistent across browsers - Firefox will pre-decode it!
+  var href = window.location.href;
+  var hashIndex = href.indexOf('#');
+  return hashIndex === -1 ? '' : href.substring(hashIndex + 1);
+}
+
+function pushHashPath(path) {
+  window.location.hash = path;
+}
+
+function replaceHashPath(path) {
+  window.location.replace(stripHash(window.location.href) + '#' + path);
+}
+
+function createHashHistory(props) {
+  if (props === void 0) {
+    props = {};
+  }
+
+  !canUseDOM ?  true ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_4__["default"])(false, 'Hash history needs a DOM') : undefined : void 0;
+  var globalHistory = window.history;
+  var canGoWithoutReload = supportsGoWithoutReloadUsingHash();
+  var _props = props,
+      _props$getUserConfirm = _props.getUserConfirmation,
+      getUserConfirmation = _props$getUserConfirm === void 0 ? getConfirmation : _props$getUserConfirm,
+      _props$hashType = _props.hashType,
+      hashType = _props$hashType === void 0 ? 'slash' : _props$hashType;
+  var basename = props.basename ? stripTrailingSlash(addLeadingSlash(props.basename)) : '';
+  var _HashPathCoders$hashT = HashPathCoders[hashType],
+      encodePath = _HashPathCoders$hashT.encodePath,
+      decodePath = _HashPathCoders$hashT.decodePath;
+
+  function getDOMLocation() {
+    var path = decodePath(getHashPath());
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__["default"])(!basename || hasBasename(path, basename), 'You are attempting to use a basename on a page whose URL path does not begin ' + 'with the basename. Expected path "' + path + '" to begin with "' + basename + '".') : undefined;
+    if (basename) path = stripBasename(path, basename);
+    return createLocation(path);
+  }
+
+  var transitionManager = createTransitionManager();
+
+  function setState(nextState) {
+    Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])(history, nextState);
+
+    history.length = globalHistory.length;
+    transitionManager.notifyListeners(history.location, history.action);
+  }
+
+  var forceNextPop = false;
+  var ignorePath = null;
+
+  function locationsAreEqual$$1(a, b) {
+    return a.pathname === b.pathname && a.search === b.search && a.hash === b.hash;
+  }
+
+  function handleHashChange() {
+    var path = getHashPath();
+    var encodedPath = encodePath(path);
+
+    if (path !== encodedPath) {
+      // Ensure we always have a properly-encoded hash.
+      replaceHashPath(encodedPath);
+    } else {
+      var location = getDOMLocation();
+      var prevLocation = history.location;
+      if (!forceNextPop && locationsAreEqual$$1(prevLocation, location)) return; // A hashchange doesn't always == location change.
+
+      if (ignorePath === createPath(location)) return; // Ignore this change; we already setState in push/replace.
+
+      ignorePath = null;
+      handlePop(location);
+    }
+  }
+
+  function handlePop(location) {
+    if (forceNextPop) {
+      forceNextPop = false;
+      setState();
+    } else {
+      var action = 'POP';
+      transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+        if (ok) {
+          setState({
+            action: action,
+            location: location
+          });
+        } else {
+          revertPop(location);
+        }
+      });
+    }
+  }
+
+  function revertPop(fromLocation) {
+    var toLocation = history.location; // TODO: We could probably make this more reliable by
+    // keeping a list of paths we've seen in sessionStorage.
+    // Instead, we just default to 0 for paths we don't know.
+
+    var toIndex = allPaths.lastIndexOf(createPath(toLocation));
+    if (toIndex === -1) toIndex = 0;
+    var fromIndex = allPaths.lastIndexOf(createPath(fromLocation));
+    if (fromIndex === -1) fromIndex = 0;
+    var delta = toIndex - fromIndex;
+
+    if (delta) {
+      forceNextPop = true;
+      go(delta);
+    }
+  } // Ensure the hash is encoded properly before doing anything else.
+
+
+  var path = getHashPath();
+  var encodedPath = encodePath(path);
+  if (path !== encodedPath) replaceHashPath(encodedPath);
+  var initialLocation = getDOMLocation();
+  var allPaths = [createPath(initialLocation)]; // Public interface
+
+  function createHref(location) {
+    var baseTag = document.querySelector('base');
+    var href = '';
+
+    if (baseTag && baseTag.getAttribute('href')) {
+      href = stripHash(window.location.href);
+    }
+
+    return href + '#' + encodePath(basename + createPath(location));
+  }
+
+  function push(path, state) {
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__["default"])(state === undefined, 'Hash history cannot push state; it is ignored') : undefined;
+    var action = 'PUSH';
+    var location = createLocation(path, undefined, undefined, history.location);
+    transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+      if (!ok) return;
+      var path = createPath(location);
+      var encodedPath = encodePath(basename + path);
+      var hashChanged = getHashPath() !== encodedPath;
+
+      if (hashChanged) {
+        // We cannot tell if a hashchange was caused by a PUSH, so we'd
+        // rather setState here and ignore the hashchange. The caveat here
+        // is that other hash histories in the page will consider it a POP.
+        ignorePath = path;
+        pushHashPath(encodedPath);
+        var prevIndex = allPaths.lastIndexOf(createPath(history.location));
+        var nextPaths = allPaths.slice(0, prevIndex + 1);
+        nextPaths.push(path);
+        allPaths = nextPaths;
+        setState({
+          action: action,
+          location: location
+        });
+      } else {
+         true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__["default"])(false, 'Hash history cannot PUSH the same path; a new entry will not be added to the history stack') : undefined;
+        setState();
+      }
+    });
+  }
+
+  function replace(path, state) {
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__["default"])(state === undefined, 'Hash history cannot replace state; it is ignored') : undefined;
+    var action = 'REPLACE';
+    var location = createLocation(path, undefined, undefined, history.location);
+    transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+      if (!ok) return;
+      var path = createPath(location);
+      var encodedPath = encodePath(basename + path);
+      var hashChanged = getHashPath() !== encodedPath;
+
+      if (hashChanged) {
+        // We cannot tell if a hashchange was caused by a REPLACE, so we'd
+        // rather setState here and ignore the hashchange. The caveat here
+        // is that other hash histories in the page will consider it a POP.
+        ignorePath = path;
+        replaceHashPath(encodedPath);
+      }
+
+      var prevIndex = allPaths.indexOf(createPath(history.location));
+      if (prevIndex !== -1) allPaths[prevIndex] = path;
+      setState({
+        action: action,
+        location: location
+      });
+    });
+  }
+
+  function go(n) {
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__["default"])(canGoWithoutReload, 'Hash history go(n) causes a full page reload in this browser') : undefined;
+    globalHistory.go(n);
+  }
+
+  function goBack() {
+    go(-1);
+  }
+
+  function goForward() {
+    go(1);
+  }
+
+  var listenerCount = 0;
+
+  function checkDOMListeners(delta) {
+    listenerCount += delta;
+
+    if (listenerCount === 1 && delta === 1) {
+      window.addEventListener(HashChangeEvent$1, handleHashChange);
+    } else if (listenerCount === 0) {
+      window.removeEventListener(HashChangeEvent$1, handleHashChange);
+    }
+  }
+
+  var isBlocked = false;
+
+  function block(prompt) {
+    if (prompt === void 0) {
+      prompt = false;
+    }
+
+    var unblock = transitionManager.setPrompt(prompt);
+
+    if (!isBlocked) {
+      checkDOMListeners(1);
+      isBlocked = true;
+    }
+
+    return function () {
+      if (isBlocked) {
+        isBlocked = false;
+        checkDOMListeners(-1);
+      }
+
+      return unblock();
+    };
+  }
+
+  function listen(listener) {
+    var unlisten = transitionManager.appendListener(listener);
+    checkDOMListeners(1);
+    return function () {
+      checkDOMListeners(-1);
+      unlisten();
+    };
+  }
+
+  var history = {
+    length: globalHistory.length,
+    action: 'POP',
+    location: initialLocation,
+    createHref: createHref,
+    push: push,
+    replace: replace,
+    go: go,
+    goBack: goBack,
+    goForward: goForward,
+    block: block,
+    listen: listen
+  };
+  return history;
+}
+
+function clamp(n, lowerBound, upperBound) {
+  return Math.min(Math.max(n, lowerBound), upperBound);
+}
+/**
+ * Creates a history object that stores locations in memory.
+ */
+
+
+function createMemoryHistory(props) {
+  if (props === void 0) {
+    props = {};
+  }
+
+  var _props = props,
+      getUserConfirmation = _props.getUserConfirmation,
+      _props$initialEntries = _props.initialEntries,
+      initialEntries = _props$initialEntries === void 0 ? ['/'] : _props$initialEntries,
+      _props$initialIndex = _props.initialIndex,
+      initialIndex = _props$initialIndex === void 0 ? 0 : _props$initialIndex,
+      _props$keyLength = _props.keyLength,
+      keyLength = _props$keyLength === void 0 ? 6 : _props$keyLength;
+  var transitionManager = createTransitionManager();
+
+  function setState(nextState) {
+    Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])(history, nextState);
+
+    history.length = history.entries.length;
+    transitionManager.notifyListeners(history.location, history.action);
+  }
+
+  function createKey() {
+    return Math.random().toString(36).substr(2, keyLength);
+  }
+
+  var index = clamp(initialIndex, 0, initialEntries.length - 1);
+  var entries = initialEntries.map(function (entry) {
+    return typeof entry === 'string' ? createLocation(entry, undefined, createKey()) : createLocation(entry, undefined, entry.key || createKey());
+  }); // Public interface
+
+  var createHref = createPath;
+
+  function push(path, state) {
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__["default"])(!(typeof path === 'object' && path.state !== undefined && state !== undefined), 'You should avoid providing a 2nd state argument to push when the 1st ' + 'argument is a location-like object that already has state; it is ignored') : undefined;
+    var action = 'PUSH';
+    var location = createLocation(path, state, createKey(), history.location);
+    transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+      if (!ok) return;
+      var prevIndex = history.index;
+      var nextIndex = prevIndex + 1;
+      var nextEntries = history.entries.slice(0);
+
+      if (nextEntries.length > nextIndex) {
+        nextEntries.splice(nextIndex, nextEntries.length - nextIndex, location);
+      } else {
+        nextEntries.push(location);
+      }
+
+      setState({
+        action: action,
+        location: location,
+        index: nextIndex,
+        entries: nextEntries
+      });
+    });
+  }
+
+  function replace(path, state) {
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__["default"])(!(typeof path === 'object' && path.state !== undefined && state !== undefined), 'You should avoid providing a 2nd state argument to replace when the 1st ' + 'argument is a location-like object that already has state; it is ignored') : undefined;
+    var action = 'REPLACE';
+    var location = createLocation(path, state, createKey(), history.location);
+    transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+      if (!ok) return;
+      history.entries[history.index] = location;
+      setState({
+        action: action,
+        location: location
+      });
+    });
+  }
+
+  function go(n) {
+    var nextIndex = clamp(history.index + n, 0, history.entries.length - 1);
+    var action = 'POP';
+    var location = history.entries[nextIndex];
+    transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+      if (ok) {
+        setState({
+          action: action,
+          location: location,
+          index: nextIndex
+        });
+      } else {
+        // Mimic the behavior of DOM histories by
+        // causing a render after a cancelled POP.
+        setState();
+      }
+    });
+  }
+
+  function goBack() {
+    go(-1);
+  }
+
+  function goForward() {
+    go(1);
+  }
+
+  function canGo(n) {
+    var nextIndex = history.index + n;
+    return nextIndex >= 0 && nextIndex < history.entries.length;
+  }
+
+  function block(prompt) {
+    if (prompt === void 0) {
+      prompt = false;
+    }
+
+    return transitionManager.setPrompt(prompt);
+  }
+
+  function listen(listener) {
+    return transitionManager.appendListener(listener);
+  }
+
+  var history = {
+    length: entries.length,
+    action: 'POP',
+    location: entries[index],
+    index: index,
+    entries: entries,
+    createHref: createHref,
+    push: push,
+    replace: replace,
+    go: go,
+    goBack: goBack,
+    goForward: goForward,
+    canGo: canGo,
+    block: block,
+    listen: listen
+  };
+  return history;
+}
+
+
+
+
+/***/ }),
+
 /***/ "./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js":
 /*!**********************************************************************************!*\
   !*** ./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js ***!
@@ -4879,6 +7227,216 @@ module.exports = invariant;
 
 /***/ }),
 
+/***/ "./node_modules/isarray/index.js":
+/*!***************************************!*\
+  !*** ./node_modules/isarray/index.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = Array.isArray || function (arr) {
+  return Object.prototype.toString.call(arr) == '[object Array]';
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/mini-create-react-context/dist/esm/index.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/mini-create-react-context/dist/esm/index.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var tiny_warning__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tiny-warning */ "./node_modules/tiny-warning/dist/tiny-warning.esm.js");
+
+
+
+
+
+var MAX_SIGNED_31_BIT_INT = 1073741823;
+var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : {};
+
+function getUniqueId() {
+  var key = '__global_unique_id__';
+  return commonjsGlobal[key] = (commonjsGlobal[key] || 0) + 1;
+}
+
+function objectIs(x, y) {
+  if (x === y) {
+    return x !== 0 || 1 / x === 1 / y;
+  } else {
+    return x !== x && y !== y;
+  }
+}
+
+function createEventEmitter(value) {
+  var handlers = [];
+  return {
+    on: function on(handler) {
+      handlers.push(handler);
+    },
+    off: function off(handler) {
+      handlers = handlers.filter(function (h) {
+        return h !== handler;
+      });
+    },
+    get: function get() {
+      return value;
+    },
+    set: function set(newValue, changedBits) {
+      value = newValue;
+      handlers.forEach(function (handler) {
+        return handler(value, changedBits);
+      });
+    }
+  };
+}
+
+function onlyChild(children) {
+  return Array.isArray(children) ? children[0] : children;
+}
+
+function createReactContext(defaultValue, calculateChangedBits) {
+  var _Provider$childContex, _Consumer$contextType;
+
+  var contextProp = '__create-react-context-' + getUniqueId() + '__';
+
+  var Provider = /*#__PURE__*/function (_Component) {
+    Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(Provider, _Component);
+
+    function Provider() {
+      var _this;
+
+      _this = _Component.apply(this, arguments) || this;
+      _this.emitter = createEventEmitter(_this.props.value);
+      return _this;
+    }
+
+    var _proto = Provider.prototype;
+
+    _proto.getChildContext = function getChildContext() {
+      var _ref;
+
+      return _ref = {}, _ref[contextProp] = this.emitter, _ref;
+    };
+
+    _proto.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+      if (this.props.value !== nextProps.value) {
+        var oldValue = this.props.value;
+        var newValue = nextProps.value;
+        var changedBits;
+
+        if (objectIs(oldValue, newValue)) {
+          changedBits = 0;
+        } else {
+          changedBits = typeof calculateChangedBits === 'function' ? calculateChangedBits(oldValue, newValue) : MAX_SIGNED_31_BIT_INT;
+
+          if (true) {
+            Object(tiny_warning__WEBPACK_IMPORTED_MODULE_3__["default"])((changedBits & MAX_SIGNED_31_BIT_INT) === changedBits, 'calculateChangedBits: Expected the return value to be a ' + '31-bit integer. Instead received: ' + changedBits);
+          }
+
+          changedBits |= 0;
+
+          if (changedBits !== 0) {
+            this.emitter.set(nextProps.value, changedBits);
+          }
+        }
+      }
+    };
+
+    _proto.render = function render() {
+      return this.props.children;
+    };
+
+    return Provider;
+  }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+  Provider.childContextTypes = (_Provider$childContex = {}, _Provider$childContex[contextProp] = prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired, _Provider$childContex);
+
+  var Consumer = /*#__PURE__*/function (_Component2) {
+    Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(Consumer, _Component2);
+
+    function Consumer() {
+      var _this2;
+
+      _this2 = _Component2.apply(this, arguments) || this;
+      _this2.state = {
+        value: _this2.getValue()
+      };
+
+      _this2.onUpdate = function (newValue, changedBits) {
+        var observedBits = _this2.observedBits | 0;
+
+        if ((observedBits & changedBits) !== 0) {
+          _this2.setState({
+            value: _this2.getValue()
+          });
+        }
+      };
+
+      return _this2;
+    }
+
+    var _proto2 = Consumer.prototype;
+
+    _proto2.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+      var observedBits = nextProps.observedBits;
+      this.observedBits = observedBits === undefined || observedBits === null ? MAX_SIGNED_31_BIT_INT : observedBits;
+    };
+
+    _proto2.componentDidMount = function componentDidMount() {
+      if (this.context[contextProp]) {
+        this.context[contextProp].on(this.onUpdate);
+      }
+
+      var observedBits = this.props.observedBits;
+      this.observedBits = observedBits === undefined || observedBits === null ? MAX_SIGNED_31_BIT_INT : observedBits;
+    };
+
+    _proto2.componentWillUnmount = function componentWillUnmount() {
+      if (this.context[contextProp]) {
+        this.context[contextProp].off(this.onUpdate);
+      }
+    };
+
+    _proto2.getValue = function getValue() {
+      if (this.context[contextProp]) {
+        return this.context[contextProp].get();
+      } else {
+        return defaultValue;
+      }
+    };
+
+    _proto2.render = function render() {
+      return onlyChild(this.props.children)(this.state.value);
+    };
+
+    return Consumer;
+  }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+  Consumer.contextTypes = (_Consumer$contextType = {}, _Consumer$contextType[contextProp] = prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object, _Consumer$contextType);
+  return {
+    Provider: Provider,
+    Consumer: Consumer
+  };
+}
+
+var index = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext || createReactContext;
+
+/* harmony default export */ __webpack_exports__["default"] = (index);
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
 /***/ "./node_modules/object-assign/index.js":
 /*!*********************************************!*\
   !*** ./node_modules/object-assign/index.js ***!
@@ -4977,6 +7535,201 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 	return to;
 };
+
+
+/***/ }),
+
+/***/ "./node_modules/process/browser.js":
+/*!*****************************************!*\
+  !*** ./node_modules/process/browser.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
 
 
 /***/ }),
@@ -42541,6 +45294,1632 @@ function warning(message) {
 
 /***/ }),
 
+/***/ "./node_modules/react-router-dom/esm/react-router-dom.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
+  \***************************************************************/
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrowserRouter", function() { return BrowserRouter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HashRouter", function() { return HashRouter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Link", function() { return Link; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavLink", function() { return NavLink; });
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MemoryRouter", function() { return react_router__WEBPACK_IMPORTED_MODULE_0__["MemoryRouter"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Prompt", function() { return react_router__WEBPACK_IMPORTED_MODULE_0__["Prompt"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Redirect", function() { return react_router__WEBPACK_IMPORTED_MODULE_0__["Redirect"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return react_router__WEBPACK_IMPORTED_MODULE_0__["Route"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return react_router__WEBPACK_IMPORTED_MODULE_0__["Router"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StaticRouter", function() { return react_router__WEBPACK_IMPORTED_MODULE_0__["StaticRouter"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Switch", function() { return react_router__WEBPACK_IMPORTED_MODULE_0__["Switch"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "generatePath", function() { return react_router__WEBPACK_IMPORTED_MODULE_0__["generatePath"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "matchPath", function() { return react_router__WEBPACK_IMPORTED_MODULE_0__["matchPath"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useHistory", function() { return react_router__WEBPACK_IMPORTED_MODULE_0__["useHistory"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useLocation", function() { return react_router__WEBPACK_IMPORTED_MODULE_0__["useLocation"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useParams", function() { return react_router__WEBPACK_IMPORTED_MODULE_0__["useParams"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useRouteMatch", function() { return react_router__WEBPACK_IMPORTED_MODULE_0__["useRouteMatch"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "withRouter", function() { return react_router__WEBPACK_IMPORTED_MODULE_0__["withRouter"]; });
+
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var history__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! history */ "./node_modules/history/esm/history.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var tiny_warning__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tiny-warning */ "./node_modules/tiny-warning/dist/tiny-warning.esm.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+/* harmony import */ var tiny_invariant__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! tiny-invariant */ "./node_modules/tiny-invariant/dist/tiny-invariant.esm.js");
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * The public API for a <Router> that uses HTML5 history.
+ */
+
+var BrowserRouter =
+/*#__PURE__*/
+function (_React$Component) {
+  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(BrowserRouter, _React$Component);
+
+  function BrowserRouter() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+    _this.history = Object(history__WEBPACK_IMPORTED_MODULE_3__["createBrowserHistory"])(_this.props);
+    return _this;
+  }
+
+  var _proto = BrowserRouter.prototype;
+
+  _proto.render = function render() {
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_0__["Router"], {
+      history: this.history,
+      children: this.props.children
+    });
+  };
+
+  return BrowserRouter;
+}(react__WEBPACK_IMPORTED_MODULE_2___default.a.Component);
+
+if (true) {
+  BrowserRouter.propTypes = {
+    basename: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+    children: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.node,
+    forceRefresh: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+    getUserConfirmation: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+    keyLength: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.number
+  };
+
+  BrowserRouter.prototype.componentDidMount = function () {
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_5__["default"])(!this.props.history, "<BrowserRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { BrowserRouter as Router }`.") : undefined;
+  };
+}
+
+/**
+ * The public API for a <Router> that uses window.location.hash.
+ */
+
+var HashRouter =
+/*#__PURE__*/
+function (_React$Component) {
+  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(HashRouter, _React$Component);
+
+  function HashRouter() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+    _this.history = Object(history__WEBPACK_IMPORTED_MODULE_3__["createHashHistory"])(_this.props);
+    return _this;
+  }
+
+  var _proto = HashRouter.prototype;
+
+  _proto.render = function render() {
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_0__["Router"], {
+      history: this.history,
+      children: this.props.children
+    });
+  };
+
+  return HashRouter;
+}(react__WEBPACK_IMPORTED_MODULE_2___default.a.Component);
+
+if (true) {
+  HashRouter.propTypes = {
+    basename: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+    children: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.node,
+    getUserConfirmation: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+    hashType: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOf(["hashbang", "noslash", "slash"])
+  };
+
+  HashRouter.prototype.componentDidMount = function () {
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_5__["default"])(!this.props.history, "<HashRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { HashRouter as Router }`.") : undefined;
+  };
+}
+
+var resolveToLocation = function resolveToLocation(to, currentLocation) {
+  return typeof to === "function" ? to(currentLocation) : to;
+};
+var normalizeToLocation = function normalizeToLocation(to, currentLocation) {
+  return typeof to === "string" ? Object(history__WEBPACK_IMPORTED_MODULE_3__["createLocation"])(to, null, null, currentLocation) : to;
+};
+
+var forwardRefShim = function forwardRefShim(C) {
+  return C;
+};
+
+var forwardRef = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef;
+
+if (typeof forwardRef === "undefined") {
+  forwardRef = forwardRefShim;
+}
+
+function isModifiedEvent(event) {
+  return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
+}
+
+var LinkAnchor = forwardRef(function (_ref, forwardedRef) {
+  var innerRef = _ref.innerRef,
+      navigate = _ref.navigate,
+      _onClick = _ref.onClick,
+      rest = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_7__["default"])(_ref, ["innerRef", "navigate", "onClick"]);
+
+  var target = rest.target;
+
+  var props = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_6__["default"])({}, rest, {
+    onClick: function onClick(event) {
+      try {
+        if (_onClick) _onClick(event);
+      } catch (ex) {
+        event.preventDefault();
+        throw ex;
+      }
+
+      if (!event.defaultPrevented && // onClick prevented default
+      event.button === 0 && ( // ignore everything but left clicks
+      !target || target === "_self") && // let browser handle "target=_blank" etc.
+      !isModifiedEvent(event) // ignore clicks with modifier keys
+      ) {
+          event.preventDefault();
+          navigate();
+        }
+    }
+  }); // React 15 compat
+
+
+  if (forwardRefShim !== forwardRef) {
+    props.ref = forwardedRef || innerRef;
+  } else {
+    props.ref = innerRef;
+  }
+  /* eslint-disable-next-line jsx-a11y/anchor-has-content */
+
+
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", props);
+});
+
+if (true) {
+  LinkAnchor.displayName = "LinkAnchor";
+}
+/**
+ * The public API for rendering a history-aware <a>.
+ */
+
+
+var Link = forwardRef(function (_ref2, forwardedRef) {
+  var _ref2$component = _ref2.component,
+      component = _ref2$component === void 0 ? LinkAnchor : _ref2$component,
+      replace = _ref2.replace,
+      to = _ref2.to,
+      innerRef = _ref2.innerRef,
+      rest = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_7__["default"])(_ref2, ["component", "replace", "to", "innerRef"]);
+
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_0__["__RouterContext"].Consumer, null, function (context) {
+    !context ?  true ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_8__["default"])(false, "You should not use <Link> outside a <Router>") : undefined : void 0;
+    var history = context.history;
+    var location = normalizeToLocation(resolveToLocation(to, context.location), context.location);
+    var href = location ? history.createHref(location) : "";
+
+    var props = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_6__["default"])({}, rest, {
+      href: href,
+      navigate: function navigate() {
+        var location = resolveToLocation(to, context.location);
+        var method = replace ? history.replace : history.push;
+        method(location);
+      }
+    }); // React 15 compat
+
+
+    if (forwardRefShim !== forwardRef) {
+      props.ref = forwardedRef || innerRef;
+    } else {
+      props.innerRef = innerRef;
+    }
+
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(component, props);
+  });
+});
+
+if (true) {
+  var toType = prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object, prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func]);
+  var refType = prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func, prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.shape({
+    current: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.any
+  })]);
+  Link.displayName = "Link";
+  Link.propTypes = {
+    innerRef: refType,
+    onClick: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+    replace: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+    target: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+    to: toType.isRequired
+  };
+}
+
+var forwardRefShim$1 = function forwardRefShim(C) {
+  return C;
+};
+
+var forwardRef$1 = react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef;
+
+if (typeof forwardRef$1 === "undefined") {
+  forwardRef$1 = forwardRefShim$1;
+}
+
+function joinClassnames() {
+  for (var _len = arguments.length, classnames = new Array(_len), _key = 0; _key < _len; _key++) {
+    classnames[_key] = arguments[_key];
+  }
+
+  return classnames.filter(function (i) {
+    return i;
+  }).join(" ");
+}
+/**
+ * A <Link> wrapper that knows if it's "active" or not.
+ */
+
+
+var NavLink = forwardRef$1(function (_ref, forwardedRef) {
+  var _ref$ariaCurrent = _ref["aria-current"],
+      ariaCurrent = _ref$ariaCurrent === void 0 ? "page" : _ref$ariaCurrent,
+      _ref$activeClassName = _ref.activeClassName,
+      activeClassName = _ref$activeClassName === void 0 ? "active" : _ref$activeClassName,
+      activeStyle = _ref.activeStyle,
+      classNameProp = _ref.className,
+      exact = _ref.exact,
+      isActiveProp = _ref.isActive,
+      locationProp = _ref.location,
+      sensitive = _ref.sensitive,
+      strict = _ref.strict,
+      styleProp = _ref.style,
+      to = _ref.to,
+      innerRef = _ref.innerRef,
+      rest = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_7__["default"])(_ref, ["aria-current", "activeClassName", "activeStyle", "className", "exact", "isActive", "location", "sensitive", "strict", "style", "to", "innerRef"]);
+
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router__WEBPACK_IMPORTED_MODULE_0__["__RouterContext"].Consumer, null, function (context) {
+    !context ?  true ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_8__["default"])(false, "You should not use <NavLink> outside a <Router>") : undefined : void 0;
+    var currentLocation = locationProp || context.location;
+    var toLocation = normalizeToLocation(resolveToLocation(to, currentLocation), currentLocation);
+    var path = toLocation.pathname; // Regex taken from: https://github.com/pillarjs/path-to-regexp/blob/master/index.js#L202
+
+    var escapedPath = path && path.replace(/([.+*?=^!:${}()[\]|/\\])/g, "\\$1");
+    var match = escapedPath ? Object(react_router__WEBPACK_IMPORTED_MODULE_0__["matchPath"])(currentLocation.pathname, {
+      path: escapedPath,
+      exact: exact,
+      sensitive: sensitive,
+      strict: strict
+    }) : null;
+    var isActive = !!(isActiveProp ? isActiveProp(match, currentLocation) : match);
+    var className = isActive ? joinClassnames(classNameProp, activeClassName) : classNameProp;
+    var style = isActive ? Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_6__["default"])({}, styleProp, {}, activeStyle) : styleProp;
+
+    var props = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_6__["default"])({
+      "aria-current": isActive && ariaCurrent || null,
+      className: className,
+      style: style,
+      to: toLocation
+    }, rest); // React 15 compat
+
+
+    if (forwardRefShim$1 !== forwardRef$1) {
+      props.ref = forwardedRef || innerRef;
+    } else {
+      props.innerRef = innerRef;
+    }
+
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Link, props);
+  });
+});
+
+if (true) {
+  NavLink.displayName = "NavLink";
+  var ariaCurrentType = prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOf(["page", "step", "location", "date", "time", "true"]);
+  NavLink.propTypes = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_6__["default"])({}, Link.propTypes, {
+    "aria-current": ariaCurrentType,
+    activeClassName: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+    activeStyle: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object,
+    className: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+    exact: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+    isActive: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+    location: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object,
+    sensitive: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+    strict: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+    style: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object
+  });
+}
+
+
+//# sourceMappingURL=react-router-dom.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/react-router/esm/react-router.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-router/esm/react-router.js ***!
+  \*******************************************************/
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __HistoryContext, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MemoryRouter", function() { return MemoryRouter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Prompt", function() { return Prompt; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Redirect", function() { return Redirect; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return Route; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return Router; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaticRouter", function() { return StaticRouter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Switch", function() { return Switch; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__HistoryContext", function() { return historyContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__RouterContext", function() { return context; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generatePath", function() { return generatePath; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "matchPath", function() { return matchPath; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useHistory", function() { return useHistory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useLocation", function() { return useLocation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useParams", function() { return useParams; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useRouteMatch", function() { return useRouteMatch; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withRouter", function() { return withRouter; });
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var history__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! history */ "./node_modules/history/esm/history.js");
+/* harmony import */ var tiny_warning__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tiny-warning */ "./node_modules/tiny-warning/dist/tiny-warning.esm.js");
+/* harmony import */ var mini_create_react_context__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! mini-create-react-context */ "./node_modules/mini-create-react-context/dist/esm/index.js");
+/* harmony import */ var tiny_invariant__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tiny-invariant */ "./node_modules/tiny-invariant/dist/tiny-invariant.esm.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var path_to_regexp__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! path-to-regexp */ "./node_modules/react-router/node_modules/path-to-regexp/index.js");
+/* harmony import */ var path_to_regexp__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(path_to_regexp__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
+/* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_is__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+/* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! hoist-non-react-statics */ "./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js");
+/* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_11__);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// TODO: Replace with React.createContext once we can assume React 16+
+
+var createNamedContext = function createNamedContext(name) {
+  var context = Object(mini_create_react_context__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  context.displayName = name;
+  return context;
+};
+
+var historyContext =
+/*#__PURE__*/
+createNamedContext("Router-History");
+
+// TODO: Replace with React.createContext once we can assume React 16+
+
+var createNamedContext$1 = function createNamedContext(name) {
+  var context = Object(mini_create_react_context__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  context.displayName = name;
+  return context;
+};
+
+var context =
+/*#__PURE__*/
+createNamedContext$1("Router");
+
+/**
+ * The public API for putting history on context.
+ */
+
+var Router =
+/*#__PURE__*/
+function (_React$Component) {
+  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(Router, _React$Component);
+
+  Router.computeRootMatch = function computeRootMatch(pathname) {
+    return {
+      path: "/",
+      url: "/",
+      params: {},
+      isExact: pathname === "/"
+    };
+  };
+
+  function Router(props) {
+    var _this;
+
+    _this = _React$Component.call(this, props) || this;
+    _this.state = {
+      location: props.history.location
+    }; // This is a bit of a hack. We have to start listening for location
+    // changes here in the constructor in case there are any <Redirect>s
+    // on the initial render. If there are, they will replace/push when
+    // they mount and since cDM fires in children before parents, we may
+    // get a new location before the <Router> is mounted.
+
+    _this._isMounted = false;
+    _this._pendingLocation = null;
+
+    if (!props.staticContext) {
+      _this.unlisten = props.history.listen(function (location) {
+        if (_this._isMounted) {
+          _this.setState({
+            location: location
+          });
+        } else {
+          _this._pendingLocation = location;
+        }
+      });
+    }
+
+    return _this;
+  }
+
+  var _proto = Router.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
+    this._isMounted = true;
+
+    if (this._pendingLocation) {
+      this.setState({
+        location: this._pendingLocation
+      });
+    }
+  };
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    if (this.unlisten) this.unlisten();
+  };
+
+  _proto.render = function render() {
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(context.Provider, {
+      value: {
+        history: this.props.history,
+        location: this.state.location,
+        match: Router.computeRootMatch(this.state.location.pathname),
+        staticContext: this.props.staticContext
+      }
+    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(historyContext.Provider, {
+      children: this.props.children || null,
+      value: this.props.history
+    }));
+  };
+
+  return Router;
+}(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
+
+if (true) {
+  Router.propTypes = {
+    children: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.node,
+    history: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired,
+    staticContext: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object
+  };
+
+  Router.prototype.componentDidUpdate = function (prevProps) {
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__["default"])(prevProps.history === this.props.history, "You cannot change <Router history>") : undefined;
+  };
+}
+
+/**
+ * The public API for a <Router> that stores location in memory.
+ */
+
+var MemoryRouter =
+/*#__PURE__*/
+function (_React$Component) {
+  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(MemoryRouter, _React$Component);
+
+  function MemoryRouter() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+    _this.history = Object(history__WEBPACK_IMPORTED_MODULE_3__["createMemoryHistory"])(_this.props);
+    return _this;
+  }
+
+  var _proto = MemoryRouter.prototype;
+
+  _proto.render = function render() {
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Router, {
+      history: this.history,
+      children: this.props.children
+    });
+  };
+
+  return MemoryRouter;
+}(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
+
+if (true) {
+  MemoryRouter.propTypes = {
+    initialEntries: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.array,
+    initialIndex: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.number,
+    getUserConfirmation: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func,
+    keyLength: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.number,
+    children: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.node
+  };
+
+  MemoryRouter.prototype.componentDidMount = function () {
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__["default"])(!this.props.history, "<MemoryRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { MemoryRouter as Router }`.") : undefined;
+  };
+}
+
+var Lifecycle =
+/*#__PURE__*/
+function (_React$Component) {
+  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(Lifecycle, _React$Component);
+
+  function Lifecycle() {
+    return _React$Component.apply(this, arguments) || this;
+  }
+
+  var _proto = Lifecycle.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
+    if (this.props.onMount) this.props.onMount.call(this, this);
+  };
+
+  _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
+    if (this.props.onUpdate) this.props.onUpdate.call(this, this, prevProps);
+  };
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    if (this.props.onUnmount) this.props.onUnmount.call(this, this);
+  };
+
+  _proto.render = function render() {
+    return null;
+  };
+
+  return Lifecycle;
+}(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
+
+/**
+ * The public API for prompting the user before navigating away from a screen.
+ */
+
+function Prompt(_ref) {
+  var message = _ref.message,
+      _ref$when = _ref.when,
+      when = _ref$when === void 0 ? true : _ref$when;
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(context.Consumer, null, function (context) {
+    !context ?  true ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_6__["default"])(false, "You should not use <Prompt> outside a <Router>") : undefined : void 0;
+    if (!when || context.staticContext) return null;
+    var method = context.history.block;
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Lifecycle, {
+      onMount: function onMount(self) {
+        self.release = method(message);
+      },
+      onUpdate: function onUpdate(self, prevProps) {
+        if (prevProps.message !== message) {
+          self.release();
+          self.release = method(message);
+        }
+      },
+      onUnmount: function onUnmount(self) {
+        self.release();
+      },
+      message: message
+    });
+  });
+}
+
+if (true) {
+  var messageType = prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func, prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string]);
+  Prompt.propTypes = {
+    when: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool,
+    message: messageType.isRequired
+  };
+}
+
+var cache = {};
+var cacheLimit = 10000;
+var cacheCount = 0;
+
+function compilePath(path) {
+  if (cache[path]) return cache[path];
+  var generator = path_to_regexp__WEBPACK_IMPORTED_MODULE_8___default.a.compile(path);
+
+  if (cacheCount < cacheLimit) {
+    cache[path] = generator;
+    cacheCount++;
+  }
+
+  return generator;
+}
+/**
+ * Public API for generating a URL pathname from a path and parameters.
+ */
+
+
+function generatePath(path, params) {
+  if (path === void 0) {
+    path = "/";
+  }
+
+  if (params === void 0) {
+    params = {};
+  }
+
+  return path === "/" ? path : compilePath(path)(params, {
+    pretty: true
+  });
+}
+
+/**
+ * The public API for navigating programmatically with a component.
+ */
+
+function Redirect(_ref) {
+  var computedMatch = _ref.computedMatch,
+      to = _ref.to,
+      _ref$push = _ref.push,
+      push = _ref$push === void 0 ? false : _ref$push;
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(context.Consumer, null, function (context) {
+    !context ?  true ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_6__["default"])(false, "You should not use <Redirect> outside a <Router>") : undefined : void 0;
+    var history = context.history,
+        staticContext = context.staticContext;
+    var method = push ? history.push : history.replace;
+    var location = Object(history__WEBPACK_IMPORTED_MODULE_3__["createLocation"])(computedMatch ? typeof to === "string" ? generatePath(to, computedMatch.params) : Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__["default"])({}, to, {
+      pathname: generatePath(to.pathname, computedMatch.params)
+    }) : to); // When rendering in a static context,
+    // set the new location immediately.
+
+    if (staticContext) {
+      method(location);
+      return null;
+    }
+
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Lifecycle, {
+      onMount: function onMount() {
+        method(location);
+      },
+      onUpdate: function onUpdate(self, prevProps) {
+        var prevLocation = Object(history__WEBPACK_IMPORTED_MODULE_3__["createLocation"])(prevProps.to);
+
+        if (!Object(history__WEBPACK_IMPORTED_MODULE_3__["locationsAreEqual"])(prevLocation, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__["default"])({}, location, {
+          key: prevLocation.key
+        }))) {
+          method(location);
+        }
+      },
+      to: to
+    });
+  });
+}
+
+if (true) {
+  Redirect.propTypes = {
+    push: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool,
+    from: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
+    to: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object]).isRequired
+  };
+}
+
+var cache$1 = {};
+var cacheLimit$1 = 10000;
+var cacheCount$1 = 0;
+
+function compilePath$1(path, options) {
+  var cacheKey = "" + options.end + options.strict + options.sensitive;
+  var pathCache = cache$1[cacheKey] || (cache$1[cacheKey] = {});
+  if (pathCache[path]) return pathCache[path];
+  var keys = [];
+  var regexp = path_to_regexp__WEBPACK_IMPORTED_MODULE_8___default()(path, keys, options);
+  var result = {
+    regexp: regexp,
+    keys: keys
+  };
+
+  if (cacheCount$1 < cacheLimit$1) {
+    pathCache[path] = result;
+    cacheCount$1++;
+  }
+
+  return result;
+}
+/**
+ * Public API for matching a URL pathname to a path.
+ */
+
+
+function matchPath(pathname, options) {
+  if (options === void 0) {
+    options = {};
+  }
+
+  if (typeof options === "string" || Array.isArray(options)) {
+    options = {
+      path: options
+    };
+  }
+
+  var _options = options,
+      path = _options.path,
+      _options$exact = _options.exact,
+      exact = _options$exact === void 0 ? false : _options$exact,
+      _options$strict = _options.strict,
+      strict = _options$strict === void 0 ? false : _options$strict,
+      _options$sensitive = _options.sensitive,
+      sensitive = _options$sensitive === void 0 ? false : _options$sensitive;
+  var paths = [].concat(path);
+  return paths.reduce(function (matched, path) {
+    if (!path && path !== "") return null;
+    if (matched) return matched;
+
+    var _compilePath = compilePath$1(path, {
+      end: exact,
+      strict: strict,
+      sensitive: sensitive
+    }),
+        regexp = _compilePath.regexp,
+        keys = _compilePath.keys;
+
+    var match = regexp.exec(pathname);
+    if (!match) return null;
+    var url = match[0],
+        values = match.slice(1);
+    var isExact = pathname === url;
+    if (exact && !isExact) return null;
+    return {
+      path: path,
+      // the path used to match
+      url: path === "/" && url === "" ? "/" : url,
+      // the matched portion of the URL
+      isExact: isExact,
+      // whether or not we matched exactly
+      params: keys.reduce(function (memo, key, index) {
+        memo[key.name] = values[index];
+        return memo;
+      }, {})
+    };
+  }, null);
+}
+
+function isEmptyChildren(children) {
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.Children.count(children) === 0;
+}
+
+function evalChildrenDev(children, props, path) {
+  var value = children(props);
+   true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__["default"])(value !== undefined, "You returned `undefined` from the `children` function of " + ("<Route" + (path ? " path=\"" + path + "\"" : "") + ">, but you ") + "should have returned a React element or `null`") : undefined;
+  return value || null;
+}
+/**
+ * The public API for matching a single path and rendering.
+ */
+
+
+var Route =
+/*#__PURE__*/
+function (_React$Component) {
+  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(Route, _React$Component);
+
+  function Route() {
+    return _React$Component.apply(this, arguments) || this;
+  }
+
+  var _proto = Route.prototype;
+
+  _proto.render = function render() {
+    var _this = this;
+
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(context.Consumer, null, function (context$1) {
+      !context$1 ?  true ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_6__["default"])(false, "You should not use <Route> outside a <Router>") : undefined : void 0;
+      var location = _this.props.location || context$1.location;
+      var match = _this.props.computedMatch ? _this.props.computedMatch // <Switch> already computed the match for us
+      : _this.props.path ? matchPath(location.pathname, _this.props) : context$1.match;
+
+      var props = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__["default"])({}, context$1, {
+        location: location,
+        match: match
+      });
+
+      var _this$props = _this.props,
+          children = _this$props.children,
+          component = _this$props.component,
+          render = _this$props.render; // Preact uses an empty array as children by
+      // default, so use null if that's the case.
+
+      if (Array.isArray(children) && children.length === 0) {
+        children = null;
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(context.Provider, {
+        value: props
+      }, props.match ? children ? typeof children === "function" ?  true ? evalChildrenDev(children, props, _this.props.path) : undefined : children : component ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(component, props) : render ? render(props) : null : typeof children === "function" ?  true ? evalChildrenDev(children, props, _this.props.path) : undefined : null);
+    });
+  };
+
+  return Route;
+}(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
+
+if (true) {
+  Route.propTypes = {
+    children: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func, prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.node]),
+    component: function component(props, propName) {
+      if (props[propName] && !Object(react_is__WEBPACK_IMPORTED_MODULE_9__["isValidElementType"])(props[propName])) {
+        return new Error("Invalid prop 'component' supplied to 'Route': the prop is not a valid React component");
+      }
+    },
+    exact: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool,
+    location: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object,
+    path: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string)]),
+    render: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func,
+    sensitive: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool,
+    strict: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool
+  };
+
+  Route.prototype.componentDidMount = function () {
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__["default"])(!(this.props.children && !isEmptyChildren(this.props.children) && this.props.component), "You should not use <Route component> and <Route children> in the same route; <Route component> will be ignored") : undefined;
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__["default"])(!(this.props.children && !isEmptyChildren(this.props.children) && this.props.render), "You should not use <Route render> and <Route children> in the same route; <Route render> will be ignored") : undefined;
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__["default"])(!(this.props.component && this.props.render), "You should not use <Route component> and <Route render> in the same route; <Route render> will be ignored") : undefined;
+  };
+
+  Route.prototype.componentDidUpdate = function (prevProps) {
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__["default"])(!(this.props.location && !prevProps.location), '<Route> elements should not change from uncontrolled to controlled (or vice versa). You initially used no "location" prop and then provided one on a subsequent render.') : undefined;
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__["default"])(!(!this.props.location && prevProps.location), '<Route> elements should not change from controlled to uncontrolled (or vice versa). You provided a "location" prop initially but omitted it on a subsequent render.') : undefined;
+  };
+}
+
+function addLeadingSlash(path) {
+  return path.charAt(0) === "/" ? path : "/" + path;
+}
+
+function addBasename(basename, location) {
+  if (!basename) return location;
+  return Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__["default"])({}, location, {
+    pathname: addLeadingSlash(basename) + location.pathname
+  });
+}
+
+function stripBasename(basename, location) {
+  if (!basename) return location;
+  var base = addLeadingSlash(basename);
+  if (location.pathname.indexOf(base) !== 0) return location;
+  return Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__["default"])({}, location, {
+    pathname: location.pathname.substr(base.length)
+  });
+}
+
+function createURL(location) {
+  return typeof location === "string" ? location : Object(history__WEBPACK_IMPORTED_MODULE_3__["createPath"])(location);
+}
+
+function staticHandler(methodName) {
+  return function () {
+      true ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_6__["default"])(false, "You cannot %s with <StaticRouter>", methodName) : undefined ;
+  };
+}
+
+function noop() {}
+/**
+ * The public top-level API for a "static" <Router>, so-called because it
+ * can't actually change the current location. Instead, it just records
+ * location changes in a context object. Useful mainly in testing and
+ * server-rendering scenarios.
+ */
+
+
+var StaticRouter =
+/*#__PURE__*/
+function (_React$Component) {
+  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(StaticRouter, _React$Component);
+
+  function StaticRouter() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+
+    _this.handlePush = function (location) {
+      return _this.navigateTo(location, "PUSH");
+    };
+
+    _this.handleReplace = function (location) {
+      return _this.navigateTo(location, "REPLACE");
+    };
+
+    _this.handleListen = function () {
+      return noop;
+    };
+
+    _this.handleBlock = function () {
+      return noop;
+    };
+
+    return _this;
+  }
+
+  var _proto = StaticRouter.prototype;
+
+  _proto.navigateTo = function navigateTo(location, action) {
+    var _this$props = this.props,
+        _this$props$basename = _this$props.basename,
+        basename = _this$props$basename === void 0 ? "" : _this$props$basename,
+        _this$props$context = _this$props.context,
+        context = _this$props$context === void 0 ? {} : _this$props$context;
+    context.action = action;
+    context.location = addBasename(basename, Object(history__WEBPACK_IMPORTED_MODULE_3__["createLocation"])(location));
+    context.url = createURL(context.location);
+  };
+
+  _proto.render = function render() {
+    var _this$props2 = this.props,
+        _this$props2$basename = _this$props2.basename,
+        basename = _this$props2$basename === void 0 ? "" : _this$props2$basename,
+        _this$props2$context = _this$props2.context,
+        context = _this$props2$context === void 0 ? {} : _this$props2$context,
+        _this$props2$location = _this$props2.location,
+        location = _this$props2$location === void 0 ? "/" : _this$props2$location,
+        rest = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_10__["default"])(_this$props2, ["basename", "context", "location"]);
+
+    var history = {
+      createHref: function createHref(path) {
+        return addLeadingSlash(basename + createURL(path));
+      },
+      action: "POP",
+      location: stripBasename(basename, Object(history__WEBPACK_IMPORTED_MODULE_3__["createLocation"])(location)),
+      push: this.handlePush,
+      replace: this.handleReplace,
+      go: staticHandler("go"),
+      goBack: staticHandler("goBack"),
+      goForward: staticHandler("goForward"),
+      listen: this.handleListen,
+      block: this.handleBlock
+    };
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Router, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__["default"])({}, rest, {
+      history: history,
+      staticContext: context
+    }));
+  };
+
+  return StaticRouter;
+}(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
+
+if (true) {
+  StaticRouter.propTypes = {
+    basename: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
+    context: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object,
+    location: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object])
+  };
+
+  StaticRouter.prototype.componentDidMount = function () {
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__["default"])(!this.props.history, "<StaticRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { StaticRouter as Router }`.") : undefined;
+  };
+}
+
+/**
+ * The public API for rendering the first <Route> that matches.
+ */
+
+var Switch =
+/*#__PURE__*/
+function (_React$Component) {
+  Object(_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(Switch, _React$Component);
+
+  function Switch() {
+    return _React$Component.apply(this, arguments) || this;
+  }
+
+  var _proto = Switch.prototype;
+
+  _proto.render = function render() {
+    var _this = this;
+
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(context.Consumer, null, function (context) {
+      !context ?  true ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_6__["default"])(false, "You should not use <Switch> outside a <Router>") : undefined : void 0;
+      var location = _this.props.location || context.location;
+      var element, match; // We use React.Children.forEach instead of React.Children.toArray().find()
+      // here because toArray adds keys to all child elements and we do not want
+      // to trigger an unmount/remount for two <Route>s that render the same
+      // component at different URLs.
+
+      react__WEBPACK_IMPORTED_MODULE_1___default.a.Children.forEach(_this.props.children, function (child) {
+        if (match == null && react__WEBPACK_IMPORTED_MODULE_1___default.a.isValidElement(child)) {
+          element = child;
+          var path = child.props.path || child.props.from;
+          match = path ? matchPath(location.pathname, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__["default"])({}, child.props, {
+            path: path
+          })) : context.match;
+        }
+      });
+      return match ? react__WEBPACK_IMPORTED_MODULE_1___default.a.cloneElement(element, {
+        location: location,
+        computedMatch: match
+      }) : null;
+    });
+  };
+
+  return Switch;
+}(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
+
+if (true) {
+  Switch.propTypes = {
+    children: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.node,
+    location: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object
+  };
+
+  Switch.prototype.componentDidUpdate = function (prevProps) {
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__["default"])(!(this.props.location && !prevProps.location), '<Switch> elements should not change from uncontrolled to controlled (or vice versa). You initially used no "location" prop and then provided one on a subsequent render.') : undefined;
+     true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_4__["default"])(!(!this.props.location && prevProps.location), '<Switch> elements should not change from controlled to uncontrolled (or vice versa). You provided a "location" prop initially but omitted it on a subsequent render.') : undefined;
+  };
+}
+
+/**
+ * A public higher-order component to access the imperative API
+ */
+
+function withRouter(Component) {
+  var displayName = "withRouter(" + (Component.displayName || Component.name) + ")";
+
+  var C = function C(props) {
+    var wrappedComponentRef = props.wrappedComponentRef,
+        remainingProps = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_10__["default"])(props, ["wrappedComponentRef"]);
+
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(context.Consumer, null, function (context) {
+      !context ?  true ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_6__["default"])(false, "You should not use <" + displayName + " /> outside a <Router>") : undefined : void 0;
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__["default"])({}, remainingProps, context, {
+        ref: wrappedComponentRef
+      }));
+    });
+  };
+
+  C.displayName = displayName;
+  C.WrappedComponent = Component;
+
+  if (true) {
+    C.propTypes = {
+      wrappedComponentRef: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func, prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object])
+    };
+  }
+
+  return hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_11___default()(C, Component);
+}
+
+var useContext = react__WEBPACK_IMPORTED_MODULE_1___default.a.useContext;
+function useHistory() {
+  if (true) {
+    !(typeof useContext === "function") ?  true ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_6__["default"])(false, "You must use React >= 16.8 in order to use useHistory()") : undefined : void 0;
+  }
+
+  return useContext(historyContext);
+}
+function useLocation() {
+  if (true) {
+    !(typeof useContext === "function") ?  true ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_6__["default"])(false, "You must use React >= 16.8 in order to use useLocation()") : undefined : void 0;
+  }
+
+  return useContext(context).location;
+}
+function useParams() {
+  if (true) {
+    !(typeof useContext === "function") ?  true ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_6__["default"])(false, "You must use React >= 16.8 in order to use useParams()") : undefined : void 0;
+  }
+
+  var match = useContext(context).match;
+  return match ? match.params : {};
+}
+function useRouteMatch(path) {
+  if (true) {
+    !(typeof useContext === "function") ?  true ? Object(tiny_invariant__WEBPACK_IMPORTED_MODULE_6__["default"])(false, "You must use React >= 16.8 in order to use useRouteMatch()") : undefined : void 0;
+  }
+
+  var location = useLocation();
+  var match = useContext(context).match;
+  return path ? matchPath(location.pathname, path) : match;
+}
+
+if (true) {
+  if (typeof window !== "undefined") {
+    var global = window;
+    var key = "__react_router_build__";
+    var buildNames = {
+      cjs: "CommonJS",
+      esm: "ES modules",
+      umd: "UMD"
+    };
+
+    if (global[key] && global[key] !== "esm") {
+      var initialBuildName = buildNames[global[key]];
+      var secondaryBuildName = buildNames["esm"]; // TODO: Add link to article that explains in detail how to avoid
+      // loading 2 different builds.
+
+      throw new Error("You are loading the " + secondaryBuildName + " build of React Router " + ("on a page that is already running the " + initialBuildName + " ") + "build, so things won't work right.");
+    }
+
+    global[key] = "esm";
+  }
+}
+
+
+//# sourceMappingURL=react-router.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/react-router/node_modules/path-to-regexp/index.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/react-router/node_modules/path-to-regexp/index.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isarray = __webpack_require__(/*! isarray */ "./node_modules/isarray/index.js")
+
+/**
+ * Expose `pathToRegexp`.
+ */
+module.exports = pathToRegexp
+module.exports.parse = parse
+module.exports.compile = compile
+module.exports.tokensToFunction = tokensToFunction
+module.exports.tokensToRegExp = tokensToRegExp
+
+/**
+ * The main path matching regexp utility.
+ *
+ * @type {RegExp}
+ */
+var PATH_REGEXP = new RegExp([
+  // Match escaped characters that would otherwise appear in future matches.
+  // This allows the user to escape special characters that won't transform.
+  '(\\\\.)',
+  // Match Express-style parameters and un-named parameters with a prefix
+  // and optional suffixes. Matches appear as:
+  //
+  // "/:test(\\d+)?" => ["/", "test", "\d+", undefined, "?", undefined]
+  // "/route(\\d+)"  => [undefined, undefined, undefined, "\d+", undefined, undefined]
+  // "/*"            => ["/", undefined, undefined, undefined, undefined, "*"]
+  '([\\/.])?(?:(?:\\:(\\w+)(?:\\(((?:\\\\.|[^\\\\()])+)\\))?|\\(((?:\\\\.|[^\\\\()])+)\\))([+*?])?|(\\*))'
+].join('|'), 'g')
+
+/**
+ * Parse a string for the raw tokens.
+ *
+ * @param  {string}  str
+ * @param  {Object=} options
+ * @return {!Array}
+ */
+function parse (str, options) {
+  var tokens = []
+  var key = 0
+  var index = 0
+  var path = ''
+  var defaultDelimiter = options && options.delimiter || '/'
+  var res
+
+  while ((res = PATH_REGEXP.exec(str)) != null) {
+    var m = res[0]
+    var escaped = res[1]
+    var offset = res.index
+    path += str.slice(index, offset)
+    index = offset + m.length
+
+    // Ignore already escaped sequences.
+    if (escaped) {
+      path += escaped[1]
+      continue
+    }
+
+    var next = str[index]
+    var prefix = res[2]
+    var name = res[3]
+    var capture = res[4]
+    var group = res[5]
+    var modifier = res[6]
+    var asterisk = res[7]
+
+    // Push the current path onto the tokens.
+    if (path) {
+      tokens.push(path)
+      path = ''
+    }
+
+    var partial = prefix != null && next != null && next !== prefix
+    var repeat = modifier === '+' || modifier === '*'
+    var optional = modifier === '?' || modifier === '*'
+    var delimiter = res[2] || defaultDelimiter
+    var pattern = capture || group
+
+    tokens.push({
+      name: name || key++,
+      prefix: prefix || '',
+      delimiter: delimiter,
+      optional: optional,
+      repeat: repeat,
+      partial: partial,
+      asterisk: !!asterisk,
+      pattern: pattern ? escapeGroup(pattern) : (asterisk ? '.*' : '[^' + escapeString(delimiter) + ']+?')
+    })
+  }
+
+  // Match any characters still remaining.
+  if (index < str.length) {
+    path += str.substr(index)
+  }
+
+  // If the path exists, push it onto the end.
+  if (path) {
+    tokens.push(path)
+  }
+
+  return tokens
+}
+
+/**
+ * Compile a string to a template function for the path.
+ *
+ * @param  {string}             str
+ * @param  {Object=}            options
+ * @return {!function(Object=, Object=)}
+ */
+function compile (str, options) {
+  return tokensToFunction(parse(str, options), options)
+}
+
+/**
+ * Prettier encoding of URI path segments.
+ *
+ * @param  {string}
+ * @return {string}
+ */
+function encodeURIComponentPretty (str) {
+  return encodeURI(str).replace(/[\/?#]/g, function (c) {
+    return '%' + c.charCodeAt(0).toString(16).toUpperCase()
+  })
+}
+
+/**
+ * Encode the asterisk parameter. Similar to `pretty`, but allows slashes.
+ *
+ * @param  {string}
+ * @return {string}
+ */
+function encodeAsterisk (str) {
+  return encodeURI(str).replace(/[?#]/g, function (c) {
+    return '%' + c.charCodeAt(0).toString(16).toUpperCase()
+  })
+}
+
+/**
+ * Expose a method for transforming tokens into the path function.
+ */
+function tokensToFunction (tokens, options) {
+  // Compile all the tokens into regexps.
+  var matches = new Array(tokens.length)
+
+  // Compile all the patterns before compilation.
+  for (var i = 0; i < tokens.length; i++) {
+    if (typeof tokens[i] === 'object') {
+      matches[i] = new RegExp('^(?:' + tokens[i].pattern + ')$', flags(options))
+    }
+  }
+
+  return function (obj, opts) {
+    var path = ''
+    var data = obj || {}
+    var options = opts || {}
+    var encode = options.pretty ? encodeURIComponentPretty : encodeURIComponent
+
+    for (var i = 0; i < tokens.length; i++) {
+      var token = tokens[i]
+
+      if (typeof token === 'string') {
+        path += token
+
+        continue
+      }
+
+      var value = data[token.name]
+      var segment
+
+      if (value == null) {
+        if (token.optional) {
+          // Prepend partial segment prefixes.
+          if (token.partial) {
+            path += token.prefix
+          }
+
+          continue
+        } else {
+          throw new TypeError('Expected "' + token.name + '" to be defined')
+        }
+      }
+
+      if (isarray(value)) {
+        if (!token.repeat) {
+          throw new TypeError('Expected "' + token.name + '" to not repeat, but received `' + JSON.stringify(value) + '`')
+        }
+
+        if (value.length === 0) {
+          if (token.optional) {
+            continue
+          } else {
+            throw new TypeError('Expected "' + token.name + '" to not be empty')
+          }
+        }
+
+        for (var j = 0; j < value.length; j++) {
+          segment = encode(value[j])
+
+          if (!matches[i].test(segment)) {
+            throw new TypeError('Expected all "' + token.name + '" to match "' + token.pattern + '", but received `' + JSON.stringify(segment) + '`')
+          }
+
+          path += (j === 0 ? token.prefix : token.delimiter) + segment
+        }
+
+        continue
+      }
+
+      segment = token.asterisk ? encodeAsterisk(value) : encode(value)
+
+      if (!matches[i].test(segment)) {
+        throw new TypeError('Expected "' + token.name + '" to match "' + token.pattern + '", but received "' + segment + '"')
+      }
+
+      path += token.prefix + segment
+    }
+
+    return path
+  }
+}
+
+/**
+ * Escape a regular expression string.
+ *
+ * @param  {string} str
+ * @return {string}
+ */
+function escapeString (str) {
+  return str.replace(/([.+*?=^!:${}()[\]|\/\\])/g, '\\$1')
+}
+
+/**
+ * Escape the capturing group by escaping special characters and meaning.
+ *
+ * @param  {string} group
+ * @return {string}
+ */
+function escapeGroup (group) {
+  return group.replace(/([=!:$\/()])/g, '\\$1')
+}
+
+/**
+ * Attach the keys as a property of the regexp.
+ *
+ * @param  {!RegExp} re
+ * @param  {Array}   keys
+ * @return {!RegExp}
+ */
+function attachKeys (re, keys) {
+  re.keys = keys
+  return re
+}
+
+/**
+ * Get the flags for a regexp from the options.
+ *
+ * @param  {Object} options
+ * @return {string}
+ */
+function flags (options) {
+  return options && options.sensitive ? '' : 'i'
+}
+
+/**
+ * Pull out keys from a regexp.
+ *
+ * @param  {!RegExp} path
+ * @param  {!Array}  keys
+ * @return {!RegExp}
+ */
+function regexpToRegexp (path, keys) {
+  // Use a negative lookahead to match only capturing groups.
+  var groups = path.source.match(/\((?!\?)/g)
+
+  if (groups) {
+    for (var i = 0; i < groups.length; i++) {
+      keys.push({
+        name: i,
+        prefix: null,
+        delimiter: null,
+        optional: false,
+        repeat: false,
+        partial: false,
+        asterisk: false,
+        pattern: null
+      })
+    }
+  }
+
+  return attachKeys(path, keys)
+}
+
+/**
+ * Transform an array into a regexp.
+ *
+ * @param  {!Array}  path
+ * @param  {Array}   keys
+ * @param  {!Object} options
+ * @return {!RegExp}
+ */
+function arrayToRegexp (path, keys, options) {
+  var parts = []
+
+  for (var i = 0; i < path.length; i++) {
+    parts.push(pathToRegexp(path[i], keys, options).source)
+  }
+
+  var regexp = new RegExp('(?:' + parts.join('|') + ')', flags(options))
+
+  return attachKeys(regexp, keys)
+}
+
+/**
+ * Create a path regexp from string input.
+ *
+ * @param  {string}  path
+ * @param  {!Array}  keys
+ * @param  {!Object} options
+ * @return {!RegExp}
+ */
+function stringToRegexp (path, keys, options) {
+  return tokensToRegExp(parse(path, options), keys, options)
+}
+
+/**
+ * Expose a function for taking tokens and returning a RegExp.
+ *
+ * @param  {!Array}          tokens
+ * @param  {(Array|Object)=} keys
+ * @param  {Object=}         options
+ * @return {!RegExp}
+ */
+function tokensToRegExp (tokens, keys, options) {
+  if (!isarray(keys)) {
+    options = /** @type {!Object} */ (keys || options)
+    keys = []
+  }
+
+  options = options || {}
+
+  var strict = options.strict
+  var end = options.end !== false
+  var route = ''
+
+  // Iterate over the tokens and create our regexp string.
+  for (var i = 0; i < tokens.length; i++) {
+    var token = tokens[i]
+
+    if (typeof token === 'string') {
+      route += escapeString(token)
+    } else {
+      var prefix = escapeString(token.prefix)
+      var capture = '(?:' + token.pattern + ')'
+
+      keys.push(token)
+
+      if (token.repeat) {
+        capture += '(?:' + prefix + capture + ')*'
+      }
+
+      if (token.optional) {
+        if (!token.partial) {
+          capture = '(?:' + prefix + '(' + capture + '))?'
+        } else {
+          capture = prefix + '(' + capture + ')?'
+        }
+      } else {
+        capture = prefix + '(' + capture + ')'
+      }
+
+      route += capture
+    }
+  }
+
+  var delimiter = escapeString(options.delimiter || '/')
+  var endsWithDelimiter = route.slice(-delimiter.length) === delimiter
+
+  // In non-strict mode we allow a slash at the end of match. If the path to
+  // match already ends with a slash, we remove it for consistency. The slash
+  // is valid at the end of a path match, not in the middle. This is important
+  // in non-ending mode, where "/test/" shouldn't match "/test//route".
+  if (!strict) {
+    route = (endsWithDelimiter ? route.slice(0, -delimiter.length) : route) + '(?:' + delimiter + '(?=$))?'
+  }
+
+  if (end) {
+    route += '$'
+  } else {
+    // In non-ending mode, we need the capturing groups to match as much as
+    // possible by using a positive lookahead to the end or next path segment.
+    route += strict && endsWithDelimiter ? '' : '(?=' + delimiter + '|$)'
+  }
+
+  return attachKeys(new RegExp('^' + route, flags(options)), keys)
+}
+
+/**
+ * Normalize the given path string, returning a regular expression.
+ *
+ * An empty array can be passed in for the keys, which will hold the
+ * placeholder key descriptions. For example, using `/user/:id`, `keys` will
+ * contain `[{ name: 'id', delimiter: '/', optional: false, repeat: false }]`.
+ *
+ * @param  {(string|RegExp|Array)} path
+ * @param  {(Array|Object)=}       keys
+ * @param  {Object=}               options
+ * @return {!RegExp}
+ */
+function pathToRegexp (path, keys, options) {
+  if (!isarray(keys)) {
+    options = /** @type {!Object} */ (keys || options)
+    keys = []
+  }
+
+  options = options || {}
+
+  if (path instanceof RegExp) {
+    return regexpToRegexp(path, /** @type {!Array} */ (keys))
+  }
+
+  if (isarray(path)) {
+    return arrayToRegexp(/** @type {!Array} */ (path), /** @type {!Array} */ (keys), options)
+  }
+
+  return stringToRegexp(/** @type {string} */ (path), /** @type {!Array} */ (keys), options)
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/react-transition-group/esm/Transition.js":
 /*!***************************************************************!*\
   !*** ./node_modules/react-transition-group/esm/Transition.js ***!
@@ -45871,6 +50250,94 @@ if ( true && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed
 
 /***/ }),
 
+/***/ "./node_modules/resolve-pathname/esm/resolve-pathname.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/resolve-pathname/esm/resolve-pathname.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function isAbsolute(pathname) {
+  return pathname.charAt(0) === '/';
+}
+
+// About 1.5x faster than the two-arg version of Array#splice()
+function spliceOne(list, index) {
+  for (var i = index, k = i + 1, n = list.length; k < n; i += 1, k += 1) {
+    list[i] = list[k];
+  }
+
+  list.pop();
+}
+
+// This implementation is based heavily on node's url.parse
+function resolvePathname(to, from) {
+  if (from === undefined) from = '';
+
+  var toParts = (to && to.split('/')) || [];
+  var fromParts = (from && from.split('/')) || [];
+
+  var isToAbs = to && isAbsolute(to);
+  var isFromAbs = from && isAbsolute(from);
+  var mustEndAbs = isToAbs || isFromAbs;
+
+  if (to && isAbsolute(to)) {
+    // to is absolute
+    fromParts = toParts;
+  } else if (toParts.length) {
+    // to is relative, drop the filename
+    fromParts.pop();
+    fromParts = fromParts.concat(toParts);
+  }
+
+  if (!fromParts.length) return '/';
+
+  var hasTrailingSlash;
+  if (fromParts.length) {
+    var last = fromParts[fromParts.length - 1];
+    hasTrailingSlash = last === '.' || last === '..' || last === '';
+  } else {
+    hasTrailingSlash = false;
+  }
+
+  var up = 0;
+  for (var i = fromParts.length; i >= 0; i--) {
+    var part = fromParts[i];
+
+    if (part === '.') {
+      spliceOne(fromParts, i);
+    } else if (part === '..') {
+      spliceOne(fromParts, i);
+      up++;
+    } else if (up) {
+      spliceOne(fromParts, i);
+      up--;
+    }
+  }
+
+  if (!mustEndAbs) for (; up--; up) fromParts.unshift('..');
+
+  if (
+    mustEndAbs &&
+    fromParts[0] !== '' &&
+    (!fromParts[0] || !isAbsolute(fromParts[0]))
+  )
+    fromParts.unshift('');
+
+  var result = fromParts.join('/');
+
+  if (hasTrailingSlash && result.substr(-1) !== '/') result += '/';
+
+  return result;
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (resolvePathname);
+
+
+/***/ }),
+
 /***/ "./node_modules/scheduler/cjs/scheduler-tracing.development.js":
 /*!*********************************************************************!*\
   !*** ./node_modules/scheduler/cjs/scheduler-tracing.development.js ***!
@@ -47416,6 +51883,3175 @@ module.exports = function (list, options) {
 
 /***/ }),
 
+/***/ "./node_modules/sweetalert2/dist/sweetalert2.all.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/sweetalert2/dist/sweetalert2.all.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*!
+* sweetalert2 v9.14.0
+* Released under the MIT License.
+*/
+(function (global, factory) {
+   true ? module.exports = factory() :
+  undefined;
+}(this, function () { 'use strict';
+
+  function _typeof(obj) {
+    "@babel/helpers - typeof";
+
+    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+      _typeof = function (obj) {
+        return typeof obj;
+      };
+    } else {
+      _typeof = function (obj) {
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+      };
+    }
+
+    return _typeof(obj);
+  }
+
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
+
+  function _defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    return Constructor;
+  }
+
+  function _extends() {
+    _extends = Object.assign || function (target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i];
+
+        for (var key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = source[key];
+          }
+        }
+      }
+
+      return target;
+    };
+
+    return _extends.apply(this, arguments);
+  }
+
+  function _inherits(subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) {
+      throw new TypeError("Super expression must either be null or a function");
+    }
+
+    subClass.prototype = Object.create(superClass && superClass.prototype, {
+      constructor: {
+        value: subClass,
+        writable: true,
+        configurable: true
+      }
+    });
+    if (superClass) _setPrototypeOf(subClass, superClass);
+  }
+
+  function _getPrototypeOf(o) {
+    _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+      return o.__proto__ || Object.getPrototypeOf(o);
+    };
+    return _getPrototypeOf(o);
+  }
+
+  function _setPrototypeOf(o, p) {
+    _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+      o.__proto__ = p;
+      return o;
+    };
+
+    return _setPrototypeOf(o, p);
+  }
+
+  function _isNativeReflectConstruct() {
+    if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+    if (Reflect.construct.sham) return false;
+    if (typeof Proxy === "function") return true;
+
+    try {
+      Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function _construct(Parent, args, Class) {
+    if (_isNativeReflectConstruct()) {
+      _construct = Reflect.construct;
+    } else {
+      _construct = function _construct(Parent, args, Class) {
+        var a = [null];
+        a.push.apply(a, args);
+        var Constructor = Function.bind.apply(Parent, a);
+        var instance = new Constructor();
+        if (Class) _setPrototypeOf(instance, Class.prototype);
+        return instance;
+      };
+    }
+
+    return _construct.apply(null, arguments);
+  }
+
+  function _assertThisInitialized(self) {
+    if (self === void 0) {
+      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    }
+
+    return self;
+  }
+
+  function _possibleConstructorReturn(self, call) {
+    if (call && (typeof call === "object" || typeof call === "function")) {
+      return call;
+    }
+
+    return _assertThisInitialized(self);
+  }
+
+  function _createSuper(Derived) {
+    var hasNativeReflectConstruct = _isNativeReflectConstruct();
+
+    return function () {
+      var Super = _getPrototypeOf(Derived),
+          result;
+
+      if (hasNativeReflectConstruct) {
+        var NewTarget = _getPrototypeOf(this).constructor;
+
+        result = Reflect.construct(Super, arguments, NewTarget);
+      } else {
+        result = Super.apply(this, arguments);
+      }
+
+      return _possibleConstructorReturn(this, result);
+    };
+  }
+
+  function _superPropBase(object, property) {
+    while (!Object.prototype.hasOwnProperty.call(object, property)) {
+      object = _getPrototypeOf(object);
+      if (object === null) break;
+    }
+
+    return object;
+  }
+
+  function _get(target, property, receiver) {
+    if (typeof Reflect !== "undefined" && Reflect.get) {
+      _get = Reflect.get;
+    } else {
+      _get = function _get(target, property, receiver) {
+        var base = _superPropBase(target, property);
+
+        if (!base) return;
+        var desc = Object.getOwnPropertyDescriptor(base, property);
+
+        if (desc.get) {
+          return desc.get.call(receiver);
+        }
+
+        return desc.value;
+      };
+    }
+
+    return _get(target, property, receiver || target);
+  }
+
+  var consolePrefix = 'SweetAlert2:';
+  /**
+   * Filter the unique values into a new array
+   * @param arr
+   */
+
+  var uniqueArray = function uniqueArray(arr) {
+    var result = [];
+
+    for (var i = 0; i < arr.length; i++) {
+      if (result.indexOf(arr[i]) === -1) {
+        result.push(arr[i]);
+      }
+    }
+
+    return result;
+  };
+  /**
+   * Capitalize the first letter of a string
+   * @param str
+   */
+
+  var capitalizeFirstLetter = function capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+  /**
+   * Returns the array ob object values (Object.values isn't supported in IE11)
+   * @param obj
+   */
+
+  var objectValues = function objectValues(obj) {
+    return Object.keys(obj).map(function (key) {
+      return obj[key];
+    });
+  };
+  /**
+   * Convert NodeList to Array
+   * @param nodeList
+   */
+
+  var toArray = function toArray(nodeList) {
+    return Array.prototype.slice.call(nodeList);
+  };
+  /**
+   * Standardise console warnings
+   * @param message
+   */
+
+  var warn = function warn(message) {
+    console.warn("".concat(consolePrefix, " ").concat(message));
+  };
+  /**
+   * Standardise console errors
+   * @param message
+   */
+
+  var error = function error(message) {
+    console.error("".concat(consolePrefix, " ").concat(message));
+  };
+  /**
+   * Private global state for `warnOnce`
+   * @type {Array}
+   * @private
+   */
+
+  var previousWarnOnceMessages = [];
+  /**
+   * Show a console warning, but only if it hasn't already been shown
+   * @param message
+   */
+
+  var warnOnce = function warnOnce(message) {
+    if (!(previousWarnOnceMessages.indexOf(message) !== -1)) {
+      previousWarnOnceMessages.push(message);
+      warn(message);
+    }
+  };
+  /**
+   * Show a one-time console warning about deprecated params/methods
+   */
+
+  var warnAboutDepreation = function warnAboutDepreation(deprecatedParam, useInstead) {
+    warnOnce("\"".concat(deprecatedParam, "\" is deprecated and will be removed in the next major release. Please use \"").concat(useInstead, "\" instead."));
+  };
+  /**
+   * If `arg` is a function, call it (with no arguments or context) and return the result.
+   * Otherwise, just pass the value through
+   * @param arg
+   */
+
+  var callIfFunction = function callIfFunction(arg) {
+    return typeof arg === 'function' ? arg() : arg;
+  };
+  var isPromise = function isPromise(arg) {
+    return arg && Promise.resolve(arg) === arg;
+  };
+
+  var DismissReason = Object.freeze({
+    cancel: 'cancel',
+    backdrop: 'backdrop',
+    close: 'close',
+    esc: 'esc',
+    timer: 'timer'
+  });
+
+  var isJqueryElement = function isJqueryElement(elem) {
+    return _typeof(elem) === 'object' && elem.jquery;
+  };
+
+  var isElement = function isElement(elem) {
+    return elem instanceof Element || isJqueryElement(elem);
+  };
+
+  var argsToParams = function argsToParams(args) {
+    var params = {};
+
+    if (_typeof(args[0]) === 'object' && !isElement(args[0])) {
+      _extends(params, args[0]);
+    } else {
+      ['title', 'html', 'icon'].forEach(function (name, index) {
+        var arg = args[index];
+
+        if (typeof arg === 'string' || isElement(arg)) {
+          params[name] = arg;
+        } else if (arg !== undefined) {
+          error("Unexpected type of ".concat(name, "! Expected \"string\" or \"Element\", got ").concat(_typeof(arg)));
+        }
+      });
+    }
+
+    return params;
+  };
+
+  var swalPrefix = 'swal2-';
+  var prefix = function prefix(items) {
+    var result = {};
+
+    for (var i in items) {
+      result[items[i]] = swalPrefix + items[i];
+    }
+
+    return result;
+  };
+  var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'no-transition', 'toast', 'toast-shown', 'toast-column', 'show', 'hide', 'close', 'title', 'header', 'content', 'html-container', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'timer-progress-bar-container', 'scrollbar-measure', 'icon-success', 'icon-warning', 'icon-info', 'icon-question', 'icon-error']);
+  var iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
+
+  var getContainer = function getContainer() {
+    return document.body.querySelector(".".concat(swalClasses.container));
+  };
+  var elementBySelector = function elementBySelector(selectorString) {
+    var container = getContainer();
+    return container ? container.querySelector(selectorString) : null;
+  };
+
+  var elementByClass = function elementByClass(className) {
+    return elementBySelector(".".concat(className));
+  };
+
+  var getPopup = function getPopup() {
+    return elementByClass(swalClasses.popup);
+  };
+  var getIcons = function getIcons() {
+    var popup = getPopup();
+    return toArray(popup.querySelectorAll(".".concat(swalClasses.icon)));
+  };
+  var getIcon = function getIcon() {
+    var visibleIcon = getIcons().filter(function (icon) {
+      return isVisible(icon);
+    });
+    return visibleIcon.length ? visibleIcon[0] : null;
+  };
+  var getTitle = function getTitle() {
+    return elementByClass(swalClasses.title);
+  };
+  var getContent = function getContent() {
+    return elementByClass(swalClasses.content);
+  };
+  var getHtmlContainer = function getHtmlContainer() {
+    return elementByClass(swalClasses['html-container']);
+  };
+  var getImage = function getImage() {
+    return elementByClass(swalClasses.image);
+  };
+  var getProgressSteps = function getProgressSteps() {
+    return elementByClass(swalClasses['progress-steps']);
+  };
+  var getValidationMessage = function getValidationMessage() {
+    return elementByClass(swalClasses['validation-message']);
+  };
+  var getConfirmButton = function getConfirmButton() {
+    return elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.confirm));
+  };
+  var getCancelButton = function getCancelButton() {
+    return elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.cancel));
+  };
+  var getActions = function getActions() {
+    return elementByClass(swalClasses.actions);
+  };
+  var getHeader = function getHeader() {
+    return elementByClass(swalClasses.header);
+  };
+  var getFooter = function getFooter() {
+    return elementByClass(swalClasses.footer);
+  };
+  var getTimerProgressBar = function getTimerProgressBar() {
+    return elementByClass(swalClasses['timer-progress-bar']);
+  };
+  var getCloseButton = function getCloseButton() {
+    return elementByClass(swalClasses.close);
+  }; // https://github.com/jkup/focusable/blob/master/index.js
+
+  var focusable = "\n  a[href],\n  area[href],\n  input:not([disabled]),\n  select:not([disabled]),\n  textarea:not([disabled]),\n  button:not([disabled]),\n  iframe,\n  object,\n  embed,\n  [tabindex=\"0\"],\n  [contenteditable],\n  audio[controls],\n  video[controls],\n  summary\n";
+  var getFocusableElements = function getFocusableElements() {
+    var focusableElementsWithTabindex = toArray(getPopup().querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])')) // sort according to tabindex
+    .sort(function (a, b) {
+      a = parseInt(a.getAttribute('tabindex'));
+      b = parseInt(b.getAttribute('tabindex'));
+
+      if (a > b) {
+        return 1;
+      } else if (a < b) {
+        return -1;
+      }
+
+      return 0;
+    });
+    var otherFocusableElements = toArray(getPopup().querySelectorAll(focusable)).filter(function (el) {
+      return el.getAttribute('tabindex') !== '-1';
+    });
+    return uniqueArray(focusableElementsWithTabindex.concat(otherFocusableElements)).filter(function (el) {
+      return isVisible(el);
+    });
+  };
+  var isModal = function isModal() {
+    return !isToast() && !document.body.classList.contains(swalClasses['no-backdrop']);
+  };
+  var isToast = function isToast() {
+    return document.body.classList.contains(swalClasses['toast-shown']);
+  };
+  var isLoading = function isLoading() {
+    return getPopup().hasAttribute('data-loading');
+  };
+
+  var states = {
+    previousBodyPadding: null
+  };
+  var setInnerHtml = function setInnerHtml(elem, html) {
+    // #1926
+    elem.textContent = '';
+
+    if (html) {
+      var parser = new DOMParser();
+      var parsed = parser.parseFromString(html, "text/html");
+      toArray(parsed.querySelector('head').childNodes).forEach(function (child) {
+        elem.appendChild(child);
+      });
+      toArray(parsed.querySelector('body').childNodes).forEach(function (child) {
+        elem.appendChild(child);
+      });
+    }
+  };
+  var hasClass = function hasClass(elem, className) {
+    if (!className) {
+      return false;
+    }
+
+    var classList = className.split(/\s+/);
+
+    for (var i = 0; i < classList.length; i++) {
+      if (!elem.classList.contains(classList[i])) {
+        return false;
+      }
+    }
+
+    return true;
+  };
+
+  var removeCustomClasses = function removeCustomClasses(elem, params) {
+    toArray(elem.classList).forEach(function (className) {
+      if (!(objectValues(swalClasses).indexOf(className) !== -1) && !(objectValues(iconTypes).indexOf(className) !== -1) && !(objectValues(params.showClass).indexOf(className) !== -1)) {
+        elem.classList.remove(className);
+      }
+    });
+  };
+
+  var applyCustomClass = function applyCustomClass(elem, params, className) {
+    removeCustomClasses(elem, params);
+
+    if (params.customClass && params.customClass[className]) {
+      if (typeof params.customClass[className] !== 'string' && !params.customClass[className].forEach) {
+        return warn("Invalid type of customClass.".concat(className, "! Expected string or iterable object, got \"").concat(_typeof(params.customClass[className]), "\""));
+      }
+
+      addClass(elem, params.customClass[className]);
+    }
+  };
+  function getInput(content, inputType) {
+    if (!inputType) {
+      return null;
+    }
+
+    switch (inputType) {
+      case 'select':
+      case 'textarea':
+      case 'file':
+        return getChildByClass(content, swalClasses[inputType]);
+
+      case 'checkbox':
+        return content.querySelector(".".concat(swalClasses.checkbox, " input"));
+
+      case 'radio':
+        return content.querySelector(".".concat(swalClasses.radio, " input:checked")) || content.querySelector(".".concat(swalClasses.radio, " input:first-child"));
+
+      case 'range':
+        return content.querySelector(".".concat(swalClasses.range, " input"));
+
+      default:
+        return getChildByClass(content, swalClasses.input);
+    }
+  }
+  var focusInput = function focusInput(input) {
+    input.focus(); // place cursor at end of text in text input
+
+    if (input.type !== 'file') {
+      // http://stackoverflow.com/a/2345915
+      var val = input.value;
+      input.value = '';
+      input.value = val;
+    }
+  };
+  var toggleClass = function toggleClass(target, classList, condition) {
+    if (!target || !classList) {
+      return;
+    }
+
+    if (typeof classList === 'string') {
+      classList = classList.split(/\s+/).filter(Boolean);
+    }
+
+    classList.forEach(function (className) {
+      if (target.forEach) {
+        target.forEach(function (elem) {
+          condition ? elem.classList.add(className) : elem.classList.remove(className);
+        });
+      } else {
+        condition ? target.classList.add(className) : target.classList.remove(className);
+      }
+    });
+  };
+  var addClass = function addClass(target, classList) {
+    toggleClass(target, classList, true);
+  };
+  var removeClass = function removeClass(target, classList) {
+    toggleClass(target, classList, false);
+  };
+  var getChildByClass = function getChildByClass(elem, className) {
+    for (var i = 0; i < elem.childNodes.length; i++) {
+      if (hasClass(elem.childNodes[i], className)) {
+        return elem.childNodes[i];
+      }
+    }
+  };
+  var applyNumericalStyle = function applyNumericalStyle(elem, property, value) {
+    if (value || parseInt(value) === 0) {
+      elem.style[property] = typeof value === 'number' ? "".concat(value, "px") : value;
+    } else {
+      elem.style.removeProperty(property);
+    }
+  };
+  var show = function show(elem) {
+    var display = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'flex';
+    elem.style.opacity = '';
+    elem.style.display = display;
+  };
+  var hide = function hide(elem) {
+    elem.style.opacity = '';
+    elem.style.display = 'none';
+  };
+  var toggle = function toggle(elem, condition, display) {
+    condition ? show(elem, display) : hide(elem);
+  }; // borrowed from jquery $(elem).is(':visible') implementation
+
+  var isVisible = function isVisible(elem) {
+    return !!(elem && (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length));
+  };
+  /* istanbul ignore next */
+
+  var isScrollable = function isScrollable(elem) {
+    return !!(elem.scrollHeight > elem.clientHeight);
+  }; // borrowed from https://stackoverflow.com/a/46352119
+
+  var hasCssAnimation = function hasCssAnimation(elem) {
+    var style = window.getComputedStyle(elem);
+    var animDuration = parseFloat(style.getPropertyValue('animation-duration') || '0');
+    var transDuration = parseFloat(style.getPropertyValue('transition-duration') || '0');
+    return animDuration > 0 || transDuration > 0;
+  };
+  var contains = function contains(haystack, needle) {
+    if (typeof haystack.contains === 'function') {
+      return haystack.contains(needle);
+    }
+  };
+  var animateTimerProgressBar = function animateTimerProgressBar(timer) {
+    var reset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    var timerProgressBar = getTimerProgressBar();
+
+    if (isVisible(timerProgressBar)) {
+      if (reset) {
+        timerProgressBar.style.transition = 'none';
+        timerProgressBar.style.width = '100%';
+      }
+
+      setTimeout(function () {
+        timerProgressBar.style.transition = "width ".concat(timer / 1000, "s linear");
+        timerProgressBar.style.width = '0%';
+      }, 10);
+    }
+  };
+  var stopTimerProgressBar = function stopTimerProgressBar() {
+    var timerProgressBar = getTimerProgressBar();
+    var timerProgressBarWidth = parseInt(window.getComputedStyle(timerProgressBar).width);
+    timerProgressBar.style.removeProperty('transition');
+    timerProgressBar.style.width = '100%';
+    var timerProgressBarFullWidth = parseInt(window.getComputedStyle(timerProgressBar).width);
+    var timerProgressBarPercent = parseInt(timerProgressBarWidth / timerProgressBarFullWidth * 100);
+    timerProgressBar.style.removeProperty('transition');
+    timerProgressBar.style.width = "".concat(timerProgressBarPercent, "%");
+  };
+
+  // Detect Node env
+  var isNodeEnv = function isNodeEnv() {
+    return typeof window === 'undefined' || typeof document === 'undefined';
+  };
+
+  var sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <div class=\"").concat(swalClasses.header, "\">\n     <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.error, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.question, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.warning, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.info, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.success, "\"></div>\n     <img class=\"").concat(swalClasses.image, "\" />\n     <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n     <button type=\"button\" class=\"").concat(swalClasses.close, "\"></button>\n   </div>\n   <div class=\"").concat(swalClasses.content, "\">\n     <div id=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses['html-container'], "\"></div>\n     <input class=\"").concat(swalClasses.input, "\" />\n     <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n     <div class=\"").concat(swalClasses.range, "\">\n       <input type=\"range\" />\n       <output></output>\n     </div>\n     <select class=\"").concat(swalClasses.select, "\"></select>\n     <div class=\"").concat(swalClasses.radio, "\"></div>\n     <label for=\"").concat(swalClasses.checkbox, "\" class=\"").concat(swalClasses.checkbox, "\">\n       <input type=\"checkbox\" />\n       <span class=\"").concat(swalClasses.label, "\"></span>\n     </label>\n     <textarea class=\"").concat(swalClasses.textarea, "\"></textarea>\n     <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   </div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\">OK</button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\">Cancel</button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\"></div>\n   <div class=\"").concat(swalClasses['timer-progress-bar-container'], "\">\n     <div class=\"").concat(swalClasses['timer-progress-bar'], "\"></div>\n   </div>\n </div>\n").replace(/(^|\n)\s*/g, '');
+
+  var resetOldContainer = function resetOldContainer() {
+    var oldContainer = getContainer();
+
+    if (!oldContainer) {
+      return false;
+    }
+
+    oldContainer.parentNode.removeChild(oldContainer);
+    removeClass([document.documentElement, document.body], [swalClasses['no-backdrop'], swalClasses['toast-shown'], swalClasses['has-column']]);
+    return true;
+  };
+
+  var oldInputVal; // IE11 workaround, see #1109 for details
+
+  var resetValidationMessage = function resetValidationMessage(e) {
+    if (Swal.isVisible() && oldInputVal !== e.target.value) {
+      Swal.resetValidationMessage();
+    }
+
+    oldInputVal = e.target.value;
+  };
+
+  var addInputChangeListeners = function addInputChangeListeners() {
+    var content = getContent();
+    var input = getChildByClass(content, swalClasses.input);
+    var file = getChildByClass(content, swalClasses.file);
+    var range = content.querySelector(".".concat(swalClasses.range, " input"));
+    var rangeOutput = content.querySelector(".".concat(swalClasses.range, " output"));
+    var select = getChildByClass(content, swalClasses.select);
+    var checkbox = content.querySelector(".".concat(swalClasses.checkbox, " input"));
+    var textarea = getChildByClass(content, swalClasses.textarea);
+    input.oninput = resetValidationMessage;
+    file.onchange = resetValidationMessage;
+    select.onchange = resetValidationMessage;
+    checkbox.onchange = resetValidationMessage;
+    textarea.oninput = resetValidationMessage;
+
+    range.oninput = function (e) {
+      resetValidationMessage(e);
+      rangeOutput.value = range.value;
+    };
+
+    range.onchange = function (e) {
+      resetValidationMessage(e);
+      range.nextSibling.value = range.value;
+    };
+  };
+
+  var getTarget = function getTarget(target) {
+    return typeof target === 'string' ? document.querySelector(target) : target;
+  };
+
+  var setupAccessibility = function setupAccessibility(params) {
+    var popup = getPopup();
+    popup.setAttribute('role', params.toast ? 'alert' : 'dialog');
+    popup.setAttribute('aria-live', params.toast ? 'polite' : 'assertive');
+
+    if (!params.toast) {
+      popup.setAttribute('aria-modal', 'true');
+    }
+  };
+
+  var setupRTL = function setupRTL(targetElement) {
+    if (window.getComputedStyle(targetElement).direction === 'rtl') {
+      addClass(getContainer(), swalClasses.rtl);
+    }
+  };
+  /*
+   * Add modal + backdrop to DOM
+   */
+
+
+  var init = function init(params) {
+    // Clean up the old popup container if it exists
+    var oldContainerExisted = resetOldContainer();
+    /* istanbul ignore if */
+
+    if (isNodeEnv()) {
+      error('SweetAlert2 requires document to initialize');
+      return;
+    }
+
+    var container = document.createElement('div');
+    container.className = swalClasses.container;
+
+    if (oldContainerExisted) {
+      addClass(container, swalClasses['no-transition']);
+    }
+
+    setInnerHtml(container, sweetHTML);
+    var targetElement = getTarget(params.target);
+    targetElement.appendChild(container);
+    setupAccessibility(params);
+    setupRTL(targetElement);
+    addInputChangeListeners();
+  };
+
+  var parseHtmlToContainer = function parseHtmlToContainer(param, target) {
+    // DOM element
+    if (param instanceof HTMLElement) {
+      target.appendChild(param); // Object
+    } else if (_typeof(param) === 'object') {
+      handleObject(param, target); // Plain string
+    } else if (param) {
+      setInnerHtml(target, param);
+    }
+  };
+
+  var handleObject = function handleObject(param, target) {
+    // JQuery element(s)
+    if (param.jquery) {
+      handleJqueryElem(target, param); // For other objects use their string representation
+    } else {
+      setInnerHtml(target, param.toString());
+    }
+  };
+
+  var handleJqueryElem = function handleJqueryElem(target, elem) {
+    target.textContent = '';
+
+    if (0 in elem) {
+      for (var i = 0; (i in elem); i++) {
+        target.appendChild(elem[i].cloneNode(true));
+      }
+    } else {
+      target.appendChild(elem.cloneNode(true));
+    }
+  };
+
+  var animationEndEvent = function () {
+    // Prevent run in Node env
+
+    /* istanbul ignore if */
+    if (isNodeEnv()) {
+      return false;
+    }
+
+    var testEl = document.createElement('div');
+    var transEndEventNames = {
+      WebkitAnimation: 'webkitAnimationEnd',
+      OAnimation: 'oAnimationEnd oanimationend',
+      animation: 'animationend'
+    };
+
+    for (var i in transEndEventNames) {
+      if (Object.prototype.hasOwnProperty.call(transEndEventNames, i) && typeof testEl.style[i] !== 'undefined') {
+        return transEndEventNames[i];
+      }
+    }
+
+    return false;
+  }();
+
+  // https://github.com/twbs/bootstrap/blob/master/js/src/modal.js
+
+  var measureScrollbar = function measureScrollbar() {
+    var scrollDiv = document.createElement('div');
+    scrollDiv.className = swalClasses['scrollbar-measure'];
+    document.body.appendChild(scrollDiv);
+    var scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
+    document.body.removeChild(scrollDiv);
+    return scrollbarWidth;
+  };
+
+  var renderActions = function renderActions(instance, params) {
+    var actions = getActions();
+    var confirmButton = getConfirmButton();
+    var cancelButton = getCancelButton(); // Actions (buttons) wrapper
+
+    if (!params.showConfirmButton && !params.showCancelButton) {
+      hide(actions);
+    } // Custom class
+
+
+    applyCustomClass(actions, params, 'actions'); // Render confirm button
+
+    renderButton(confirmButton, 'confirm', params); // render Cancel Button
+
+    renderButton(cancelButton, 'cancel', params);
+
+    if (params.buttonsStyling) {
+      handleButtonsStyling(confirmButton, cancelButton, params);
+    } else {
+      removeClass([confirmButton, cancelButton], swalClasses.styled);
+      confirmButton.style.backgroundColor = confirmButton.style.borderLeftColor = confirmButton.style.borderRightColor = '';
+      cancelButton.style.backgroundColor = cancelButton.style.borderLeftColor = cancelButton.style.borderRightColor = '';
+    }
+
+    if (params.reverseButtons) {
+      confirmButton.parentNode.insertBefore(cancelButton, confirmButton);
+    }
+  };
+
+  function handleButtonsStyling(confirmButton, cancelButton, params) {
+    addClass([confirmButton, cancelButton], swalClasses.styled); // Buttons background colors
+
+    if (params.confirmButtonColor) {
+      confirmButton.style.backgroundColor = params.confirmButtonColor;
+    }
+
+    if (params.cancelButtonColor) {
+      cancelButton.style.backgroundColor = params.cancelButtonColor;
+    } // Loading state
+
+
+    if (!isLoading()) {
+      var confirmButtonBackgroundColor = window.getComputedStyle(confirmButton).getPropertyValue('background-color');
+      confirmButton.style.borderLeftColor = confirmButtonBackgroundColor;
+      confirmButton.style.borderRightColor = confirmButtonBackgroundColor;
+    }
+  }
+
+  function renderButton(button, buttonType, params) {
+    toggle(button, params["show".concat(capitalizeFirstLetter(buttonType), "Button")], 'inline-block');
+    setInnerHtml(button, params["".concat(buttonType, "ButtonText")]); // Set caption text
+
+    button.setAttribute('aria-label', params["".concat(buttonType, "ButtonAriaLabel")]); // ARIA label
+    // Add buttons custom classes
+
+    button.className = swalClasses[buttonType];
+    applyCustomClass(button, params, "".concat(buttonType, "Button"));
+    addClass(button, params["".concat(buttonType, "ButtonClass")]);
+  }
+
+  function handleBackdropParam(container, backdrop) {
+    if (typeof backdrop === 'string') {
+      container.style.background = backdrop;
+    } else if (!backdrop) {
+      addClass([document.documentElement, document.body], swalClasses['no-backdrop']);
+    }
+  }
+
+  function handlePositionParam(container, position) {
+    if (position in swalClasses) {
+      addClass(container, swalClasses[position]);
+    } else {
+      warn('The "position" parameter is not valid, defaulting to "center"');
+      addClass(container, swalClasses.center);
+    }
+  }
+
+  function handleGrowParam(container, grow) {
+    if (grow && typeof grow === 'string') {
+      var growClass = "grow-".concat(grow);
+
+      if (growClass in swalClasses) {
+        addClass(container, swalClasses[growClass]);
+      }
+    }
+  }
+
+  var renderContainer = function renderContainer(instance, params) {
+    var container = getContainer();
+
+    if (!container) {
+      return;
+    }
+
+    handleBackdropParam(container, params.backdrop);
+
+    if (!params.backdrop && params.allowOutsideClick) {
+      warn('"allowOutsideClick" parameter requires `backdrop` parameter to be set to `true`');
+    }
+
+    handlePositionParam(container, params.position);
+    handleGrowParam(container, params.grow); // Custom class
+
+    applyCustomClass(container, params, 'container'); // Set queue step attribute for getQueueStep() method
+
+    var queueStep = document.body.getAttribute('data-swal2-queue-step');
+
+    if (queueStep) {
+      container.setAttribute('data-queue-step', queueStep);
+      document.body.removeAttribute('data-swal2-queue-step');
+    }
+  };
+
+  /**
+   * This module containts `WeakMap`s for each effectively-"private  property" that a `Swal` has.
+   * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
+   * This is the approach that Babel will probably take to implement private methods/fields
+   *   https://github.com/tc39/proposal-private-methods
+   *   https://github.com/babel/babel/pull/7555
+   * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
+   *   then we can use that language feature.
+   */
+  var privateProps = {
+    promise: new WeakMap(),
+    innerParams: new WeakMap(),
+    domCache: new WeakMap()
+  };
+
+  var inputTypes = ['input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea'];
+  var renderInput = function renderInput(instance, params) {
+    var content = getContent();
+    var innerParams = privateProps.innerParams.get(instance);
+    var rerender = !innerParams || params.input !== innerParams.input;
+    inputTypes.forEach(function (inputType) {
+      var inputClass = swalClasses[inputType];
+      var inputContainer = getChildByClass(content, inputClass); // set attributes
+
+      setAttributes(inputType, params.inputAttributes); // set class
+
+      inputContainer.className = inputClass;
+
+      if (rerender) {
+        hide(inputContainer);
+      }
+    });
+
+    if (params.input) {
+      if (rerender) {
+        showInput(params);
+      } // set custom class
+
+
+      setCustomClass(params);
+    }
+  };
+
+  var showInput = function showInput(params) {
+    if (!renderInputType[params.input]) {
+      return error("Unexpected type of input! Expected \"text\", \"email\", \"password\", \"number\", \"tel\", \"select\", \"radio\", \"checkbox\", \"textarea\", \"file\" or \"url\", got \"".concat(params.input, "\""));
+    }
+
+    var inputContainer = getInputContainer(params.input);
+    var input = renderInputType[params.input](inputContainer, params);
+    show(input); // input autofocus
+
+    setTimeout(function () {
+      focusInput(input);
+    });
+  };
+
+  var removeAttributes = function removeAttributes(input) {
+    for (var i = 0; i < input.attributes.length; i++) {
+      var attrName = input.attributes[i].name;
+
+      if (!(['type', 'value', 'style'].indexOf(attrName) !== -1)) {
+        input.removeAttribute(attrName);
+      }
+    }
+  };
+
+  var setAttributes = function setAttributes(inputType, inputAttributes) {
+    var input = getInput(getContent(), inputType);
+
+    if (!input) {
+      return;
+    }
+
+    removeAttributes(input);
+
+    for (var attr in inputAttributes) {
+      // Do not set a placeholder for <input type="range">
+      // it'll crash Edge, #1298
+      if (inputType === 'range' && attr === 'placeholder') {
+        continue;
+      }
+
+      input.setAttribute(attr, inputAttributes[attr]);
+    }
+  };
+
+  var setCustomClass = function setCustomClass(params) {
+    var inputContainer = getInputContainer(params.input);
+
+    if (params.customClass) {
+      addClass(inputContainer, params.customClass.input);
+    }
+  };
+
+  var setInputPlaceholder = function setInputPlaceholder(input, params) {
+    if (!input.placeholder || params.inputPlaceholder) {
+      input.placeholder = params.inputPlaceholder;
+    }
+  };
+
+  var getInputContainer = function getInputContainer(inputType) {
+    var inputClass = swalClasses[inputType] ? swalClasses[inputType] : swalClasses.input;
+    return getChildByClass(getContent(), inputClass);
+  };
+
+  var renderInputType = {};
+
+  renderInputType.text = renderInputType.email = renderInputType.password = renderInputType.number = renderInputType.tel = renderInputType.url = function (input, params) {
+    if (typeof params.inputValue === 'string' || typeof params.inputValue === 'number') {
+      input.value = params.inputValue;
+    } else if (!isPromise(params.inputValue)) {
+      warn("Unexpected type of inputValue! Expected \"string\", \"number\" or \"Promise\", got \"".concat(_typeof(params.inputValue), "\""));
+    }
+
+    setInputPlaceholder(input, params);
+    input.type = params.input;
+    return input;
+  };
+
+  renderInputType.file = function (input, params) {
+    setInputPlaceholder(input, params);
+    return input;
+  };
+
+  renderInputType.range = function (range, params) {
+    var rangeInput = range.querySelector('input');
+    var rangeOutput = range.querySelector('output');
+    rangeInput.value = params.inputValue;
+    rangeInput.type = params.input;
+    rangeOutput.value = params.inputValue;
+    return range;
+  };
+
+  renderInputType.select = function (select, params) {
+    select.textContent = '';
+
+    if (params.inputPlaceholder) {
+      var placeholder = document.createElement('option');
+      setInnerHtml(placeholder, params.inputPlaceholder);
+      placeholder.value = '';
+      placeholder.disabled = true;
+      placeholder.selected = true;
+      select.appendChild(placeholder);
+    }
+
+    return select;
+  };
+
+  renderInputType.radio = function (radio) {
+    radio.textContent = '';
+    return radio;
+  };
+
+  renderInputType.checkbox = function (checkboxContainer, params) {
+    var checkbox = getInput(getContent(), 'checkbox');
+    checkbox.value = 1;
+    checkbox.id = swalClasses.checkbox;
+    checkbox.checked = Boolean(params.inputValue);
+    var label = checkboxContainer.querySelector('span');
+    setInnerHtml(label, params.inputPlaceholder);
+    return checkboxContainer;
+  };
+
+  renderInputType.textarea = function (textarea, params) {
+    textarea.value = params.inputValue;
+    setInputPlaceholder(textarea, params);
+
+    if ('MutationObserver' in window) {
+      // #1699
+      var initialPopupWidth = parseInt(window.getComputedStyle(getPopup()).width);
+      var popupPadding = parseInt(window.getComputedStyle(getPopup()).paddingLeft) + parseInt(window.getComputedStyle(getPopup()).paddingRight);
+
+      var outputsize = function outputsize() {
+        var contentWidth = textarea.offsetWidth + popupPadding;
+
+        if (contentWidth > initialPopupWidth) {
+          getPopup().style.width = "".concat(contentWidth, "px");
+        } else {
+          getPopup().style.width = null;
+        }
+      };
+
+      new MutationObserver(outputsize).observe(textarea, {
+        attributes: true,
+        attributeFilter: ['style']
+      });
+    }
+
+    return textarea;
+  };
+
+  var renderContent = function renderContent(instance, params) {
+    var content = getContent().querySelector("#".concat(swalClasses.content)); // Content as HTML
+
+    if (params.html) {
+      parseHtmlToContainer(params.html, content);
+      show(content, 'block'); // Content as plain text
+    } else if (params.text) {
+      content.textContent = params.text;
+      show(content, 'block'); // No content
+    } else {
+      hide(content);
+    }
+
+    renderInput(instance, params); // Custom class
+
+    applyCustomClass(getContent(), params, 'content');
+  };
+
+  var renderFooter = function renderFooter(instance, params) {
+    var footer = getFooter();
+    toggle(footer, params.footer);
+
+    if (params.footer) {
+      parseHtmlToContainer(params.footer, footer);
+    } // Custom class
+
+
+    applyCustomClass(footer, params, 'footer');
+  };
+
+  var renderCloseButton = function renderCloseButton(instance, params) {
+    var closeButton = getCloseButton();
+    setInnerHtml(closeButton, params.closeButtonHtml); // Custom class
+
+    applyCustomClass(closeButton, params, 'closeButton');
+    toggle(closeButton, params.showCloseButton);
+    closeButton.setAttribute('aria-label', params.closeButtonAriaLabel);
+  };
+
+  var renderIcon = function renderIcon(instance, params) {
+    var innerParams = privateProps.innerParams.get(instance); // if the give icon already rendered, apply the custom class without re-rendering the icon
+
+    if (innerParams && params.icon === innerParams.icon && getIcon()) {
+      applyCustomClass(getIcon(), params, 'icon');
+      return;
+    }
+
+    hideAllIcons();
+
+    if (!params.icon) {
+      return;
+    }
+
+    if (Object.keys(iconTypes).indexOf(params.icon) !== -1) {
+      var icon = elementBySelector(".".concat(swalClasses.icon, ".").concat(iconTypes[params.icon]));
+      show(icon); // Custom or default content
+
+      setContent(icon, params);
+      adjustSuccessIconBackgoundColor(); // Custom class
+
+      applyCustomClass(icon, params, 'icon'); // Animate icon
+
+      addClass(icon, params.showClass.icon);
+    } else {
+      error("Unknown icon! Expected \"success\", \"error\", \"warning\", \"info\" or \"question\", got \"".concat(params.icon, "\""));
+    }
+  };
+
+  var hideAllIcons = function hideAllIcons() {
+    var icons = getIcons();
+
+    for (var i = 0; i < icons.length; i++) {
+      hide(icons[i]);
+    }
+  }; // Adjust success icon background color to match the popup background color
+
+
+  var adjustSuccessIconBackgoundColor = function adjustSuccessIconBackgoundColor() {
+    var popup = getPopup();
+    var popupBackgroundColor = window.getComputedStyle(popup).getPropertyValue('background-color');
+    var successIconParts = popup.querySelectorAll('[class^=swal2-success-circular-line], .swal2-success-fix');
+
+    for (var i = 0; i < successIconParts.length; i++) {
+      successIconParts[i].style.backgroundColor = popupBackgroundColor;
+    }
+  };
+
+  var setContent = function setContent(icon, params) {
+    icon.textContent = '';
+
+    if (params.iconHtml) {
+      setInnerHtml(icon, iconContent(params.iconHtml));
+    } else if (params.icon === 'success') {
+      setInnerHtml(icon, "\n      <div class=\"swal2-success-circular-line-left\"></div>\n      <span class=\"swal2-success-line-tip\"></span> <span class=\"swal2-success-line-long\"></span>\n      <div class=\"swal2-success-ring\"></div> <div class=\"swal2-success-fix\"></div>\n      <div class=\"swal2-success-circular-line-right\"></div>\n    ");
+    } else if (params.icon === 'error') {
+      setInnerHtml(icon, "\n      <span class=\"swal2-x-mark\">\n        <span class=\"swal2-x-mark-line-left\"></span>\n        <span class=\"swal2-x-mark-line-right\"></span>\n      </span>\n    ");
+    } else {
+      var defaultIconHtml = {
+        question: '?',
+        warning: '!',
+        info: 'i'
+      };
+      setInnerHtml(icon, iconContent(defaultIconHtml[params.icon]));
+    }
+  };
+
+  var iconContent = function iconContent(content) {
+    return "<div class=\"".concat(swalClasses['icon-content'], "\">").concat(content, "</div>");
+  };
+
+  var renderImage = function renderImage(instance, params) {
+    var image = getImage();
+
+    if (!params.imageUrl) {
+      return hide(image);
+    }
+
+    show(image, ''); // Src, alt
+
+    image.setAttribute('src', params.imageUrl);
+    image.setAttribute('alt', params.imageAlt); // Width, height
+
+    applyNumericalStyle(image, 'width', params.imageWidth);
+    applyNumericalStyle(image, 'height', params.imageHeight); // Class
+
+    image.className = swalClasses.image;
+    applyCustomClass(image, params, 'image');
+  };
+
+  var currentSteps = [];
+  /*
+   * Global function for chaining sweetAlert popups
+   */
+
+  var queue = function queue(steps) {
+    var Swal = this;
+    currentSteps = steps;
+
+    var resetAndResolve = function resetAndResolve(resolve, value) {
+      currentSteps = [];
+      resolve(value);
+    };
+
+    var queueResult = [];
+    return new Promise(function (resolve) {
+      (function step(i, callback) {
+        if (i < currentSteps.length) {
+          document.body.setAttribute('data-swal2-queue-step', i);
+          Swal.fire(currentSteps[i]).then(function (result) {
+            if (typeof result.value !== 'undefined') {
+              queueResult.push(result.value);
+              step(i + 1, callback);
+            } else {
+              resetAndResolve(resolve, {
+                dismiss: result.dismiss
+              });
+            }
+          });
+        } else {
+          resetAndResolve(resolve, {
+            value: queueResult
+          });
+        }
+      })(0);
+    });
+  };
+  /*
+   * Global function for getting the index of current popup in queue
+   */
+
+  var getQueueStep = function getQueueStep() {
+    return getContainer() && getContainer().getAttribute('data-queue-step');
+  };
+  /*
+   * Global function for inserting a popup to the queue
+   */
+
+  var insertQueueStep = function insertQueueStep(step, index) {
+    if (index && index < currentSteps.length) {
+      return currentSteps.splice(index, 0, step);
+    }
+
+    return currentSteps.push(step);
+  };
+  /*
+   * Global function for deleting a popup from the queue
+   */
+
+  var deleteQueueStep = function deleteQueueStep(index) {
+    if (typeof currentSteps[index] !== 'undefined') {
+      currentSteps.splice(index, 1);
+    }
+  };
+
+  var createStepElement = function createStepElement(step) {
+    var stepEl = document.createElement('li');
+    addClass(stepEl, swalClasses['progress-step']);
+    setInnerHtml(stepEl, step);
+    return stepEl;
+  };
+
+  var createLineElement = function createLineElement(params) {
+    var lineEl = document.createElement('li');
+    addClass(lineEl, swalClasses['progress-step-line']);
+
+    if (params.progressStepsDistance) {
+      lineEl.style.width = params.progressStepsDistance;
+    }
+
+    return lineEl;
+  };
+
+  var renderProgressSteps = function renderProgressSteps(instance, params) {
+    var progressStepsContainer = getProgressSteps();
+
+    if (!params.progressSteps || params.progressSteps.length === 0) {
+      return hide(progressStepsContainer);
+    }
+
+    show(progressStepsContainer);
+    progressStepsContainer.textContent = '';
+    var currentProgressStep = parseInt(params.currentProgressStep === undefined ? getQueueStep() : params.currentProgressStep);
+
+    if (currentProgressStep >= params.progressSteps.length) {
+      warn('Invalid currentProgressStep parameter, it should be less than progressSteps.length ' + '(currentProgressStep like JS arrays starts from 0)');
+    }
+
+    params.progressSteps.forEach(function (step, index) {
+      var stepEl = createStepElement(step);
+      progressStepsContainer.appendChild(stepEl);
+
+      if (index === currentProgressStep) {
+        addClass(stepEl, swalClasses['active-progress-step']);
+      }
+
+      if (index !== params.progressSteps.length - 1) {
+        var lineEl = createLineElement(step);
+        progressStepsContainer.appendChild(lineEl);
+      }
+    });
+  };
+
+  var renderTitle = function renderTitle(instance, params) {
+    var title = getTitle();
+    toggle(title, params.title || params.titleText);
+
+    if (params.title) {
+      parseHtmlToContainer(params.title, title);
+    }
+
+    if (params.titleText) {
+      title.innerText = params.titleText;
+    } // Custom class
+
+
+    applyCustomClass(title, params, 'title');
+  };
+
+  var renderHeader = function renderHeader(instance, params) {
+    var header = getHeader(); // Custom class
+
+    applyCustomClass(header, params, 'header'); // Progress steps
+
+    renderProgressSteps(instance, params); // Icon
+
+    renderIcon(instance, params); // Image
+
+    renderImage(instance, params); // Title
+
+    renderTitle(instance, params); // Close button
+
+    renderCloseButton(instance, params);
+  };
+
+  var renderPopup = function renderPopup(instance, params) {
+    var popup = getPopup(); // Width
+
+    applyNumericalStyle(popup, 'width', params.width); // Padding
+
+    applyNumericalStyle(popup, 'padding', params.padding); // Background
+
+    if (params.background) {
+      popup.style.background = params.background;
+    } // Classes
+
+
+    addClasses(popup, params);
+  };
+
+  var addClasses = function addClasses(popup, params) {
+    // Default Class + showClass when updating Swal.update({})
+    popup.className = "".concat(swalClasses.popup, " ").concat(isVisible(popup) ? params.showClass.popup : '');
+
+    if (params.toast) {
+      addClass([document.documentElement, document.body], swalClasses['toast-shown']);
+      addClass(popup, swalClasses.toast);
+    } else {
+      addClass(popup, swalClasses.modal);
+    } // Custom class
+
+
+    applyCustomClass(popup, params, 'popup');
+
+    if (typeof params.customClass === 'string') {
+      addClass(popup, params.customClass);
+    } // Icon class (#1842)
+
+
+    if (params.icon) {
+      addClass(popup, swalClasses["icon-".concat(params.icon)]);
+    }
+  };
+
+  var render = function render(instance, params) {
+    renderPopup(instance, params);
+    renderContainer(instance, params);
+    renderHeader(instance, params);
+    renderContent(instance, params);
+    renderActions(instance, params);
+    renderFooter(instance, params);
+
+    if (typeof params.onRender === 'function') {
+      params.onRender(getPopup());
+    }
+  };
+
+  /*
+   * Global function to determine if SweetAlert2 popup is shown
+   */
+
+  var isVisible$1 = function isVisible$$1() {
+    return isVisible(getPopup());
+  };
+  /*
+   * Global function to click 'Confirm' button
+   */
+
+  var clickConfirm = function clickConfirm() {
+    return getConfirmButton() && getConfirmButton().click();
+  };
+  /*
+   * Global function to click 'Cancel' button
+   */
+
+  var clickCancel = function clickCancel() {
+    return getCancelButton() && getCancelButton().click();
+  };
+
+  function fire() {
+    var Swal = this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _construct(Swal, args);
+  }
+
+  /**
+   * Returns an extended version of `Swal` containing `params` as defaults.
+   * Useful for reusing Swal configuration.
+   *
+   * For example:
+   *
+   * Before:
+   * const textPromptOptions = { input: 'text', showCancelButton: true }
+   * const {value: firstName} = await Swal.fire({ ...textPromptOptions, title: 'What is your first name?' })
+   * const {value: lastName} = await Swal.fire({ ...textPromptOptions, title: 'What is your last name?' })
+   *
+   * After:
+   * const TextPrompt = Swal.mixin({ input: 'text', showCancelButton: true })
+   * const {value: firstName} = await TextPrompt('What is your first name?')
+   * const {value: lastName} = await TextPrompt('What is your last name?')
+   *
+   * @param mixinParams
+   */
+  function mixin(mixinParams) {
+    var MixinSwal = /*#__PURE__*/function (_this) {
+      _inherits(MixinSwal, _this);
+
+      var _super = _createSuper(MixinSwal);
+
+      function MixinSwal() {
+        _classCallCheck(this, MixinSwal);
+
+        return _super.apply(this, arguments);
+      }
+
+      _createClass(MixinSwal, [{
+        key: "_main",
+        value: function _main(params) {
+          return _get(_getPrototypeOf(MixinSwal.prototype), "_main", this).call(this, _extends({}, mixinParams, params));
+        }
+      }]);
+
+      return MixinSwal;
+    }(this);
+
+    return MixinSwal;
+  }
+
+  /**
+   * Show spinner instead of Confirm button
+   */
+
+  var showLoading = function showLoading() {
+    var popup = getPopup();
+
+    if (!popup) {
+      Swal.fire();
+    }
+
+    popup = getPopup();
+    var actions = getActions();
+    var confirmButton = getConfirmButton();
+    show(actions);
+    show(confirmButton, 'inline-block');
+    addClass([popup, actions], swalClasses.loading);
+    confirmButton.disabled = true;
+    popup.setAttribute('data-loading', true);
+    popup.setAttribute('aria-busy', true);
+    popup.focus();
+  };
+
+  var RESTORE_FOCUS_TIMEOUT = 100;
+
+  var globalState = {};
+
+  var focusPreviousActiveElement = function focusPreviousActiveElement() {
+    if (globalState.previousActiveElement && globalState.previousActiveElement.focus) {
+      globalState.previousActiveElement.focus();
+      globalState.previousActiveElement = null;
+    } else if (document.body) {
+      document.body.focus();
+    }
+  }; // Restore previous active (focused) element
+
+
+  var restoreActiveElement = function restoreActiveElement() {
+    return new Promise(function (resolve) {
+      var x = window.scrollX;
+      var y = window.scrollY;
+      globalState.restoreFocusTimeout = setTimeout(function () {
+        focusPreviousActiveElement();
+        resolve();
+      }, RESTORE_FOCUS_TIMEOUT); // issues/900
+
+      /* istanbul ignore if */
+
+      if (typeof x !== 'undefined' && typeof y !== 'undefined') {
+        // IE doesn't have scrollX/scrollY support
+        window.scrollTo(x, y);
+      }
+    });
+  };
+
+  /**
+   * If `timer` parameter is set, returns number of milliseconds of timer remained.
+   * Otherwise, returns undefined.
+   */
+
+  var getTimerLeft = function getTimerLeft() {
+    return globalState.timeout && globalState.timeout.getTimerLeft();
+  };
+  /**
+   * Stop timer. Returns number of milliseconds of timer remained.
+   * If `timer` parameter isn't set, returns undefined.
+   */
+
+  var stopTimer = function stopTimer() {
+    if (globalState.timeout) {
+      stopTimerProgressBar();
+      return globalState.timeout.stop();
+    }
+  };
+  /**
+   * Resume timer. Returns number of milliseconds of timer remained.
+   * If `timer` parameter isn't set, returns undefined.
+   */
+
+  var resumeTimer = function resumeTimer() {
+    if (globalState.timeout) {
+      var remaining = globalState.timeout.start();
+      animateTimerProgressBar(remaining);
+      return remaining;
+    }
+  };
+  /**
+   * Resume timer. Returns number of milliseconds of timer remained.
+   * If `timer` parameter isn't set, returns undefined.
+   */
+
+  var toggleTimer = function toggleTimer() {
+    var timer = globalState.timeout;
+    return timer && (timer.running ? stopTimer() : resumeTimer());
+  };
+  /**
+   * Increase timer. Returns number of milliseconds of an updated timer.
+   * If `timer` parameter isn't set, returns undefined.
+   */
+
+  var increaseTimer = function increaseTimer(n) {
+    if (globalState.timeout) {
+      var remaining = globalState.timeout.increase(n);
+      animateTimerProgressBar(remaining, true);
+      return remaining;
+    }
+  };
+  /**
+   * Check if timer is running. Returns true if timer is running
+   * or false if timer is paused or stopped.
+   * If `timer` parameter isn't set, returns undefined
+   */
+
+  var isTimerRunning = function isTimerRunning() {
+    return globalState.timeout && globalState.timeout.isRunning();
+  };
+
+  var defaultParams = {
+    title: '',
+    titleText: '',
+    text: '',
+    html: '',
+    footer: '',
+    icon: undefined,
+    iconHtml: undefined,
+    toast: false,
+    animation: true,
+    showClass: {
+      popup: 'swal2-show',
+      backdrop: 'swal2-backdrop-show',
+      icon: 'swal2-icon-show'
+    },
+    hideClass: {
+      popup: 'swal2-hide',
+      backdrop: 'swal2-backdrop-hide',
+      icon: 'swal2-icon-hide'
+    },
+    customClass: undefined,
+    target: 'body',
+    backdrop: true,
+    heightAuto: true,
+    allowOutsideClick: true,
+    allowEscapeKey: true,
+    allowEnterKey: true,
+    stopKeydownPropagation: true,
+    keydownListenerCapture: false,
+    showConfirmButton: true,
+    showCancelButton: false,
+    preConfirm: undefined,
+    confirmButtonText: 'OK',
+    confirmButtonAriaLabel: '',
+    confirmButtonColor: undefined,
+    cancelButtonText: 'Cancel',
+    cancelButtonAriaLabel: '',
+    cancelButtonColor: undefined,
+    buttonsStyling: true,
+    reverseButtons: false,
+    focusConfirm: true,
+    focusCancel: false,
+    showCloseButton: false,
+    closeButtonHtml: '&times;',
+    closeButtonAriaLabel: 'Close this dialog',
+    showLoaderOnConfirm: false,
+    imageUrl: undefined,
+    imageWidth: undefined,
+    imageHeight: undefined,
+    imageAlt: '',
+    timer: undefined,
+    timerProgressBar: false,
+    width: undefined,
+    padding: undefined,
+    background: undefined,
+    input: undefined,
+    inputPlaceholder: '',
+    inputValue: '',
+    inputOptions: {},
+    inputAutoTrim: true,
+    inputAttributes: {},
+    inputValidator: undefined,
+    validationMessage: undefined,
+    grow: false,
+    position: 'center',
+    progressSteps: [],
+    currentProgressStep: undefined,
+    progressStepsDistance: undefined,
+    onBeforeOpen: undefined,
+    onOpen: undefined,
+    onRender: undefined,
+    onClose: undefined,
+    onAfterClose: undefined,
+    onDestroy: undefined,
+    scrollbarPadding: true
+  };
+  var updatableParams = ['title', 'titleText', 'text', 'html', 'footer', 'icon', 'hideClass', 'customClass', 'allowOutsideClick', 'allowEscapeKey', 'showConfirmButton', 'showCancelButton', 'confirmButtonText', 'confirmButtonAriaLabel', 'confirmButtonColor', 'cancelButtonText', 'cancelButtonAriaLabel', 'cancelButtonColor', 'buttonsStyling', 'reverseButtons', 'imageUrl', 'imageWidth', 'imageHeight', 'imageAlt', 'progressSteps', 'currentProgressStep', 'onClose', 'onAfterClose', 'onDestroy'];
+  var deprecatedParams = {
+    animation: 'showClass" and "hideClass'
+  };
+  var toastIncompatibleParams = ['allowOutsideClick', 'allowEnterKey', 'backdrop', 'focusConfirm', 'focusCancel', 'heightAuto', 'keydownListenerCapture'];
+  /**
+   * Is valid parameter
+   * @param {String} paramName
+   */
+
+  var isValidParameter = function isValidParameter(paramName) {
+    return Object.prototype.hasOwnProperty.call(defaultParams, paramName);
+  };
+  /**
+   * Is valid parameter for Swal.update() method
+   * @param {String} paramName
+   */
+
+  var isUpdatableParameter = function isUpdatableParameter(paramName) {
+    return updatableParams.indexOf(paramName) !== -1;
+  };
+  /**
+   * Is deprecated parameter
+   * @param {String} paramName
+   */
+
+  var isDeprecatedParameter = function isDeprecatedParameter(paramName) {
+    return deprecatedParams[paramName];
+  };
+
+  var checkIfParamIsValid = function checkIfParamIsValid(param) {
+    if (!isValidParameter(param)) {
+      warn("Unknown parameter \"".concat(param, "\""));
+    }
+  };
+
+  var checkIfToastParamIsValid = function checkIfToastParamIsValid(param) {
+    if (toastIncompatibleParams.indexOf(param) !== -1) {
+      warn("The parameter \"".concat(param, "\" is incompatible with toasts"));
+    }
+  };
+
+  var checkIfParamIsDeprecated = function checkIfParamIsDeprecated(param) {
+    if (isDeprecatedParameter(param)) {
+      warnAboutDepreation(param, isDeprecatedParameter(param));
+    }
+  };
+  /**
+   * Show relevant warnings for given params
+   *
+   * @param params
+   */
+
+
+  var showWarningsForParams = function showWarningsForParams(params) {
+    for (var param in params) {
+      checkIfParamIsValid(param);
+
+      if (params.toast) {
+        checkIfToastParamIsValid(param);
+      }
+
+      checkIfParamIsDeprecated(param);
+    }
+  };
+
+
+
+  var staticMethods = /*#__PURE__*/Object.freeze({
+    isValidParameter: isValidParameter,
+    isUpdatableParameter: isUpdatableParameter,
+    isDeprecatedParameter: isDeprecatedParameter,
+    argsToParams: argsToParams,
+    isVisible: isVisible$1,
+    clickConfirm: clickConfirm,
+    clickCancel: clickCancel,
+    getContainer: getContainer,
+    getPopup: getPopup,
+    getTitle: getTitle,
+    getContent: getContent,
+    getHtmlContainer: getHtmlContainer,
+    getImage: getImage,
+    getIcon: getIcon,
+    getIcons: getIcons,
+    getCloseButton: getCloseButton,
+    getActions: getActions,
+    getConfirmButton: getConfirmButton,
+    getCancelButton: getCancelButton,
+    getHeader: getHeader,
+    getFooter: getFooter,
+    getTimerProgressBar: getTimerProgressBar,
+    getFocusableElements: getFocusableElements,
+    getValidationMessage: getValidationMessage,
+    isLoading: isLoading,
+    fire: fire,
+    mixin: mixin,
+    queue: queue,
+    getQueueStep: getQueueStep,
+    insertQueueStep: insertQueueStep,
+    deleteQueueStep: deleteQueueStep,
+    showLoading: showLoading,
+    enableLoading: showLoading,
+    getTimerLeft: getTimerLeft,
+    stopTimer: stopTimer,
+    resumeTimer: resumeTimer,
+    toggleTimer: toggleTimer,
+    increaseTimer: increaseTimer,
+    isTimerRunning: isTimerRunning
+  });
+
+  /**
+   * Enables buttons and hide loader.
+   */
+
+  function hideLoading() {
+    // do nothing if popup is closed
+    var innerParams = privateProps.innerParams.get(this);
+
+    if (!innerParams) {
+      return;
+    }
+
+    var domCache = privateProps.domCache.get(this);
+
+    if (!innerParams.showConfirmButton) {
+      hide(domCache.confirmButton);
+
+      if (!innerParams.showCancelButton) {
+        hide(domCache.actions);
+      }
+    }
+
+    removeClass([domCache.popup, domCache.actions], swalClasses.loading);
+    domCache.popup.removeAttribute('aria-busy');
+    domCache.popup.removeAttribute('data-loading');
+    domCache.confirmButton.disabled = false;
+    domCache.cancelButton.disabled = false;
+  }
+
+  function getInput$1(instance) {
+    var innerParams = privateProps.innerParams.get(instance || this);
+    var domCache = privateProps.domCache.get(instance || this);
+
+    if (!domCache) {
+      return null;
+    }
+
+    return getInput(domCache.content, innerParams.input);
+  }
+
+  var fixScrollbar = function fixScrollbar() {
+    // for queues, do not do this more than once
+    if (states.previousBodyPadding !== null) {
+      return;
+    } // if the body has overflow
+
+
+    if (document.body.scrollHeight > window.innerHeight) {
+      // add padding so the content doesn't shift after removal of scrollbar
+      states.previousBodyPadding = parseInt(window.getComputedStyle(document.body).getPropertyValue('padding-right'));
+      document.body.style.paddingRight = "".concat(states.previousBodyPadding + measureScrollbar(), "px");
+    }
+  };
+  var undoScrollbar = function undoScrollbar() {
+    if (states.previousBodyPadding !== null) {
+      document.body.style.paddingRight = "".concat(states.previousBodyPadding, "px");
+      states.previousBodyPadding = null;
+    }
+  };
+
+  /* istanbul ignore file */
+
+  var iOSfix = function iOSfix() {
+    var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream || navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+
+    if (iOS && !hasClass(document.body, swalClasses.iosfix)) {
+      var offset = document.body.scrollTop;
+      document.body.style.top = "".concat(offset * -1, "px");
+      addClass(document.body, swalClasses.iosfix);
+      lockBodyScroll();
+    }
+  };
+
+  var lockBodyScroll = function lockBodyScroll() {
+    // #1246
+    var container = getContainer();
+    var preventTouchMove;
+
+    container.ontouchstart = function (e) {
+      preventTouchMove = shouldPreventTouchMove(e.target);
+    };
+
+    container.ontouchmove = function (e) {
+      if (preventTouchMove) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+  };
+
+  var shouldPreventTouchMove = function shouldPreventTouchMove(target) {
+    var container = getContainer();
+
+    if (target === container) {
+      return true;
+    }
+
+    if (!isScrollable(container) && target.tagName !== 'INPUT' && // #1603
+    !(isScrollable(getContent()) && // #1944
+    getContent().contains(target))) {
+      return true;
+    }
+
+    return false;
+  };
+
+  var undoIOSfix = function undoIOSfix() {
+    if (hasClass(document.body, swalClasses.iosfix)) {
+      var offset = parseInt(document.body.style.top, 10);
+      removeClass(document.body, swalClasses.iosfix);
+      document.body.style.top = '';
+      document.body.scrollTop = offset * -1;
+    }
+  };
+
+  /* istanbul ignore file */
+
+  var isIE11 = function isIE11() {
+    return !!window.MSInputMethodContext && !!document.documentMode;
+  }; // Fix IE11 centering sweetalert2/issues/933
+
+
+  var fixVerticalPositionIE = function fixVerticalPositionIE() {
+    var container = getContainer();
+    var popup = getPopup();
+    container.style.removeProperty('align-items');
+
+    if (popup.offsetTop < 0) {
+      container.style.alignItems = 'flex-start';
+    }
+  };
+
+  var IEfix = function IEfix() {
+    if (typeof window !== 'undefined' && isIE11()) {
+      fixVerticalPositionIE();
+      window.addEventListener('resize', fixVerticalPositionIE);
+    }
+  };
+  var undoIEfix = function undoIEfix() {
+    if (typeof window !== 'undefined' && isIE11()) {
+      window.removeEventListener('resize', fixVerticalPositionIE);
+    }
+  };
+
+  // Adding aria-hidden="true" to elements outside of the active modal dialog ensures that
+  // elements not within the active modal dialog will not be surfaced if a user opens a screen
+  // reader’s list of elements (headings, form controls, landmarks, etc.) in the document.
+
+  var setAriaHidden = function setAriaHidden() {
+    var bodyChildren = toArray(document.body.children);
+    bodyChildren.forEach(function (el) {
+      if (el === getContainer() || contains(el, getContainer())) {
+        return;
+      }
+
+      if (el.hasAttribute('aria-hidden')) {
+        el.setAttribute('data-previous-aria-hidden', el.getAttribute('aria-hidden'));
+      }
+
+      el.setAttribute('aria-hidden', 'true');
+    });
+  };
+  var unsetAriaHidden = function unsetAriaHidden() {
+    var bodyChildren = toArray(document.body.children);
+    bodyChildren.forEach(function (el) {
+      if (el.hasAttribute('data-previous-aria-hidden')) {
+        el.setAttribute('aria-hidden', el.getAttribute('data-previous-aria-hidden'));
+        el.removeAttribute('data-previous-aria-hidden');
+      } else {
+        el.removeAttribute('aria-hidden');
+      }
+    });
+  };
+
+  /**
+   * This module containts `WeakMap`s for each effectively-"private  property" that a `Swal` has.
+   * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
+   * This is the approach that Babel will probably take to implement private methods/fields
+   *   https://github.com/tc39/proposal-private-methods
+   *   https://github.com/babel/babel/pull/7555
+   * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
+   *   then we can use that language feature.
+   */
+  var privateMethods = {
+    swalPromiseResolve: new WeakMap()
+  };
+
+  /*
+   * Instance method to close sweetAlert
+   */
+
+  function removePopupAndResetState(instance, container, isToast$$1, onAfterClose) {
+    if (isToast$$1) {
+      triggerOnAfterCloseAndDispose(instance, onAfterClose);
+    } else {
+      restoreActiveElement().then(function () {
+        return triggerOnAfterCloseAndDispose(instance, onAfterClose);
+      });
+      globalState.keydownTarget.removeEventListener('keydown', globalState.keydownHandler, {
+        capture: globalState.keydownListenerCapture
+      });
+      globalState.keydownHandlerAdded = false;
+    }
+
+    if (container.parentNode && !document.body.getAttribute('data-swal2-queue-step')) {
+      container.parentNode.removeChild(container);
+    }
+
+    if (isModal()) {
+      undoScrollbar();
+      undoIOSfix();
+      undoIEfix();
+      unsetAriaHidden();
+    }
+
+    removeBodyClasses();
+  }
+
+  function removeBodyClasses() {
+    removeClass([document.documentElement, document.body], [swalClasses.shown, swalClasses['height-auto'], swalClasses['no-backdrop'], swalClasses['toast-shown'], swalClasses['toast-column']]);
+  }
+
+  function close(resolveValue) {
+    var popup = getPopup();
+
+    if (!popup) {
+      return;
+    }
+
+    var innerParams = privateProps.innerParams.get(this);
+
+    if (!innerParams || hasClass(popup, innerParams.hideClass.popup)) {
+      return;
+    }
+
+    var swalPromiseResolve = privateMethods.swalPromiseResolve.get(this);
+    removeClass(popup, innerParams.showClass.popup);
+    addClass(popup, innerParams.hideClass.popup);
+    var backdrop = getContainer();
+    removeClass(backdrop, innerParams.showClass.backdrop);
+    addClass(backdrop, innerParams.hideClass.backdrop);
+    handlePopupAnimation(this, popup, innerParams);
+
+    if (typeof resolveValue !== 'undefined') {
+      resolveValue.isDismissed = typeof resolveValue.dismiss !== 'undefined';
+      resolveValue.isConfirmed = typeof resolveValue.dismiss === 'undefined';
+    } else {
+      resolveValue = {
+        isDismissed: true,
+        isConfirmed: false
+      };
+    } // Resolve Swal promise
+
+
+    swalPromiseResolve(resolveValue || {});
+  }
+
+  var handlePopupAnimation = function handlePopupAnimation(instance, popup, innerParams) {
+    var container = getContainer(); // If animation is supported, animate
+
+    var animationIsSupported = animationEndEvent && hasCssAnimation(popup);
+    var onClose = innerParams.onClose,
+        onAfterClose = innerParams.onAfterClose;
+
+    if (onClose !== null && typeof onClose === 'function') {
+      onClose(popup);
+    }
+
+    if (animationIsSupported) {
+      animatePopup(instance, popup, container, onAfterClose);
+    } else {
+      // Otherwise, remove immediately
+      removePopupAndResetState(instance, container, isToast(), onAfterClose);
+    }
+  };
+
+  var animatePopup = function animatePopup(instance, popup, container, onAfterClose) {
+    globalState.swalCloseEventFinishedCallback = removePopupAndResetState.bind(null, instance, container, isToast(), onAfterClose);
+    popup.addEventListener(animationEndEvent, function (e) {
+      if (e.target === popup) {
+        globalState.swalCloseEventFinishedCallback();
+        delete globalState.swalCloseEventFinishedCallback;
+      }
+    });
+  };
+
+  var triggerOnAfterCloseAndDispose = function triggerOnAfterCloseAndDispose(instance, onAfterClose) {
+    setTimeout(function () {
+      if (typeof onAfterClose === 'function') {
+        onAfterClose();
+      }
+
+      instance._destroy();
+    });
+  };
+
+  function setButtonsDisabled(instance, buttons, disabled) {
+    var domCache = privateProps.domCache.get(instance);
+    buttons.forEach(function (button) {
+      domCache[button].disabled = disabled;
+    });
+  }
+
+  function setInputDisabled(input, disabled) {
+    if (!input) {
+      return false;
+    }
+
+    if (input.type === 'radio') {
+      var radiosContainer = input.parentNode.parentNode;
+      var radios = radiosContainer.querySelectorAll('input');
+
+      for (var i = 0; i < radios.length; i++) {
+        radios[i].disabled = disabled;
+      }
+    } else {
+      input.disabled = disabled;
+    }
+  }
+
+  function enableButtons() {
+    setButtonsDisabled(this, ['confirmButton', 'cancelButton'], false);
+  }
+  function disableButtons() {
+    setButtonsDisabled(this, ['confirmButton', 'cancelButton'], true);
+  }
+  function enableInput() {
+    return setInputDisabled(this.getInput(), false);
+  }
+  function disableInput() {
+    return setInputDisabled(this.getInput(), true);
+  }
+
+  function showValidationMessage(error) {
+    var domCache = privateProps.domCache.get(this);
+    setInnerHtml(domCache.validationMessage, error);
+    var popupComputedStyle = window.getComputedStyle(domCache.popup);
+    domCache.validationMessage.style.marginLeft = "-".concat(popupComputedStyle.getPropertyValue('padding-left'));
+    domCache.validationMessage.style.marginRight = "-".concat(popupComputedStyle.getPropertyValue('padding-right'));
+    show(domCache.validationMessage);
+    var input = this.getInput();
+
+    if (input) {
+      input.setAttribute('aria-invalid', true);
+      input.setAttribute('aria-describedBy', swalClasses['validation-message']);
+      focusInput(input);
+      addClass(input, swalClasses.inputerror);
+    }
+  } // Hide block with validation message
+
+  function resetValidationMessage$1() {
+    var domCache = privateProps.domCache.get(this);
+
+    if (domCache.validationMessage) {
+      hide(domCache.validationMessage);
+    }
+
+    var input = this.getInput();
+
+    if (input) {
+      input.removeAttribute('aria-invalid');
+      input.removeAttribute('aria-describedBy');
+      removeClass(input, swalClasses.inputerror);
+    }
+  }
+
+  function getProgressSteps$1() {
+    var domCache = privateProps.domCache.get(this);
+    return domCache.progressSteps;
+  }
+
+  var Timer = /*#__PURE__*/function () {
+    function Timer(callback, delay) {
+      _classCallCheck(this, Timer);
+
+      this.callback = callback;
+      this.remaining = delay;
+      this.running = false;
+      this.start();
+    }
+
+    _createClass(Timer, [{
+      key: "start",
+      value: function start() {
+        if (!this.running) {
+          this.running = true;
+          this.started = new Date();
+          this.id = setTimeout(this.callback, this.remaining);
+        }
+
+        return this.remaining;
+      }
+    }, {
+      key: "stop",
+      value: function stop() {
+        if (this.running) {
+          this.running = false;
+          clearTimeout(this.id);
+          this.remaining -= new Date() - this.started;
+        }
+
+        return this.remaining;
+      }
+    }, {
+      key: "increase",
+      value: function increase(n) {
+        var running = this.running;
+
+        if (running) {
+          this.stop();
+        }
+
+        this.remaining += n;
+
+        if (running) {
+          this.start();
+        }
+
+        return this.remaining;
+      }
+    }, {
+      key: "getTimerLeft",
+      value: function getTimerLeft() {
+        if (this.running) {
+          this.stop();
+          this.start();
+        }
+
+        return this.remaining;
+      }
+    }, {
+      key: "isRunning",
+      value: function isRunning() {
+        return this.running;
+      }
+    }]);
+
+    return Timer;
+  }();
+
+  var defaultInputValidators = {
+    email: function email(string, validationMessage) {
+      return /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid email address');
+    },
+    url: function url(string, validationMessage) {
+      // taken from https://stackoverflow.com/a/3809435 with a small change from #1306
+      return /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,63}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid URL');
+    }
+  };
+
+  function setDefaultInputValidators(params) {
+    // Use default `inputValidator` for supported input types if not provided
+    if (!params.inputValidator) {
+      Object.keys(defaultInputValidators).forEach(function (key) {
+        if (params.input === key) {
+          params.inputValidator = defaultInputValidators[key];
+        }
+      });
+    }
+  }
+
+  function validateCustomTargetElement(params) {
+    // Determine if the custom target element is valid
+    if (!params.target || typeof params.target === 'string' && !document.querySelector(params.target) || typeof params.target !== 'string' && !params.target.appendChild) {
+      warn('Target parameter is not valid, defaulting to "body"');
+      params.target = 'body';
+    }
+  }
+  /**
+   * Set type, text and actions on popup
+   *
+   * @param params
+   * @returns {boolean}
+   */
+
+
+  function setParameters(params) {
+    setDefaultInputValidators(params); // showLoaderOnConfirm && preConfirm
+
+    if (params.showLoaderOnConfirm && !params.preConfirm) {
+      warn('showLoaderOnConfirm is set to true, but preConfirm is not defined.\n' + 'showLoaderOnConfirm should be used together with preConfirm, see usage example:\n' + 'https://sweetalert2.github.io/#ajax-request');
+    } // params.animation will be actually used in renderPopup.js
+    // but in case when params.animation is a function, we need to call that function
+    // before popup (re)initialization, so it'll be possible to check Swal.isVisible()
+    // inside the params.animation function
+
+
+    params.animation = callIfFunction(params.animation);
+    validateCustomTargetElement(params); // Replace newlines with <br> in title
+
+    if (typeof params.title === 'string') {
+      params.title = params.title.split('\n').join('<br />');
+    }
+
+    init(params);
+  }
+
+  /**
+   * Open popup, add necessary classes and styles, fix scrollbar
+   *
+   * @param {Array} params
+   */
+
+  var openPopup = function openPopup(params) {
+    var container = getContainer();
+    var popup = getPopup();
+
+    if (typeof params.onBeforeOpen === 'function') {
+      params.onBeforeOpen(popup);
+    }
+
+    addClasses$1(container, popup, params); // scrolling is 'hidden' until animation is done, after that 'auto'
+
+    setScrollingVisibility(container, popup);
+
+    if (isModal()) {
+      fixScrollContainer(container, params.scrollbarPadding);
+    }
+
+    if (!isToast() && !globalState.previousActiveElement) {
+      globalState.previousActiveElement = document.activeElement;
+    }
+
+    if (typeof params.onOpen === 'function') {
+      setTimeout(function () {
+        return params.onOpen(popup);
+      });
+    }
+
+    removeClass(container, swalClasses['no-transition']);
+  };
+
+  function swalOpenAnimationFinished(event) {
+    var popup = getPopup();
+
+    if (event.target !== popup) {
+      return;
+    }
+
+    var container = getContainer();
+    popup.removeEventListener(animationEndEvent, swalOpenAnimationFinished);
+    container.style.overflowY = 'auto';
+  }
+
+  var setScrollingVisibility = function setScrollingVisibility(container, popup) {
+    if (animationEndEvent && hasCssAnimation(popup)) {
+      container.style.overflowY = 'hidden';
+      popup.addEventListener(animationEndEvent, swalOpenAnimationFinished);
+    } else {
+      container.style.overflowY = 'auto';
+    }
+  };
+
+  var fixScrollContainer = function fixScrollContainer(container, scrollbarPadding) {
+    iOSfix();
+    IEfix();
+    setAriaHidden();
+
+    if (scrollbarPadding) {
+      fixScrollbar();
+    } // sweetalert2/issues/1247
+
+
+    setTimeout(function () {
+      container.scrollTop = 0;
+    });
+  };
+
+  var addClasses$1 = function addClasses(container, popup, params) {
+    addClass(container, params.showClass.backdrop);
+    show(popup); // Animate popup right after showing it
+
+    addClass(popup, params.showClass.popup);
+    addClass([document.documentElement, document.body], swalClasses.shown);
+
+    if (params.heightAuto && params.backdrop && !params.toast) {
+      addClass([document.documentElement, document.body], swalClasses['height-auto']);
+    }
+  };
+
+  var handleInputOptionsAndValue = function handleInputOptionsAndValue(instance, params) {
+    if (params.input === 'select' || params.input === 'radio') {
+      handleInputOptions(instance, params);
+    } else if (['text', 'email', 'number', 'tel', 'textarea'].indexOf(params.input) !== -1 && isPromise(params.inputValue)) {
+      handleInputValue(instance, params);
+    }
+  };
+  var getInputValue = function getInputValue(instance, innerParams) {
+    var input = instance.getInput();
+
+    if (!input) {
+      return null;
+    }
+
+    switch (innerParams.input) {
+      case 'checkbox':
+        return getCheckboxValue(input);
+
+      case 'radio':
+        return getRadioValue(input);
+
+      case 'file':
+        return getFileValue(input);
+
+      default:
+        return innerParams.inputAutoTrim ? input.value.trim() : input.value;
+    }
+  };
+
+  var getCheckboxValue = function getCheckboxValue(input) {
+    return input.checked ? 1 : 0;
+  };
+
+  var getRadioValue = function getRadioValue(input) {
+    return input.checked ? input.value : null;
+  };
+
+  var getFileValue = function getFileValue(input) {
+    return input.files.length ? input.getAttribute('multiple') !== null ? input.files : input.files[0] : null;
+  };
+
+  var handleInputOptions = function handleInputOptions(instance, params) {
+    var content = getContent();
+
+    var processInputOptions = function processInputOptions(inputOptions) {
+      return populateInputOptions[params.input](content, formatInputOptions(inputOptions), params);
+    };
+
+    if (isPromise(params.inputOptions)) {
+      showLoading();
+      params.inputOptions.then(function (inputOptions) {
+        instance.hideLoading();
+        processInputOptions(inputOptions);
+      });
+    } else if (_typeof(params.inputOptions) === 'object') {
+      processInputOptions(params.inputOptions);
+    } else {
+      error("Unexpected type of inputOptions! Expected object, Map or Promise, got ".concat(_typeof(params.inputOptions)));
+    }
+  };
+
+  var handleInputValue = function handleInputValue(instance, params) {
+    var input = instance.getInput();
+    hide(input);
+    params.inputValue.then(function (inputValue) {
+      input.value = params.input === 'number' ? parseFloat(inputValue) || 0 : "".concat(inputValue);
+      show(input);
+      input.focus();
+      instance.hideLoading();
+    })["catch"](function (err) {
+      error("Error in inputValue promise: ".concat(err));
+      input.value = '';
+      show(input);
+      input.focus();
+      instance.hideLoading();
+    });
+  };
+
+  var populateInputOptions = {
+    select: function select(content, inputOptions, params) {
+      var select = getChildByClass(content, swalClasses.select);
+
+      var renderOption = function renderOption(parent, optionLabel, optionValue) {
+        var option = document.createElement('option');
+        option.value = optionValue;
+        setInnerHtml(option, optionLabel);
+
+        if (params.inputValue.toString() === optionValue.toString()) {
+          option.selected = true;
+        }
+
+        parent.appendChild(option);
+      };
+
+      inputOptions.forEach(function (inputOption) {
+        var optionValue = inputOption[0];
+        var optionLabel = inputOption[1]; // <optgroup> spec:
+        // https://www.w3.org/TR/html401/interact/forms.html#h-17.6
+        // "...all OPTGROUP elements must be specified directly within a SELECT element (i.e., groups may not be nested)..."
+        // check whether this is a <optgroup>
+
+        if (Array.isArray(optionLabel)) {
+          // if it is an array, then it is an <optgroup>
+          var optgroup = document.createElement('optgroup');
+          optgroup.label = optionValue;
+          optgroup.disabled = false; // not configurable for now
+
+          select.appendChild(optgroup);
+          optionLabel.forEach(function (o) {
+            return renderOption(optgroup, o[1], o[0]);
+          });
+        } else {
+          // case of <option>
+          renderOption(select, optionLabel, optionValue);
+        }
+      });
+      select.focus();
+    },
+    radio: function radio(content, inputOptions, params) {
+      var radio = getChildByClass(content, swalClasses.radio);
+      inputOptions.forEach(function (inputOption) {
+        var radioValue = inputOption[0];
+        var radioLabel = inputOption[1];
+        var radioInput = document.createElement('input');
+        var radioLabelElement = document.createElement('label');
+        radioInput.type = 'radio';
+        radioInput.name = swalClasses.radio;
+        radioInput.value = radioValue;
+
+        if (params.inputValue.toString() === radioValue.toString()) {
+          radioInput.checked = true;
+        }
+
+        var label = document.createElement('span');
+        setInnerHtml(label, radioLabel);
+        label.className = swalClasses.label;
+        radioLabelElement.appendChild(radioInput);
+        radioLabelElement.appendChild(label);
+        radio.appendChild(radioLabelElement);
+      });
+      var radios = radio.querySelectorAll('input');
+
+      if (radios.length) {
+        radios[0].focus();
+      }
+    }
+  };
+  /**
+   * Converts `inputOptions` into an array of `[value, label]`s
+   * @param inputOptions
+   */
+
+  var formatInputOptions = function formatInputOptions(inputOptions) {
+    var result = [];
+
+    if (typeof Map !== 'undefined' && inputOptions instanceof Map) {
+      inputOptions.forEach(function (value, key) {
+        var valueFormatted = value;
+
+        if (_typeof(valueFormatted) === 'object') {
+          // case of <optgroup>
+          valueFormatted = formatInputOptions(valueFormatted);
+        }
+
+        result.push([key, valueFormatted]);
+      });
+    } else {
+      Object.keys(inputOptions).forEach(function (key) {
+        var valueFormatted = inputOptions[key];
+
+        if (_typeof(valueFormatted) === 'object') {
+          // case of <optgroup>
+          valueFormatted = formatInputOptions(valueFormatted);
+        }
+
+        result.push([key, valueFormatted]);
+      });
+    }
+
+    return result;
+  };
+
+  var handleConfirmButtonClick = function handleConfirmButtonClick(instance, innerParams) {
+    instance.disableButtons();
+
+    if (innerParams.input) {
+      handleConfirmWithInput(instance, innerParams);
+    } else {
+      confirm(instance, innerParams, true);
+    }
+  };
+  var handleCancelButtonClick = function handleCancelButtonClick(instance, dismissWith) {
+    instance.disableButtons();
+    dismissWith(DismissReason.cancel);
+  };
+
+  var handleConfirmWithInput = function handleConfirmWithInput(instance, innerParams) {
+    var inputValue = getInputValue(instance, innerParams);
+
+    if (innerParams.inputValidator) {
+      instance.disableInput();
+      var validationPromise = Promise.resolve().then(function () {
+        return innerParams.inputValidator(inputValue, innerParams.validationMessage);
+      });
+      validationPromise.then(function (validationMessage) {
+        instance.enableButtons();
+        instance.enableInput();
+
+        if (validationMessage) {
+          instance.showValidationMessage(validationMessage);
+        } else {
+          confirm(instance, innerParams, inputValue);
+        }
+      });
+    } else if (!instance.getInput().checkValidity()) {
+      instance.enableButtons();
+      instance.showValidationMessage(innerParams.validationMessage);
+    } else {
+      confirm(instance, innerParams, inputValue);
+    }
+  };
+
+  var succeedWith = function succeedWith(instance, value) {
+    instance.closePopup({
+      value: value
+    });
+  };
+
+  var confirm = function confirm(instance, innerParams, value) {
+    if (innerParams.showLoaderOnConfirm) {
+      showLoading(); // TODO: make showLoading an *instance* method
+    }
+
+    if (innerParams.preConfirm) {
+      instance.resetValidationMessage();
+      var preConfirmPromise = Promise.resolve().then(function () {
+        return innerParams.preConfirm(value, innerParams.validationMessage);
+      });
+      preConfirmPromise.then(function (preConfirmValue) {
+        if (isVisible(getValidationMessage()) || preConfirmValue === false) {
+          instance.hideLoading();
+        } else {
+          succeedWith(instance, typeof preConfirmValue === 'undefined' ? value : preConfirmValue);
+        }
+      });
+    } else {
+      succeedWith(instance, value);
+    }
+  };
+
+  var addKeydownHandler = function addKeydownHandler(instance, globalState, innerParams, dismissWith) {
+    if (globalState.keydownTarget && globalState.keydownHandlerAdded) {
+      globalState.keydownTarget.removeEventListener('keydown', globalState.keydownHandler, {
+        capture: globalState.keydownListenerCapture
+      });
+      globalState.keydownHandlerAdded = false;
+    }
+
+    if (!innerParams.toast) {
+      globalState.keydownHandler = function (e) {
+        return keydownHandler(instance, e, dismissWith);
+      };
+
+      globalState.keydownTarget = innerParams.keydownListenerCapture ? window : getPopup();
+      globalState.keydownListenerCapture = innerParams.keydownListenerCapture;
+      globalState.keydownTarget.addEventListener('keydown', globalState.keydownHandler, {
+        capture: globalState.keydownListenerCapture
+      });
+      globalState.keydownHandlerAdded = true;
+    }
+  }; // Focus handling
+
+  var setFocus = function setFocus(innerParams, index, increment) {
+    var focusableElements = getFocusableElements(); // search for visible elements and select the next possible match
+
+    for (var i = 0; i < focusableElements.length; i++) {
+      index = index + increment; // rollover to first item
+
+      if (index === focusableElements.length) {
+        index = 0; // go to last item
+      } else if (index === -1) {
+        index = focusableElements.length - 1;
+      }
+
+      return focusableElements[index].focus();
+    } // no visible focusable elements, focus the popup
+
+
+    getPopup().focus();
+  };
+  var arrowKeys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Left', 'Right', 'Up', 'Down' // IE11
+  ];
+  var escKeys = ['Escape', 'Esc' // IE11
+  ];
+
+  var keydownHandler = function keydownHandler(instance, e, dismissWith) {
+    var innerParams = privateProps.innerParams.get(instance);
+
+    if (innerParams.stopKeydownPropagation) {
+      e.stopPropagation();
+    } // ENTER
+
+
+    if (e.key === 'Enter') {
+      handleEnter(instance, e, innerParams); // TAB
+    } else if (e.key === 'Tab') {
+      handleTab(e, innerParams); // ARROWS - switch focus between buttons
+    } else if (arrowKeys.indexOf(e.key) !== -1) {
+      handleArrows(); // ESC
+    } else if (escKeys.indexOf(e.key) !== -1) {
+      handleEsc(e, innerParams, dismissWith);
+    }
+  };
+
+  var handleEnter = function handleEnter(instance, e, innerParams) {
+    // #720 #721
+    if (e.isComposing) {
+      return;
+    }
+
+    if (e.target && instance.getInput() && e.target.outerHTML === instance.getInput().outerHTML) {
+      if (['textarea', 'file'].indexOf(innerParams.input) !== -1) {
+        return; // do not submit
+      }
+
+      clickConfirm();
+      e.preventDefault();
+    }
+  };
+
+  var handleTab = function handleTab(e, innerParams) {
+    var targetElement = e.target;
+    var focusableElements = getFocusableElements();
+    var btnIndex = -1;
+
+    for (var i = 0; i < focusableElements.length; i++) {
+      if (targetElement === focusableElements[i]) {
+        btnIndex = i;
+        break;
+      }
+    }
+
+    if (!e.shiftKey) {
+      // Cycle to the next button
+      setFocus(innerParams, btnIndex, 1);
+    } else {
+      // Cycle to the prev button
+      setFocus(innerParams, btnIndex, -1);
+    }
+
+    e.stopPropagation();
+    e.preventDefault();
+  };
+
+  var handleArrows = function handleArrows() {
+    var confirmButton = getConfirmButton();
+    var cancelButton = getCancelButton(); // focus Cancel button if Confirm button is currently focused
+
+    if (document.activeElement === confirmButton && isVisible(cancelButton)) {
+      cancelButton.focus(); // and vice versa
+    } else if (document.activeElement === cancelButton && isVisible(confirmButton)) {
+      confirmButton.focus();
+    }
+  };
+
+  var handleEsc = function handleEsc(e, innerParams, dismissWith) {
+    if (callIfFunction(innerParams.allowEscapeKey)) {
+      e.preventDefault();
+      dismissWith(DismissReason.esc);
+    }
+  };
+
+  var handlePopupClick = function handlePopupClick(instance, domCache, dismissWith) {
+    var innerParams = privateProps.innerParams.get(instance);
+
+    if (innerParams.toast) {
+      handleToastClick(instance, domCache, dismissWith);
+    } else {
+      // Ignore click events that had mousedown on the popup but mouseup on the container
+      // This can happen when the user drags a slider
+      handleModalMousedown(domCache); // Ignore click events that had mousedown on the container but mouseup on the popup
+
+      handleContainerMousedown(domCache);
+      handleModalClick(instance, domCache, dismissWith);
+    }
+  };
+
+  var handleToastClick = function handleToastClick(instance, domCache, dismissWith) {
+    // Closing toast by internal click
+    domCache.popup.onclick = function () {
+      var innerParams = privateProps.innerParams.get(instance);
+
+      if (innerParams.showConfirmButton || innerParams.showCancelButton || innerParams.showCloseButton || innerParams.input) {
+        return;
+      }
+
+      dismissWith(DismissReason.close);
+    };
+  };
+
+  var ignoreOutsideClick = false;
+
+  var handleModalMousedown = function handleModalMousedown(domCache) {
+    domCache.popup.onmousedown = function () {
+      domCache.container.onmouseup = function (e) {
+        domCache.container.onmouseup = undefined; // We only check if the mouseup target is the container because usually it doesn't
+        // have any other direct children aside of the popup
+
+        if (e.target === domCache.container) {
+          ignoreOutsideClick = true;
+        }
+      };
+    };
+  };
+
+  var handleContainerMousedown = function handleContainerMousedown(domCache) {
+    domCache.container.onmousedown = function () {
+      domCache.popup.onmouseup = function (e) {
+        domCache.popup.onmouseup = undefined; // We also need to check if the mouseup target is a child of the popup
+
+        if (e.target === domCache.popup || domCache.popup.contains(e.target)) {
+          ignoreOutsideClick = true;
+        }
+      };
+    };
+  };
+
+  var handleModalClick = function handleModalClick(instance, domCache, dismissWith) {
+    domCache.container.onclick = function (e) {
+      var innerParams = privateProps.innerParams.get(instance);
+
+      if (ignoreOutsideClick) {
+        ignoreOutsideClick = false;
+        return;
+      }
+
+      if (e.target === domCache.container && callIfFunction(innerParams.allowOutsideClick)) {
+        dismissWith(DismissReason.backdrop);
+      }
+    };
+  };
+
+  function _main(userParams) {
+    showWarningsForParams(userParams);
+
+    if (globalState.currentInstance) {
+      globalState.currentInstance._destroy();
+    }
+
+    globalState.currentInstance = this;
+    var innerParams = prepareParams(userParams);
+    setParameters(innerParams);
+    Object.freeze(innerParams); // clear the previous timer
+
+    if (globalState.timeout) {
+      globalState.timeout.stop();
+      delete globalState.timeout;
+    } // clear the restore focus timeout
+
+
+    clearTimeout(globalState.restoreFocusTimeout);
+    var domCache = populateDomCache(this);
+    render(this, innerParams);
+    privateProps.innerParams.set(this, innerParams);
+    return swalPromise(this, domCache, innerParams);
+  }
+
+  var prepareParams = function prepareParams(userParams) {
+    var showClass = _extends({}, defaultParams.showClass, userParams.showClass);
+
+    var hideClass = _extends({}, defaultParams.hideClass, userParams.hideClass);
+
+    var params = _extends({}, defaultParams, userParams);
+
+    params.showClass = showClass;
+    params.hideClass = hideClass; // @deprecated
+
+    if (userParams.animation === false) {
+      params.showClass = {
+        popup: 'swal2-noanimation',
+        backdrop: 'swal2-noanimation'
+      };
+      params.hideClass = {};
+    }
+
+    return params;
+  };
+
+  var swalPromise = function swalPromise(instance, domCache, innerParams) {
+    return new Promise(function (resolve) {
+      // functions to handle all closings/dismissals
+      var dismissWith = function dismissWith(dismiss) {
+        instance.closePopup({
+          dismiss: dismiss
+        });
+      };
+
+      privateMethods.swalPromiseResolve.set(instance, resolve);
+
+      domCache.confirmButton.onclick = function () {
+        return handleConfirmButtonClick(instance, innerParams);
+      };
+
+      domCache.cancelButton.onclick = function () {
+        return handleCancelButtonClick(instance, dismissWith);
+      };
+
+      domCache.closeButton.onclick = function () {
+        return dismissWith(DismissReason.close);
+      };
+
+      handlePopupClick(instance, domCache, dismissWith);
+      addKeydownHandler(instance, globalState, innerParams, dismissWith);
+
+      if (innerParams.toast && (innerParams.input || innerParams.footer || innerParams.showCloseButton)) {
+        addClass(document.body, swalClasses['toast-column']);
+      } else {
+        removeClass(document.body, swalClasses['toast-column']);
+      }
+
+      handleInputOptionsAndValue(instance, innerParams);
+      openPopup(innerParams);
+      setupTimer(globalState, innerParams, dismissWith);
+      initFocus(domCache, innerParams); // Scroll container to top on open (#1247, #1946)
+
+      setTimeout(function () {
+        domCache.container.scrollTop = 0;
+      });
+    });
+  };
+
+  var populateDomCache = function populateDomCache(instance) {
+    var domCache = {
+      popup: getPopup(),
+      container: getContainer(),
+      content: getContent(),
+      actions: getActions(),
+      confirmButton: getConfirmButton(),
+      cancelButton: getCancelButton(),
+      closeButton: getCloseButton(),
+      validationMessage: getValidationMessage(),
+      progressSteps: getProgressSteps()
+    };
+    privateProps.domCache.set(instance, domCache);
+    return domCache;
+  };
+
+  var setupTimer = function setupTimer(globalState$$1, innerParams, dismissWith) {
+    var timerProgressBar = getTimerProgressBar();
+    hide(timerProgressBar);
+
+    if (innerParams.timer) {
+      globalState$$1.timeout = new Timer(function () {
+        dismissWith('timer');
+        delete globalState$$1.timeout;
+      }, innerParams.timer);
+
+      if (innerParams.timerProgressBar) {
+        show(timerProgressBar);
+        setTimeout(function () {
+          if (globalState$$1.timeout.running) {
+            // timer can be already stopped at this point
+            animateTimerProgressBar(innerParams.timer);
+          }
+        });
+      }
+    }
+  };
+
+  var initFocus = function initFocus(domCache, innerParams) {
+    if (innerParams.toast) {
+      return;
+    }
+
+    if (!callIfFunction(innerParams.allowEnterKey)) {
+      return blurActiveElement();
+    }
+
+    if (innerParams.focusCancel && isVisible(domCache.cancelButton)) {
+      return domCache.cancelButton.focus();
+    }
+
+    if (innerParams.focusConfirm && isVisible(domCache.confirmButton)) {
+      return domCache.confirmButton.focus();
+    }
+
+    setFocus(innerParams, -1, 1);
+  };
+
+  var blurActiveElement = function blurActiveElement() {
+    if (document.activeElement && typeof document.activeElement.blur === 'function') {
+      document.activeElement.blur();
+    }
+  };
+
+  /**
+   * Updates popup parameters.
+   */
+
+  function update(params) {
+    var popup = getPopup();
+    var innerParams = privateProps.innerParams.get(this);
+
+    if (!popup || hasClass(popup, innerParams.hideClass.popup)) {
+      return warn("You're trying to update the closed or closing popup, that won't work. Use the update() method in preConfirm parameter or show a new popup.");
+    }
+
+    var validUpdatableParams = {}; // assign valid params from `params` to `defaults`
+
+    Object.keys(params).forEach(function (param) {
+      if (Swal.isUpdatableParameter(param)) {
+        validUpdatableParams[param] = params[param];
+      } else {
+        warn("Invalid parameter to update: \"".concat(param, "\". Updatable params are listed here: https://github.com/sweetalert2/sweetalert2/blob/master/src/utils/params.js"));
+      }
+    });
+
+    var updatedParams = _extends({}, innerParams, validUpdatableParams);
+
+    render(this, updatedParams);
+    privateProps.innerParams.set(this, updatedParams);
+    Object.defineProperties(this, {
+      params: {
+        value: _extends({}, this.params, params),
+        writable: false,
+        enumerable: true
+      }
+    });
+  }
+
+  function _destroy() {
+    var domCache = privateProps.domCache.get(this);
+    var innerParams = privateProps.innerParams.get(this);
+
+    if (!innerParams) {
+      return; // This instance has already been destroyed
+    } // Check if there is another Swal closing
+
+
+    if (domCache.popup && globalState.swalCloseEventFinishedCallback) {
+      globalState.swalCloseEventFinishedCallback();
+      delete globalState.swalCloseEventFinishedCallback;
+    } // Check if there is a swal disposal defer timer
+
+
+    if (globalState.deferDisposalTimer) {
+      clearTimeout(globalState.deferDisposalTimer);
+      delete globalState.deferDisposalTimer;
+    }
+
+    if (typeof innerParams.onDestroy === 'function') {
+      innerParams.onDestroy();
+    }
+
+    disposeSwal(this);
+  }
+
+  var disposeSwal = function disposeSwal(instance) {
+    // Unset this.params so GC will dispose it (#1569)
+    delete instance.params; // Unset globalState props so GC will dispose globalState (#1569)
+
+    delete globalState.keydownHandler;
+    delete globalState.keydownTarget; // Unset WeakMaps so GC will be able to dispose them (#1569)
+
+    unsetWeakMaps(privateProps);
+    unsetWeakMaps(privateMethods);
+  };
+
+  var unsetWeakMaps = function unsetWeakMaps(obj) {
+    for (var i in obj) {
+      obj[i] = new WeakMap();
+    }
+  };
+
+
+
+  var instanceMethods = /*#__PURE__*/Object.freeze({
+    hideLoading: hideLoading,
+    disableLoading: hideLoading,
+    getInput: getInput$1,
+    close: close,
+    closePopup: close,
+    closeModal: close,
+    closeToast: close,
+    enableButtons: enableButtons,
+    disableButtons: disableButtons,
+    enableInput: enableInput,
+    disableInput: disableInput,
+    showValidationMessage: showValidationMessage,
+    resetValidationMessage: resetValidationMessage$1,
+    getProgressSteps: getProgressSteps$1,
+    _main: _main,
+    update: update,
+    _destroy: _destroy
+  });
+
+  var currentInstance;
+
+  var SweetAlert = /*#__PURE__*/function () {
+    function SweetAlert() {
+      _classCallCheck(this, SweetAlert);
+
+      // Prevent run in Node env
+      if (typeof window === 'undefined') {
+        return;
+      } // Check for the existence of Promise
+
+
+      if (typeof Promise === 'undefined') {
+        error('This package requires a Promise library, please include a shim to enable it in this browser (See: https://github.com/sweetalert2/sweetalert2/wiki/Migration-from-SweetAlert-to-SweetAlert2#1-ie-support)');
+      }
+
+      currentInstance = this;
+
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      var outerParams = Object.freeze(this.constructor.argsToParams(args));
+      Object.defineProperties(this, {
+        params: {
+          value: outerParams,
+          writable: false,
+          enumerable: true,
+          configurable: true
+        }
+      });
+
+      var promise = this._main(this.params);
+
+      privateProps.promise.set(this, promise);
+    } // `catch` cannot be the name of a module export, so we define our thenable methods here instead
+
+
+    _createClass(SweetAlert, [{
+      key: "then",
+      value: function then(onFulfilled) {
+        var promise = privateProps.promise.get(this);
+        return promise.then(onFulfilled);
+      }
+    }, {
+      key: "finally",
+      value: function _finally(onFinally) {
+        var promise = privateProps.promise.get(this);
+        return promise["finally"](onFinally);
+      }
+    }]);
+
+    return SweetAlert;
+  }(); // Assign instance methods from src/instanceMethods/*.js to prototype
+
+
+  _extends(SweetAlert.prototype, instanceMethods); // Assign static methods from src/staticMethods/*.js to constructor
+
+
+  _extends(SweetAlert, staticMethods); // Proxy to instance methods to constructor, for now, for backwards compatibility
+
+
+  Object.keys(instanceMethods).forEach(function (key) {
+    SweetAlert[key] = function () {
+      if (currentInstance) {
+        var _currentInstance;
+
+        return (_currentInstance = currentInstance)[key].apply(_currentInstance, arguments);
+      }
+    };
+  });
+  SweetAlert.DismissReason = DismissReason;
+  SweetAlert.version = '9.14.0';
+
+  var Swal = SweetAlert;
+  Swal["default"] = Swal;
+
+  return Swal;
+
+}));
+if (typeof this !== 'undefined' && this.Sweetalert2){  this.swal = this.sweetAlert = this.Swal = this.SweetAlert = this.Sweetalert2}
+
+"undefined"!=typeof document&&function(e,t){var n=e.createElement("style");if(e.getElementsByTagName("head")[0].appendChild(n),n.styleSheet)n.styleSheet.disabled||(n.styleSheet.cssText=t);else try{n.innerHTML=t}catch(e){n.innerText=t}}(document,".swal2-popup.swal2-toast{flex-direction:row;align-items:center;width:auto;padding:.625em;overflow-y:hidden;background:#fff;box-shadow:0 0 .625em #d9d9d9}.swal2-popup.swal2-toast .swal2-header{flex-direction:row}.swal2-popup.swal2-toast .swal2-title{flex-grow:1;justify-content:flex-start;margin:0 .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{position:static;width:.8em;height:.8em;line-height:.8}.swal2-popup.swal2-toast .swal2-content{justify-content:flex-start;font-size:1em}.swal2-popup.swal2-toast .swal2-icon{width:2em;min-width:2em;height:2em;margin:0}.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:700}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{font-size:.25em}}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{flex-basis:auto!important;width:auto;height:auto;margin:0 .3125em}.swal2-popup.swal2-toast .swal2-styled{margin:0 .3125em;padding:.3125em .625em;font-size:1em}.swal2-popup.swal2-toast .swal2-styled:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.8em;left:-.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-toast-animate-success-line-tip .75s;animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-toast-animate-success-line-long .75s;animation:swal2-toast-animate-success-line-long .75s}.swal2-popup.swal2-toast.swal2-show{-webkit-animation:swal2-toast-show .5s;animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{-webkit-animation:swal2-toast-hide .1s forwards;animation:swal2-toast-hide .1s forwards}.swal2-container{display:flex;position:fixed;z-index:1060;top:0;right:0;bottom:0;left:0;flex-direction:row;align-items:center;justify-content:center;padding:.625em;overflow-x:hidden;transition:background-color .1s;-webkit-overflow-scrolling:touch}.swal2-container.swal2-backdrop-show,.swal2-container.swal2-noanimation{background:rgba(0,0,0,.4)}.swal2-container.swal2-backdrop-hide{background:0 0!important}.swal2-container.swal2-top{align-items:flex-start}.swal2-container.swal2-top-left,.swal2-container.swal2-top-start{align-items:flex-start;justify-content:flex-start}.swal2-container.swal2-top-end,.swal2-container.swal2-top-right{align-items:flex-start;justify-content:flex-end}.swal2-container.swal2-center{align-items:center}.swal2-container.swal2-center-left,.swal2-container.swal2-center-start{align-items:center;justify-content:flex-start}.swal2-container.swal2-center-end,.swal2-container.swal2-center-right{align-items:center;justify-content:flex-end}.swal2-container.swal2-bottom{align-items:flex-end}.swal2-container.swal2-bottom-left,.swal2-container.swal2-bottom-start{align-items:flex-end;justify-content:flex-start}.swal2-container.swal2-bottom-end,.swal2-container.swal2-bottom-right{align-items:flex-end;justify-content:flex-end}.swal2-container.swal2-bottom-end>:first-child,.swal2-container.swal2-bottom-left>:first-child,.swal2-container.swal2-bottom-right>:first-child,.swal2-container.swal2-bottom-start>:first-child,.swal2-container.swal2-bottom>:first-child{margin-top:auto}.swal2-container.swal2-grow-fullscreen>.swal2-modal{display:flex!important;flex:1;align-self:stretch;justify-content:center}.swal2-container.swal2-grow-row>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-grow-column{flex:1;flex-direction:column}.swal2-container.swal2-grow-column.swal2-bottom,.swal2-container.swal2-grow-column.swal2-center,.swal2-container.swal2-grow-column.swal2-top{align-items:center}.swal2-container.swal2-grow-column.swal2-bottom-left,.swal2-container.swal2-grow-column.swal2-bottom-start,.swal2-container.swal2-grow-column.swal2-center-left,.swal2-container.swal2-grow-column.swal2-center-start,.swal2-container.swal2-grow-column.swal2-top-left,.swal2-container.swal2-grow-column.swal2-top-start{align-items:flex-start}.swal2-container.swal2-grow-column.swal2-bottom-end,.swal2-container.swal2-grow-column.swal2-bottom-right,.swal2-container.swal2-grow-column.swal2-center-end,.swal2-container.swal2-grow-column.swal2-center-right,.swal2-container.swal2-grow-column.swal2-top-end,.swal2-container.swal2-grow-column.swal2-top-right{align-items:flex-end}.swal2-container.swal2-grow-column>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-no-transition{transition:none!important}.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal{margin:auto}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-container .swal2-modal{margin:0!important}}.swal2-popup{display:none;position:relative;box-sizing:border-box;flex-direction:column;justify-content:center;width:32em;max-width:100%;padding:1.25em;border:none;border-radius:.3125em;background:#fff;font-family:inherit;font-size:1rem}.swal2-popup:focus{outline:0}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-header{display:flex;flex-direction:column;align-items:center}.swal2-title{position:relative;max-width:100%;margin:0 0 .4em;padding:0;color:#595959;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-actions{display:flex;z-index:1;flex-wrap:wrap;align-items:center;justify-content:center;width:100%;margin:1.25em auto 0}.swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1))}.swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}.swal2-actions.swal2-loading .swal2-styled.swal2-confirm{box-sizing:border-box;width:2.5em;height:2.5em;margin:.46875em;padding:0;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:.25em solid transparent;border-radius:100%;border-color:transparent;background-color:transparent!important;color:transparent!important;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-actions.swal2-loading .swal2-styled.swal2-cancel{margin-right:30px;margin-left:30px}.swal2-actions.swal2-loading :not(.swal2-styled).swal2-confirm::after{content:\"\";display:inline-block;width:15px;height:15px;margin-left:5px;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:3px solid #999;border-radius:50%;border-right-color:transparent;box-shadow:1px 1px 1px #fff}.swal2-styled{margin:.3125em;padding:.625em 2em;box-shadow:none;font-weight:500}.swal2-styled:not([disabled]){cursor:pointer}.swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#3085d6;color:#fff;font-size:1.0625em}.swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#aaa;color:#fff;font-size:1.0625em}.swal2-styled:focus{outline:0;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-styled::-moz-focus-inner{border:0}.swal2-footer{justify-content:center;margin:1.25em 0 0;padding:1em 0 0;border-top:1px solid #eee;color:#545454;font-size:1em}.swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;height:.25em;overflow:hidden;border-bottom-right-radius:.3125em;border-bottom-left-radius:.3125em}.swal2-timer-progress-bar{width:100%;height:.25em;background:rgba(0,0,0,.2)}.swal2-image{max-width:100%;margin:1.25em auto}.swal2-close{position:absolute;z-index:2;top:0;right:0;align-items:center;justify-content:center;width:1.2em;height:1.2em;padding:0;overflow:hidden;transition:color .1s ease-out;border:none;border-radius:0;background:0 0;color:#ccc;font-family:serif;font-size:2.5em;line-height:1.2;cursor:pointer}.swal2-close:hover{transform:none;background:0 0;color:#f27474}.swal2-close::-moz-focus-inner{border:0}.swal2-content{z-index:1;justify-content:center;margin:0;padding:0;color:#545454;font-size:1.125em;font-weight:400;line-height:normal;text-align:center;word-wrap:break-word}.swal2-checkbox,.swal2-file,.swal2-input,.swal2-radio,.swal2-select,.swal2-textarea{margin:1em auto}.swal2-file,.swal2-input,.swal2-textarea{box-sizing:border-box;width:100%;transition:border-color .3s,box-shadow .3s;border:1px solid #d9d9d9;border-radius:.1875em;background:inherit;box-shadow:inset 0 1px 1px rgba(0,0,0,.06);color:inherit;font-size:1.125em}.swal2-file.swal2-inputerror,.swal2-input.swal2-inputerror,.swal2-textarea.swal2-inputerror{border-color:#f27474!important;box-shadow:0 0 2px #f27474!important}.swal2-file:focus,.swal2-input:focus,.swal2-textarea:focus{border:1px solid #b4dbed;outline:0;box-shadow:0 0 3px #c4e6f5}.swal2-file::-webkit-input-placeholder,.swal2-input::-webkit-input-placeholder,.swal2-textarea::-webkit-input-placeholder{color:#ccc}.swal2-file::-moz-placeholder,.swal2-input::-moz-placeholder,.swal2-textarea::-moz-placeholder{color:#ccc}.swal2-file:-ms-input-placeholder,.swal2-input:-ms-input-placeholder,.swal2-textarea:-ms-input-placeholder{color:#ccc}.swal2-file::-ms-input-placeholder,.swal2-input::-ms-input-placeholder,.swal2-textarea::-ms-input-placeholder{color:#ccc}.swal2-file::placeholder,.swal2-input::placeholder,.swal2-textarea::placeholder{color:#ccc}.swal2-range{margin:1em auto;background:#fff}.swal2-range input{width:80%}.swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}.swal2-range input,.swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}.swal2-input{height:2.625em;padding:0 .75em}.swal2-input[type=number]{max-width:10em}.swal2-file{background:inherit;font-size:1.125em}.swal2-textarea{height:6.75em;padding:.75em}.swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:inherit;color:inherit;font-size:1.125em}.swal2-checkbox,.swal2-radio{align-items:center;justify-content:center;background:#fff;color:inherit}.swal2-checkbox label,.swal2-radio label{margin:0 .6em;font-size:1.125em}.swal2-checkbox input,.swal2-radio input{margin:0 .4em}.swal2-validation-message{display:none;align-items:center;justify-content:center;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}.swal2-validation-message::before{content:\"!\";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}.swal2-icon{position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:1.25em auto 1.875em;border:.25em solid transparent;border-radius:50%;font-family:inherit;line-height:5em;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474;color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}.swal2-icon.swal2-error.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-error.swal2-icon-show .swal2-x-mark{-webkit-animation:swal2-animate-error-x-mark .5s;animation:swal2-animate-error-x-mark .5s}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-success{border-color:#a5dc86;color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-.25em;left:-.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-animate-success-line-tip .75s;animation:swal2-animate-success-line-tip .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-animate-success-line-long .75s;animation:swal2-animate-success-line-long .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-circular-line-right{-webkit-animation:swal2-rotate-success-circular-line 4.25s ease-in;animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-progress-steps{align-items:center;margin:0 0 1.25em;padding:0;background:inherit;font-weight:600}.swal2-progress-steps li{display:inline-block;position:relative}.swal2-progress-steps .swal2-progress-step{z-index:20;width:2em;height:2em;border-radius:2em;background:#3085d6;color:#fff;line-height:2em;text-align:center}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#3085d6}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}.swal2-progress-steps .swal2-progress-step-line{z-index:10;width:2.5em;height:.4em;margin:0 -1px;background:#3085d6}[class^=swal2]{-webkit-tap-highlight-color:transparent}.swal2-show{-webkit-animation:swal2-show .3s;animation:swal2-show .3s}.swal2-hide{-webkit-animation:swal2-hide .15s forwards;animation:swal2-hide .15s forwards}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{right:auto;left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@supports (-ms-accelerator:true){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@-moz-document url-prefix(){.swal2-close:focus{outline:2px solid rgba(50,100,150,.4)}}@-webkit-keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@-webkit-keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@-webkit-keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@-webkit-keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@-webkit-keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@-webkit-keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@-webkit-keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@-webkit-keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@-webkit-keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@-webkit-keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@-webkit-keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@-webkit-keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto!important}body.swal2-no-backdrop .swal2-container{top:auto;right:auto;bottom:auto;left:auto;max-width:calc(100% - .625em * 2);background-color:transparent!important}body.swal2-no-backdrop .swal2-container>.swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}body.swal2-no-backdrop .swal2-container.swal2-top{top:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-top-left,body.swal2-no-backdrop .swal2-container.swal2-top-start{top:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-top-end,body.swal2-no-backdrop .swal2-container.swal2-top-right{top:0;right:0}body.swal2-no-backdrop .swal2-container.swal2-center{top:50%;left:50%;transform:translate(-50%,-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-left,body.swal2-no-backdrop .swal2-container.swal2-center-start{top:50%;left:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-end,body.swal2-no-backdrop .swal2-container.swal2-center-right{top:50%;right:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom{bottom:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom-left,body.swal2-no-backdrop .swal2-container.swal2-bottom-start{bottom:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-bottom-end,body.swal2-no-backdrop .swal2-container.swal2-bottom-right{right:0;bottom:0}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static!important}}body.swal2-toast-shown .swal2-container{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-left,body.swal2-toast-shown .swal2-container.swal2-top-start{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-left,body.swal2-toast-shown .swal2-container.swal2-center-start{top:50%;right:auto;bottom:auto;left:0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;transform:translate(-50%,-50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-left,body.swal2-toast-shown .swal2-container.swal2-bottom-start{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}body.swal2-toast-column .swal2-toast{flex-direction:column;align-items:stretch}body.swal2-toast-column .swal2-toast .swal2-actions{flex:1;align-self:stretch;height:2.2em;margin-top:.3125em}body.swal2-toast-column .swal2-toast .swal2-loading{justify-content:center}body.swal2-toast-column .swal2-toast .swal2-input{height:2em;margin:.3125em auto;font-size:1em}body.swal2-toast-column .swal2-toast .swal2-validation-message{font-size:1em}");
+
+/***/ }),
+
 /***/ "./node_modules/symbol-observable/es/index.js":
 /*!****************************************************!*\
   !*** ./node_modules/symbol-observable/es/index.js ***!
@@ -47475,6 +55111,65 @@ function symbolObservablePonyfill(root) {
 
 	return result;
 };
+
+
+/***/ }),
+
+/***/ "./node_modules/tiny-invariant/dist/tiny-invariant.esm.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/tiny-invariant/dist/tiny-invariant.esm.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var isProduction = "development" === 'production';
+var prefix = 'Invariant failed';
+function invariant(condition, message) {
+    if (condition) {
+        return;
+    }
+    if (isProduction) {
+        throw new Error(prefix);
+    }
+    throw new Error(prefix + ": " + (message || ''));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (invariant);
+
+
+/***/ }),
+
+/***/ "./node_modules/tiny-warning/dist/tiny-warning.esm.js":
+/*!************************************************************!*\
+  !*** ./node_modules/tiny-warning/dist/tiny-warning.esm.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var isProduction = "development" === 'production';
+function warning(condition, message) {
+  if (!isProduction) {
+    if (condition) {
+      return;
+    }
+
+    var text = "Warning: " + message;
+
+    if (typeof console !== 'undefined') {
+      console.warn(text);
+    }
+
+    try {
+      throw Error(text);
+    } catch (x) {}
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (warning);
 
 
 /***/ }),
@@ -47834,6 +55529,55 @@ function canAcceptRef(component) {
 
 /***/ }),
 
+/***/ "./node_modules/value-equal/esm/value-equal.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/value-equal/esm/value-equal.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function valueOf(obj) {
+  return obj.valueOf ? obj.valueOf() : Object.prototype.valueOf.call(obj);
+}
+
+function valueEqual(a, b) {
+  // Test for strict equality first.
+  if (a === b) return true;
+
+  // Otherwise, if either of them == null they are not equal.
+  if (a == null || b == null) return false;
+
+  if (Array.isArray(a)) {
+    return (
+      Array.isArray(b) &&
+      a.length === b.length &&
+      a.every(function(item, index) {
+        return valueEqual(item, b[index]);
+      })
+    );
+  }
+
+  if (typeof a === 'object' || typeof b === 'object') {
+    var aValue = valueOf(a);
+    var bValue = valueOf(b);
+
+    if (aValue !== a || bValue !== b) return valueEqual(aValue, bValue);
+
+    return Object.keys(Object.assign({}, a, b)).every(function(key) {
+      return valueEqual(a[key], b[key]);
+    });
+  }
+
+  return false;
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (valueEqual);
+
+
+/***/ }),
+
 /***/ "./node_modules/warning/warning.js":
 /*!*****************************************!*\
   !*** ./node_modules/warning/warning.js ***!
@@ -47989,18 +55733,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.App = void 0;
 const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-const mainNavbar_1 = __importDefault(__webpack_require__(/*! ./../components/mainNavbar */ "./components/mainNavbar.tsx"));
-const loginPage_1 = __importDefault(__webpack_require__(/*! ./../components/loginPage */ "./components/loginPage.tsx"));
-function trySubmit(userName, password) {
-    alert(userName);
-    alert(password);
-}
-;
-exports.App = () => {
-    return react_1.default.createElement("div", { style: { height: '800px', backgroundImage: "url('./../images/loginBackground.jpg')", WebkitBackgroundSize: 'cover', MozBackgroundSize: 'cover', OBackgroundSize: 'cover', backgroundSize: 'cover', padding: '10px' } },
-        react_1.default.createElement(mainNavbar_1.default, null),
-        react_1.default.createElement(loginPage_1.default, { login_submit: trySubmit }));
+const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+const mainNavbar_1 = __webpack_require__(/*! ./../src/mainNavbar */ "./src/mainNavbar.tsx");
+const loginPage_1 = __importDefault(__webpack_require__(/*! ./../src/pages/loginPage */ "./src/pages/loginPage.tsx"));
+__webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
+const bgStyles = {
+    height: '800px',
+    backgroundImage: "url('./../images/loginBackground.jpg')",
+    padding: '10px'
 };
+exports.App = ({ userType, trySubmit, askWhichUserToRegister, handleRestorePassword }) => (react_1.default.createElement("div", { style: bgStyles, className: "stretchy" },
+    react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
+        react_1.default.createElement(mainNavbar_1.MainNavbar, { userType: userType }),
+        react_1.default.createElement(react_router_dom_1.Switch, null,
+            react_1.default.createElement(react_router_dom_1.Route, { exact: true, path: ["/log-as-customer", "/log-as-company"], render: () => react_1.default.createElement(loginPage_1.default, { login_submit: trySubmit, newCusOrCmpReq: askWhichUserToRegister, forgotPassword: handleRestorePassword }) })))));
 
 
 /***/ }),
@@ -48015,17 +55761,11 @@ exports.App = () => {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SetAge = exports.SetName = void 0;
+exports.SetUserType = void 0;
 const events_1 = __webpack_require__(/*! ./events */ "./src/events.tsx");
-exports.SetName = (payload) => {
+exports.SetUserType = (payload) => {
     return {
-        type: events_1.AppEvents.SET_NAME,
-        payload
-    };
-};
-exports.SetAge = (payload) => {
-    return {
-        type: events_1.AppEvents.SET_AGE,
+        type: events_1.AppEvents.SET_USER_TYPE,
         payload
     };
 };
@@ -48042,20 +55782,52 @@ exports.SetAge = (payload) => {
 
 "use strict";
 
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.App = void 0;
 const App_1 = __webpack_require__(/*! ./App */ "./src/App.tsx");
 const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 const actions_1 = __webpack_require__(/*! ./actions */ "./src/actions.tsx");
 const redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+const userTypes_1 = __webpack_require__(/*! ./userTypes */ "./src/userTypes.tsx");
+const axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+const sweetalert2_1 = __importDefault(__webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js"));
 const mapStateToProps = (state) => {
     return {
-        age: state.app.age
+        userType: state.app.userType
     };
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        onClick: () => dispatch(actions_1.SetAge(Math.floor(Math.random() * 100)))
+        trySubmit: (userName, password) => {
+            axios_1.default.post("https://localhost:44368//api/Auth", {
+                User_Name: userName,
+                Password: password
+            })
+                .then((res) => {
+                switch (JSON.parse(res.data).type) {
+                    case "Administrator":
+                        dispatch(actions_1.SetUserType(userTypes_1.UserTypes.TYPE_1));
+                        break;
+                    case "Airline":
+                        dispatch(actions_1.SetUserType(userTypes_1.UserTypes.TYPE_2));
+                        break;
+                    case "Customer":
+                        dispatch(actions_1.SetUserType(userTypes_1.UserTypes.TYPE_3));
+                        break;
+                    default:
+                        dispatch(actions_1.SetUserType(userTypes_1.UserTypes.TYPE_4));
+                }
+                sweetalert2_1.default.fire("Successfully Connected", `You Will Immadiately Be Taken To The Requested Page.`, 'success');
+            }, (err) => {
+                console.log(err.response);
+                sweetalert2_1.default.fire(`Login Failed`, `${err.response.data}`, "error");
+            });
+        },
+        askWhichUserToRegister: () => alert("hello"),
+        handleRestorePassword: () => alert("Hello Again")
     };
 };
 exports.App = redux_1.compose(react_redux_1.connect(mapStateToProps, mapDispatchToProps))(App_1.App);
@@ -48076,10 +55848,225 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppEvents = void 0;
 var AppEvents;
 (function (AppEvents) {
-    AppEvents["SET_NAME"] = "APP/SET_NAME";
-    AppEvents["SET_AGE"] = "APP/SET_AGE";
+    AppEvents["SET_USER_TYPE"] = "APP/SET_USER_TYPE";
 })(AppEvents = exports.AppEvents || (exports.AppEvents = {}));
 ;
+
+
+/***/ }),
+
+/***/ "./src/mainNavbar.tsx":
+/*!****************************!*\
+  !*** ./src/mainNavbar.tsx ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.MainNavbar = void 0;
+const React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+const userTypes_1 = __webpack_require__(/*! ./userTypes */ "./src/userTypes.tsx");
+const MainNav = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+__webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
+exports.MainNavbar = ({ userType }) => (React.createElement("div", { style: { padding: '2px' } },
+    React.createElement(MainNav.Navbar, { collapseOnSelect: true, expand: "lg", className: "navbar_inverse" },
+        React.createElement(MainNav.Navbar.Brand, null,
+            React.createElement(react_router_dom_1.Link, { to: "/home" }),
+            "LET'S FLY"),
+        React.createElement(MainNav.Navbar.Toggle, { "aria-controls": "responsive-navbar-nav", style: { backgroundImage: 'url(./../images/hamburger_icon.jpg)', height: '30px', width: '30px', backgroundSize: '35px', backgroundPosition: 'center' } }),
+        React.createElement(MainNav.Navbar.Collapse, { id: "responsive-navbar-nav" },
+            React.createElement(MainNav.Nav, { className: "ml-auto" },
+                React.createElement("div", { style: { display: userType == userTypes_1.UserTypes.TYPE_1 ? 'flex' : 'none' } },
+                    React.createElement(MainNav.NavDropdown, { title: "Management", id: "collasible-nav-dropdown" },
+                        React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/edit-companies" }, "Edit Airlines"),
+                        React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/edit-customers" }, "Edit Customers")),
+                    React.createElement(react_router_dom_1.Link, { className: "nav-link nav-link", to: "/admin-inbox" }, "Inbox"),
+                    React.createElement(react_router_dom_1.Link, { className: "nav-link nav-link", to: "/search-flights" }, "Search Flights"),
+                    React.createElement(react_router_dom_1.Link, { className: "nav-link nav-link", to: "/admin-profile" }, "Profile"),
+                    React.createElement(react_router_dom_1.Link, { className: "nav-link nav-link", to: "/home" }, "Log out")),
+                React.createElement("div", { style: { display: userType == userTypes_1.UserTypes.TYPE_2 ? 'flex' : 'none' } },
+                    React.createElement(react_router_dom_1.Link, { className: "nav-link nav-link", to: "/own-flights" }, "Own Flights"),
+                    React.createElement(react_router_dom_1.Link, { className: "nav-link nav-link", to: "/company-inbox" }, "Inbox"),
+                    React.createElement(react_router_dom_1.Link, { className: "nav-link nav-link", to: "/search-flights" }, "Search Flights"),
+                    React.createElement(react_router_dom_1.Link, { className: "nav-link nav-link", to: "/company-profile" }, "Profile"),
+                    React.createElement(react_router_dom_1.Link, { className: "nav-link nav-link", to: "/home" }, "Log out")),
+                React.createElement("div", { style: { display: userType == userTypes_1.UserTypes.TYPE_3 ? 'flex' : 'none' } },
+                    React.createElement(MainNav.NavDropdown, { title: "Manage My Tickets", id: "collasible-nav-dropdown" },
+                        React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/buy-ticket" }, "Buy New Ticket"),
+                        React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/edit-tickets" }, "Show/Edit/Remove")),
+                    React.createElement(react_router_dom_1.Link, { className: "nav-link nav-link", to: "/customer-inbox" }, "Inbox"),
+                    React.createElement(react_router_dom_1.Link, { className: "nav-link nav-link", to: "/search-flights" }, "Search Flights"),
+                    React.createElement(react_router_dom_1.Link, { className: "nav-link nav-link", to: "/customer-profile" }, "Profile"),
+                    React.createElement(react_router_dom_1.Link, { className: "nav-link nav-link", to: "/home" }, "Log out")),
+                React.createElement("div", { style: { display: userType == userTypes_1.UserTypes.TYPE_4 ? 'flex' : 'none' } },
+                    React.createElement(MainNav.NavDropdown, { title: "Sign-Up", id: "collasible-nav-dropdown" },
+                        React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/reg-as-cus" }, "As Customer"),
+                        React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/reg-as-cmp" }, "As Company")),
+                    React.createElement(MainNav.NavDropdown, { title: "Sign-In", id: "collasible-nav-dropdown" },
+                        React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/log-as-customer" }, "As Customer"),
+                        React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/log-as-company" }, "As Company"),
+                        React.createElement(MainNav.NavDropdown.Divider, null),
+                        React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/log-as-admin" }, "As Administrator")),
+                    React.createElement(react_router_dom_1.Link, { className: "nav-link nav-link", to: "/search-flights" }, "Search Flights")))))));
+//export default MainNavbar
+
+
+/***/ }),
+
+/***/ "./src/pages/LoginPageStyle.module.css":
+/*!*********************************************!*\
+  !*** ./src/pages/LoginPageStyle.module.css ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--5-1!./LoginPageStyle.module.css */ "./node_modules/css-loader/dist/cjs.js?!./src/pages/LoginPageStyle.module.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
+
+/***/ "./src/pages/loginPage.tsx":
+/*!*********************************!*\
+  !*** ./src/pages/loginPage.tsx ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LoginPage = void 0;
+const React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+//import * as lps from './../../styles/loginPageStyle.module.css';
+const lps = __webpack_require__(/*! ./LoginPageStyle.module.css */ "./src/pages/LoginPageStyle.module.css");
+class LoginPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleChange = (e) => {
+            switch (e.target.id) {
+                case 'userNameInput':
+                    this.setState(Object.assign(Object.assign({}, this.state), { userName: e.target.value }));
+                    break;
+                case 'passwordInput':
+                    this.setState(Object.assign(Object.assign({}, this.state), { password: e.target.value }));
+                    break;
+                default:
+                    break;
+            }
+        };
+        this.forgotPassword = (e) => {
+            e.preventDefault();
+            //this.props.login_submit(userName, password)
+        };
+        this.newCusOrCmpReq = (e) => {
+            e.preventDefault();
+            //this.props.login_submit(userName, password)
+        };
+        this.loginSubmit = (e) => {
+            e.preventDefault();
+            const { userName, password } = this.state;
+            this.props.login_submit(userName, password);
+        };
+        this.state = {
+            userName: '',
+            password: ''
+        };
+    }
+    render() {
+        return (React.createElement("div", { className: "container", style: { marginTop: '100px' } },
+            React.createElement("div", { className: "d-flex justify-content-center h-100" },
+                React.createElement("div", { className: lps.user_card },
+                    React.createElement("div", { className: "d-flex justify-content-center h-100" },
+                        React.createElement("div", { className: lps.brand_logo_container },
+                            React.createElement("img", { src: "./../images/Lf_Logo.jpg", className: lps.brand_logo, alt: "Logo" }))),
+                    React.createElement("div", { className: "d-flex justify-content-center form_container" },
+                        React.createElement("form", { name: "loginForm", onSubmit: this.loginSubmit },
+                            React.createElement("div", { className: "input-group mb-3" },
+                                React.createElement("div", { className: "input-group-append" },
+                                    React.createElement("span", { className: lps.input_group_text },
+                                        React.createElement("i", { className: "fas fa-user" }))),
+                                React.createElement("input", { type: "text", name: "", id: "userNameInput", className: ["form-control", lps.input_user].join(' '), placeholder: "username", onChange: this.handleChange })),
+                            React.createElement("div", { className: "input-group mb-2" },
+                                React.createElement("div", { className: "input-group-append" },
+                                    React.createElement("span", { className: lps.input_group_text },
+                                        React.createElement("i", { className: "fas fa-key" }))),
+                                React.createElement("input", { type: "password", name: "", id: "passwordInput", className: ["form-control", lps.input_pass].join(' '), placeholder: "password", onChange: this.handleChange })),
+                            React.createElement("div", { className: "row form-group" },
+                                React.createElement("div", { className: "col-xs-12", style: { marginLeft: '20px' } },
+                                    React.createElement("input", { type: "checkbox", className: "col-xs-2", id: "customControlInline" })),
+                                React.createElement("div", { className: "col-xs-1" }),
+                                React.createElement("div", { className: "col-xs-4", style: { margin: '0px 0px 0px 10px' } },
+                                    React.createElement("label", { className: "col-xs-4" }, "Remember Me"))),
+                            React.createElement("div", { className: "d-flex justify-content-center mt-3 login_container" },
+                                React.createElement("button", { type: "submit", name: "button", className: ["btn", lps.login_btn].join(' ') }, "Login")))),
+                    React.createElement("div", { className: "mt-4" },
+                        React.createElement("div", { className: "d-flex justify-content-center links", style: { color: ' #0f0f0a' } },
+                            "Don't have an account? ",
+                            React.createElement("a", { href: "#", className: "ml-2", onClick: this.newCusOrCmpReq }, "Sign Up")),
+                        React.createElement("div", { className: "d-flex justify-content-center links" },
+                            React.createElement("a", { href: "#", onClick: this.forgotPassword }, "Forgot your password?")))))));
+    }
+}
+exports.LoginPage = LoginPage;
+exports.default = LoginPage;
 
 
 /***/ }),
@@ -48096,16 +56083,14 @@ var AppEvents;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.reducer = void 0;
 const events_1 = __webpack_require__(/*! ./events */ "./src/events.tsx");
+const userTypes_1 = __webpack_require__(/*! ./userTypes */ "./src/userTypes.tsx");
 const initState = {
-    name: "",
-    age: 123
+    userType: userTypes_1.UserTypes.TYPE_4,
 };
 exports.reducer = (state = initState, action) => {
     switch (action.type) {
-        case events_1.AppEvents.SET_NAME:
-            return Object.assign(Object.assign({}, state), { name: action.payload });
-        case events_1.AppEvents.SET_AGE:
-            return Object.assign(Object.assign({}, state), { age: action.payload });
+        case events_1.AppEvents.SET_USER_TYPE:
+            return Object.assign(Object.assign({}, state), { userType: action.payload });
         default:
             return state;
     }
@@ -48131,6 +56116,29 @@ const reducers = redux_1.combineReducers({
     app: reducer_1.reducer
 });
 exports.store = redux_1.createStore(reducers);
+
+
+/***/ }),
+
+/***/ "./src/userTypes.tsx":
+/*!***************************!*\
+  !*** ./src/userTypes.tsx ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UserTypes = void 0;
+var UserTypes;
+(function (UserTypes) {
+    UserTypes["TYPE_1"] = "Administrator";
+    UserTypes["TYPE_2"] = "Company";
+    UserTypes["TYPE_3"] = "Customer";
+    UserTypes["TYPE_4"] = "Anonymous";
+})(UserTypes = exports.UserTypes || (exports.UserTypes = {}));
+;
 
 
 /***/ })

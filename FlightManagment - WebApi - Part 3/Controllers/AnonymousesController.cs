@@ -303,12 +303,13 @@ namespace FlightManagment___WebApi___Part_3
         /// <param name="customer"></param>
         static void SendEmailToNewCustomer(Customer customer)
         {
-            string encryptDetails = ControllersCenter.EncryptString(sec, $"{customer.User_Name}|{customer.First_Name}|{customer.Last_Name}");
-            string apiKey = Environment.GetEnvironmentVariable("Customes_Emails_Key");
+            //string encryptDetails = ControllersCenter.EncryptString(sec, $"{customer.User_Name}|{customer.First_Name}|{customer.Last_Name}");
+            string encryptDetails = $"{customer.User_Name}|{customer.First_Name}|{customer.Last_Name}";
+            string apiKey = Environment.GetEnvironmentVariable("Flights_Managment_Emails_Key",EnvironmentVariableTarget.Machine);
             ISendGridClient client = new SendGridClient(apiKey);
             EmailAddress from = new EmailAddress("test@example.com", "Let's Fly");
             string subject = $"Hey {customer.First_Name} Welcome To Let's Fly";
-            EmailAddress to = new EmailAddress($"{customer.User_Name}", $"{customer.First_Name} {customer.Last_Name}");
+            EmailAddress to = new EmailAddress("meir7595@gmail.com", $"{customer.First_Name} {customer.Last_Name}");
             string emailContent = $"You Have successfully Registered To Let's Fly!</br> <strong><a href='https://localhost:44368/api/confirmemail?token={encryptDetails}'>Please Click Here To Confirm Your Email</a></strong>";
             string htmlContent = $"You Have successfully Registered To Let's Fly!</br> <strong><a href='https://localhost:44368/api/confirmemail?token={encryptDetails}'>Please Click Here To Confirm Your Email</a></strong>";
             SendGridMessage msg = MailHelper.CreateSingleEmail(from, to, subject, emailContent, htmlContent);
@@ -326,8 +327,10 @@ namespace FlightManagment___WebApi___Part_3
         {
             IHttpActionResult result = controllersCenter.ExecuteSafe(() =>
             {
-                if (facade.VerifyNewCustomerEmail(ControllersCenter.DecryptString(sec, token).Split('|')[0]))
-                    return Content(HttpStatusCode.OK, "Your Account Has Been Successfully Verified");
+            //if (facade.VerifyNewCustomerEmail(ControllersCenter.DecryptString(sec, token).Split('|')[0]))
+            string userName = token.Split('|')[0];
+                if (facade.VerifyNewCustomerEmail(userName))
+                return Content(HttpStatusCode.OK, "Your Account Has Been Successfully Verified");
                 return Content(HttpStatusCode.NotFound, "Sorry, Your Account Verification Failed");
             });
             return result; // for debug - break point here

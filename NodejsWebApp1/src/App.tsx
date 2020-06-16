@@ -1,15 +1,34 @@
 import React from 'react';
-import MainNavbar from './../components/mainNavbar';
-import LoginPage from './../components/loginPage';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-function trySubmit(userName, password) {
-    alert(userName);
-    alert(password);
-};
+import { MainNavbar } from './../src/mainNavbar';
+import LoginPage from './../src/pages/loginPage';
+import 'bootstrap/dist/css/bootstrap.css';
 
-export const App: React.FunctionComponent = () => {
-    return <div style={{ height: '800px', backgroundImage: "url('./../images/loginBackground.jpg')", WebkitBackgroundSize: 'cover', MozBackgroundSize: 'cover', OBackgroundSize: 'cover', backgroundSize: 'cover',padding: '10px'}}>
-        <MainNavbar />
-        <LoginPage login_submit={trySubmit} />
-    </div>;
+import axios from 'axios';
+import swal from 'sweetalert2';
+
+const bgStyles = {
+    height: '800px',
+    backgroundImage: "url('./../images/loginBackground.jpg')",
+    padding: '10px'
 }
+
+interface IAppProps {
+    userType: string;
+    trySubmit(userName, password): void;
+    askWhichUserToRegister(): void;
+    handleRestorePassword(): void;
+}
+
+export const App: React.FunctionComponent<IAppProps> = ({ userType, trySubmit, askWhichUserToRegister, handleRestorePassword  }) => (
+    <div style={bgStyles} className="stretchy">
+        <Router>
+            <MainNavbar userType={userType} />
+            <Switch>
+                <Route exact path={["/log-as-customer", "/log-as-company"]} render={() => <LoginPage login_submit={trySubmit} newCusOrCmpReq={askWhichUserToRegister} forgotPassword={handleRestorePassword} />}/>
+            </Switch>
+        </Router>
+    </div>
+);
+

@@ -1,4 +1,3 @@
 export enum AppEvents {
-    SET_NAME = "APP/SET_NAME",
-    SET_AGE = "APP/SET_AGE"
+    SET_USER_TYPE = "APP/SET_USER_TYPE",
 };

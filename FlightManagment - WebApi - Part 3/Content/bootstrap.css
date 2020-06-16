@@ -13458,9 +13458,9 @@ tbody.collapse.in {
 }
 
 .nav-justified .nav-item {
-    -ms-flex-preferred-size: 0;
+    _ms-flex-preferred-size: 0;
     flex-basis: 0;
-    -ms-flex-positive: 1;
+    _ms-flex-positive: 1;
     flex-grow: 1;
     text-align: center;
 }
@@ -13540,9 +13540,9 @@ tbody.collapse.in {
 }
 
 .navbar-collapse {
-    -ms-flex-preferred-size: 100%;
+    _ms-flex-preferred-size: 100%;
     flex-basis: 100%;
-    -ms-flex-positive: 1;
+    _ms-flex-positive: 1;
     -ms-flex-align: center;
     align-items: center;
 }
@@ -13610,7 +13610,7 @@ tbody.collapse.in {
         .navbar-expand-sm .navbar-collapse {
             display: -ms-flexbox !important;
             display: flex !important;
-            -ms-flex-preferred-size: auto;
+            _ms-flex-preferred-size: auto;
             flex-basis: auto;
         }
 
@@ -13658,7 +13658,7 @@ tbody.collapse.in {
         .navbar-expand-md .navbar-collapse {
             display: -ms-flexbox !important;
             display: flex !important;
-            -ms-flex-preferred-size: auto;
+            _ms-flex-preferred-size: auto;
             flex-basis: auto;
         }
 
@@ -13707,7 +13707,7 @@ tbody.collapse.in {
         .navbar-expand-lg .navbar-collapse {
             display: -ms-flexbox !important;
             display: flex !important;
-            -ms-flex-preferred-size: auto;
+            _ms-flex-preferred-size: auto;
             flex-basis: auto;
         }
 
@@ -13755,7 +13755,7 @@ tbody.collapse.in {
         .navbar-expand-xl .navbar-collapse {
             display: -ms-flexbox !important;
             display: flex !important;
-            -ms-flex-preferred-size: auto;
+            _ms-flex-preferred-size: auto;
             flex-basis: auto;
         }
 

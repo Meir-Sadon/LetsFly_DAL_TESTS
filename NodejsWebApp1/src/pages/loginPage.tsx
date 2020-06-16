@@ -1,21 +1,27 @@
 import * as React from 'react';
-const lps = require('./loginPageStyle.module.css');
+//import * as lps from './../../styles/loginPageStyle.module.css';
+const lps = require('./LoginPageStyle.module.css');
 
 
-interface IProps {
+interface ILoginProps {
 	login_submit(userName, password): void;
+	forgotPassword(): void;
+	newCusOrCmpReq(): void;
 }
 
-interface IState {
+interface ILoginState {
 	userName: string;
 	password: string;
 }
 
-export class LoginPage extends React.Component<IProps, IState> {
-	state: IState = {
-		userName: '',
-		password: ''
-	}
+export class LoginPage extends React.Component<ILoginProps, ILoginState> {
+	constructor(props: ILoginProps) {
+		super(props)
+		this.state = {
+			userName: '',
+			password: ''
+		}
+    }
 
 	private handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
 		switch (e.target.id) {
@@ -37,11 +43,23 @@ export class LoginPage extends React.Component<IProps, IState> {
 
 	}
 
+	private forgotPassword = (e: React.SyntheticEvent<EventTarget>): void => {
+		e.preventDefault();
+		//this.props.login_submit(userName, password)
+	}
+
+	private newCusOrCmpReq = (e: React.SyntheticEvent<EventTarget>): void => {
+		e.preventDefault();
+		//this.props.login_submit(userName, password)
+	}
+
 	private loginSubmit = (e: React.SyntheticEvent<EventTarget>): void => {
 		e.preventDefault();
 		const { userName, password } = this.state;
 		this.props.login_submit(userName, password)
 	}
+
+
 	public render() {
 		return (
 
@@ -82,11 +100,11 @@ export class LoginPage extends React.Component<IProps, IState> {
 							</form>
 						</div>
 						<div className="mt-4">
-							<div className="d-flex justify-content-center links">
-								Don't have an account? <a href="#" className="ml-2">Sign Up</a>
+							<div className="d-flex justify-content-center links" style={{ color: ' #0f0f0a' }}>
+								Don't have an account? <a href="#" className="ml-2" onClick={this.newCusOrCmpReq}>Sign Up</a>
 							</div>
 							<div className="d-flex justify-content-center links">
-								<a href="#">Forgot your password?</a>
+								<a href="#" onClick={this.forgotPassword}>Forgot your password?</a>
 							</div>
 						</div>
 					</div>
@@ -97,53 +115,5 @@ export class LoginPage extends React.Component<IProps, IState> {
 }
 
 export default LoginPage
-
-
-
-			//<div className="container">
-			//	<div className="d-flex justify-content-center h-100">
-			//		<div className="user-card">
-			//			<div className="d-flex justify-content-center h-100">
-			//				<div className="brand-logo-container">
-			//					<img src="./../Images/Lf_Logo.jpg" className="brand-logo" alt="Logo" />
-			//				</div>
-			//			</div>
-			//			<div className="d-flex justify-content-center form-container">
-			//				<form>
-			//					<div className="input-group mb-3">
-			//						<div className="input-group-append">
-			//							<span className="input-group-text" ><i className="fas fa-user"></i></span>
-			//						</div>
-			//						<input type="text" name="" className="form-control lps.input-user" placeholder="username"></input>
-			//					</div>
-			//					<div className="input-group mb-2">
-			//						<div className="input-group-append">
-			//							<span className="input-group-text"><i className="fas fa-key"></i></span>
-			//						</div>
-			//						<input type="password" name="" className="form-control input-pass" placeholder="password"></input>
-			//					</div>
-			//					<div className="form-group">
-			//						<div className="custom-control custom-checkbox">
-			//							<input type="checkbox" className="custom-control-input" id="customControlInline"></input>
-			//							<label className="custom-control-label">Remember me</label>
-			//						</div>
-			//					</div>
-			//					<div className="d-flex justify-content-center mt-3 login-container">
-			//						<button type="button" name="button" className="btn login-btn">Login</button>
-			//					</div>
-			//				</form>
-			//			</div>
-			//			<div className="mt-4">
-			//				<div className="d-flex justify-content-center links">
-			//					Don't have an account? <a href="#" className="ml-2">Sign Up</a>
-			//				</div>
-			//				<div className="d-flex justify-content-center links">
-			//					<a href="#">Forgot your password?</a>
-			//				</div>
-			//			</div>
-			//		</div>
-			//	</div>
-			//</div>
-
 
 	

@@ -5,16 +5,9 @@ export interface IAction {
     payload: any;
 }
 
-export const SetName = (payload: string) => {
+export const SetUserType = (payload: string) => {
     return {
-        type: AppEvents.SET_NAME,
-        payload
-    };
-};
-
-export const SetAge = (payload: number) => {
-    return {
-        type: AppEvents.SET_AGE,
+        type: AppEvents.SET_USER_TYPE,
         payload
     };
 };
