@@ -2,9 +2,9 @@
     app_name: 'dealsApp',
 
     //Constant Fields For Deals Controller.
-    get_all_countries_url: `/api/search/countries`,
-    get_all_companies_url: `/api/search/companies`,
-    get_all_flights_url: `/api/search/flights`,
+    get_all_countries_url: `api/search/countries`,
+    get_all_companies_url: `api/search/companies`,
+    get_all_flights_url: `api/search/flights`,
 
     // Constatnt Fields For Company Controller.
     get_companies_requests: `api/administrators/get/companies_requests`,

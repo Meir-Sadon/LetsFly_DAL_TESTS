@@ -16,7 +16,7 @@
     <AssemblyName>FlightManagment - WebApi - Part 3</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44368</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
@@ -1385,7 +1385,7 @@
     <Content Include="Content\Images\Logos\American-Airlines-Logo.png" />
     <Content Include="Content\Images\Logos\Arkia-Logo.png" />
     <Content Include="Content\Images\Logos\British-Airways-Logo.png" />
-    <Content Include="Content\Images\Logos\Elal-Logo.png" />
+    <Content Include="Content\Images\Logos\El-al-Logo.png" />
     <Content Include="Content\Images\Logos\Hainan-Airlines-Logo.png" />
     <Content Include="Content\Images\Logos\Iran-Air-Logo.png" />
     <Content Include="Content\Images\Logos\Ryanair-Logo.png" />
@@ -1474,6 +1474,10 @@
     <Content Include="Scripts\DealsPage\BootstrapApp.js" />
     <Content Include="Scripts\DealsPage\deals.ctrl.js" />
     <Content Include="Scripts\DealsPage\router-config.js" />
+    <Content Include="libman.json" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\embedded\1.0\visio-web-embedded.debug-vsdoc.js" />
     <Content Include="Scripts\embedded\1.0\visio-web-embedded.debug.js" />
     <Content Include="Scripts\embedded\1.0\visio-web-embedded.js" />
@@ -3083,7 +3087,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50508</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44368/</IISUrl>
+          <IISUrl>https://localhost:951/FlightManagment - WebApi - Part 3</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>https://localhost:951/FlightManagment - WebApi - Part 3</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

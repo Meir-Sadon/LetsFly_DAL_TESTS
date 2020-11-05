@@ -310,8 +310,8 @@ namespace FlightManagment___WebApi___Part_3
             EmailAddress from = new EmailAddress("test@example.com", "Let's Fly");
             string subject = $"Hey {customer.First_Name} Welcome To Let's Fly";
             EmailAddress to = new EmailAddress("meir7595@gmail.com", $"{customer.First_Name} {customer.Last_Name}");
-            string emailContent = $"You Have successfully Registered To Let's Fly!</br> <strong><a href='https://localhost:44368/api/confirmemail?token={encryptDetails}'>Please Click Here To Confirm Your Email</a></strong>";
-            string htmlContent = $"You Have successfully Registered To Let's Fly!</br> <strong><a href='https://localhost:44368/api/confirmemail?token={encryptDetails}'>Please Click Here To Confirm Your Email</a></strong>";
+            string emailContent = $"You Have successfully Registered To Let's Fly!</br> <strong><a href='https://localhost:951/api/confirmemail?token={encryptDetails}'>Please Click Here To Confirm Your Email</a></strong>";
+            string htmlContent = $"You Have successfully Registered To Let's Fly!</br> <strong><a href='https://localhost:951/api/confirmemail?token={encryptDetails}'>Please Click Here To Confirm Your Email</a></strong>";
             SendGridMessage msg = MailHelper.CreateSingleEmail(from, to, subject, emailContent, htmlContent);
             Response response = client.SendEmailAsync(msg).Result;
         }

@@ -18,7 +18,7 @@ const mapStateToProps = (state: IAppState) => {
 const mapDispatchToProps = (dispatch: Dispatch<IAction>) => {
     return {
         trySubmit: (userName, password) => {
-            axios.post("https://localhost:44368//api/Auth", {
+            axios.post("api/Auth", {
                 User_Name: userName,
                 Password: password
             })

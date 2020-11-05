@@ -1,6 +1,6 @@
 ﻿module.controller('cusRegCtrl', CusRegCtrl)
 
-function CusRegCtrl($scope, $http, $sce, $templateCache, globalConst, dataService) {
+function CusRegCtrl($scope, $http, globalConst, dataService) {
 
     $scope.form = {
         fullName: 'EE EE',
@@ -30,7 +30,7 @@ function CusRegCtrl($scope, $http, $sce, $templateCache, globalConst, dataServic
                 Phone_No: $scope.form.phoneNumber,
                 Credit_Card_Number: $scope.form.card
                 };
-                $http.post("https://localhost:44368/api/create/customer", JSON.stringify(customer))
+                $http.post("api/create/customer", JSON.stringify(customer))
                 .then(
                     (resp) => {
                         Swal.fire({
@@ -87,8 +87,6 @@ function CusRegCtrl($scope, $http, $sce, $templateCache, globalConst, dataServic
     
     // Watch For State Input.
     $scope.$watch('form.address.state', (newState, oldState) => {
-        console.log(`new: ${newState}. ******* old: ${oldState}`);
-        console.log(`scope_state: ${$scope.form.address.state}`);
         if (!$scope.regForm.state.$pristine) {
             if (checkIfSelectInputIsValid("State")) {
                 $scope.updateCitiesOptions($scope.form.address.country, newState)
@@ -154,7 +152,6 @@ function CusRegCtrl($scope, $http, $sce, $templateCache, globalConst, dataServic
                     }
                 })
                 .catch(function (err) {
-                    console.log(err);
                     alert('alert')
                 })
                 .finally(function () {
@@ -163,58 +160,14 @@ function CusRegCtrl($scope, $http, $sce, $templateCache, globalConst, dataServic
         }
     }
 
-    // Update States Options When Country Has Been Changed.
-    //$scope.updateStatesOptions = (newValCountry) => {
-    //    dataService.allCountryStates = ["Choose State"]
-    //    if (checkIfSelectInputIsValid("Country")) {
-    //        $http({ method: 'GET', url: globalConst.getStatesBasicUrl + `${newValCountry}` , cache: $templateCache }).
-    //            then(function (response) {
-    //                console.log(response.status);
-    //                console.log(response.data);
-    //            }, function (response) {
-    //                console.log(response.status);
-    //                console.log(response.data);
-    //            });
-    //    }
-    //}
-
-    // Update States Options When Country Has Been Changed.
-    //$scope.updateStatesOptions = (newValCountry) => {
-    //    dataService.allCountryStates = ["Choose State"]
-    //    if (checkIfSelectInputIsValid("Country")) {
-    //        $.ajax({
-    //            url: `${globalConst.getStatesBasicUrl}${newValCountry}`,
-    //            type: "get",
-    //            dataType: "jsonp",
-    //            contentType: "application/json; charset=utf-8",
-    //            jsonpCallback: 'processJSONPResponse',
-    //            success: function (resp) {
-    //                console.log(resp);
-    //                const temp = resp.data.details.regionalBlocs;
-    //                if (temp.length > 0) {
-    //                    $.each(temp, function (i, state) {
-    //                        dataService.allCountryStates.push(state.state_name)
-    //                    })
-    //                } else {
-    //                    dataService.allCountryStates.push(`No States Found For The Selected Country.`)
-    //                }
-    //            },
-    //                error: function (xhr, status, error) {
-    //                    console.log("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
-    //                }
-    //            }
-    //        );
-    //    }
-    //}
 
     // Update States Options When Country Has Been Changed.
     $scope.updateStatesOptions = (newValCountry) => {
         dataService.allCountryStates = ["Choose State"]
         if (checkIfSelectInputIsValid("Country")) {
-            $http.get("https://localhost:44368/api/search/statesOrCities?url=" + `${globalConst.getStatesBasicUrl}` + `${newValCountry}`)
+            $http.get("api/search/statesOrCities?url=" + `${globalConst.getStatesBasicUrl}` + `${newValCountry}`)
                 .then(function (resp) {
                     const temp = JSON.parse(resp.data).details.regionalBlocs;
-                    console.log(temp);
                     if (temp.length > 0) {
                         $.each(temp, function (i, state) {
                             dataService.allCountryStates.push(state.state_name)
@@ -224,7 +177,6 @@ function CusRegCtrl($scope, $http, $sce, $templateCache, globalConst, dataServic
                     }
                 })
                 .catch(function (err) {
-                    console.log(err);
                     alert('alert')
                 })
                 .finally(function () {
@@ -237,7 +189,7 @@ function CusRegCtrl($scope, $http, $sce, $templateCache, globalConst, dataServic
     $scope.updateCitiesOptions = (country, newValState) => {
         dataService.allStateCities = ["Choose City"]
         if (checkIfSelectInputIsValid("State")) {
-            $http.get(`https://localhost:44368/api/search/statesOrCities?url=${globalConst.getStatesBasicUrl}${country}&state=${newValState}`)
+            $http.get(`api/search/statesOrCities?url=${globalConst.getStatesBasicUrl}${country}&state=${newValState}`)
                 .then(function (resp) {
                     const temp = JSON.parse(resp.data)
                             $.each(temp, function (i, city) {
@@ -249,7 +201,6 @@ function CusRegCtrl($scope, $http, $sce, $templateCache, globalConst, dataServic
                     }
                 })
                 .catch(function (err) {
-                    console.log(err);
                     alert('alert')
                 })
                 .finally(function () {

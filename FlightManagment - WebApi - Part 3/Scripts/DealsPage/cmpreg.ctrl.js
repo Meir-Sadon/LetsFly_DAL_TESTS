@@ -36,7 +36,7 @@ function CmpRegCtrl($scope, $http, apiService, dataService) {
                 Password: $scope.form.password,
                 Country_Code: $scope.form.country,
             };
-            $http.post("https://localhost:44368/api/toqueue/company", JSON.stringify(company))
+            $http.post("api/toqueue/company", JSON.stringify(company))
                 .then(
                     (resp) => {
                         console.log(resp);

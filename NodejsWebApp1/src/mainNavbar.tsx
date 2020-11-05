@@ -56,16 +56,16 @@ export const MainNavbar: React.FunctionComponent<IMainProps> = ({userType}) => (
 
                     <div style={{ display: userType == UserTypes.TYPE_4 ? 'flex' : 'none' }}>
                         <MainNav.NavDropdown title="Sign-Up" id="collasible-nav-dropdown">
-                            <Link className="dropdown-item" to="/reg-as-cus">As Customer</Link>
-                            <Link className="dropdown-item" to="/reg-as-cmp">As Company</Link>
+                            <Link className="dropdown-item" to="/page/customerregister">As Customer</Link>
+                            <Link className="dropdown-item" to="/page/companyregister">As Company</Link>
                         </MainNav.NavDropdown>
                         <MainNav.NavDropdown title="Sign-In" id="collasible-nav-dropdown">
-                            <Link className="dropdown-item" to="/log-as-customer">As Customer</Link>
-                            <Link className="dropdown-item" to="/log-as-company">As Company</Link>
+                            <Link className="dropdown-item" to="/customerlogin">As Customer</Link>
+                            <Link className="dropdown-item" to="/companylogin">As Company</Link>
                             <MainNav.NavDropdown.Divider />
-                            <Link className="dropdown-item" to="/log-as-admin">As Administrator</Link>
+                            <Link className="dropdown-item" to="/adminlogin">As Administrator</Link>
                         </MainNav.NavDropdown>
-                        <Link className="nav-link nav-link" to="/search-flights">Search Flights</Link>
+                        <Link className="nav-link nav-link" to="/page/searchflight">Search Flights</Link>
                     </div>
                     </MainNav.Nav>
                 </MainNav.Navbar.Collapse>

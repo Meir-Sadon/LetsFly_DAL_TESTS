@@ -30,7 +30,7 @@ $(function () {
     }).then(function (data) {
         getMatchingFlights(searchFlightsUrl)
     }) 
-});
+9});
 
 //Auto Refresg Page(Every 5 Minutes)
 function refreshPage(time) {

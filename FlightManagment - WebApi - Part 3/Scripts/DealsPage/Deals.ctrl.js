@@ -6,7 +6,9 @@ function DealsCtrl($scope, dataService, apiService) {
 
     // Get All Matching Flights From ApiService(Ajax)
     $scope.matchingVacancyFlights = dataService.matchingVacancyFlights;
-    apiService.getAllItems(dataService.matchingVacancyFlightsUrl).then(() => {
+    apiService.getAllItems(dataService.matchingVacancyFlightsUrl).then(() =>
+    {
+        console.log(dataService.matchingVacancyFlightsUrl)
         $scope.allCountries = dataService.allCountries;
         $scope.matchingVacancyFlights = dataService.matchingVacancyFlights
     })

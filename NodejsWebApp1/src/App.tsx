@@ -26,7 +26,7 @@ export const App: React.FunctionComponent<IAppProps> = ({ userType, trySubmit, a
         <Router>
             <MainNavbar userType={userType} />
             <Switch>
-                <Route exact path={["/log-as-customer", "/log-as-company"]} render={() => <LoginPage login_submit={trySubmit} newCusOrCmpReq={askWhichUserToRegister} forgotPassword={handleRestorePassword} />}/>
+                <Route exact path={["/customerlogin", "/companylogin"]} render={() => <LoginPage login_submit={trySubmit} newCusOrCmpReq={askWhichUserToRegister} forgotPassword={handleRestorePassword} />}/>
             </Switch>
         </Router>
     </div>

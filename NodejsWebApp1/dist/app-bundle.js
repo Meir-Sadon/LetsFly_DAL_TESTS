@@ -55746,7 +55746,7 @@ exports.App = ({ userType, trySubmit, askWhichUserToRegister, handleRestorePassw
     react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
         react_1.default.createElement(mainNavbar_1.MainNavbar, { userType: userType }),
         react_1.default.createElement(react_router_dom_1.Switch, null,
-            react_1.default.createElement(react_router_dom_1.Route, { exact: true, path: ["/log-as-customer", "/log-as-company"], render: () => react_1.default.createElement(loginPage_1.default, { login_submit: trySubmit, newCusOrCmpReq: askWhichUserToRegister, forgotPassword: handleRestorePassword }) })))));
+            react_1.default.createElement(react_router_dom_1.Route, { exact: true, path: ["/customerlogin", "/companylogin"], render: () => react_1.default.createElement(loginPage_1.default, { login_submit: trySubmit, newCusOrCmpReq: askWhichUserToRegister, forgotPassword: handleRestorePassword }) })))));
 
 
 /***/ }),
@@ -55802,7 +55802,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         trySubmit: (userName, password) => {
-            axios_1.default.post("https://localhost:44368//api/Auth", {
+            axios_1.default.post("api/Auth", {
                 User_Name: userName,
                 Password: password
             })
@@ -55922,14 +55922,14 @@ exports.MainNavbar = ({ userType }) => (React.createElement("div", { style: { pa
                     React.createElement(react_router_dom_1.Link, { className: "nav-link nav-link", to: "/home" }, "Log out")),
                 React.createElement("div", { style: { display: userType == userTypes_1.UserTypes.TYPE_4 ? 'flex' : 'none' } },
                     React.createElement(MainNav.NavDropdown, { title: "Sign-Up", id: "collasible-nav-dropdown" },
-                        React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/reg-as-cus" }, "As Customer"),
-                        React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/reg-as-cmp" }, "As Company")),
+                        React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/page/customerregister" }, "As Customer"),
+                        React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/page/companyregister" }, "As Company")),
                     React.createElement(MainNav.NavDropdown, { title: "Sign-In", id: "collasible-nav-dropdown" },
-                        React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/log-as-customer" }, "As Customer"),
-                        React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/log-as-company" }, "As Company"),
+                        React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/customerlogin" }, "As Customer"),
+                        React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/companylogin" }, "As Company"),
                         React.createElement(MainNav.NavDropdown.Divider, null),
-                        React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/log-as-admin" }, "As Administrator")),
-                    React.createElement(react_router_dom_1.Link, { className: "nav-link nav-link", to: "/search-flights" }, "Search Flights")))))));
+                        React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/adminlogin" }, "As Administrator")),
+                    React.createElement(react_router_dom_1.Link, { className: "nav-link nav-link", to: "/page/searchflight" }, "Search Flights")))))));
 //export default MainNavbar
 
 

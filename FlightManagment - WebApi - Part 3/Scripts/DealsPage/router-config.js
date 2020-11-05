@@ -13,13 +13,13 @@ module.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "HomePage/Deals",
             controller: "dealsCtrl"
         })
-        .state("customer-register", {
-            url: "/customer-register",
+        .state("customerregister", {
+            url: "/customerregister",
             templateUrl: "HomePage/CusReg",
             controller: "cusRegCtrl"
         })
-        .state("company-register", {
-            url: "/company-register",
+        .state("companyregister", {
+            url: "/companyregister",
             templateUrl: "HomePage/CmpReg",
             controller: "cmpRegCtrl"
         })

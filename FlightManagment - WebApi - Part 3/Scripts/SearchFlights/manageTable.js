@@ -14,8 +14,10 @@ function getMatchingFlights(sentUrl) {
             $("#matchesFlightsTable").empty()
             resetLocalStorage()
             takeInfoOnSucReq(data)
-        }).fail(function () {
+        }).fail(function (err) {
             $("#matchesFlightsTable").empty()
+            console.log("Some Error:");
+            console.log(err);
             if(getLocalStorage()[1].length > 1){
                 printFlightsOnTable(getLocalStorage(), false)
             }else{
@@ -141,11 +143,35 @@ function resetLocalStorage() {
 function getLocalStorage() {
     switch (searchState) {
         case 1:
-            return [localStorage.lastDepartureTime, JSON.parse(JSON.stringify(localStorage.lastDepartureResult)).split('}')]
+                var local = localStorage.lastDepartureTime;
+                var stringify1 = JSON.stringify(localStorage.lastDepartureResult);
+                var preresult = JSON.parse(stringify1)
+                var result = preresult.split('}')
+                return [local, result]
         case 2:
-            return [localStorage.lastLandingTime, JSON.parse(JSON.stringify(localStorage.lastLandingResult)).split('}')]
+            var local = localStorage.lastLandingTime;
+            var stringify1 = JSON.stringify(localStorage.lastLandingResult);
+            var preresult = JSON.parse(stringify1)
+            var result = preresult.split('}')
+            return [local, result]
         default:
-            return [localStorage.lastSearchTime, JSON.parse(JSON.stringify(localStorage.lastSearchResult)).split('}')]
+            var local = localStorage.lastSearchTime;
+            console.log("------------");
+            console.log(local);
+            var stringify1 = JSON.stringify(localStorage.lastSearchResult);
+            console.log("------------");
+            console.log(stringify1);
+            var preresult = JSON.parse(stringify1)
+            console.log("------------");
+
+            console.log(preresult);
+            var result = preresult.split('}')
+            console.log("------------");
+            console.log(result);
+            console.log("------------");
+            console.log([local, result]);
+            return [local, result]
+
     }
 }
 

@@ -1,6 +1,6 @@
 // Fields
 let searchState = 0
-let searchFlightsUrl = `https://localhost:44368/api/search/flights/byfilters?`
+let searchFlightsUrl = `https://localhost:951/api/search/flights/byfilters?`
 
 //Functions.
 
@@ -102,7 +102,7 @@ function changeValue(from, to){
 function updateSearchUrl(){
     switch(searchState){
         case 1:
-            searchFlightsUrl = `https://localhost:44368/api/search/flights/byfilters?`+
+            searchFlightsUrl = `https://localhost:951/api/search/flights/byfilters?`+
             `fromCountry=${$('#allOriginCountriesLst').val()}`+
             `&toCountry=${$('#allDestinationCountriesLst').val()}`+
             `&flightNumber=${$('#allFlightsNumberLst').val()}`+
@@ -112,7 +112,7 @@ function updateSearchUrl(){
             break;
             case 2:
                 var today = moment().format('YYYY-MM-DDTHH:mm:ss');
-                searchFlightsUrl = `https://localhost:44368/api/search/flights/byfilters?`+
+                searchFlightsUrl = `https://localhost:951/api/search/flights/byfilters?`+
                 `fromCountry=${$('#allOriginCountriesLst').val()}`+
                 `&toCountry=${$('#allDestinationCountriesLst').val()}`+
                 `&flightNumber=${$('#allFlightsNumberLst').val()}`+
@@ -122,7 +122,7 @@ function updateSearchUrl(){
                 `&onlyVacancy=false`
                 break;
             default:
-                searchFlightsUrl = `https://localhost:44368/api/search/flights/byfilters?`+
+                searchFlightsUrl = `https://localhost:951/api/search/flights/byfilters?`+
                 `fromCountry=${$('#allOriginCountriesLst').val()}`+
                 `&toCountry=${$('#allDestinationCountriesLst').val()}`+
                 `&flightNumber=${$('#allFlightsNumberLst').val()}`+
