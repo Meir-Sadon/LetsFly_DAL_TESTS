@@ -5,7 +5,7 @@ let allCompanies = []
 // Get All Countries/Flights/Companies With Ajax And Prepare All Select List.
 $(function () {
     $.ajax({
-        url: `/api/search/countries` //Send Ajax To Get All Countries.
+        url: `../api/search/countries` //Send Ajax To Get All Countries.
     }).then(function (countries) {
         allCountries = countries
         $.each(countries, function (i, country){
@@ -30,7 +30,7 @@ $(function () {
     }).then(function (data) {
         getMatchingFlights(searchFlightsUrl)
     }) 
-9});
+});
 
 //Auto Refresg Page(Every 5 Minutes)
 function refreshPage(time) {

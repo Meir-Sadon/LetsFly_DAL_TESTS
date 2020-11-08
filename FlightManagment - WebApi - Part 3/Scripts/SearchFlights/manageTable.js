@@ -18,7 +18,8 @@ function getMatchingFlights(sentUrl) {
             $("#matchesFlightsTable").empty()
             console.log("Some Error:");
             console.log(err);
-            if(getLocalStorage()[1].length > 1){
+            const resultLocal = getLocalStorage();
+            if (resultLocal && resultLocal()[1].length > 1){
                 printFlightsOnTable(getLocalStorage(), false)
             }else{
                 $("#captiontable").html("").removeClass("caption-on-error-style")                        
@@ -158,6 +159,8 @@ function getLocalStorage() {
             var local = localStorage.lastSearchTime;
             console.log("------------");
             console.log(local);
+            if (local != undefined && local != "") {
+
             var stringify1 = JSON.stringify(localStorage.lastSearchResult);
             console.log("------------");
             console.log(stringify1);
@@ -171,6 +174,7 @@ function getLocalStorage() {
             console.log("------------");
             console.log([local, result]);
             return [local, result]
+            }
 
     }
 }
