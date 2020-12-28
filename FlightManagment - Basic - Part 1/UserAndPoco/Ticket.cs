@@ -54,7 +54,7 @@ namespace FlightManagment___Basic___Part_1
 
         public override string ToString()
         {
-            Customer customer = new LoggedInAdministratorFacade().GetCustomerById(FlyingCenterConfig.basicToken, (int)Customer_Id);
+            Customer customer = new LoggedInAdministratorFacade().GetCustomerById((int)Customer_Id);
             Flight flight = new LoggedInAdministratorFacade().GetFlightById((int)Flight_Id);
             return $"Buyer: {customer}. Flight: {flight}";
         }

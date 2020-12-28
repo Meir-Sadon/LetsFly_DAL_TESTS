@@ -3,13 +3,13 @@
 function CusRegCtrl($scope, $http, globalConst, dataService) {
 
     $scope.form = {
-        fullName: 'EE EE',
-        email: 'asdss@ERR.RR',
-        password: 'PPaa!!11asd',
-        address: { country: "", state: "", city: "" },
+        fullName: '',
+        email: '',
+        password: '',
+        address: { country: '', state: '', city: '' },
         phoneNumber: "",
         card: "",
-        agree: true
+        agree: false
     }
 
     $scope.allCountries = globalConst.all_countries_list
@@ -26,7 +26,7 @@ function CusRegCtrl($scope, $http, globalConst, dataService) {
                 Last_Name: $scope.form.fullName.split(' ')[1],
                 User_Name: $scope.form.email,
                 Password: $scope.form.password,
-                Address: $scope.form.address.country + " " + $scope.form.address.state + " " + $scope.form.address.city,
+                Address: $scope.form.address.country + ":" + $scope.form.address.state + ":" + $scope.form.address.city,
                 Phone_No: $scope.form.phoneNumber,
                 Credit_Card_Number: $scope.form.card
                 };

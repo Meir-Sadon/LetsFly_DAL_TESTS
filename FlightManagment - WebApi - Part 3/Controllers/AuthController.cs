@@ -30,26 +30,50 @@ namespace FlightManagment___WebApi___Part_3
         {
             IHttpActionResult result = ExecuteSafe(() =>
             {
-                //User userDetails = JsonConvert.DeserializeObject<User>(userAsJson);
-                UserType type = FlyingCenterSystem.GetUserAndFacade(userDetails.User_Name, userDetails.Password, out ILogin myToken, out FacadeBase myFacade);
-                userDetails.MyType = type;
-                if (type != UserType.Anonymous)
+                if (FlyingCenterSystem.GetUserAndFacade(userDetails, out ILogin loginUser, out FacadeBase myFacade))
                 {
                     lock (this)
                     {
-                        if (userDetails != null)
+                        //ValidateTokenHandler validateTokenHandler = ValidateTokenHandler.GetInstance();
+                        ValidateTokenHandler validateTokenHandler = new ValidateTokenHandler();
+                        string token = CreateToken(userDetails);
+                        if (userDetails.Type == UserType.Administrator)
                         {
-                            string token = CreateToken(userDetails);
-                            return Content(HttpStatusCode.Created,
-                                 "{" +
-                                    $"\"token\":  \"{token}\"," +
-                                    $" \"type\": \"{type}\"" +
-                                "}"
-                                );
+
+                            validateTokenHandler.SetAdminToken(validateTokenHandler.ADMIN_TOKEN, token);
+                            return Content(HttpStatusCode.Created, validateTokenHandler.ADMIN_TOKEN);
                         }
+                        else
+                        {
+                            validateTokenHandler.SetUserToken(validateTokenHandler.ADMIN_TOKEN, token);
+                            return Content(HttpStatusCode.Created, token);
+                        }
+                        //long returnId;
+                        //switch (userDetails.Type)
+                        //{
+                        //    case UserType.Administrator:
+                        //        LoginToken<Administrator> adminUser = loginUser as LoginToken<Administrator>;
+                        //        returnId = adminUser.User.Id;
+                        //        break;
+                        //    case UserType.Airline:
+                        //        LoginToken<AirlineCompany> companyUser = loginUser as LoginToken<AirlineCompany>;
+                        //        returnId = companyUser.User.Id;
+                        //        break;
+                        //    case UserType.Customer:
+                        //        LoginToken<Customer> customerUser = loginUser as LoginToken<Customer>;
+                        //        returnId = customerUser.User.Id;
+                        //        break;
+                        //    default:
+                        //        return null;
+                        //}
+                        // "{" +
+                        //    $"\"token\":  \"{token}\"," +
+                        //    $" \"user\": \"{user}\"" +
+                        //"}"
+                        //);
                     }
                 }
-                return Content(HttpStatusCode.Unauthorized,"Sorry, But Your Username Or Password Is Incorrect");
+                return Content(HttpStatusCode.Unauthorized, "Sorry, But Your Username Or Password Is Incorrect");
             });
             return result;
         }
@@ -73,8 +97,8 @@ namespace FlightManagment___WebApi___Part_3
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[]
             {
                 new Claim("Id", tokenUser.Id.ToString()),
-                new Claim(ClaimTypes.Name, tokenUser.User_Name),
-                new Claim(ClaimTypes.Role, tokenUser.MyType.ToString()),
+                new Claim(ClaimTypes.Name, tokenUser.UserName),
+                new Claim(ClaimTypes.Role, tokenUser.Type.ToString()),
             });
 
             const string sec = "401b09eab3c013d4ca54922bb802bec8fd5318192b0a75f201d8b3727429090fb337591abd3e44453b954555b7a0812e1081c39b740293f765eae731f5a65ed1";

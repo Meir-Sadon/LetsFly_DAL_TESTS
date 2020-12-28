@@ -137,6 +137,26 @@ namespace FlightManagment___WebApi___Part_3
         }
         #endregion
 
+        #region Get Customer By Id.
+        /// <summary>
+        /// Get Customer By Id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>IHttpActionResult</returns>
+        [ResponseType(typeof(Customer))]
+        [Route("search/customers/{id}", Name = "GetCustomerById")]
+        [HttpGet]
+        public IHttpActionResult GetCustomerById([FromUri]int id)
+        {
+            IHttpActionResult result = controllersCenter.ExecuteSafe(() =>
+            {
+                Customer customer = facade.GetCustomerById(id);
+                return GetSuccessResponse(customer, "No Customer With The Received Id Was Found.");
+            });
+            return result; // for debug - break point here
+        }
+        #endregion
+
         #region Get Flight By Id.
         /// <summary>
         /// Get Flight By Id.

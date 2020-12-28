@@ -77,7 +77,8 @@ namespace TestForFlightManagmentProject
         {
             Customer customer = CreateRandomCustomer();
             customer.Customer_Number = adminFacade.CreateNewCustomer(customer);
-            FlyingCenterSystem.GetUserAndFacade(customer.User_Name, "123", out ILogin token, out FacadeBase facade);
+            User user = new User(customer.User_Name, "123", UserType.Customer, false);
+            FlyingCenterSystem.GetUserAndFacade(user , out ILogin token, out FacadeBase facade);
             LoginToken<Customer> newToken = token as LoginToken<Customer>;
             LoggedInCustomerFacade newfacade = facade as LoggedInCustomerFacade;
             Flight flight = new Flight { AirlineCompany_Id = airlineToken.User.Id, Departure_Time = new DateTime(2020, 12, 10, 00, 00, 00), Landing_Time = new DateTime(2020, 12, 11), Origin_Country_Code = adminFacade.GetCountryByName("Israel").Id, Destination_Country_Code = adminFacade.GetCountryByName("Israel").Id, Remaining_Tickets = 100 };

@@ -39,12 +39,9 @@ namespace FlightManagment___Basic___Part_1
         }
 
         // Only Here Is Place To Get Any Token Or Facade(Because It's Singelton)
-        static public UserType GetUserAndFacade(string userName, string password, out ILogin token, out FacadeBase facade)
+        static public bool GetUserAndFacade(User userDetails, out ILogin token, out FacadeBase facade)
         {
-            UserType type = ls.TryLogin(userName, password, out ILogin myToken, out FacadeBase myFacade);
-            token = myToken;
-            facade = myFacade;
-            return type;
+            return ls.TryLogin(userDetails, out token, out facade);
         }
 
         void UpdateFlightsAndTickets(object sender, ElapsedEventArgs e)

@@ -1,10 +1,12 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using FlightManagment___Basic___Part_1;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
@@ -13,6 +15,65 @@ namespace FlightManagment___WebApi___Part_3
 {
     public class ValidateTokenHandler : DelegatingHandler
     {
+        //static private ValidateTokenHandler instance;
+
+        //static object key = new object();
+        public string ADMIN_TOKEN { get; private set; }
+        public string USER_TOKEN { get; private set; }
+
+        //private ValidateTokenHandler()
+        //{
+        //    User baseAdminUser = new User(FlyingCenterConfig.ADMIN_NAME, FlyingCenterConfig.ADMIN_PASSWORD, UserType.Administrator, true);
+        //    string token = "";
+        //    HttpClient client = new HttpClient();
+        //    HttpResponseMessage response;
+        //    client.BaseAddress = new Uri($"https://localhost:951/api/Auth");
+        //    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //    string userDetails =
+        //        "{" +
+        //        $"\"User_Name\":  \"{baseAdminUser.UserName}\"," +
+        //        $" \"Password\": \"{baseAdminUser.Password}\"," +
+        //        $" \"Type\": \"{baseAdminUser.Type}\"" +
+        //        "}";
+        //    HttpContent httpContent = new StringContent(userDetails, Encoding.UTF8, "application/json");
+        //    response = client.PostAsync($"https://localhost:951/api/Auth", httpContent).Result;
+        //    token = response.Content.ReadAsStringAsync().Result;
+        //    ADMIN_TOKEN = FixApiResponseString(token);
+        //}
+
+        //static public ValidateTokenHandler GetInstance()
+        //{
+        //    if (instance == null)
+        //    {
+        //        lock (key)
+        //        {
+        //            if (instance == null)
+        //            {
+        //                instance = new ValidateTokenHandler();
+        //            }
+        //        }
+        //    }
+        //    return instance;
+        //}
+
+        private static string FixApiResponseString(string input)
+        {
+            input = input.Replace("\\", string.Empty);
+            input = input.Trim('"');
+            return input;
+        }
+        internal void SetUserToken(string currentAdminToken, string newUserToken)
+        {
+            if (String.IsNullOrEmpty(currentAdminToken))
+                USER_TOKEN = newUserToken;
+        }
+
+        internal void SetAdminToken(string currentAdminToken, string newAdminToken)
+        {
+            if (String.IsNullOrEmpty(currentAdminToken))
+                ADMIN_TOKEN = newAdminToken;
+        }
+
         private static bool TryRetrieveToken(HttpRequestMessage request, out string token)
         {
             token = null;
@@ -30,11 +91,9 @@ namespace FlightManagment___WebApi___Part_3
         {
             HttpStatusCode statusCode;
             string token;
-            //determine whether a jwt exists or not
             if (!TryRetrieveToken(request, out token))
             {
                 statusCode = HttpStatusCode.Unauthorized;
-                //allow requests with no token - whether a action method needs an authentication can be set with the claimsauthorization attribute
                 return base.SendAsync(request, cancellationToken);
             }
 
@@ -56,18 +115,20 @@ namespace FlightManagment___WebApi___Part_3
                     LifetimeValidator = this.LifetimeValidator,
                     IssuerSigningKey = securityKey
                 };
-                //extract and assign the user of the jwt
+
                 Thread.CurrentPrincipal = handler.ValidateToken(token, validationParameters, out securityToken);
                 HttpContext.Current.User = handler.ValidateToken(token, validationParameters, out securityToken);
 
                 return base.SendAsync(request, cancellationToken);
             }
-            catch (SecurityTokenValidationException)
+            catch (SecurityTokenValidationException ex)
             {
+                string Exmessage = ex.Message;
                 statusCode = HttpStatusCode.Unauthorized;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                string Exmessage = ex.Message;
                 statusCode = HttpStatusCode.InternalServerError;
             }
             return Task<HttpResponseMessage>.Factory.StartNew(() => new HttpResponseMessage(statusCode) { });

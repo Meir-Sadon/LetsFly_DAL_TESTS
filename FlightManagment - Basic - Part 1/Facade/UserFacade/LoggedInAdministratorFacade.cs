@@ -177,7 +177,7 @@ namespace FlightManagment___Basic___Part_1
                     if (adminUser != null)
                     {
                         if (admin.User_Name != FlyingCenterConfig.ADMIN_NAME)
-                            _userDAO.UpdateUserName(adminUser.User_Name, admin.User_Name);
+                            _userDAO.UpdateUserName(adminUser.UserName, admin.User_Name);
                         else
                             throw new CentralAdministratorException("The UserName Cannot Be Changed To The Same Name As The  Central Administrator UserName.");
                         _adminDAO.Update(admin);
@@ -207,7 +207,7 @@ namespace FlightManagment___Basic___Part_1
                 User airlineUser = _userDAO.GetUserById(airline.Id);
                 if (airlineUser != null)
                 {
-                    _userDAO.UpdateUserName(airlineUser.User_Name, airline.User_Name);
+                    _userDAO.UpdateUserName(airlineUser.UserName, airline.User_Name);
                     _airlineDAO.Update(airline);
                     _backgroundDAO.AddNewAction(Categories.AirlineCompanies | Categories.Updates, $"Admin: {token.User.User_Name} Tried To Update Details For Some Airline Company. Id: {airline.Id} ({airline.User_Name}).", true);
 
@@ -230,7 +230,7 @@ namespace FlightManagment___Basic___Part_1
                 User customerUser = _userDAO.GetUserById(customer.Id);
                 if (customerUser != null)
                 {
-                    _userDAO.UpdateUserName(customerUser.User_Name, customer.User_Name);
+                    _userDAO.UpdateUserName(customerUser.UserName, customer.User_Name);
                     _customerDAO.Update(customer);
                     _backgroundDAO.AddNewAction(Categories.Customers | Categories.Updates, $"Admin: {token.User.User_Name} Tried To Update Some Customer. Id: {customer.Id} ({customer.User_Name}).", true);
 
@@ -366,7 +366,7 @@ namespace FlightManagment___Basic___Part_1
                 if (adminUser != null)
                 {
                     admin = _adminDAO.GetById(adminUser.Id);
-                    admin.User_Name = adminUser.User_Name;
+                    admin.User_Name = adminUser.UserName;
                 }
             }
             return admin;
@@ -385,17 +385,6 @@ namespace FlightManagment___Basic___Part_1
                 }
             }
             return airline;
-        }
-
-        // Search Customer By Id.
-        public Customer GetCustomerById(LoginToken<Administrator> token, int id)
-        {
-            Customer customer = new Customer();
-            if (UserIsValid(token))
-            {
-                customer = _customerDAO.GetById(id);
-            }
-            return customer;
         }
 
         // Search Customer By UserName.

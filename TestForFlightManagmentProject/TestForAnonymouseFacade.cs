@@ -14,16 +14,17 @@ namespace TestForFlightManagmentProject
         2. GetAirlineById                 -- GetAirlineById.
         3. GetAirlineByAirlineName        -- GetAirlineCompanyByCompanyName
         4. GetAllAirlineCompanies         -- GetAllArlineCompanies.
-        5. GetFlightById                  -- GetFlightById.
-        6. GetAllFlightsVacancy           -- GetAllFlightsVacancy.
-        7. GetFlightsByDepatrureDate      -- GetFlightsByFromDepartureDate.
-        8. GetFlightsByLandingDate        -- GetFlightsByUpToLandingDate.
-        9. GetFlightsByOriginCountry      -- GetFlightsByOriginCountry.
-        10. GetFlightsByDestinationCountry -- GetFlightsByDestinationCountry.
-        11. GetAllFlights                  -- GetAllFlights.
-        12.GetCountryById                 -- GetCountryById.
-        13.GetCountryByName               -- GetCountryByName.
-        14.GetAllCountries                -- GetAllCountries.
+        5. GetCustomerById                -- GetCustomerById.
+        6. GetFlightById                  -- GetFlightById.
+        7. GetAllFlightsVacancy           -- GetAllFlightsVacancy.
+        8. GetFlightsByDepatrureDate      -- GetFlightsByFromDepartureDate.
+        9. GetFlightsByLandingDate        -- GetFlightsByUpToLandingDate.
+        10. GetFlightsByOriginCountry      -- GetFlightsByOriginCountry.
+        11. GetFlightsByDestinationCountry -- GetFlightsByDestinationCountry.
+        12. GetAllFlights                  -- GetAllFlights.
+        13.GetCountryById                 -- GetCountryById.
+        14.GetCountryByName               -- GetCountryByName.
+        15.GetAllCountries                -- GetAllCountries.
 
         ======= All Tests ======= */
 
@@ -56,6 +57,15 @@ namespace TestForFlightManagmentProject
             Assert.AreEqual(AirlineCompanies.Count, 2);
         }
 
+
+        // Search Some Customer By Id.
+        [TestMethod]
+        public void GetCustomerById()
+        {
+            Customer customer = CreateRandomCustomer();
+            customer.Customer_Number = adminFacade.CreateNewCustomer(customer);
+            Assert.AreNotEqual(new AnonymousUserFacade().GetCustomerById((int)customer.Id), null);
+        }
 
         // Supposed To Get Flight By Id.
         [TestMethod]

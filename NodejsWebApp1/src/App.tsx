@@ -1,32 +1,34 @@
+
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { MainNavbar } from './../src/mainNavbar';
-import LoginPage from './../src/pages/loginPage';
-import 'bootstrap/dist/css/bootstrap.css';
+import MainNavbar from './../src/mainNavbar';
+import { LoginPage } from './pages/loginPage';
 
-import axios from 'axios';
-import swal from 'sweetalert2';
+
+import { UserTypes } from './userTypes';
 
 const bgStyles = {
-    height: '800px',
+    height: '880px',
     backgroundImage: "url('./../images/loginBackground.jpg')",
-    padding: '10px'
+    padding: '10px',
+    backgroundSize: 'cover'
 }
 
 interface IAppProps {
-    userType: string;
-    trySubmit(userName, password): void;
-    askWhichUserToRegister(): void;
-    handleRestorePassword(): void;
+    userType: UserTypes;
+    identity: UserTypes;
+    //trySubmit(userName, password): void;
+    //askWhichUserToRegister(): void;
+    //handleRestorePassword(): void;
 }
 
-export const App: React.FunctionComponent<IAppProps> = ({ userType, trySubmit, askWhichUserToRegister, handleRestorePassword  }) => (
+export const App: React.FunctionComponent<IAppProps> = ( props ) => (
     <div style={bgStyles} className="stretchy">
         <Router>
-            <MainNavbar userType={userType} />
+            <Route render={() => <MainNavbar userType={props.userType} />}/>
             <Switch>
-                <Route exact path={["/customerlogin", "/companylogin"]} render={() => <LoginPage login_submit={trySubmit} newCusOrCmpReq={askWhichUserToRegister} forgotPassword={handleRestorePassword} />}/>
+                <Route path={["/login-c"]} render={() => <LoginPage/>} />
             </Switch>
         </Router>
     </div>

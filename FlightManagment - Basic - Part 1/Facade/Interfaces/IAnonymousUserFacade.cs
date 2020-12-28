@@ -16,6 +16,8 @@ namespace FlightManagment___Basic___Part_1
         AirlineCompany GetAirlineByAirlineName(string airlineName);
         IList<AirlineCompany> GetAllAirlineCompanies();
 
+        Customer GetCustomerById(int id);
+
         Flight GetFlightById(int id);
         Dictionary<Flight, int> GetAllFlightsVacancy();
         IList<Flight> GetFlightsByFilters(string fromCountry, string toCountry, string flightNumber, string byCompany , string depInHours, string landInHours, string flightDurationByHours, string fromDepDate, string upToDepDate, string fromLandDate, string upToLandDate, bool onlyVacancy = true);

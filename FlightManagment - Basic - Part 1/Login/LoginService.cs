@@ -13,15 +13,15 @@ namespace FlightManagment___Basic___Part_1
         readonly private IAdministratorDAO _administratorDAO = new AdministratorDAOMSSQL();
         IUserDAO _userDAO = new UserDAOMSSQL();
 
-        public UserType TryLogin(string userName, string password, out ILogin token, out FacadeBase facade)
+        public bool TryLogin(User userDetails, out ILogin token, out FacadeBase facade)
         {
             token = null;
             facade = new AnonymousUserFacade();
 
             // Default Admin.
-            if (userName.ToUpper() == FlyingCenterConfig.ADMIN_NAME.ToUpper())
+            if (userDetails.Type == UserType.Administrator && userDetails.UserName.ToUpper() == FlyingCenterConfig.ADMIN_NAME.ToUpper())
             {
-                if (password.ToUpper() == FlyingCenterConfig.ADMIN_PASSWORD.ToUpper())
+                if (userDetails.Password.ToUpper() == FlyingCenterConfig.ADMIN_PASSWORD.ToUpper())
                 {
                     token = new LoginToken<Administrator>
                     {
@@ -34,7 +34,7 @@ namespace FlightManagment___Basic___Part_1
                         )
                     };
                     facade = new LoggedInAdministratorFacade();
-                    return UserType.Administrator;
+                    return true;
                 }
                 else
                 {
@@ -43,14 +43,14 @@ namespace FlightManagment___Basic___Part_1
             }
 
             // DAO Users.
-            User user = _userDAO.GetUserByUserName(userName);
+            User user = _userDAO.GetUserByUserName(userDetails.UserName);
             if (user != null)
             {
-                if (user.User_Name == userName)
+                if (user.UserName.ToUpper() == userDetails.UserName.ToUpper())
                 {
-                    if (password.ToUpper() == user.Password.ToUpper())
+                    if (userDetails.Password.ToUpper() == user.Password.ToUpper())
                     {
-                        switch (user.MyType)
+                        switch (userDetails.Type)
                         {
                             case UserType.Administrator:
                                 {
@@ -61,12 +61,12 @@ namespace FlightManagment___Basic___Part_1
                                     (
                                         admin.Admin_Number,
                                         user.Id,
-                                        user.User_Name,
+                                        user.UserName,
                                         user.Password
                                     )
                                     };
                                     facade = new LoggedInAdministratorFacade();
-                                    return UserType.Administrator;
+                                    return true;
                                 }
                             case UserType.Airline:
                                 {
@@ -77,14 +77,14 @@ namespace FlightManagment___Basic___Part_1
                                     (
                                         airline.Airline_Number,
                                         user.Id,
-                                        user.User_Name,
+                                        user.UserName,
                                         user.Password,
                                         airline.Airline_Name,
                                         airline.Country_Code
                                     )
                                     };
                                     facade = new LoggedInAirlineFacade();
-                                    return UserType.Airline;
+                                    return true;
                                 }
                             case UserType.Customer:
                                 {
@@ -95,7 +95,7 @@ namespace FlightManagment___Basic___Part_1
                                         (
                                             customer.Customer_Number,
                                             user.Id,
-                                            user.User_Name,
+                                            user.UserName,
                                             user.Password,
                                             customer.First_Name,
                                             customer.Last_Name,
@@ -104,23 +104,20 @@ namespace FlightManagment___Basic___Part_1
                                             customer.Credit_Card_Number
                                         )
                                     };
-                                    facade = new LoggedInCustomerFacade();
-                                    return UserType.Customer;
+                                    return true;
                                 }
                             default:
-                                {
-                                    return UserType.Anonymous;
-                                }
+                                    return false;
                         }
                     }
                     else
                         throw new WrongPasswordException("Sorry, But Your Password Doe's Not Match To Your User Name.");
                 }
                 else
-                    throw new UserNotExistException($"Sorry, But {userName} Does Not Exist.");
+                    throw new UserNotExistException($"Sorry, But {userDetails.UserName} Does Not Exist.");
 
             }
-            return UserType.Anonymous;
+            return false;
         }
     }
 }

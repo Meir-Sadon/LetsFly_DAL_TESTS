@@ -116,7 +116,8 @@ namespace TestForFlightManagmentProject
         {
             AirlineCompany airline = CreateRandomCompany();
             airline.Airline_Number = adminFacade.CreateNewAirline(adminToken, airline);
-            FlyingCenterSystem.GetUserAndFacade(airline.User_Name, "123", out ILogin token, out FacadeBase facade);
+            User user = new User(airline.User_Name, "123", UserType.Airline, false);
+            FlyingCenterSystem.GetUserAndFacade(user, out ILogin token, out FacadeBase facade);
             LoginToken<AirlineCompany> newToken = token as LoginToken<AirlineCompany>;
             LoggedInAirlineFacade newfacade = facade as LoggedInAirlineFacade;
             Flight flight = CreateNewFlight();

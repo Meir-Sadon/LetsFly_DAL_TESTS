@@ -66,7 +66,7 @@ namespace FlightManagment___Basic___Part_1
                     User customerUser = _userDAO.GetUserById(token.User.Id);
                     if (customerUser != null)
                     {
-                        _userDAO.UpdateUserName(customerUser.User_Name, token.User.User_Name);
+                        _userDAO.UpdateUserName(customerUser.UserName, token.User.User_Name);
                         _customerDAO.Update(token.User);
                         _backgroundDAO.AddNewAction(Categories.Customers | Categories.Updates, $"Customer: {token.User.User_Name} Tried To Update His Details.", true);
 

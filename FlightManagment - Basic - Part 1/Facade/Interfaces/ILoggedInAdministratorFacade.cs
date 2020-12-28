@@ -29,7 +29,6 @@ namespace FlightManagment___Basic___Part_1
         Administrator GetAdminById(LoginToken<Administrator> token, int id);
         Administrator GetAdminByUserName(LoginToken<Administrator> token, string userName);
         AirlineCompany GetAirlineByUserName(LoginToken<Administrator> token, string userName);
-        Customer GetCustomerById(LoginToken<Administrator> token, int id);
         Customer GetCustomerByUserName(LoginToken<Administrator> token, string userName);
         IList<Customer> GetAllCustomers(LoginToken<Administrator> token);
 

@@ -61,7 +61,7 @@ namespace FlightManagment___Basic___Part_1
                 User airlineUser = _userDAO.GetUserById(token.User.Id);
                 if (airlineUser != null)
                 {
-                    _userDAO.UpdateUserName(airlineUser.User_Name, token.User.User_Name);
+                    _userDAO.UpdateUserName(airlineUser.UserName, token.User.User_Name);
                     _airlineDAO.Update(token.User);
                     _backgroundDAO.AddNewAction(Categories.AirlineCompanies | Categories.Updates, $"Company: {token.User.User_Name} Tried To Update Her Details.", true);
 

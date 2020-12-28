@@ -17,7 +17,7 @@ namespace FlightManagment___WebApi___Part_3
     /// </summary>
     [EnableCors("*", "*", "*")]
     [RoutePrefix("api/administrators")]
-    //[Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Administrator")]
     public class AdministratorsController : ApiController
     {
         private ControllersCenter controllersCenter = new ControllersCenter();
@@ -168,7 +168,7 @@ namespace FlightManagment___WebApi___Part_3
             IHttpActionResult result = controllersCenter.ExecuteSafe(() =>
             {
                 GetLoginToken(User.Identity.Name, out LoginToken<Administrator> myToken, out LoggedInAdministratorFacade myFacade);
-                Customer customer = myFacade.GetCustomerById(myToken, id);
+                Customer customer = myFacade.GetCustomerById(id);
                 myFacade.RemoveCustomer(myToken, customer);
                 return Ok($"Customer Number: {id} Deleted Successfully.");
             });
@@ -269,7 +269,7 @@ namespace FlightManagment___WebApi___Part_3
             IHttpActionResult result = controllersCenter.ExecuteSafe(() =>
             {
                 GetLoginToken(User.Identity.Name, out LoginToken<Administrator> myToken, out LoggedInAdministratorFacade myFacade);
-                Customer customerForUpdate = myFacade.GetCustomerById(myToken, id);
+                Customer customerForUpdate = myFacade.GetCustomerById(id);
                 if (customer.Id != customerForUpdate.Id)
                     throw new IdIsNotMatchException("Your Customer ID Does Not Match ID That Found In Your URL.");
                 else
@@ -368,7 +368,7 @@ namespace FlightManagment___WebApi___Part_3
             IHttpActionResult result = controllersCenter.ExecuteSafe(() =>
             {
                 GetLoginToken(User.Identity.Name, out LoginToken<Administrator> myToken, out LoggedInAdministratorFacade myFacade);
-                Customer customer = myFacade.GetCustomerById(myToken, id);
+                Customer customer = myFacade.GetCustomerById(id);
                 myFacade.ForceChangePasswordForCustomer(myToken, customer, passwords.NewPassword);
                 return Ok($"The Password For Customer Number: {id} Changed Successfully.");
             });
@@ -413,27 +413,6 @@ namespace FlightManagment___WebApi___Part_3
                 GetLoginToken(User.Identity.Name, out LoginToken<Administrator> myToken, out LoggedInAdministratorFacade myFacade);
                 Administrator admin = myFacade.GetAdminByUserName(myToken, userName);
                 return GetSuccessResponse(admin, "No Administrator With The Received userName Was Found.");
-            });
-            return result; // for debug - break point here
-        }
-        #endregion
-
-        #region Get Customer By Id.
-        /// <summary>
-        /// Get Customer By Id.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns>IHttpActionResult</returns>
-        [ResponseType(typeof(Customer))]
-        [Route("customers/{id}", Name = "GetCustomerById")]
-        [HttpGet]
-        public IHttpActionResult GetCustomerById([FromUri]int id)
-        {
-            IHttpActionResult result = controllersCenter.ExecuteSafe(() =>
-            {
-                GetLoginToken(User.Identity.Name, out LoginToken<Administrator> myToken, out LoggedInAdministratorFacade myFacade);
-                Customer customer = myFacade.GetCustomerById(myToken, id);
-                return GetSuccessResponse(customer, "No Customer With The Received Id Was Found.");
             });
             return result; // for debug - break point here
         }

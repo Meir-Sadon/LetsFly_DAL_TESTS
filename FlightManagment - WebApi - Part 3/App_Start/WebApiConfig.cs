@@ -14,6 +14,7 @@ namespace FlightManagment___WebApi___Part_3
             // Web API routes
             config.MapHttpAttributeRoutes();
             config.MessageHandlers.Add(new ValidateTokenHandler());
+            //config.MessageHandlers.Add(ValidateTokenHandler.GetInstance());
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
@@ -23,6 +24,7 @@ namespace FlightManagment___WebApi___Part_3
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(
                 new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
             config.EnableCors();
+
         }
     }
 }

@@ -3,6 +3,7 @@
     "target": "ES2015",
     "module": "commonjs",
     "jsx": "react",
+    "strictNullChecks": false,
     "strict": true,
     "esModuleInterop": true,
     "outDir": "${workspaceFolder}/src",

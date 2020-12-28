@@ -25,7 +25,7 @@ namespace TestForFlightManagmentProject
         [ExpectedException(typeof(WrongPasswordException))]
         public void WrongPasswordWhenTryLoginAsDefaultAdmin()
         {
-            FlyingCenterSystem.GetUserAndFacade(FlyingCenterConfig.ADMIN_NAME, "WrongPassword!", out ILogin token, out FacadeBase facade);
+            FlyingCenterSystem.GetUserAndFacade(new User(FlyingCenterConfig.ADMIN_NAME, "WrongPassword", UserType.Administrator, false), out ILogin token, out FacadeBase facade);
         }
 
         // Supposed To Get Password Exception For Login To DAO Admin.
@@ -35,14 +35,16 @@ namespace TestForFlightManagmentProject
         {
             Administrator admin = CreateRandomAdministrator();
             admin.Admin_Number = adminFacade.CreateNewAdmin(adminToken, admin);
-            FlyingCenterSystem.GetUserAndFacade(admin.User_Name, "ErrorPassword", out ILogin token, out FacadeBase facade);
+            User user = new User(admin.User_Name, "ErrorPassword", UserType.Administrator, false);
+            FlyingCenterSystem.GetUserAndFacade(user, out ILogin token, out FacadeBase facade);
         }
 
         // Login Succesfully As Dfault Admin.
         [TestMethod]
         public void LoginSuccesfullyAsDefaultAdmin()
         {
-            FlyingCenterSystem.GetUserAndFacade(FlyingCenterConfig.ADMIN_NAME, FlyingCenterConfig.ADMIN_PASSWORD, out ILogin token, out FacadeBase facade);
+            User user = new User(FlyingCenterConfig.ADMIN_NAME, FlyingCenterConfig.ADMIN_PASSWORD, UserType.Administrator, false);
+            FlyingCenterSystem.GetUserAndFacade(user , out ILogin token, out FacadeBase facade);
             LoginToken<Administrator> newAdminToken = token as LoginToken<Administrator>;
             Assert.AreNotEqual(newAdminToken, null);
         }
@@ -53,7 +55,8 @@ namespace TestForFlightManagmentProject
         {
             Administrator admin = CreateRandomAdministrator();
             admin.Admin_Number = adminFacade.CreateNewAdmin(adminToken, admin);
-            FlyingCenterSystem.GetUserAndFacade(admin.User_Name, admin.Password, out ILogin token, out FacadeBase facade);
+            User user = new User(admin.User_Name, admin.Password, UserType.Administrator, false);
+            FlyingCenterSystem.GetUserAndFacade(user, out ILogin token, out FacadeBase facade);
             LoginToken<Administrator> newAdminToken = token as LoginToken<Administrator>;
             LoggedInAdministratorFacade newAdminFacade = facade as LoggedInAdministratorFacade;
             Assert.AreNotEqual(newAdminToken, null);
@@ -67,7 +70,8 @@ namespace TestForFlightManagmentProject
         {
             AirlineCompany airline = CreateRandomCompany();
             airline.Airline_Number = adminFacade.CreateNewAirline(adminToken, airline);
-            FlyingCenterSystem.GetUserAndFacade(airline.User_Name, "ErrorPassword", out ILogin token, out FacadeBase facade);
+            User user = new User(airline.User_Name, "ErrorPassword", UserType.Airline, false);
+            FlyingCenterSystem.GetUserAndFacade(user, out ILogin token, out FacadeBase facade);
         }
 
         // Login Succesfully As Airline.
@@ -76,7 +80,8 @@ namespace TestForFlightManagmentProject
         {
             AirlineCompany airline = CreateRandomCompany();
             airline.Airline_Number = adminFacade.CreateNewAirline(adminToken, airline);
-            FlyingCenterSystem.GetUserAndFacade(airline.User_Name, "123", out ILogin token, out FacadeBase facade);
+            User user = new User(airline.User_Name, "123", UserType.Airline, false);
+            FlyingCenterSystem.GetUserAndFacade(user, out ILogin token, out FacadeBase facade);
             LoginToken<AirlineCompany> newAirlineToken = token as LoginToken<AirlineCompany>;
             LoggedInAirlineFacade newAirlineFacade = facade as LoggedInAirlineFacade;
             Assert.AreNotEqual(newAirlineToken, null);
@@ -90,7 +95,8 @@ namespace TestForFlightManagmentProject
         {
             Customer customer = CreateRandomCustomer();
             adminFacade.CreateNewCustomer(customer);
-            FlyingCenterSystem.GetUserAndFacade(customer.User_Name, "ErrorPassword", out ILogin token, out FacadeBase facade);
+            User user = new User(customer.User_Name, "ErrorPassword", UserType.Customer, false);
+            FlyingCenterSystem.GetUserAndFacade(user, out ILogin token, out FacadeBase facade);
         }
 
         // Login Succesfully As Customer.
@@ -99,7 +105,8 @@ namespace TestForFlightManagmentProject
         {
             Customer customer = CreateRandomCustomer();
             adminFacade.CreateNewCustomer(customer);
-            FlyingCenterSystem.GetUserAndFacade(customer.User_Name, "123", out ILogin token, out FacadeBase facade);
+            User user = new User(customer.User_Name, "123", UserType.Customer, false);
+            FlyingCenterSystem.GetUserAndFacade(user, out ILogin token, out FacadeBase facade);
             LoggedInCustomerFacade newCustomerFacade = facade as LoggedInCustomerFacade;
             Assert.AreNotEqual(customer, null);
             Assert.AreNotEqual(newCustomerFacade, null);
@@ -110,7 +117,8 @@ namespace TestForFlightManagmentProject
         {
             Customer customer = CreateRandomCustomer();
             adminFacade.CreateNewCustomer(customer);
-            FlyingCenterSystem.GetUserAndFacade(customer.User_Name, "123", out ILogin token, out FacadeBase facade);
+            User user = new User(customer.User_Name, "123", UserType.Customer, false);
+            FlyingCenterSystem.GetUserAndFacade(user, out ILogin token, out FacadeBase facade);
             LoginToken<IUser> myToken = token as LoginToken<IUser>;
             Assert.AreEqual(myToken, null);
             Assert.AreNotEqual(facade, null);

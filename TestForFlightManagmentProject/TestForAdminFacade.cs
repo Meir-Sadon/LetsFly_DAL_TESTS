@@ -26,8 +26,7 @@ namespace TestForFlightManagmentProject
            15. GetAdminById                   -- GetAdminById.
            16. GetAirlineByUserName           -- GetAirlineByUserName.
            17. GetCustomerByUserName          -- GetCustomerByUserName.
-           18. GetCustomerById                -- GetCustomerById.
-           19. GetAllCustomers                -- GetAllCustomers.
+           18. GetAllCustomers                -- GetAllCustomers.
 
 
            ========   All Tests ======== */
@@ -164,7 +163,8 @@ namespace TestForFlightManagmentProject
             
             Administrator admin = CreateRandomAdministrator();
             adminFacade.CreateNewAdmin(adminToken, admin);
-            FlyingCenterSystem.GetUserAndFacade(admin.User_Name, admin.Password, out ILogin token, out FacadeBase facade);
+            User user = new User(admin.User_Name, admin.Password, UserType.Administrator, false);
+            FlyingCenterSystem.GetUserAndFacade(user, out ILogin token, out FacadeBase facade);
             LoginToken<Administrator> newToken = token as LoginToken<Administrator>;
             LoggedInAdministratorFacade newFacade = facade as LoggedInAdministratorFacade;
             newFacade.ChangeMyPassword(newToken, "123".ToUpper(), "newPassword".ToUpper());
@@ -212,7 +212,8 @@ namespace TestForFlightManagmentProject
             
             Administrator admin = CreateRandomAdministrator();
             adminFacade.CreateNewAdmin(adminToken, admin);
-            FlyingCenterSystem.GetUserAndFacade(admin.User_Name, admin.Password, out ILogin token, out FacadeBase facade);
+            User user = new User(admin.User_Name, admin.Password, UserType.Administrator, false);
+            FlyingCenterSystem.GetUserAndFacade(user, out ILogin token, out FacadeBase facade);
             LoginToken<Administrator> newToken = token as LoginToken<Administrator>;
             adminFacade.ChangeMyPassword(newToken, "123345", "newPassword");
         }
@@ -258,16 +259,6 @@ namespace TestForFlightManagmentProject
             Customer customer = CreateRandomCustomer();
             customer.Customer_Number = adminFacade.CreateNewCustomer(customer);
             Assert.AreNotEqual(adminFacade.GetCustomerByUserName(adminToken, customer.User_Name), null);
-        }
-
-        // Search Some Customer By Id.
-        [TestMethod]
-        public void GetCustomerById()
-        {
-            
-            Customer customer = CreateRandomCustomer();
-            customer.Customer_Number = adminFacade.CreateNewCustomer(customer);
-            Assert.AreNotEqual(adminFacade.GetCustomerById(adminToken, (int)customer.Id), null);
         }
 
         // Get All Customers.

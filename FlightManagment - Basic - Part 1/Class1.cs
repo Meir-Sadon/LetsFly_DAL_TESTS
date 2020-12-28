@@ -8,5 +8,6 @@ namespace FlightManagment___Basic___Part_1
 {
     public class Class1
     {
+        
     }
 }

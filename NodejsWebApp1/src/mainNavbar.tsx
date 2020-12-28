@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 
 import { UserTypes } from './userTypes';
 const MainNav = require('react-bootstrap');
-import 'bootstrap/dist/css/bootstrap.css';
+//import 'bootstrap/dist/css/bootstrap.css';
 
 
 interface IMainProps {
     userType: any
 }
 
-export const MainNavbar: React.FunctionComponent<IMainProps> = ({userType}) => (
+const MainNavbar: React.FunctionComponent<IMainProps> = ({userType}) => (
             <div style={{ padding: '2px' }}>
                 <MainNav.Navbar collapseOnSelect expand="lg" className="navbar_inverse">
                     <MainNav.Navbar.Brand><Link to="/home"></Link>LET'S FLY</MainNav.Navbar.Brand>
@@ -60,8 +60,8 @@ export const MainNavbar: React.FunctionComponent<IMainProps> = ({userType}) => (
                             <Link className="dropdown-item" to="/page/companyregister">As Company</Link>
                         </MainNav.NavDropdown>
                         <MainNav.NavDropdown title="Sign-In" id="collasible-nav-dropdown">
-                            <Link className="dropdown-item" to="/customerlogin">As Customer</Link>
-                            <Link className="dropdown-item" to="/companylogin">As Company</Link>
+                            <Link className="dropdown-item" to="/logincustomer">As Customer</Link>
+                            <Link className="dropdown-item" to="/logincompany">As Company</Link>
                             <MainNav.NavDropdown.Divider />
                             <Link className="dropdown-item" to="/adminlogin">As Administrator</Link>
                         </MainNav.NavDropdown>
@@ -71,5 +71,6 @@ export const MainNavbar: React.FunctionComponent<IMainProps> = ({userType}) => (
                 </MainNav.Navbar.Collapse>
                 </MainNav.Navbar>      
             </div>
-            );
-//export default MainNavbar
+);
+
+export default MainNavbar;

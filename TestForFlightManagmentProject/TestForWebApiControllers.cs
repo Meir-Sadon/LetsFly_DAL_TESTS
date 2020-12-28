@@ -83,7 +83,7 @@ namespace TestForFlightManagmentProject
             string customerToken = GetTokenAsync(new User(customer.User_Name, customer.Password, UserType.Customer, true));
             Customer afterUpdateCustomer = new Customer(customer.Customer_Number, customer.Id, "Changed", "Changed", "Changed", "Changed", "Changed", "Changed", "Changed");
             UpdateDetailsForCustomer(customerToken, updateCustomerDetailsUrl, afterUpdateCustomer);
-            customer = adminFacade.GetCustomerById(FlyingCenterConfig.basicToken, (int)customer.Id);
+            customer = adminFacade.GetCustomerById((int)customer.Id);
             Assert.AreEqual(afterUpdateCustomer.First_Name, customer.First_Name);
         }
         #endregion
@@ -273,7 +273,7 @@ namespace TestForFlightManagmentProject
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             string userDetails =
                 "{" +
-                $"\"User_Name\":  \"{user.User_Name}\"," +
+                $"\"User_Name\":  \"{user.UserName}\"," +
                 $" \"Password\": \"{user.Password}\"" +
                 "}";
             HttpContent httpContent = new StringContent(userDetails, Encoding.UTF8, "application/json");

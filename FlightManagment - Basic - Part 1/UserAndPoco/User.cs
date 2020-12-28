@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +10,9 @@ namespace FlightManagment___Basic___Part_1
     public class User : IUser
     {
         public long Id { get; set; }
-        public string User_Name { get; set; }
+        public string UserName { get; set; }
         public string Password { get; set; }
-        public UserType MyType { get; set; }
+        public UserType Type { get; set; }
         public bool Is_Verified { get; set; }
 
         //Empty Constractor.
@@ -23,9 +24,9 @@ namespace FlightManagment___Basic___Part_1
         //Constractor Without Id.
         public User(string userName, string password, UserType type, bool isVerified)
         {
-            User_Name = userName;
+            UserName = userName;
             Password = password;
-            MyType = type;
+            Type = type;
             Is_Verified = isVerified;
         }
 
@@ -33,10 +34,15 @@ namespace FlightManagment___Basic___Part_1
         public User(long id, string userName, string password, UserType myType, bool isVerified)
         {
             Id = id;
-            User_Name = userName;
+            UserName = userName;
             Password = password;
-            MyType = myType;
+            Type = myType;
             Is_Verified = isVerified;
+        }
+
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
 }
