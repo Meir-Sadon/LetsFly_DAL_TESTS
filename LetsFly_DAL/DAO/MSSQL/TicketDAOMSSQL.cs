@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LetsFly_DAL.UserAndPoco;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -157,6 +158,41 @@ namespace LetsFly_DAL
             }
             return tickets;
         }
+
+        // Get Full Details About All Tickets Of Current Customer.
+        public IList<FullTicketDetails> GetFullTicketsByCustomerId(long custId)
+        {
+            IList<FullTicketDetails> ticketsDetails = new List<FullTicketDetails>();
+            using (SqlConnection conn = new SqlConnection(FlyingCenterConfig.CONNECTION_STRING))
+            {
+                using (SqlCommand cmd = new SqlCommand($"GetFullTicketsDetailsByCustomer", conn))
+                {
+                    cmd.Connection.Open();
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@CustomerId", custId);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        FullTicketDetails ftd = new FullTicketDetails();
+                        while (reader.Read())
+                        {
+                            ftd = new FullTicketDetails();
+                            ftd.Id = (long)reader["TicketId"];
+                            ftd.FlightId = (long)reader["FlightId"];
+                            ftd.CompanyName = (string)reader["CompanyName"];
+                            ftd.OriginCountryName = (string)reader["OriginCountryName"];
+                            ftd.DestinationCountryName = (string)reader["DestinationCountryName"];
+                            ftd.DepartureTime = (DateTime)reader["DepartureTime"];
+                            ftd.LandingTime = (DateTime)reader["LandingTime"];
+                           // ftd.RemainingTickets = (long)reader["RemainingTickets"];
+                            ticketsDetails.Add(ftd);
+                        }
+                    }
+                }
+            }
+            return ticketsDetails;
+        }
+
 
         // Search All Tickets By Customer.
         public IList<Ticket> GetTicketsByCustomer(Customer customer)

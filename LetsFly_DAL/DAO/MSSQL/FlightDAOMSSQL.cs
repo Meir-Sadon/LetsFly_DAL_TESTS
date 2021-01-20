@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LetsFly_DAL.UserAndPoco;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -131,7 +132,7 @@ namespace LetsFly_DAL
                         while (reader.Read() == true)
                         {
                             var departureDate = reader["Departure_Time"];
-                            var landingDate = reader["Departure_Time"];
+                            var landingDate = reader["Landing_Time"];
 
                             flights.Add(new Flight
                             {

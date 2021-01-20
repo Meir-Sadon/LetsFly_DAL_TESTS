@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LetsFly_DAL.UserAndPoco;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -118,6 +119,17 @@ namespace LetsFly_DAL
                 return ticket;
             else
                 throw new TicketNotMatchException("No Flight Ticket Found In Your List Tickets With The Sent ID.");
+        }
+
+        //Get Full Details For All Tickets By Current Customer.
+        public IList<FullTicketDetails> GetAllMyTicketsDetails(LoginToken<Customer> token)
+        {
+            IList<FullTicketDetails> fullFlightsByCustomer = new List<FullTicketDetails>();
+            if (UserIsValid(token))
+            {
+                fullFlightsByCustomer = _ticketDAO.GetFullTicketsByCustomerId(token.User.Id);
+            }
+            return fullFlightsByCustomer;
         }
 
         // Search All The Flights For Current Customer.

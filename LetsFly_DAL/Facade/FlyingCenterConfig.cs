@@ -22,7 +22,7 @@ namespace LetsFly_DAL
         //public const string CONNECTION_STRING = @"Data Source=LAPTOP-U96L8M1H;Initial Catalog=FlightManagmentDB;Integrated Security=True";
 
         // IIS Connection String
-        public const string CONNECTION_STRING = "Server=LAPTOP-U96L8M1H;Database=FlightManagmentDB;Integrated Security=true";
+        public const string CONNECTION_STRING = "Server=LAPTOP-U96L8M1H;Database=LetsFlyDB;Integrated Security=true";
 
         public const int TIME_FOR_THREAD_HISTORY = 1000 * 3600 * 24;
     }

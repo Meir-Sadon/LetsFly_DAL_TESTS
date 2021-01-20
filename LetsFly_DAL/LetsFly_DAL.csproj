@@ -110,6 +110,7 @@
     <Compile Include="UserAndPoco\Customer.cs" />
     <Compile Include="Exceptions\DepartureTimeTooLateException.cs" />
     <Compile Include="UserAndPoco\Flight.cs" />
+    <Compile Include="UserAndPoco\FullTicketDetails.cs" />
     <Compile Include="UserAndPoco\Interfaces\IPoco.cs" />
     <Compile Include="UserAndPoco\Interfaces\IUser.cs" />
     <Compile Include="UserAndPoco\Ticket.cs" />
