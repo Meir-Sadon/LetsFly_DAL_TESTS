@@ -17,7 +17,7 @@ namespace TestForFlightManagmentProject
            6. RemoveCustomer                  -- RemoveCustomerSuccessfully + TryRemoveCustomerUserThatNotExist.
            7. RemoveCountry                   -- RemoveCustomerSuccessfully + TryRemoveCustomerUserThatNotExist.
            8. UpdateAirlineDetails            -- UpdateAirline.
-           9. UpdateCustomerDetails          -- UpdateCustomer.
+           9. UpdateCustomerDetails           -- UpdateCustomer.
            10. UpdateCountryDetails           -- UpdateCountry.
            11. ChangeMyPassword               -- TryChangePasswordForAdministrator + WrongPasswordWhenTryChangePasswordForCentralAdmin + WrongPasswordWhenTryChangePasswordForSomeAdmin.
            12. ForceChangePasswordForAirline  -- ChangePasswordForSomeAirline.
@@ -39,9 +39,9 @@ namespace TestForFlightManagmentProject
         public void RemoveAdministratorSuccessfully()
         {
             Administrator admin = CreateRandomAdministrator();
-            admin.Admin_Number = adminFacade.CreateNewAdmin(adminToken, admin);
+            admin.AdminNumber = adminFacade.CreateNewAdmin(adminToken, admin);
             adminFacade.RemoveAdministrator(adminToken, admin);
-            Assert.AreEqual(adminFacade.GetAdminByUserName(adminToken, admin.User_Name).Id, 0);
+            Assert.AreEqual(adminFacade.GetAdminByUserName(adminToken, admin.UserName).Id, 0);
         }
 
         // Remove Airline Successfully.
@@ -49,9 +49,9 @@ namespace TestForFlightManagmentProject
         public void RemoveAirlineSuccessfully()
         {
             AirlineCompany airline = CreateRandomCompany();
-            airline.Airline_Number = adminFacade.CreateNewAirline(adminToken, airline);
+            airline.AirlineNumber = adminFacade.CreateNewAirline(adminToken, airline);
             adminFacade.RemoveAirline(adminToken, airline);
-            Assert.AreEqual(adminFacade.GetAdminByUserName(adminToken, airline.User_Name).Id, 0);
+            Assert.AreEqual(adminFacade.GetAdminByUserName(adminToken, airline.UserName).Id, 0);
         }
 
         // Remove Customer Successfully.
@@ -59,9 +59,9 @@ namespace TestForFlightManagmentProject
         public void RemoveCustomerSuccessfully()
         {
             Customer customer = CreateRandomCustomer();
-            customer.Customer_Number = adminFacade.CreateNewCustomer(customer);
+            customer.CustomerNumber = adminFacade.CreateNewCustomer(customer);
             adminFacade.RemoveCustomer(adminToken, customer);
-            Assert.AreEqual(adminFacade.GetCustomerByUserName(adminToken, customer.User_Name).Id, 0);
+            Assert.AreEqual(adminFacade.GetCustomerByUserName(adminToken, customer.UserName).Id, 0);
         }
 
         // Remove Country Successfully.
@@ -122,10 +122,10 @@ namespace TestForFlightManagmentProject
         {
             
             AirlineCompany airline = CreateRandomCompany();
-            airline.Airline_Number = adminFacade.CreateNewAirline(adminToken, airline);
-            airline.Airline_Name = "CHANGED!";
+            airline.AirlineNumber = adminFacade.CreateNewAirline(adminToken, airline);
+            airline.AirlineName = "CHANGED!";
             adminFacade.UpdateAirlineDetails(adminToken, airline);
-            Assert.AreEqual(adminFacade.GetAirlineByUserName(adminToken, airline.User_Name).Airline_Name, "CHANGED!");
+            Assert.AreEqual(adminFacade.GetAirlineByUserName(adminToken, airline.UserName).AirlineName, "CHANGED!");
         }
 
         // Update Details For Customer.
@@ -134,11 +134,11 @@ namespace TestForFlightManagmentProject
         {
             
             Customer customer = CreateRandomCustomer();
-            customer.Customer_Number = adminFacade.CreateNewCustomer(customer);
-            customer = adminFacade.GetCustomerByUserName(adminToken, customer.User_Name);
-            customer.First_Name = "CHANGED!";
+            customer.CustomerNumber = adminFacade.CreateNewCustomer(customer);
+            customer = adminFacade.GetCustomerByUserName(adminToken, customer.UserName);
+            customer.FirstName = "CHANGED!";
             adminFacade.UpdateCustomerDetails(adminToken, customer);
-            Assert.AreEqual(adminFacade.GetCustomerByUserName(adminToken, customer.User_Name).First_Name, "CHANGED!");
+            Assert.AreEqual(adminFacade.GetCustomerByUserName(adminToken, customer.UserName).FirstName, "CHANGED!");
         }
 
         // Update Details For Country.
@@ -163,7 +163,7 @@ namespace TestForFlightManagmentProject
             
             Administrator admin = CreateRandomAdministrator();
             adminFacade.CreateNewAdmin(adminToken, admin);
-            User user = new User(admin.User_Name, admin.Password, UserType.Administrator, false);
+            User user = new User(admin.UserName, admin.Password, UserTypes.Administrator, false);
             FlyingCenterSystem.GetUserAndFacade(user, out ILogin token, out FacadeBase facade);
             LoginToken<Administrator> newToken = token as LoginToken<Administrator>;
             LoggedInAdministratorFacade newFacade = facade as LoggedInAdministratorFacade;
@@ -177,9 +177,9 @@ namespace TestForFlightManagmentProject
         {
             
             AirlineCompany airline = CreateRandomCompany();
-            airline.Airline_Number = adminFacade.CreateNewAirline(adminToken, airline);
+            airline.AirlineNumber = adminFacade.CreateNewAirline(adminToken, airline);
             adminFacade.ForceChangePasswordForAirline(adminToken, airline, "newPassword".ToUpper());
-            Assert.AreEqual(adminFacade.GetAirlineByUserName(adminToken, airline.User_Name).Password, "newPassword".ToUpper());
+            Assert.AreEqual(adminFacade.GetAirlineByUserName(adminToken, airline.UserName).Password, "newPassword".ToUpper());
         }
 
         // Change Password Successfuly For Customer.
@@ -188,9 +188,9 @@ namespace TestForFlightManagmentProject
         {
             
             Customer customer = CreateRandomCustomer();
-            customer.Customer_Number = adminFacade.CreateNewCustomer(customer);
+            customer.CustomerNumber = adminFacade.CreateNewCustomer(customer);
             adminFacade.ForceChangePasswordForCustomer(adminToken, customer, "newPassword".ToUpper());
-            Assert.AreEqual(adminFacade.GetCustomerByUserName(adminToken, customer.User_Name).Password, "newPassword".ToUpper());
+            Assert.AreEqual(adminFacade.GetCustomerByUserName(adminToken, customer.UserName).Password, "newPassword".ToUpper());
         }
 
         // ===== Get "WrongPasswordException" When Try Change Password =====//
@@ -212,7 +212,7 @@ namespace TestForFlightManagmentProject
             
             Administrator admin = CreateRandomAdministrator();
             adminFacade.CreateNewAdmin(adminToken, admin);
-            User user = new User(admin.User_Name, admin.Password, UserType.Administrator, false);
+            User user = new User(admin.UserName, admin.Password, UserTypes.Administrator, false);
             FlyingCenterSystem.GetUserAndFacade(user, out ILogin token, out FacadeBase facade);
             LoginToken<Administrator> newToken = token as LoginToken<Administrator>;
             adminFacade.ChangeMyPassword(newToken, "123345", "newPassword");
@@ -227,8 +227,8 @@ namespace TestForFlightManagmentProject
         {
             
             Administrator admin = CreateRandomAdministrator();
-            admin.Admin_Number = adminFacade.CreateNewAdmin(adminToken, admin);
-            Assert.AreNotEqual(adminFacade.GetAdminByUserName(adminToken, admin.User_Name), null);
+            admin.AdminNumber = adminFacade.CreateNewAdmin(adminToken, admin);
+            Assert.AreNotEqual(adminFacade.GetAdminByUserName(adminToken, admin.UserName), null);
         }
 
         // Search Some Admin By Id.
@@ -237,7 +237,7 @@ namespace TestForFlightManagmentProject
         {
             
             Administrator admin = CreateRandomAdministrator();
-            admin.Admin_Number = adminFacade.CreateNewAdmin(adminToken, admin);
+            admin.AdminNumber = adminFacade.CreateNewAdmin(adminToken, admin);
             Assert.AreNotEqual(adminFacade.GetAdminById(adminToken, (int)admin.Id), null);
         }
 
@@ -247,8 +247,8 @@ namespace TestForFlightManagmentProject
         {
             
             AirlineCompany airline = CreateRandomCompany();
-            airline.Airline_Number = adminFacade.CreateNewAirline(adminToken, airline);
-            Assert.AreNotEqual(adminFacade.GetAirlineByUserName(adminToken, airline.User_Name), null);
+            airline.AirlineNumber = adminFacade.CreateNewAirline(adminToken, airline);
+            Assert.AreNotEqual(adminFacade.GetAirlineByUserName(adminToken, airline.UserName), null);
         }
 
         // Search Some Customer By User Name.
@@ -257,8 +257,8 @@ namespace TestForFlightManagmentProject
         {
             
             Customer customer = CreateRandomCustomer();
-            customer.Customer_Number = adminFacade.CreateNewCustomer(customer);
-            Assert.AreNotEqual(adminFacade.GetCustomerByUserName(adminToken, customer.User_Name), null);
+            customer.CustomerNumber = adminFacade.CreateNewCustomer(customer);
+            Assert.AreNotEqual(adminFacade.GetCustomerByUserName(adminToken, customer.UserName), null);
         }
 
         // Get All Customers.
@@ -267,7 +267,7 @@ namespace TestForFlightManagmentProject
         {
             
             Customer customer = CreateRandomCustomer();
-            customer.Customer_Number = adminFacade.CreateNewCustomer(customer);
+            customer.CustomerNumber = adminFacade.CreateNewCustomer(customer);
             Assert.AreEqual(adminFacade.GetAllCustomers(adminToken).Count, 2);
         }
     }

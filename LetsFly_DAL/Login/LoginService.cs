@@ -17,18 +17,17 @@ namespace LetsFly_DAL
         {
             token = null;
             facade = new AnonymousUserFacade();
-
             // Default Admin.
-            if (userDetails.Type == UserType.Administrator && userDetails.UserName.ToUpper() == FlyingCenterConfig.ADMIN_NAME.ToUpper())
+            if (userDetails.Type == UserTypes.Administrator && userDetails.UserName.ToUpper() == FlyingCenterConfig.ADMIN_NAME.ToUpper())
             {
                 if (userDetails.Password.ToUpper() == FlyingCenterConfig.ADMIN_PASSWORD.ToUpper())
                 {
-                    token = new LoginToken<Administrator>
+                    token = new LoginToken<IUser>
                     {
                         User = new Administrator
                         (
                             0, //Admin Number 
-                            0, //Id
+                            0, //UserId
                             FlyingCenterConfig.ADMIN_NAME,
                             FlyingCenterConfig.ADMIN_PASSWORD
                         )
@@ -52,14 +51,14 @@ namespace LetsFly_DAL
                     {
                         switch (userDetails.Type)
                         {
-                            case UserType.Administrator:
+                            case UserTypes.Administrator:
                                 {
                                     Administrator admin = _administratorDAO.GetById(user.Id);
-                                    token = new LoginToken<Administrator>
+                                    token = new LoginToken<IUser>
                                     {
                                         User = new Administrator
                                     (
-                                        admin.Admin_Number,
+                                        admin.AdminNumber,
                                         user.Id,
                                         user.UserName,
                                         user.Password
@@ -68,40 +67,40 @@ namespace LetsFly_DAL
                                     facade = new LoggedInAdministratorFacade();
                                     return true;
                                 }
-                            case UserType.Airline:
+                            case UserTypes.Airline:
                                 {
                                     AirlineCompany airline = _airlineDAO.GetById(user.Id);
-                                    token = new LoginToken<AirlineCompany>
+                                    token = new LoginToken<IUser>
                                     {
                                         User = new AirlineCompany
                                     (
-                                        airline.Airline_Number,
+                                        airline.AirlineNumber,
                                         user.Id,
                                         user.UserName,
                                         user.Password,
-                                        airline.Airline_Name,
-                                        airline.Country_Code
+                                        airline.AirlineName,
+                                        airline.CountryCode
                                     )
                                     };
                                     facade = new LoggedInAirlineFacade();
                                     return true;
                                 }
-                            case UserType.Customer:
+                            case UserTypes.Customer:
                                 {
                                     Customer customer = _customerDAO.GetById(user.Id);
-                                    token = new LoginToken<Customer>
+                                    token = new LoginToken<IUser>
                                     {
                                         User = new Customer
                                         (
-                                            customer.Customer_Number,
+                                            customer.CustomerNumber,
                                             user.Id,
                                             user.UserName,
                                             user.Password,
-                                            customer.First_Name,
-                                            customer.Last_Name,
+                                            customer.FirstName,
+                                            customer.LastName,
                                             customer.Address,
-                                            customer.Phone_No,
-                                            customer.Credit_Card_Number
+                                            customer.PhoneNo,
+                                            customer.CreditCardNumber
                                         )
                                     };
                                     return true;

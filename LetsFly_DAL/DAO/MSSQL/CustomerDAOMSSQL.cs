@@ -26,11 +26,11 @@ namespace LetsFly_DAL
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Id", t.Id);
-                    cmd.Parameters.AddWithValue("@First_Name", t.First_Name);
-                    cmd.Parameters.AddWithValue("@Last_Name", t.Last_Name);
+                    cmd.Parameters.AddWithValue("@First_Name", t.FirstName);
+                    cmd.Parameters.AddWithValue("@Last_Name", t.LastName);
                     cmd.Parameters.AddWithValue("@Address", t.Address);
-                    cmd.Parameters.AddWithValue("@Phone_No", t.Phone_No);
-                    cmd.Parameters.AddWithValue("@Credit_Card_Number", t.Credit_Card_Number);
+                    cmd.Parameters.AddWithValue("@Phone_No", t.PhoneNo);
+                    cmd.Parameters.AddWithValue("@Credit_Card_Number", t.CreditCardNumber);
 
                     customerNumber = (long)cmd.ExecuteScalar();
                 }
@@ -65,8 +65,8 @@ namespace LetsFly_DAL
             using (SqlConnection conn = new SqlConnection(FlyingCenterConfig.CONNECTION_STRING))
             {
                 conn.Open();
-                using (SqlCommand cmd = new SqlCommand($"Update Customers Set First_Name = '{t.First_Name}', Last_Name = '{t.Last_Name}'," +
-                    $"Address = '{t.Address}', Phone_No = '{t.Phone_No}', Credit_Card_Number = '{t.Credit_Card_Number}' Where Id = {t.Id}", conn))
+                using (SqlCommand cmd = new SqlCommand($"Update Customers Set First_Name = '{t.FirstName}', Last_Name = '{t.LastName}'," +
+                    $"Address = '{t.Address}', Phone_No = '{t.PhoneNo}', Credit_Card_Number = '{t.CreditCardNumber}' Where Id = {t.Id}", conn))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {

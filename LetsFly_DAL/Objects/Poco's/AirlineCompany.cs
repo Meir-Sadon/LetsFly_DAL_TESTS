@@ -7,42 +7,47 @@ using System.Threading.Tasks;
 namespace LetsFly_DAL
 {
     //POCO Class With Login Token.
-    public class Administrator : IPoco, IUser
+    public class AirlineCompany : User, IPoco, IUser
     {
-        public long Admin_Number { get; set; }
-        public long Id { get; set; }
-        public string User_Name { get; set; }
-        public string Password { get; set; }
+        public long AirlineNumber { get; set; }
+        public string AirlineName { get; set; }
+        public long CountryCode { get; set; }
 
         //Empty Constractor For Read From Sql.
-        public Administrator()
+        public AirlineCompany()
         {
         }
 
         //Constractor Without Id For POCO Instance.
-        public Administrator(string user_Name, string password)
+        public AirlineCompany(string airline_Name, string user_Name, string password, int country_Code)
         {
-            User_Name = user_Name;
+            AirlineName = airline_Name;
+            UserName = user_Name;
             Password = password;
+            CountryCode = country_Code;
         }
 
-        //Full Constractor For Read From Data base.
-        public Administrator(long admin_Number, long id, string user_Name, string password)
+        //Full Constractor For Read From Data Base.
+        public AirlineCompany(long airline_Number, long id, string airline_Name, string user_Name, string password, long country_Code)
         {
-            Admin_Number = admin_Number;
+            AirlineNumber = airline_Number;
             Id = id;
-            User_Name = user_Name;
+            AirlineName = airline_Name;
+            UserName = user_Name;
             Password = password;
+            CountryCode = country_Code;
         }
+
 
 
         // Function To Change Password For This POCO.
         public void ChangePassword(string newPassword)
         {
-            this.Password = newPassword;
+            Password = newPassword;
         }
+
         // This Function Override The Real Operator == And Check If This.Id And Other.Id Are Equals.
-        static public bool operator ==(Administrator me, Administrator other)
+        static public bool operator ==(AirlineCompany me, AirlineCompany other)
         {
             if (ReferenceEquals(me, other) || ReferenceEquals(me, null) && ReferenceEquals(other, null))
                 return true;
@@ -50,7 +55,7 @@ namespace LetsFly_DAL
         }
 
         // This Function Override The Real Operator != And Check If This.Id And Other.Id Are NOT Equals.
-        static public bool operator !=(Administrator me, Administrator other)
+        static public bool operator !=(AirlineCompany me, AirlineCompany other)
         {
             return !(me == other);
         }
@@ -58,8 +63,8 @@ namespace LetsFly_DAL
         // This Function Override The Real Function Equals And Compair Between This.Id And Other.Id.
         public override bool Equals(object obj)
         {
-            Administrator otherAdmin = obj as Administrator;
-            return (this.Id == otherAdmin.Id);
+            AirlineCompany otherAirline = obj as AirlineCompany;
+            return (this.Id == otherAirline.Id);
         }
 
         // This Function Override The Real HashCode And Return this Id.
@@ -70,7 +75,7 @@ namespace LetsFly_DAL
 
         public override string ToString()
         {
-            return $"Admin Id: {Id}. User Name: {User_Name}.";
+            return $"Airline Name: {AirlineName}. User Name: {UserName}. Country Number: {CountryCode}.";
         }
     }
 }

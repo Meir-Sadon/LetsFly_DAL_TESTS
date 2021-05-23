@@ -25,8 +25,8 @@ namespace LetsFly_DAL
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Id", t.Id);
-                    cmd.Parameters.AddWithValue("@Airline_Name", t.Airline_Name);
-                    cmd.Parameters.AddWithValue("@Country_Code", t.Country_Code);
+                    cmd.Parameters.AddWithValue("@Airline_Name", t.AirlineName);
+                    cmd.Parameters.AddWithValue("@Country_Code", t.CountryCode);
 
                     airlineNumber = (long)cmd.ExecuteScalar();
                 }
@@ -57,8 +57,8 @@ namespace LetsFly_DAL
             using (SqlConnection conn = new SqlConnection(FlyingCenterConfig.CONNECTION_STRING))
             {
                 conn.Open();
-                using (SqlCommand cmd = new SqlCommand($"Update AirLineCompanies Set Airline_Name = '{t.Airline_Name}'," +
-                 $"Country_Code = '{t.Country_Code}' Where Id = {t.Id}", conn))
+                using (SqlCommand cmd = new SqlCommand($"Update AirLineCompanies Set Airline_Name = '{t.AirlineName}'," +
+                 $"Country_Code = '{t.CountryCode}' Where Id = {t.Id}", conn))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {

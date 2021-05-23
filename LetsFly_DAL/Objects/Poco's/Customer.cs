@@ -7,17 +7,14 @@ using System.Threading.Tasks;
 namespace LetsFly_DAL
 {
     //POCO Class With Login Token.
-    public class Customer : IPoco, IUser
+    public class Customer : User, IPoco, IUser
     {
-        public long Customer_Number { get; set; }
-        public long Id { get; set; }
-        public string First_Name { get; set; }
-        public string Last_Name { get; set; }
-        public string User_Name { get; set; }
-        public string Password { get; set; }
+        public long CustomerNumber { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Address { get; set; }
-        public string Phone_No { get; set; }
-        public string Credit_Card_Number { get; set; }
+        public string PhoneNo { get; set; }
+        public string CreditCardNumber { get; set; }
 
         //Empty Constractor For Read From Sql.
         public Customer()
@@ -27,27 +24,27 @@ namespace LetsFly_DAL
         //Constractor Without Id For POCO Instance.
         public Customer(string first_Name, string last_Name, string user_Name, string password, string address, string phone_No, string credit_Card_Number)
         {
-            First_Name = first_Name;
-            Last_Name = last_Name;
-            User_Name = user_Name;
+            FirstName = first_Name;
+            LastName = last_Name;
+            UserName = user_Name;
             Password = password;
             Address = address;
-            Phone_No = phone_No;
-            Credit_Card_Number = credit_Card_Number;
+            PhoneNo = phone_No;
+            CreditCardNumber = credit_Card_Number;
         }
 
         //Full Constractor For Read From Data Base.
         public Customer(long customer_Number, long id, string first_Name, string last_Name, string user_Name, string password, string address, string phone_No, string credit_Card_Number)
         {
-            Customer_Number = customer_Number;
+            CustomerNumber = customer_Number;
             Id = id;
-            First_Name = first_Name;
-            Last_Name = last_Name;
-            User_Name = user_Name;
+            FirstName = first_Name;
+            LastName = last_Name;
+            UserName = user_Name;
             Password = password;
             Address = address;
-            Phone_No = phone_No;
-            Credit_Card_Number = credit_Card_Number;
+            PhoneNo = phone_No;
+            CreditCardNumber = credit_Card_Number;
         }
 
 
@@ -86,7 +83,7 @@ namespace LetsFly_DAL
 
         public override string ToString()
         {
-            return $"Customer Id: {Id}. Full Name: {First_Name} {Last_Name}. User Name: {User_Name}. Address: {Address}. Phone Number: {Phone_No}. Credit Card Number: {Credit_Card_Number}.";
+            return $"Customer Id: {Id}. Full Name: {FirstName} {LastName}. User Name: {UserName}. Address: {Address}. Phone Number: {PhoneNo}. Credit Card Number: {CreditCardNumber}.";
         }
     }
 }

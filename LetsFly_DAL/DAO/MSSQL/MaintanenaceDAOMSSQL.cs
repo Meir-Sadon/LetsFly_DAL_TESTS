@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LetsFly_DAL.Objects.Poco_s;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -10,17 +11,52 @@ namespace LetsFly_DAL
 {
     internal class MaintenanceDAOMSSQL : IMaintenanceDAO
     {
-        readonly string formatDate = "yyyy-MM-dd HH:mm:ss";
-
-        // Add New Action To ActionsHistory Table.
-        public void AddNewAction(Categories category, string action, bool isSucceed)
+        // Add New Log Row To Log Table.
+        public void WriteToLog(Log logRow)
         {
-            using (SqlConnection conn = new SqlConnection(FlyingCenterConfig.CONNECTION_STRING))
+            try
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand($"Insert Into ActionsHistory(date, Category, Action, IsSucceed) Values('{DateTime.Now.ToString(formatDate)}', '{category}', '{action}', '{isSucceed}' )", conn))
+
+                using (SqlConnection conn = new SqlConnection(FlyingCenterConfig.CONNECTION_STRING))
                 {
-                    cmd.ExecuteNonQuery();
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand($"Insert Into Log(CreateDateTime, Categories, MethodName, Url, Request, IsSucceed, Response, MethodDuration) Values(" +
+                        $"'{DateTime.Now}'," +
+                        $" '{logRow.Categories}'," +
+                        $" '{logRow.MethodName}'," +
+                        $" '{logRow.Url.Replace("'", "")}'," +
+                        $" '{logRow.Request.Replace("'", "")}'," +
+                        $" '{logRow.IsSucceed}'," +
+                        $" '{logRow.Response.Replace("'", "")}'," +
+                        $"  {logRow.MethodDuration})", conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(FlyingCenterConfig.CONNECTION_STRING))
+                    {
+                        conn.Open();
+                        using (SqlCommand cmd = new SqlCommand($"Insert Into Log(CreateDateTime, Categories, MethodName, Url, Request, IsSucceed, Response, MethodDuration) Values(" +
+                            $"'{DateTime.Now}'," +
+                            $" '-1'," +
+                            $" 'InsertToLog'," +
+                            $" '-1'," +
+                            $" '{ex.Message.Replace("'", "")}'," +
+                            $" '-1'," +
+                            $" 'Failed To Insert New Log Row'," +
+                            $"0)", conn))
+                        {
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+                catch (Exception)
+                {
                 }
             }
         }

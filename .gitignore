@@ -338,3 +338,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+LetsFly_DAL/DAO/MSSQL/AirlineDAOMSSQL.cs

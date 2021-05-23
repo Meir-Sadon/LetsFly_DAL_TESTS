@@ -34,12 +34,12 @@ namespace TestForFlightManagmentProject
             airlineFacade = new LoggedInAirlineFacade();
             airlineToken = new LoginToken<AirlineCompany> { User = new AirlineCompany(GetRandomNameForTestUsers(), "Airline" + GetRandomNameForTestUsers(), "123", (int)adminFacade.GetCountryByName("Israel").Id) };
             adminFacade.CreateNewAirline(adminToken, airlineToken.User);
-            airlineToken.User = adminFacade.GetAirlineByUserName(adminToken, airlineToken.User.User_Name);
+            airlineToken.User = adminFacade.GetAirlineByUserName(adminToken, airlineToken.User.UserName);
 
             customerFacade = new LoggedInCustomerFacade();
             customerToken = new LoginToken<Customer> { User = new Customer("TestCustomer", "Ben Sadon", "Customer" + GetRandomNameForTestUsers(), "123", "Neria 28", "050", "3317") };
             adminFacade.CreateNewCustomer(customerToken.User);
-            customerToken.User = adminFacade.GetCustomerByUserName(adminToken, customerToken.User.User_Name);
+            customerToken.User = adminFacade.GetCustomerByUserName(adminToken, customerToken.User.UserName);
         }
         #endregion
 
@@ -112,7 +112,7 @@ namespace TestForFlightManagmentProject
         }
         #endregion
 
-        [TestInitialize]
+        //[TestInitialize]
         #region Remove And Prepare All Tables Of Data Base.
         /// <summary>
         /// Function That Remove And Prepare All DataBase For All Test Functions.

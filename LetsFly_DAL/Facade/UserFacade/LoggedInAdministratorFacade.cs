@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LetsFly_DAL.Objects.Poco_s;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,35 +8,35 @@ using System.Threading.Tasks;
 namespace LetsFly_DAL
 {
     // Class With All The Options That Admin Can Do.
-    public class LoggedInAdministratorFacade : AnonymousUserFacade, ILoggedInAdministratorFacade
+    public class LoggedInAdministratorFacade : AnonymousUserFacade, IUserFacadeBase<Administrator>, ILoggedInAdministratorFacade
     {
 
         // Create New Administrator.
         public long CreateNewAdmin(LoginToken<Administrator> token, Administrator admin)
         {
             long adminNumber = 0;
-            if (token.User.User_Name.ToUpper() == FlyingCenterConfig.ADMIN_NAME && token.User.Password == FlyingCenterConfig.ADMIN_PASSWORD && admin != null)
+            if (token.User.UserName.ToUpper() == FlyingCenterConfig.ADMIN_NAME && token.User.Password == FlyingCenterConfig.ADMIN_PASSWORD && admin != null)
             {
-                if (admin.User_Name.ToUpper() == FlyingCenterConfig.ADMIN_NAME)
+                if (admin.UserName.ToUpper() == FlyingCenterConfig.ADMIN_NAME)
                 {
-                    throw new UserAlreadyExistException($"Sorry, But {admin.User_Name} Already Exist. Please Try Another User Name");
+                    throw new UserAlreadyExistException($"Sorry, But {admin.UserName} Already Exist. Please Try Another User Name");
                 }
                 User adminUser = _userDAO.GetUserById(admin.Id);
                 if (adminUser == null)
                 {
-                    _userDAO.AddUserName(new User(admin.User_Name, admin.Password, UserType.Administrator, false), out long userId);
+                    _userDAO.AddUserName(new User(admin.UserName, admin.Password, UserTypes.Administrator, false), out long userId);
                     admin.Id = userId;
                     adminNumber = _adminDAO.Add(admin);
-                    _backgroundDAO.AddNewAction(Categories.Administrators | Categories.Adds, $"Admin {token.User.User_Name} Tried To Create New Administrator. Id: {admin.Id} ({admin.User_Name}).", false);
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Administrators | LogCategories.Adds, $"Admin {token.User.UserName} Tried To Create New Administrator. Id: {admin.Id} ({admin.UserName}).", false);
                 }
                 else
                 {
-                    _backgroundDAO.AddNewAction(Categories.Administrators | Categories.Adds, $"Admin {token.User.User_Name} Tried To Create New Administrator. Id: {admin.Id} ({admin.User_Name}).", false);
-                    throw new UserAlreadyExistException($"Sorry, But '{admin.User_Name}' Already Exist.");
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Administrators | LogCategories.Adds, $"Admin {token.User.UserName} Tried To Create New Administrator. Id: {admin.Id} ({admin.UserName}).", false);
+                    throw new UserAlreadyExistException($"Sorry, But '{admin.UserName}' Already Exist.");
                 }
             }
-            else
-                _backgroundDAO.AddNewAction(Categories.Administrators | Categories.Adds, $"Not Qualified User Tried To Create New Admin.", false);
+            //else
+                //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Administrators | LogCategories.Adds, $"Not Qualified User Tried To Create New Admin.", false);
             return adminNumber;
         }
 
@@ -48,19 +49,19 @@ namespace LetsFly_DAL
                 User airlineUser = _userDAO.GetUserById(airline.Id);
                 if (airlineUser == null)
                 {
-                    _userDAO.AddUserName(new User(airline.User_Name, airline.Password, UserType.Airline, false), out long userId);
+                    _userDAO.AddUserName(new User(airline.UserName, airline.Password, UserTypes.Airline, false), out long userId);
                     airline.Id = userId;
                     airlineNumber = _airlineDAO.Add(airline);
-                    _backgroundDAO.AddNewAction(Categories.AirlineCompanies | Categories.Adds, $"Admin {token.User.User_Name} Tried To Create New Airline Company. Id: {airline.Id} ({airline.User_Name}).", true);
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.AirlineCompanies | LogCategories.Adds, $"Admin {token.User.UserName} Tried To Create New Airline Company. Id: {airline.Id} ({airline.UserName}).", true);
                 }
                 else
                 {
-                    _backgroundDAO.AddNewAction(Categories.AirlineCompanies | Categories.Adds, $"Admin {token.User.User_Name} Tried To Create New Airline Company. Id: {airline.Id} ({airline.User_Name}).", true);
-                    throw new UserAlreadyExistException($"Sorry, But '{airline.User_Name}' Already Exist.");
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.AirlineCompanies | LogCategories.Adds, $"Admin {token.User.UserName} Tried To Create New Airline Company. Id: {airline.Id} ({airline.UserName}).", true);
+                    throw new UserAlreadyExistException($"Sorry, But '{airline.UserName}' Already Exist.");
                 }
             }
-            else
-                _backgroundDAO.AddNewAction(Categories.AirlineCompanies | Categories.Adds, $"Anonymous User Tried To Create New Airline Company. Id: {airline.Id} ({airline.User_Name}).", false);
+            //else
+                //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.AirlineCompanies | LogCategories.Adds, $"Anonymous User Tried To Create New Airline Company. Id: {airline.Id} ({airline.UserName}).", false);
             return airlineNumber;
         }
 
@@ -71,10 +72,10 @@ namespace LetsFly_DAL
             if (UserIsValid(token) && country != null)
             {
                 newId = _countryDAO.Add(country);
-                _backgroundDAO.AddNewAction(Categories.Countries | Categories.Adds, $"Admin: {token.User.User_Name} Tried To Create New Country. Id: {newId} ({country.Country_Name}).", true);
+                //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Countries | LogCategories.Adds, $"Admin: {token.User.UserName} Tried To Create New Country. Id: {newId} ({country.Country_Name}).", true);
             }
-            else
-                _backgroundDAO.AddNewAction(Categories.Countries | Categories.Adds, $"Anonymous User Tried To Create New Country. Id: {country.Id} ({country.Country_Name}).", false);
+            //else
+                //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Countries | LogCategories.Adds, $"Anonymous User Tried To Create New Country. Id: {country.Id} ({country.Country_Name}).", false);
 
             return newId;
         }
@@ -82,23 +83,23 @@ namespace LetsFly_DAL
         // Remove Some DAO Administrator.
         public void RemoveAdministrator(LoginToken<Administrator> token, Administrator admin)
         {
-            if (token.User.User_Name.ToUpper() == FlyingCenterConfig.ADMIN_NAME && token.User.Password == FlyingCenterConfig.ADMIN_PASSWORD && admin != null)
+            if (token.User.UserName.ToUpper() == FlyingCenterConfig.ADMIN_NAME && token.User.Password == FlyingCenterConfig.ADMIN_PASSWORD && admin != null)
             {
                 User adminUser = _userDAO.GetUserById(admin.Id);
                 if (adminUser != null)
                 {
                     _adminDAO.Remove(admin);
                     _userDAO.RemoveUserName(adminUser);
-                    _backgroundDAO.AddNewAction(Categories.Administrators | Categories.Deletions, $"Admin {token.User.User_Name} Tried To Delete Some Admin. Id: {admin.Id} ({admin.User_Name}).", true);
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Administrators | LogCategories.Deletions, $"Admin {token.User.UserName} Tried To Delete Some Admin. Id: {admin.Id} ({admin.UserName}).", true);
                 }
                 else
                 {
-                    _backgroundDAO.AddNewAction(Categories.Administrators | Categories.Deletions, $"Admin {token.User.User_Name} Tried To Delete Some Admin. Id: {admin.Id} ({admin.User_Name}).", false);
-                    throw new UserNotExistException($"Sorry, But '{admin.User_Name}' Does Not Exist.");
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Administrators | LogCategories.Deletions, $"Admin {token.User.UserName} Tried To Delete Some Admin. Id: {admin.Id} ({admin.UserName}).", false);
+                    throw new UserNotExistException($"Sorry, But '{admin.UserName}' Does Not Exist.");
                 }
             }
-            else
-                _backgroundDAO.AddNewAction(Categories.Administrators | Categories.Deletions, $"Not Qualified User Tried To Delete Some Admin. Id: {admin.Id} ({admin.User_Name}).", false);
+            //else
+                //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Administrators | LogCategories.Deletions, $"Not Qualified User Tried To Delete Some Admin. Id: {admin.Id} ({admin.UserName}).", false);
         }
 
         // Remove Some Airline Company.
@@ -111,17 +112,17 @@ namespace LetsFly_DAL
                 {
                     _airlineDAO.Remove(airline);
                     _userDAO.RemoveUserName(airlineUser);
-                    _backgroundDAO.AddNewAction(Categories.AirlineCompanies | Categories.Deletions, $"Admin {token.User.User_Name} Tried Delete Some Admin. Id: {airline.Id} ({airline.User_Name}).", true);
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.AirlineCompanies | LogCategories.Deletions, $"Admin {token.User.UserName} Tried Delete Some Admin. Id: {airline.Id} ({airline.UserName}).", true);
 
                 }
                 else
                 {
-                    _backgroundDAO.AddNewAction(Categories.AirlineCompanies | Categories.Deletions, $"Admin {token.User.User_Name} Tried Delete Some Admin. Id: {airline.Id} ({airline.User_Name}).", false);
-                    throw new UserNotExistException($"Sorry, But '{airline.User_Name}' Does Not Exist.");
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.AirlineCompanies | LogCategories.Deletions, $"Admin {token.User.UserName} Tried Delete Some Admin. Id: {airline.Id} ({airline.UserName}).", false);
+                    throw new UserNotExistException($"Sorry, But '{airline.UserName}' Does Not Exist.");
                 }
             }
-            else
-                _backgroundDAO.AddNewAction(Categories.AirlineCompanies | Categories.Deletions, $"Anonymous User Tried Delete Some Airline Comapny. Id: {airline.Id} ({airline.User_Name}).", false);
+            //else
+                //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.AirlineCompanies | LogCategories.Deletions, $"Anonymous User Tried Delete Some Airline Comapny. Id: {airline.Id} ({airline.UserName}).", false);
         }
 
         //Remove Some Customer.
@@ -134,17 +135,17 @@ namespace LetsFly_DAL
                 {
                     _customerDAO.Remove(customer);
                     _userDAO.RemoveUserName(customerUser);
-                    _backgroundDAO.AddNewAction(Categories.Customers | Categories.Deletions, $"Admin {token.User.User_Name} Tried Delete Some Admin. Id: {customer.Id} ({customer.User_Name}).", true);
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Customers | LogCategories.Deletions, $"Admin {token.User.UserName} Tried Delete Some Admin. Id: {customer.Id} ({customer.UserName}).", true);
                 }
                 else
                 {
-                    _backgroundDAO.AddNewAction(Categories.Customers | Categories.Deletions, $"Admin {token.User.User_Name} Tried Delete Some Admin. Id: {customer.Id} ({customer.User_Name}).", false);
-                    throw new UserNotExistException($"Sorry, But '{customer.User_Name}' Does Not Exist.");
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Customers | LogCategories.Deletions, $"Admin {token.User.UserName} Tried Delete Some Admin. Id: {customer.Id} ({customer.UserName}).", false);
+                    throw new UserNotExistException($"Sorry, But '{customer.UserName}' Does Not Exist.");
                 }
-                _backgroundDAO.AddNewAction(Categories.Customers | Categories.Deletions, $"Admin {token.User.User_Name} Tried Delete Some Admin. Id: {customer.Id} ({customer.User_Name}).", customerUser != null);
+                //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Customers | LogCategories.Deletions, $"Admin {token.User.UserName} Tried Delete Some Admin. Id: {customer.Id} ({customer.UserName}).", customerUser != null);
             }
-            else
-                _backgroundDAO.AddNewAction(Categories.Customers | Categories.Deletions, $"Anonymous User Tried Delete Some Airline Comapny. Id: {customer.Id} ({customer.User_Name}).", false);
+            //else
+                //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Customers | LogCategories.Deletions, $"Anonymous User Tried Delete Some Airline Comapny. Id: {customer.Id} ({customer.UserName}).", false);
         }
 
         //Remove Some Country.
@@ -154,16 +155,16 @@ namespace LetsFly_DAL
             {
                 if (_countryDAO.Remove(country))
                 {
-                    _backgroundDAO.AddNewAction(Categories.Countries | Categories.Deletions, $"Admin {token.User.User_Name} Tried Delete Some Country. Id: {country.Id} ({country.Country_Name}).", true);
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Countries | LogCategories.Deletions, $"Admin {token.User.UserName} Tried Delete Some Country. Id: {country.Id} ({country.Country_Name}).", true);
                 }
                 else
                 {
-                    _backgroundDAO.AddNewAction(Categories.Countries | Categories.Deletions, $"Admin {token.User.User_Name} Tried Delete Some Country. Id: {country.Id} ({country.Country_Name}).", false);
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Countries | LogCategories.Deletions, $"Admin {token.User.UserName} Tried Delete Some Country. Id: {country.Id} ({country.Country_Name}).", false);
                     throw new UserNotExistException($"Sorry, But '{country.Country_Name}' Does Not Exist.");
                 }
             }
-            else
-                _backgroundDAO.AddNewAction(Categories.Countries | Categories.Deletions, $"Anonymous User Tried Delete Some Country. Id: {country.Id} ({country.Country_Name}).", false);
+            //else
+                //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Countries | LogCategories.Deletions, $"Anonymous User Tried Delete Some Country. Id: {country.Id} ({country.Country_Name}).", false);
         }
 
         // Update Details For Some Administrator.
@@ -171,32 +172,32 @@ namespace LetsFly_DAL
         {
             if (UserIsValid(token))
             {
-                if (admin != null && ReferenceEquals(token.User.User_Name, admin.User_Name) || token.User.User_Name.ToUpper() == FlyingCenterConfig.ADMIN_NAME)
+                if (admin != null && ReferenceEquals(token.User.UserName, admin.UserName) || token.User.UserName.ToUpper() == FlyingCenterConfig.ADMIN_NAME)
                 {
                     User adminUser = _userDAO.GetUserById(admin.Id);
                     if (adminUser != null)
                     {
-                        if (admin.User_Name != FlyingCenterConfig.ADMIN_NAME)
-                            _userDAO.UpdateUserName(adminUser.UserName, admin.User_Name);
+                        if (admin.UserName != FlyingCenterConfig.ADMIN_NAME)
+                            _userDAO.UpdateUserName(adminUser.UserName, admin.UserName);
                         else
                             throw new CentralAdministratorException("The UserName Cannot Be Changed To The Same Name As The  Central Administrator UserName.");
                         _adminDAO.Update(admin);
-                        _backgroundDAO.AddNewAction(Categories.Administrators | Categories.Updates, $"Admin: {token.User.User_Name} Tried Update Some Admin. Id: {admin.Id} ({admin.User_Name}).", true);
+                        //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Administrators | LogCategories.Updates, $"Admin: {token.User.UserName} Tried Update Some Admin. Id: {admin.Id} ({admin.UserName}).", true);
                     }
                     else
                     {
-                        _backgroundDAO.AddNewAction(Categories.Administrators | Categories.Updates, $"Admin: {token.User.User_Name} Tried Update Some Admin. Id: {admin.Id} ({admin.User_Name}).", false);
-                        throw new UserNotExistException($"Sorry, But '{admin.User_Name}' Does Not Exist.");
+                        //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Administrators | LogCategories.Updates, $"Admin: {token.User.UserName} Tried Update Some Admin. Id: {admin.Id} ({admin.UserName}).", false);
+                        throw new UserNotExistException($"Sorry, But '{admin.UserName}' Does Not Exist.");
                     }
                 }
                 else
                 {
-                    _backgroundDAO.AddNewAction(Categories.Administrators | Categories.Updates, $"Not Qualified User Tried Update Some Admin. Id: {admin.Id} ({admin.User_Name}).", false);
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Administrators | LogCategories.Updates, $"Not Qualified User Tried Update Some Admin. Id: {admin.Id} ({admin.UserName}).", false);
                     throw new CentralAdministratorException("Only Central Administrator Or Who Updateds Himself Can Update Details.");
                 }
             }
-            else
-                _backgroundDAO.AddNewAction(Categories.Administrators | Categories.Updates, $"Anonymous User Tried Update Some Admin. Id: {admin.Id} ({admin.User_Name}).", false);
+            //else
+                //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Administrators | LogCategories.Updates, $"Anonymous User Tried Update Some Admin. Id: {admin.Id} ({admin.UserName}).", false);
         }
 
         // Update Details For Some Airline Company.
@@ -207,19 +208,19 @@ namespace LetsFly_DAL
                 User airlineUser = _userDAO.GetUserById(airline.Id);
                 if (airlineUser != null)
                 {
-                    _userDAO.UpdateUserName(airlineUser.UserName, airline.User_Name);
+                    _userDAO.UpdateUserName(airlineUser.UserName, airline.UserName);
                     _airlineDAO.Update(airline);
-                    _backgroundDAO.AddNewAction(Categories.AirlineCompanies | Categories.Updates, $"Admin: {token.User.User_Name} Tried To Update Details For Some Airline Company. Id: {airline.Id} ({airline.User_Name}).", true);
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.AirlineCompanies | LogCategories.Updates, $"Admin: {token.User.UserName} Tried To Update Details For Some Airline Company. Id: {airline.Id} ({airline.UserName}).", true);
 
                 }
                 else
                 {
-                    _backgroundDAO.AddNewAction(Categories.AirlineCompanies | Categories.Updates, $"Admin: {token.User.User_Name} Tried To Update Details For Some Airline Company. Id: {airline.Id} ({airline.User_Name}).", false);
-                    throw new UserNotExistException($"Sorry, But '{airline.User_Name}' Does Not Exist.");
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.AirlineCompanies | LogCategories.Updates, $"Admin: {token.User.UserName} Tried To Update Details For Some Airline Company. Id: {airline.Id} ({airline.UserName}).", false);
+                    throw new UserNotExistException($"Sorry, But '{airline.UserName}' Does Not Exist.");
                 }
             }
-            else
-                _backgroundDAO.AddNewAction(Categories.AirlineCompanies | Categories.Updates, $"Anonymous User Tried To Update Details For Some Airline Company. Id: {airline.Id} ({airline.User_Name}).", false);
+            //else
+                //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.AirlineCompanies | LogCategories.Updates, $"Anonymous User Tried To Update Details For Some Airline Company. Id: {airline.Id} ({airline.UserName}).", false);
         }
 
         // Update Details For Some Customer.
@@ -230,19 +231,19 @@ namespace LetsFly_DAL
                 User customerUser = _userDAO.GetUserById(customer.Id);
                 if (customerUser != null)
                 {
-                    _userDAO.UpdateUserName(customerUser.UserName, customer.User_Name);
+                    _userDAO.UpdateUserName(customerUser.UserName, customer.UserName);
                     _customerDAO.Update(customer);
-                    _backgroundDAO.AddNewAction(Categories.Customers | Categories.Updates, $"Admin: {token.User.User_Name} Tried To Update Some Customer. Id: {customer.Id} ({customer.User_Name}).", true);
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Customers | LogCategories.Updates, $"Admin: {token.User.UserName} Tried To Update Some Customer. Id: {customer.Id} ({customer.UserName}).", true);
 
                 }
                 else
                 {
-                    _backgroundDAO.AddNewAction(Categories.Customers | Categories.Updates, $"Admin: {token.User.User_Name} Tried To Update Some Customer. Id: {customer.Id} ({customer.User_Name}).", false);
-                    throw new UserNotExistException($"Sorry, But '{customer.User_Name}' Does Not Exist.");
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Customers | LogCategories.Updates, $"Admin: {token.User.UserName} Tried To Update Some Customer. Id: {customer.Id} ({customer.UserName}).", false);
+                    throw new UserNotExistException($"Sorry, But '{customer.UserName}' Does Not Exist.");
                 }
             }
-            else
-                _backgroundDAO.AddNewAction(Categories.Customers | Categories.Updates, $"Anonymous User Tried To Update Some Customer. Id: {customer.Id} ({customer.User_Name}).", false);
+            //else
+                //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Customers | LogCategories.Updates, $"Anonymous User Tried To Update Some Customer. Id: {customer.Id} ({customer.UserName}).", false);
         }
 
         // Update Details For Some Country.
@@ -252,24 +253,24 @@ namespace LetsFly_DAL
             {
                 if (_countryDAO.Update(country))
                 {
-                    _backgroundDAO.AddNewAction(Categories.Countries | Categories.Updates, $"Admin: {token.User.User_Name} Tried To Update Some Country. Id: {country.Id} ({country.Country_Name}).", true);
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Countries | LogCategories.Updates, $"Admin: {token.User.UserName} Tried To Update Some Country. Id: {country.Id} ({country.Country_Name}).", true);
                 }
                 else
                 {
-                    _backgroundDAO.AddNewAction(Categories.Countries | Categories.Updates, $"Admin: {token.User.User_Name} Tried To Update Some Country. Id: {country.Id} ({country.Country_Name}).", false);
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Countries | LogCategories.Updates, $"Admin: {token.User.UserName} Tried To Update Some Country. Id: {country.Id} ({country.Country_Name}).", false);
                     throw new ArgumentException($"Sorry, But This Country Does Not Exist.");
                 }
             }
-            else
-                _backgroundDAO.AddNewAction(Categories.Countries | Categories.Updates, $"Anonymous User Tried To Update Some Country. Id: {country.Id} ({country.Country_Name}).", false);
+            //else
+                //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Countries | LogCategories.Updates, $"Anonymous User Tried To Update Some Country. Id: {country.Id} ({country.Country_Name}).", false);
         }
 
         // Try Change Password For Admin.
         public void ChangeMyPassword(LoginToken<Administrator> token, string oldPassword, string newPassword)
         {
-            if (token.User.User_Name == FlyingCenterConfig.ADMIN_NAME)
+            if (token.User.UserName == FlyingCenterConfig.ADMIN_NAME)
             {
-                _backgroundDAO.AddNewAction(Categories.Administrators | Categories.Updates, $"{token.User.User_Name} Tried To Change His Password.", false);
+                //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Administrators | LogCategories.Updates, $"{token.User.UserName} Tried To Change His Password.", false);
                 throw new CentralAdministratorException("It's Not possible To Change Password For Central Administrator");
             }
             if (UserIsValid(token))
@@ -280,17 +281,17 @@ namespace LetsFly_DAL
                     if (_userDAO.TryChangePasswordForUser(adminUser, oldPassword, newPassword))
                     {
                         token.User.ChangePassword(newPassword);
-                        _backgroundDAO.AddNewAction(Categories.Administrators | Categories.Updates, $"{token.User.User_Name} Tried To Change His Password.", true);
+                        //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Administrators | LogCategories.Updates, $"{token.User.UserName} Tried To Change His Password.", true);
                     }
                     else
                     {
-                        _backgroundDAO.AddNewAction(Categories.Administrators | Categories.Updates, $"{token.User.User_Name} Tried To Change His Password.", false);
+                        //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Administrators | LogCategories.Updates, $"{token.User.UserName} Tried To Change His Password.", false);
                         throw new WrongPasswordException("Your Old Password Is Incorrect!");
                     }
                 }
             }
-            else
-                _backgroundDAO.AddNewAction(Categories.Administrators | Categories.Updates, $"Anonymous User Tried To Change Password For Some Admin. Id: {token.User.Id} ({token.User.User_Name}).", false);
+            //else
+                //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Administrators | LogCategories.Updates, $"Anonymous User Tried To Change Password For Some Admin. Id: {token.User.Id} ({token.User.UserName}).", false);
 
         }
 
@@ -304,17 +305,17 @@ namespace LetsFly_DAL
                 {
                     _userDAO.ForceChangePasswordForUser(airlineUser, newPassword);
                     airline.ChangePassword(newPassword);
-                    _backgroundDAO.AddNewAction(Categories.AirlineCompanies | Categories.Updates, $"Admin: {token.User.User_Name} Tried To Change Password In Force For Some Airline Company. Id: {airline.Id} ({airline.User_Name}).", true);
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.AirlineCompanies | LogCategories.Updates, $"Admin: {token.User.UserName} Tried To Change Password In Force For Some Airline Company. Id: {airline.Id} ({airline.UserName}).", true);
 
                 }
                 else
                 {
-                    _backgroundDAO.AddNewAction(Categories.AirlineCompanies | Categories.Updates, $"Admin: {token.User.User_Name} Tried To Change Password In Force For Some Airline Company. Id: {airline.Id} ({airline.User_Name}).", false);
-                    throw new UserNotExistException($"Sorry, But '{airline.User_Name}' Is Not Exist.");
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.AirlineCompanies | LogCategories.Updates, $"Admin: {token.User.UserName} Tried To Change Password In Force For Some Airline Company. Id: {airline.Id} ({airline.UserName}).", false);
+                    throw new UserNotExistException($"Sorry, But '{airline.UserName}' Is Not Exist.");
                 }
             }
-            else
-                _backgroundDAO.AddNewAction(Categories.AirlineCompanies | Categories.Updates, $"Anonymous User Tried To Change Password In Force For Some Airline Company. Id: {airline.Id} ({airline.User_Name}).", false);
+            //else
+                //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.AirlineCompanies | LogCategories.Updates, $"Anonymous User Tried To Change Password In Force For Some Airline Company. Id: {airline.Id} ({airline.UserName}).", false);
         }
 
         // Force Change Password For Some Customer.
@@ -327,17 +328,17 @@ namespace LetsFly_DAL
                 {
                     _userDAO.ForceChangePasswordForUser(customerUser, newPassword);
                     customer.ChangePassword(newPassword);
-                    _backgroundDAO.AddNewAction(Categories.Customers | Categories.Updates, $"Admin: {token.User.User_Name} Tried To Change Password In Force For Some Customer. Id: {customer.Id} ({customer.User_Name}).", true);
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Customers | LogCategories.Updates, $"Admin: {token.User.UserName} Tried To Change Password In Force For Some Customer. Id: {customer.Id} ({customer.UserName}).", true);
 
                 }
                 else
                 {
-                    _backgroundDAO.AddNewAction(Categories.Customers | Categories.Updates, $"Admin: {token.User.User_Name} Tried To Change Password In Force For Some Customer. Id: {customer.Id} ({customer.User_Name}).", false);
-                    throw new UserNotExistException($"Sorry, But '{customer.User_Name}' Is Not Exist.");
+                    //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Customers | LogCategories.Updates, $"Admin: {token.User.UserName} Tried To Change Password In Force For Some Customer. Id: {customer.Id} ({customer.UserName}).", false);
+                    throw new UserNotExistException($"Sorry, But '{customer.UserName}' Is Not Exist.");
                 }
             }
-            else
-                _backgroundDAO.AddNewAction(Categories.Customers | Categories.Updates, $"Anonymous User Tried To Change Password In Force For Some Customer. Id: {customer.Id} ({customer.User_Name}).", false);
+            //else
+                //ImHere_backgroundDAO.WriteRequestToLog(LogCategories.Customers | LogCategories.Updates, $"Anonymous User Tried To Change Password In Force For Some Customer. Id: {customer.Id} ({customer.UserName}).", false);
 
         }
 
@@ -366,7 +367,7 @@ namespace LetsFly_DAL
                 if (adminUser != null)
                 {
                     admin = _adminDAO.GetById(adminUser.Id);
-                    admin.User_Name = adminUser.UserName;
+                    admin.UserName = adminUser.UserName;
                 }
             }
             return admin;
@@ -412,6 +413,83 @@ namespace LetsFly_DAL
             }
             return customers;
         }
+
+
+        #region Messages Crud Operations
+
+        public string CreateMessage(LoginToken<Administrator> token, Message newMessage)
+        {
+            string error = null;
+            if (UserIsValid(token))
+            {
+
+                if (token.User.Id == newMessage.SenderId)
+                {
+                    if (MessageIsValid(newMessage, out error))
+                        return _messageDAO.CreateMessage(newMessage);
+                    else
+                        return error;
+                }
+                else
+                    return "Sender ID Must Be The Same As User ID";
+            }
+            return error;
+        }
+
+        public string UpdateMessage(long msgId, Message message)
+        {
+            if (message != null && message.MsgId != 0)
+                return "Message Id Is Mandatory Field";
+            else
+                return _messageDAO.UpdateMessage(msgId, message);
+        }
+
+        public string DeleteMessage(long msgId)
+        {
+            if (msgId == 0)
+                return "Message Id Is Mandatory Field";
+            else
+                return _messageDAO.DeleteMessage(msgId);
+        }
+
+        public IList<Message> GetAllMessagesByUser(long userId)
+        {
+            if (userId != 0)
+                return _messageDAO.GetAllMessagesByUser(userId);
+            else
+                return null;
+        }
+
+        public Message GetMessageById(long messageId)
+        {
+            if (messageId == 0)
+                return null;
+            else
+                return _messageDAO.GetMessageById(messageId);
+        }
+
+        private bool MessageIsValid(Message message, out string error)
+        {
+            error = "";
+            if (message != null)
+            {
+                if (message.SenderId == 0)
+                    error += "Message Must Sent With Sender Code";
+                if (message.ReceiverId == 0)
+                    error += "\nMessage Must Sent With Receiver Code";
+                if (String.IsNullOrEmpty(message.Title) && String.IsNullOrEmpty(message.Body))
+                    error += "\nMessage Must Sent At Least With Title Or Body Code";
+            }
+            else
+            {
+                error += "Message Details Is Empty";
+            }
+            return String.IsNullOrEmpty(error);
+        }
+
+        #endregion
+
+
 
         // Check If User Admin That Sent Is Valid.
         public bool UserIsValid(LoginToken<Administrator> token)

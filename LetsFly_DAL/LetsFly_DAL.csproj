@@ -68,6 +68,7 @@
     <Compile Include="DAO\Interfaces\ICustomerDAO.cs" />
     <Compile Include="DAO\Interfaces\IFlightDAO.cs" />
     <Compile Include="DAO\Interfaces\IMaintenanceDAO.cs" />
+    <Compile Include="DAO\Interfaces\IMessageDAO.cs" />
     <Compile Include="DAO\Interfaces\ITicketDAO.cs" />
     <Compile Include="DAO\Interfaces\IUserDAO.cs" />
     <Compile Include="DAO\MSSQL\AdministratorDAOMSSQL.cs" />
@@ -76,11 +77,13 @@
     <Compile Include="DAO\MSSQL\CustomerDAOMSSQL.cs" />
     <Compile Include="DAO\MSSQL\FlightDAOMSSQL.cs" />
     <Compile Include="DAO\MSSQL\MaintanenaceDAOMSSQL.cs" />
+    <Compile Include="DAO\MSSQL\MessageDAOMSSQL.cs" />
     <Compile Include="DAO\MSSQL\TicketDAOMSSQL.cs" />
     <Compile Include="DAO\MSSQL\UserDAOMSSQL.cs" />
+    <Compile Include="Enum\ResponseCode.cs" />
     <Compile Include="Exceptions\UserNotExistException.cs" />
-    <Compile Include="Enum\Categories.cs" />
-    <Compile Include="Enum\UserType.cs" />
+    <Compile Include="Enum\LogCategories.cs" />
+    <Compile Include="Enum\UserTypes.cs" />
     <Compile Include="Facade\FlyingCenterConfig.cs" />
     <Compile Include="Facade\FlyingCenterSytem.cs" />
     <Compile Include="Facade\Interfaces\IAnonymousUserFacade.cs" />
@@ -91,6 +94,7 @@
     <Compile Include="Exceptions\CentralAdministratorException.cs" />
     <Compile Include="Facade\UserFacade\FacadeBase.cs" />
     <Compile Include="Exceptions\FlightNotMatchException.cs" />
+    <Compile Include="Facade\Interfaces\IFacadeBase.cs" />
     <Compile Include="Facade\UserFacade\LoggedInAdministratorFacade.cs" />
     <Compile Include="Facade\UserFacade\LoggedInAirlineFacade.cs" />
     <Compile Include="Facade\UserFacade\LoggedInCustomerFacade.cs" />
@@ -103,18 +107,21 @@
     <Compile Include="Login\LoginService.cs" />
     <Compile Include="Login\LoginToken.cs" />
     <Compile Include="Exceptions\WrongPasswordException.cs" />
+    <Compile Include="Objects\Poco%27s\Log.cs" />
+    <Compile Include="Objects\Poco%27s\Message.cs" />
+    <Compile Include="Objects\ReponseDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserAndPoco\Administrator.cs" />
-    <Compile Include="UserAndPoco\AirlineCompany.cs" />
-    <Compile Include="UserAndPoco\Country.cs" />
-    <Compile Include="UserAndPoco\Customer.cs" />
+    <Compile Include="Objects\Poco%27s\Administrator.cs" />
+    <Compile Include="Objects\Poco%27s\AirlineCompany.cs" />
+    <Compile Include="Objects\Poco%27s\Country.cs" />
+    <Compile Include="Objects\Poco%27s\Customer.cs" />
     <Compile Include="Exceptions\DepartureTimeTooLateException.cs" />
-    <Compile Include="UserAndPoco\Flight.cs" />
-    <Compile Include="UserAndPoco\FullTicketDetails.cs" />
-    <Compile Include="UserAndPoco\Interfaces\IPoco.cs" />
-    <Compile Include="UserAndPoco\Interfaces\IUser.cs" />
-    <Compile Include="UserAndPoco\Ticket.cs" />
-    <Compile Include="UserAndPoco\User.cs" />
+    <Compile Include="Objects\Poco%27s\Flight.cs" />
+    <Compile Include="Objects\FullTicketDetails.cs" />
+    <Compile Include="Objects\Interfaces\IPoco.cs" />
+    <Compile Include="Objects\Interfaces\IUser.cs" />
+    <Compile Include="Objects\Poco%27s\Ticket.cs" />
+    <Compile Include="Objects\Poco%27s\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

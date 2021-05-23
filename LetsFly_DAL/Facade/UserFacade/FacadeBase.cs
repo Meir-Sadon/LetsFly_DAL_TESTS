@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LetsFly_DAL.DAO.Interfaces;
+using LetsFly_DAL.DAO.MSSQL;
+using LetsFly_DAL.Objects.Poco_s;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +18,8 @@ namespace LetsFly_DAL
         protected IFlightDAO _flightDAO;
         protected ITicketDAO _ticketDAO;
         protected ICountryDAO _countryDAO;
-        protected IMaintenanceDAO _backgroundDAO;
+        protected IMessageDAO _messageDAO;
+        protected static IMaintenanceDAO _backgroundDAO;
 
         public FacadeBase()
         {
@@ -26,7 +30,13 @@ namespace LetsFly_DAL
             _flightDAO = new FlightDAOMSSQL();
             _ticketDAO = new TicketDAOMSSQL();
             _countryDAO = new CountryDAOMSSQL();
+            _messageDAO = new MessageDAOMSSQL();
             _backgroundDAO = new MaintenanceDAOMSSQL();
+        }
+
+        public static void WriteToLog(Log logRow)
+        {
+            _backgroundDAO.WriteToLog(logRow);
         }
     }
 }

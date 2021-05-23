@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace LetsFly_DAL
 {
-    public enum UserType
+    //Marker Interface For Any User Classes.
+    public interface IUser
     {
-        Administrator = 1,
-        Airline = 2,
-        Customer = 3,
-        Anonymous = 4
+
     }
 }

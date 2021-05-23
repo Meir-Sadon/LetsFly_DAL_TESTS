@@ -167,7 +167,7 @@ namespace LetsFly_DAL
         }
 
         // Get All Actions By Category.
-        public IList<string> GetAllActionHistoryByCategory(Categories category)
+        public IList<string> GetAllActionHistoryByCategory(LogCategories category)
         {
             List<string> actionsByCategories = new List<string>();
             using (SqlConnection conn = new SqlConnection(FlyingCenterConfig.CONNECTION_STRING))

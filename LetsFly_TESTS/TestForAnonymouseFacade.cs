@@ -33,9 +33,9 @@ namespace TestForFlightManagmentProject
         [TestMethod]
         public void GetAirlineById()
         {
-
+            adminFacade.GetAllMessagesByUser(74860);
             AirlineCompany airline = CreateRandomCompany();
-            airline.Airline_Number = adminFacade.CreateNewAirline(adminToken, airline);
+            airline.AirlineNumber = adminFacade.CreateNewAirline(adminToken, airline);
             Assert.AreNotEqual(adminFacade.GetAirlineById((int)airline.Id), null);
         }
 
@@ -43,7 +43,7 @@ namespace TestForFlightManagmentProject
         [TestMethod]
         public void GetAirlineCompanyByCompanyName()
         {
-            AirlineCompany airline = new AnonymousUserFacade().GetAirlineByAirlineName(airlineToken.User.Airline_Name);
+            AirlineCompany airline = new AnonymousUserFacade().GetAirlineByAirlineName(airlineToken.User.AirlineName);
             Assert.AreNotEqual(airline, null);
         }
 
@@ -63,7 +63,7 @@ namespace TestForFlightManagmentProject
         public void GetCustomerById()
         {
             Customer customer = CreateRandomCustomer();
-            customer.Customer_Number = adminFacade.CreateNewCustomer(customer);
+            customer.CustomerNumber = adminFacade.CreateNewCustomer(customer);
             Assert.AreNotEqual(new AnonymousUserFacade().GetCustomerById((int)customer.Id), null);
         }
 

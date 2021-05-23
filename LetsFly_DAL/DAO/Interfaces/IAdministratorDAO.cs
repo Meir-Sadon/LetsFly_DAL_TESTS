@@ -10,7 +10,7 @@ namespace LetsFly_DAL
     {
         IList<string> GetAllActionsHistory();
         IList<string> GetAllActionHistoryByDate(DateTime startDate, DateTime endDate);
-        IList<string> GetAllActionHistoryByCategory(Categories category);
+        IList<string> GetAllActionHistoryByCategory(LogCategories category);
         IList<string> GetAllActionHistoryByIsSucceed(bool isSucceed);
     }
 }
